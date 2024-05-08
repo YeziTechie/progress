@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ability List</title>
+    <style>
+        body {
+            font-family:monospace;
+            background-color:#0d0d0d;
+            color:#d9d9d9;
+            font-size:1.5em;
+        }
+
+        .title{
+            text-shadow:0px 3px 10px black;
+        }
+        .container{
+            height:max-content;
+            width:80%;
+            min-width:600px;
+            padding:20px;
+            margin: 0 auto
+        }
+
+        .container .ability{
+            margin:20px;
+            border:solid 1px purple;
+            border-radius:6px;
+            padding:20px;
+            background-color:black;
+
+        }
+
+        .container .ability .name{
+            font-weight:bold;
+            margin-bottom:10px;
+            font-size:2em;
+            text-align:center;
+                text-shadow:
+        -6px 0px 1px black,
+        0px -6px 4px purple,
+        6px 0px 7px green;
+        }
+
+        .container .ability .xp{
+            background: linear-gradient(blue, green, white);
+            -webkit-background-clip: text; /* Clip text to background gradient */
+            -webkit-text-fill-color: transparent; /* Set text color to transparent */
+            margin-bottom:10px;
+            font-size:1.2em;
+            text-align:left;
+        }
+
+        .container .ability .created{
+            font-style:italic;
+            color:white;
+            text-align:right;
+            font-size:0.7em;
+        }
+
+        .container .ability .last-task-done{
+            font-style:italic;
+            color:white;
+            text-align:left;
+        }
+
+        .tasks {
+            display: flex;
+            flex-wrap: wrap; /* Allow tasks to wrap to the next line */
+            gap: 20px; /* Spacing between tasks */
+            margin:10px;
+
+        }
+
+        .task {
+            background-color: 0d0d0d; /* Dark background color for tasks */
+            color: #d9d9d9; /* Light text color for tasks */
+            padding: 10px;
+            border-radius: 3px;
+            width: calc(50% - 10px); /* Set width of each task, considering gap */
+            box-sizing: border-box;
+            border:1px green solid;
+        }
+
+        .task-info {
+            margin-bottom: 10px;
+        }
+
+        .task-status {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1 class="title">Abilities</h1>
+        <div style="height:0.3em; width:12rem; background-color:purple;" ></div><br>
+        <div style="height:0.3em; width:10rem; background-color:purple;" ></div><br>
+        <div style="height:0.3em; width:8rem; background-color:purple;" ></div><br>
+        <div style="height:0.3em; width:6rem; background-color:purple;" ></div><br>
+        <div style="height:0.3em; width:4rem; background-color:purple;" ></div><br>
+        <div style="height:1rem; width:1rem; background-color:purple; border-radius:2rem;" ></div><br>
+    </center>
+
+
+
+    <div class="container">
+
+        {% for ability in abilities %}
+            <div class="ability">
+
+                <div class="name">{{ ability.name }}</div>
+                <div class="xp">XP: {{ ability.total_xp }}</div>
+                <a href="{% url 'ability_delete' ability.pk %}" style="color:red;">Delete</a>
+                <div class="last-task-done">last task done at: {{ ability.last_task_done_at }}</div>
+
+                <div class="tasks">
+                    {% for task in ability.tasks %}
+                        {% if task.is_done == False %}
+                            <div class="task">
+                                <div class="task-info">
+
+                                    <div>{{ task.description }}</div>
+                                    <div class="xp">Points: {{ task.xp }}XP</div>
+                                    <div style="text-align:right;"><a style="background-color:purple; color:black; border:solid 1px gray; padding:4px; font-weight:bold;" href="#">Details</a></div>
+
+                                </div>
+
+                                <div class="created">Created at: {{ task.created_at }}</div>
+
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+               <div class="created">date created: {{ ability.created_at }}</div>
+            </div>
+        {% endfor %}
+
+        <div class="ability">
+            <div class="name">Without Ability</div>
+
+            {% if tasks_without_ability %}
+                <div class="tasks">
+                    {% for task in tasks_without_ability %}
+                        {% if task.is_done == False %}
+                            <div class="task">
+                                <div class="task-info">
+
+                                    <div>{{ task.description }}</div>
+                                    <div class="xp">Points: {{ task.xp }}XP</div>
+                                    <div style="text-align:right;"><a style="background-color:purple; color:black; border:solid 1px gray; padding:4px; font-weight:bold;" href="#">Details</a></div>
+
+                                </div>
+                                <div class="created">Created at: {{ task.created_at }}</div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List</title>
+    <style>
+        body {
+            font-family:monospace;
+            background-color:#0d0d0d;
+            color:#d9d9d9;
+            font-size:1.5em;
+        }
+
+        .title{
+            text-shadow:0px 3px 10px black;
+        }
+        .container{
+            height:max-content;
+            width:80%;
+            min-width:600px;
+            padding:20px;
+            margin: 0 auto
+        }
+
+        .container .task {
+            margin:20px;
+            border:solid 1px purple;
+            border-radius:6px;
+            padding:20px;
+            background-color:black;
+
+        }
+
+        .container .task .name{
+            font-weight:bold;
+            margin-bottom:10px;
+            font-size:2em;
+            text-align:center;
+        }
+
+        .container .task .xp{
+            background: linear-gradient(blue, green, white);
+            -webkit-background-clip: text; /* Clip text to background gradient */
+            -webkit-text-fill-color: transparent; /* Set text color to transparent */
+            margin-bottom:10px;
+            font-size:1.2em;
+            text-align:left;
+        }
+
+        .container .task .created{
+            font-style:italic;
+            color:white;
+            text-align:right;
+            font-size:0.7em;
+        }
+
+        .container .task .description{
+            font-style:italic;
+            color:white;
+            text-align:left;
+        }
+
+        .container .task .status{
+            color:white;
+            text-align:right;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1 class="title">Tasks</h1>
+        <div style="height:0.3em; width:12rem; background-color:purple;" ></div><br>
+        <div style="height:0.3em; width:10rem; background-color:purple;" ></div><br>
+        <div style="height:0.3em; width:8rem; background-color:purple;" ></div><br>
+        <div style="height:0.3em; width:6rem; background-color:purple;" ></div><br>
+        <div style="height:0.3em; width:4rem; background-color:purple;" ></div><br>
+        <div style="height:1rem; width:1rem; background-color:purple; border-radius:2rem;" ></div><br>
+    </center>
+
+    <div class="container">
+        {% for task in tasks %}
+            <div class="task">
+                <div class="name">{{ task.ability.name }}</div>
+                <div class="xp">Points: {{ task.xp }}XP</div>
+                <div class="description">{{ task.description }}</div>
+                <div class="status">Status: {% if task.is_done %} Done {% else %} Not Done {% endif %}</div>
+                {% if task.is_done %}
+                    <div class="done">Done at: {{ task.done_at }}</div>
+                {% endif %}
+                <div class="created">Created at: {{ task.created_at }}</div>
+                <a href="{% url 'task_delete' task.pk %}" style="color:red;">Delete</a>
+
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
