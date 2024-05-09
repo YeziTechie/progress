@@ -1,12 +1,12 @@
-{% extend 'base.html'%}
+{% extends 'base.html'%}
 
 {% block title %}
     Confirm Task Deletion
 {% endblock %}
 
 {% block style %}
-    body {
-        font-family: Arial, sans-serif;
+    .box {
+        font-family: monospace;
         background-color: #0d0d0d;
         margin: 0;
         padding: 0;
@@ -56,15 +56,15 @@
 {% endblock %}
 
 {% block content %}
+    <div class="box">
+        <div class="container">
+            <h1>Confirm Task Deletion</h1>
+            <p>Are you sure you want to delete  <b>{{ object.description }}</b> with <b>{{ object.xp }} XP</b>?</p>
 
-    <div class="container">
-        <h1>Confirm Task Deletion</h1>
-        <p>Are you sure you want to delete  <b>{{ object.description }}</b> with <b>{{ object.xp }} XP</b>?</p>
-
-        <form method="post">
-            {% csrf_token %}
-            <button type="submit">Confirm</button>
-        </form>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit">Confirm</button>
+            </form>
+        </div>
     </div>
-
 {% endblock %}

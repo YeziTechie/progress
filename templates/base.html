@@ -9,7 +9,11 @@
         {% endblock %}
     </title>
     <style>
-
+        body {
+            font-family: monospace;
+            background-color: #0d0d0d;
+            color: #d9d9d9;
+        }
 
         .navbar {
             background-color: black;
@@ -24,10 +28,11 @@
 
         .navbar:hover {
             opacity:100%;
-            transition:ease-in-out 0.1s;
+            transition:ease-in-out 0.2s;
         }
 
         .navbar a {
+            font-size:1.2rem;
             float: left;
             display: block;
             color: #d9d9d9;
@@ -50,8 +55,8 @@
 </head>
 <body>
     <div class="navbar">
-        <a href="#">Abilities</a>
-        <a href="#">Tasks</a>
+        <a href="{% url 'ability_list' %}">Abilities</a>
+        <a href="{% url 'task_list' %}">Tasks</a>
     </div>
 
 

@@ -1,11 +1,11 @@
-{% extend 'base.html'%}
+{% extends 'base.html'%}
 
 {% block title %}
   Create New Ability
 {% endblock %}
 
 {% block style %}
-    body {
+    .container {
         font-family: monospace;
         background-color: #0d0d0d;
         color: #d9d9d9;
@@ -53,11 +53,13 @@
 {% endblock %}
 
 {% block content %}
+<div class="container">
     <h3>Create Ability--> </h3>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Submit</button>
     </form>
+</div>
 
 {% endblock %}
