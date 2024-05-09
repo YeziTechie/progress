@@ -1,11 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ability List</title>
-    <style>
-        body {
+
+{% extends 'base.html' %}
+
+{% block title %}
+    Ability List
+{% endblock %}
+
+{% block style %}
+    body {
             font-family:monospace;
             background-color:#0d0d0d;
             color:#d9d9d9;
@@ -38,13 +39,14 @@
             font-size:2em;
             text-align:center;
                 text-shadow:
-        -6px 0px 1px black,
-        0px -6px 4px purple,
-        6px 0px 7px green;
+        0px 0px 2px black,
+        0px 0px 4px gray,
+        0px 0px 7px white,
+        0px 0px 9px purple;
         }
 
         .container .ability .xp{
-            background: linear-gradient(blue, green, white);
+            background: linear-gradient(#00cc66, #d24dff);
             -webkit-background-clip: text; /* Clip text to background gradient */
             -webkit-text-fill-color: transparent; /* Set text color to transparent */
             margin-bottom:10px;
@@ -80,7 +82,11 @@
             border-radius: 3px;
             width: calc(50% - 10px); /* Set width of each task, considering gap */
             box-sizing: border-box;
-            border:1px green solid;
+            box-shadow:
+                0px 0px 2px black,
+                0px 0px 4px gray,
+                0px 0px 7px white,
+                0px 0px 9px purple;
         }
 
         .task-info {
@@ -90,9 +96,35 @@
         .task-status {
             font-style: italic;
         }
-    </style>
-</head>
-<body>
+
+        .create-ability a{
+            background: linear-gradient(#00cc66, #d24dff);
+            -webkit-background-clip: text; /* Clip text to background gradient */
+            -webkit-text-fill-color: transparent; /* Set text color to transparent */
+            margin:10px;
+            font-size:2em;
+            transition:ease-in-out 0.5s;
+        }
+
+        .create-ability {
+            background-color:black;
+            border: solid 1px purple;
+            width:max-content;
+            padding:20px;
+            transition:ease-in-out 0.5s;
+        }
+
+        .create-ability:hover {
+            transition:ease-in-out 0.5s;
+            border: solid 1px white;
+            background-color:#0d0d0d;
+            box-shadow:0px 0px 4px black;
+
+        }
+{% endblock %}
+
+
+{% block content %}
     <center>
         <h1 class="title">Abilities</h1>
         <div style="height:0.3em; width:12rem; background-color:purple;" ></div><br>
@@ -101,6 +133,9 @@
         <div style="height:0.3em; width:6rem; background-color:purple;" ></div><br>
         <div style="height:0.3em; width:4rem; background-color:purple;" ></div><br>
         <div style="height:1rem; width:1rem; background-color:purple; border-radius:2rem;" ></div><br>
+        <div class="create-ability">
+            <a href="{% url 'ability_create' %}">New Ability</a>
+        </div>
     </center>
 
 
@@ -112,7 +147,7 @@
 
                 <div class="name">{{ ability.name }}</div>
                 <div class="xp">XP: {{ ability.total_xp }}</div>
-                <a href="{% url 'ability_delete' ability.pk %}" style="color:red;">Delete</a>
+                <a href="{% url 'ability_delete' ability.pk %}" style="float:right;color:red;">Delete</a>
                 <div class="last-task-done">last task done at: {{ ability.last_task_done_at }}</div>
 
                 <div class="tasks">
@@ -123,7 +158,7 @@
 
                                     <div>{{ task.description }}</div>
                                     <div class="xp">Points: {{ task.xp }}XP</div>
-                                    <div style="text-align:right;"><a style="background-color:purple; color:black; border:solid 1px gray; padding:4px; font-weight:bold;" href="#">Details</a></div>
+                                    <div  class="create-ability" style="text-align:right; padding:5px;"><a style="font-size:1.2rem;" href="#">Details</a></div>
 
                                 </div>
 
@@ -160,6 +195,6 @@
             {% endif %}
         </div>
     </div>
+{% endblock %}
 
-</body>
-</html>
+
