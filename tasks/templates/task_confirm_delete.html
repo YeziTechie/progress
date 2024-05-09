@@ -1,70 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Confirm Task Deletion</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #0d0d0d;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+{% extend 'base.html'%}
 
-        .container {
-            text-align: center;
-            background-color: black;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+{% block title %}
+    Confirm Task Deletion
+{% endblock %}
 
-        h1 {
-            color: white;
-            margin-bottom: 10px;
-        }
+{% block style %}
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #0d0d0d;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
 
-        p {
-            color: #d9d9d9;
-            margin-bottom: 20px;
-        }
+    .container {
+        text-align: center;
+        background-color: black;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-        button {
-            padding: 10px 20px;
-            background-color: purple;
-            color: black;
-            border: none;
-            font-weight:bold;
-            border-radius: 5px;
-            cursor: pointer;
-            transition:ease-in 0.3s;
-        }
+    h1 {
+        color: white;
+        margin-bottom: 10px;
+    }
 
-        button:hover {
-            background-color: black;
-            transition:ease-in 0.3s;
+    p {
+        color: #d9d9d9;
+        margin-bottom: 20px;
+    }
 
-        }
-        b{
-            text-decoration:underline;
-        }
-    </style>
-</head>
-<body>
+    button {
+        padding: 10px 20px;
+        background-color: purple;
+        color: black;
+        border: none;
+        font-weight:bold;
+        border-radius: 5px;
+        cursor: pointer;
+        transition:ease-in 0.3s;
+    }
 
-<div class="container">
-    <h1>Confirm Task Deletion</h1>
-    <p>Are you sure you want to delete  <b>{{ object.description }}</b> with <b>{{ object.xp }} XP</b>?</p>
+    button:hover {
+        background-color: black;
+        transition:ease-in 0.3s;
 
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit">Confirm</button>
-    </form>
-</div>
+    }
+    b{
+        text-decoration:underline;
+    }
+{% endblock %}
 
-</body>
-</html>
+{% block content %}
+
+    <div class="container">
+        <h1>Confirm Task Deletion</h1>
+        <p>Are you sure you want to delete  <b>{{ object.description }}</b> with <b>{{ object.xp }} XP</b>?</p>
+
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Confirm</button>
+        </form>
+    </div>
+
+{% endblock %}

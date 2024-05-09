@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task List</title>
-    <style>
-        body {
+{% extend 'base.html'%}
+
+{% block title %}
+    Task List
+{% endblock %}
+
+{% block style %}
+    body {
             font-family:monospace;
             background-color:#0d0d0d;
             color:#d9d9d9;
@@ -65,9 +65,10 @@
             color:white;
             text-align:right;
         }
-    </style>
-</head>
-<body>
+
+{% endblock %}
+
+{% block content %}
     <center>
         <h1 class="title">Tasks</h1>
         <div style="height:0.3em; width:12rem; background-color:purple;" ></div><br>
@@ -94,5 +95,6 @@
             </div>
         {% endfor %}
     </div>
-</body>
-</html>
+
+{% endblock %}
+
