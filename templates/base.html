@@ -9,11 +9,50 @@
         {% endblock %}
     </title>
     <style>
+
+
+        .navbar {
+            background-color: black;
+            overflow: hidden;
+            border:white solid 1px;
+            position:fixed;
+            opacity:20%;
+            transition:ease-in-out 0.6s;
+            margin-left:0%;
+            margin-top:0%;
+        }
+
+        .navbar:hover {
+            opacity:100%;
+            transition:ease-in-out 0.1s;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #d9d9d9;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition:ease-in-out 0.5s;
+
+        }
+
+        .navbar a:hover {
+            background-color: #0d0d0d;
+            color: purple;
+            transition:ease-in-out 0.5s;
+        }
+
         {% block style %}
         {% endblock %}
     </style>
 </head>
 <body>
+    <div class="navbar">
+        <a href="#">Abilities</a>
+        <a href="#">Tasks</a>
+    </div>
 
 
     <div class="content">
