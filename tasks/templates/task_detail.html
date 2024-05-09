@@ -82,14 +82,22 @@
         margin-top: 20px;
     }
 
-    .button {
-        background-color: purple;
-        color: black;
-        border: solid 1px gray;
-        padding: 4px;
-        font-weight: bold;
-        text-decoration: none;
+    .btn {
+        text-decoration:none;
+        color:gray;
+        color:#d9d9d9;
+        background-color:#0d0d0d;
+        padding:5px;
+        transition:ease-in-out 0.3s;
+        box-shadow:0px 0px 2px purple;
     }
+
+    .btn:hover {
+        transition:ease-in-out 0.3s;
+        color:black;
+        background-color:black;
+    }
+
 {% endblock %}
 
 {% block content %}
@@ -104,8 +112,11 @@
             {% endif %}
             <div class="description">{{ task.description }}</div>
             <div class="button-container">
-                <a class="button" href="{% url 'task_delete' task.pk %}">Delete</a>
-                <a class="button" href="{% url 'task_update' task.pk %}">Update as Done</a>
+                <a class="btn" href="{% url 'task_delete' task.pk %}">Delete</a>
+                {% if task.is_done == False%}
+                    <a class="btn" href="{% url 'task_update' task.pk %}">Update as Done</a>
+                {% else %}
+                {% endif %}
 
             </div>
         </div>

@@ -1,6 +1,6 @@
 from django.db import models
 from abilities.models.ability import Ability
-from time import timezone
+import datetime
 
 
 class Task(models.Model):
@@ -22,7 +22,7 @@ class Task(models.Model):
 
     def save(self, *args, **kwargs):
         if self.is_done and not self.done_at:
-            self.done_at = timezone.now()
+            self.done_at = datetime.datetime.now()
         super().save(*args, **kwargs)
 
     def __str__(self):

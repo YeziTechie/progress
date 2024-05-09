@@ -158,7 +158,7 @@
 
                                     <div>{{ task.description }}</div>
                                     <div class="xp">Points: {{ task.xp }}XP</div>
-                                    <div class="create-ability" style="text-align:right; padding:5px;"><a style="font-size:1.2rem;" href="#">Details</a></div>
+                                    <div class="create-ability" style="text-align:right; padding:5px;"><a style="font-size:1.2rem;" href="{% url 'task_detail' task.pk %}">Details</a></div>
 
                                 </div>
 
@@ -184,7 +184,9 @@
 
                                     <div>{{ task.description }}</div>
                                     <div class="xp">Points: {{ task.xp }}XP</div>
-                                    <div style="text-align:right;"><a style="background-color:purple; color:black; border:solid 1px gray; padding:4px; font-weight:bold;" href="#">Details</a></div>
+                                    <div class="create-ability" style="text-align:right; padding:5px;">
+                                        <a style="font-size:1.2rem;" href="{% url 'task_detail' task.pk %}">Details</a>
+                                    </div>
 
                                 </div>
                                 <div class="created">Created at: {{ task.created_at }}</div>
