@@ -23,6 +23,13 @@ class Task(models.Model):
     def save(self, *args, **kwargs):
         if self.is_done and not self.done_at:
             self.done_at = datetime.datetime.now()
+
+        if self.is_added is False:
+            ability = self.ability
+            ability.total_xp += self.xp
+            self.is_added = True
+            ability.save()
+
         super().save(*args, **kwargs)
 
     def __str__(self):
