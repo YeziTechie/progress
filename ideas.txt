@@ -1,0 +1,9 @@
+something that we add xp by count or time. for each ability or outcome
+
+a task which reduces xp
+
+a task which has a time limit.
+
+a functionality that if a task was not done until the time limit, it reduces some xp.
+
+the ability to answer ecological and outcome questions to outcomes. a separate table maybe.

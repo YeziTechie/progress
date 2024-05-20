@@ -24,7 +24,7 @@ class Task(models.Model):
         if self.is_done and not self.done_at:
             self.done_at = datetime.datetime.now()
 
-        if self.is_added is False:
+        if self.is_added is False and self.is_done is True:
             ability = self.ability
             ability.total_xp += self.xp
             self.is_added = True
