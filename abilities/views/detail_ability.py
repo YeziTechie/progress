@@ -8,7 +8,7 @@ from tasks.models.task import Task
 
 class AbilityDetailView(DetailView):
     model = Ability
-    template_name = 'ability-detail.html'
+    template_name = 'ability_detail.html'
 
     def get_context_data(self, **kwargs):
         ability = super().get_context_data(**kwargs)
