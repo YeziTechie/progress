@@ -7,3 +7,15 @@ a task which has a time limit.
 a functionality that if a task was not done until the time limit, it reduces some xp.
 
 the ability to answer ecological and outcome questions to outcomes. a separate table maybe.
+
+filtering tasks in each abilities detail
+
+filtering tasksin task list page
+
+model for ecology and otucome question answering for each outcome
+
+different type of tasks(the current being specifying a task with and outcome with specefic xp), like limited time task, 42 day task, auto adding xp, checklist for a tag(like checking the quality of a done task, for example the task being ride bike, the checklist being not taking a break, hook a neysan, do manuals), 
+
+achievement
+
+change the ability to outcome
