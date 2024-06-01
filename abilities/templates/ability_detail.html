@@ -49,9 +49,9 @@
             background: linear-gradient(#00cc66, #d24dff);
             -webkit-background-clip: text; /* Clip text to background gradient */
             -webkit-text-fill-color: transparent; /* Set text color to transparent */
-            margin-bottom:10px;
-            font-size:1.2em;
-            text-align:left;
+            margin-bottom:30px;
+            font-size:2em;
+            text-align:center;
         }
 
         .container .ability .created{
@@ -82,11 +82,6 @@
             border-radius: 3px;
             width: calc(50% - 10px); /* Set width of each task, considering gap */
             box-sizing: border-box;
-            box-shadow:
-                0px 0px 2px black,
-                0px 0px 4px gray,
-                0px 0px 7px white,
-                0px 0px 9px purple;
         }
 
         .task-info {
@@ -126,75 +121,60 @@
 
 {% block content %}
     <center>
-        <h1 class="title">Abilities</h1>
+        <h1 class="title">{{ ability.name }} </h1>
         <div style="height:0.3em; width:12rem; background-color:purple;" ></div><br>
         <div style="height:0.3em; width:10rem; background-color:purple;" ></div><br>
         <div style="height:0.3em; width:8rem; background-color:purple;" ></div><br>
         <div style="height:0.3em; width:6rem; background-color:purple;" ></div><br>
         <div style="height:0.3em; width:4rem; background-color:purple;" ></div><br>
         <div style="height:1rem; width:1rem; background-color:purple; border-radius:2rem;" ></div><br>
-        <div class="create-ability">
-            <a href="{% url 'ability_create' %}">New Ability</a>
         </div>
     </center>
 
 
 
     <div class="container">
-
-        {% for ability in abilities %}
-            <div class="ability">
-
-                <div class="name">{{ ability.name }}</div>
-                <div class="xp">XP: {{ ability.total_xp }}</div>
-                <a href="{% url 'ability_delete' ability.pk %}" style="float:right;color:red;">Delete</a>
-                <div class="last-task-done">last task done at: {{ ability.last_task_done_at }}</div>
-
-                <div class="tasks">
-                    {% for task in ability.tasks %}
-                        {% if task.is_done == False %}
-                            <div class="task">
-                                <div class="task-info">
-
-                                    <div>{{ task.description }}</div>
-                                    <div class="xp">Points: {{ task.xp }}XP</div>
-                                    <div class="create-ability" style="text-align:right; padding:5px;"><a style="font-size:1.2rem;" href="{% url 'task_detail' task.pk %}">Details</a></div>
-
-                                </div>
-
-                                <div class="created">Created at: {{ task.created_at }}</div>
-
-                            </div>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-               <div class="created">date created: {{ ability.created_at }}</div>
-            </div>
-        {% endfor %}
-
         <div class="ability">
-            <div class="name">Without Ability</div>
 
-            {% if tasks_without_ability %}
-                <div class="tasks">
-                    {% for task in tasks_without_ability %}
-                        {% if task.is_done == False %}
-                            <div class="task">
-                                <div class="task-info">
 
-                                    <div>{{ task.description }}</div>
-                                    <div class="xp">Points: {{ task.xp }}XP</div>
-                                    <div class="create-ability" style="text-align:right; padding:5px;">
-                                        <a style="font-size:1.2rem;" href="{% url 'task_detail' task.pk %}">Details</a>
-                                    </div>
+            <div class="xp">XP: {{ ability.total_xp }}</div>
+            <a href="{% url 'ability_delete' ability.pk %}" style="float:right;color:red;">Delete</a>
+            <div class="last-task-done">last task done at: {{ ability.last_task_done_at }}</div>
 
-                                </div>
-                                <div class="created">Created at: {{ task.created_at }}</div>
+            <div class="tasks">
+                {% for task in tasks %}
+                    {% if task.is_done == False %}
+                        <div class="task" style="border: 1px red solid">
+                            <div class="task-info">
+
+                                <div>{{ task.description }}</div>
+                                <div class="xp">Points: {{ task.xp }}XP</div>
+                                <div class="create-ability" style="text-align:right; padding:5px;"><a style="font-size:1.2rem;" href="{% url 'task_detail' task.pk %}">Details</a></div>
+
                             </div>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-            {% endif %}
+
+                            <div class="created">Created at: {{ task.created_at }}</div>
+
+                        </div>
+
+                    {% elif task.is_done == True %}
+                        <div class="task" style="border: 1px green solid">
+                            <div class="task-info">
+
+                                <div>{{ task.description }}</div>
+                                <div class="xp">Points: {{ task.xp }}XP</div>
+                                <div class="create-ability" style="text-align:right; padding:5px;"><a style="font-size:1.2rem;" href="{% url 'task_detail' task.pk %}">Details</a></div>
+
+                            </div>
+
+                            <div class="created">Created at: {{ task.created_at }}</div>
+
+                        </div>
+                    {% endif %}
+
+                {% endfor %}
+            </div>
+            <div class="created">date created: {{ ability.created_at }}</div>
         </div>
     </div>
 {% endblock %}
