@@ -25,10 +25,10 @@ class Task(models.Model):
             self.done_at = datetime.datetime.now()
 
         if self.is_added is False and self.is_done is True:
-            ability = self.ability
-            ability.total_xp += self.xp
+            if self.ability:
+                self.ability.total_xp += self.xp
+                self.ability.save()
             self.is_added = True
-            ability.save()
 
         super().save(*args, **kwargs)
 
