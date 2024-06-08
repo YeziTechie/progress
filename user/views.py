@@ -18,6 +18,9 @@ class UserProfileView(View):
         level = calculate_level(xp=xp)
         next_level_xp = calculate_xp_for_level(calculate_level(xp=xp) + 1)
 
+        xp = xp - calculate_xp_for_level(level)
+        next_level_xp = next_level_xp - calculate_xp_for_level(level)
+
         abilities = Ability.objects.all()
         outcomes = []
 
@@ -32,7 +35,7 @@ class UserProfileView(View):
             outcomes.append(outcome)
 
         context = {
-            "total_xp": total_xp,
+            "total_xp": xp,
             "level": level,
             "next_level_xp": next_level_xp,
             "total_tasks_done": total_tasks_done(),
