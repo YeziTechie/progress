@@ -49,9 +49,9 @@
             background: linear-gradient(#00cc66, #d24dff);
             -webkit-background-clip: text; /* Clip text to background gradient */
             -webkit-text-fill-color: transparent; /* Set text color to transparent */
-            margin-bottom:30px;
-            font-size:2em;
-            text-align:center;
+            margin-bottom:10px;
+            font-size:1.2em;
+            text-align:left;
         }
 
         .container .ability .created{
@@ -137,7 +137,7 @@
         <div class="ability">
 
 
-            <div class="xp">XP: {{ ability.total_xp }}</div>
+            <div class="xp" style="margin-bottom:30px;font-size:2em;text-align:center;">XP: {{ ability.total_xp }}</div>
             <a href="{% url 'ability_delete' ability.pk %}" style="float:right;color:red;">Delete</a>
             <div class="last-task-done">last task done at: {{ ability.last_task_done_at }}</div>
 
@@ -148,7 +148,7 @@
                             <div class="task-info">
 
                                 <div>{{ task.description }}</div>
-                                <div class="xp">Points: {{ task.xp }}XP</div>
+                                <div class="xp" >Points: {{ task.xp }}XP</div>
                                 <div class="create-ability" style="text-align:right; padding:5px;"><a style="font-size:1.2rem;" href="{% url 'task_detail' task.pk %}">Details</a></div>
 
                             </div>
