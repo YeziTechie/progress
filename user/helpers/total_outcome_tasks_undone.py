@@ -3,8 +3,8 @@ from abilities.models.outcome import Outcome
 
 
 def outcome_total_tasks_undone(pk):
-    ability = Outcome.objects.get(pk=pk)
-    tasks = Task.objects.filter(ability=ability)
+    outcome = Outcome.objects.get(pk=pk)
+    tasks = Task.objects.filter(outcome=outcome)
 
     result = 0
 
