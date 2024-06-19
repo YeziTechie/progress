@@ -1,5 +1,5 @@
 from django.db import models
-from outcomes.models.outcome import Outcome
+from abilities.models.outcome import Outcome
 import datetime
 
 

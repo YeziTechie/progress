@@ -1,17 +1,17 @@
 from django.views import generic
 
-from outcomes.models.outcome import Outcome
+from abilities.models.outcome import Outcome
 from tasks.models.task import Task
 
 
 class OutcomeListGenericView(generic.ListView):
     model = Outcome
     template_name = 'outcome_list.html'
-    context_object_name = 'outcomes'
+    context_object_name = 'abilities'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        outcomes = context['outcomes']
+        outcomes = context['abilities']
 
         # Fetch tasks that do not have an associated ability
         tasks_without_outcome = Task.objects.filter(outcome__isnull=True)

@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views import View
 
 # from tasks.models.task import Task
-from outcomes.models.outcome import Outcome
+from abilities.models.outcome import Outcome
 
 from .helpers.total_xp import total_xp
 from .helpers.total_tasks_done import total_tasks_done
@@ -25,21 +25,21 @@ class UserProfileView(View):
         res = []
 
         for outcome in outcomes:
-            res = {
+            output = {
                 "name": outcome.name,
                 "level": calculate_level(outcome.total_xp),
                 "total_tasks_done": outcome_total_tasks_done(outcome.pk),
                 "total_tasks_undone": outcome_total_tasks_undone(outcome.pk),
             }
 
-            res.append(outcome)
+            res.append(output)
 
         context = {
             "total_xp": xp,
             "level": level,
             "next_level_xp": next_level_xp,
             "total_tasks_done": total_tasks_done(),
-            "outcomes": res
+            "abilities": res
         }
 
         return render(request, 'profile.html', context)

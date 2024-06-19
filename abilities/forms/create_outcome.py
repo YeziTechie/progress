@@ -1,6 +1,6 @@
 from django import forms
 
-from outcomes.models.outcome import Outcome
+from abilities.models.outcome import Outcome
 
 
 class CreateOutcomeForm(forms.ModelForm):
