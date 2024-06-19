@@ -1,10 +1,10 @@
 from django.views.generic import DetailView
-from abilities.models.ability import Ability
+from abilities.models.outcome import Outcome
 from tasks.models.task import Task
 
 
 class AbilityDetailView(DetailView):
-    model = Ability
+    model = Outcome
     template_name = 'ability_detail.html'
 
     def get_context_data(self, **kwargs):

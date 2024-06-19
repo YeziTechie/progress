@@ -1,8 +1,8 @@
 from django.views import generic
-from abilities.models.ability import Ability
+from abilities.models.outcome import Outcome
 
 
 class AbilityDeleteView(generic.DeleteView):
-    model = Ability
+    model = Outcome
     template_name = 'ability_confirm_delete.html'
     success_url = '/abilities/list/'

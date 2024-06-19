@@ -1,9 +1,9 @@
 from tasks.models.task import Task
-from abilities.models.ability import Ability
+from abilities.models.outcome import Outcome
 
 
 def total_xp():
-    abilities = Ability.objects.all()
+    abilities = Outcome.objects.all()
     result = 0
 
     for ability in abilities:

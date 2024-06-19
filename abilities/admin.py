@@ -1,9 +1,9 @@
 from django.contrib import admin
 
-from .models.ability import Ability
+from .models.outcome import Outcome
 
 
-@admin.register(Ability)
+@admin.register(Outcome)
 class AbilityAdmin(admin.ModelAdmin):
     list_display = (
         'name',

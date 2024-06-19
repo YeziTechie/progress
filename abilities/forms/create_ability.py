@@ -1,9 +1,9 @@
 from django import forms
 
-from abilities.models.ability import Ability
+from abilities.models.outcome import Outcome
 
 
 class CreateAbilityForm(forms.ModelForm):
     class Meta:
-        model = Ability
+        model = Outcome
         fields = ['name', 'total_xp']

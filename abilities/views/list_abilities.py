@@ -1,11 +1,11 @@
 from django.views import generic
 
-from abilities.models.ability import Ability
+from abilities.models.outcome import Outcome
 from tasks.models.task import Task
 
 
 class AbilityListGenericView(generic.ListView):
-    model = Ability
+    model = Outcome
     template_name = 'all_abilities.html'
     context_object_name = 'abilities'
 

@@ -1,9 +1,9 @@
 from tasks.models.task import Task
-from abilities.models.ability import Ability
+from abilities.models.outcome import Outcome
 
 
 def outcome_total_tasks_done(pk):
-    ability = Ability.objects.get(pk=pk)
+    ability = Outcome.objects.get(pk=pk)
     tasks = Task.objects.filter(ability=ability)
 
     result = 0
