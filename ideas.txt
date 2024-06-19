@@ -19,3 +19,5 @@ different type of tasks(the current being specifying a task with and outcome wit
 achievement
 
 change the ability to outcome
+
+add description for each task

@@ -6,7 +6,7 @@ from tasks.models.task import Task
 
 class AbilityListGenericView(generic.ListView):
     model = Outcome
-    template_name = 'all_abilities.html'
+    template_name = 'outcome_list.html'
     context_object_name = 'abilities'
 
     def get_context_data(self, **kwargs):
