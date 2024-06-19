@@ -21,25 +21,25 @@ class UserProfileView(View):
         xp = xp - calculate_xp_for_level(level)
         next_level_xp = next_level_xp - calculate_xp_for_level(level)
 
-        abilities = Outcome.objects.all()
-        outcomes = []
+        outcomes = Outcome.objects.all()
+        res = []
 
-        for ability in abilities:
-            outcome = {
-                "name": ability.name,
-                "level": calculate_level(ability.total_xp),
-                "total_tasks_done": outcome_total_tasks_done(ability.pk),
-                "total_tasks_undone": outcome_total_tasks_undone(ability.pk),
+        for outcome in outcomes:
+            res = {
+                "name": outcome.name,
+                "level": calculate_level(outcome.total_xp),
+                "total_tasks_done": outcome_total_tasks_done(outcome.pk),
+                "total_tasks_undone": outcome_total_tasks_undone(outcome.pk),
             }
 
-            outcomes.append(outcome)
+            res.append(outcome)
 
         context = {
             "total_xp": xp,
             "level": level,
             "next_level_xp": next_level_xp,
             "total_tasks_done": total_tasks_done(),
-            "outcomes": outcomes
+            "outcomes": res
         }
 
         return render(request, 'profile.html', context)
