@@ -4,7 +4,7 @@ from .models.outcome import Outcome
 
 
 @admin.register(Outcome)
-class AbilityAdmin(admin.ModelAdmin):
+class OutcomeAdmin(admin.ModelAdmin):
     list_display = (
         'name',
         'total_xp',
