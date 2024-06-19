@@ -6,14 +6,13 @@ from .models.task import Task
 class TaskAdmin(admin.ModelAdmin):
     list_display = [
         'outcome',
-        'xp',
+        'description',
         'is_done',
-        'done_at',
-        'created_at',
         'is_added'
     ]
     search_fields = (
         'outcome',
+        'description',
         'is_done',
         'is_added'
     )
