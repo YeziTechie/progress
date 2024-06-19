@@ -39,7 +39,7 @@ class UserProfileView(View):
             "level": level,
             "next_level_xp": next_level_xp,
             "total_tasks_done": total_tasks_done(),
-            "abilities": res
+            "outcomes": res
         }
 
         return render(request, 'profile.html', context)
