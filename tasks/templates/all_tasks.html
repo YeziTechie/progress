@@ -127,7 +127,7 @@
     <div class="container">
         {% for task in tasks %}
             <div class="task">
-                <div class="name">{{ task.ability.name }}</div>
+                <div class="name">{{ task.outcome.name }}</div>
                 <div class="xp">Points: {{ task.xp }}XP</div>
                 <div class="description">{{ task.description }}</div>
                 <div class="status">Status: {% if task.is_done %} Done {% else %} Not Done {% endif %}</div>
