@@ -4,24 +4,24 @@ from abilities.models.outcome import Outcome
 from tasks.models.task import Task
 
 
-class AbilityListGenericView(generic.ListView):
+class OutcomeListGenericView(generic.ListView):
     model = Outcome
     template_name = 'outcome_list.html'
-    context_object_name = 'abilities'
+    context_object_name = 'outcomes'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        abilities = context['abilities']
+        outcomes = context['outcomes']
 
         # Fetch tasks that do not have an associated ability
-        tasks_without_ability = Task.objects.filter(ability__isnull=True)
+        tasks_without_outcome = Task.objects.filter(outcome__isnull=True)
 
         # Iterate through each ability and fetch related tasks
-        for ability in abilities:
-            tasks = Task.objects.filter(ability=ability)
-            ability.tasks = tasks  # Add tasks to ability object
+        for outcome in outcomes:
+            tasks = Task.objects.filter(outcome=outcome)
+            outcome.tasks = tasks  # Add tasks to ability object
 
         # Add tasks without an associated ability to context
-        context['tasks_without_ability'] = tasks_without_ability
+        context['tasks_without_outcome'] = tasks_without_outcome
 
         return context

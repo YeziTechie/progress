@@ -1,8 +1,8 @@
 from django.urls import path
-from .views.list_abilities import AbilityListGenericView
-from .views.create_ability import AbilityCreateView
-from .views.delete_ability import AbilityDeleteView
-from .views.detail_ability import AbilityDetailView
+from .views.outcome_list import AbilityListGenericView
+from .views.create_outcome import AbilityCreateView
+from .views.delete_outcome import AbilityDeleteView
+from .views.outcome_detail import AbilityDetailView
 
 urlpatterns = [
     path('', AbilityListGenericView.as_view(), name='ability_list'),
