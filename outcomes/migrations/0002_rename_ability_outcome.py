@@ -6,7 +6,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('abilities', '0001_initial'),
+        ('outcomes', '0001_initial'),
         ('tasks', '0003_rename_completed_at_task_done_at_and_more'),
     ]
 

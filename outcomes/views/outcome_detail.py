@@ -1,5 +1,5 @@
 from django.views.generic import DetailView
-from abilities.models.outcome import Outcome
+from outcomes.models.outcome import Outcome
 from tasks.models.task import Task
 
 

@@ -1,6 +1,6 @@
 from django.views.generic.edit import CreateView
-from abilities.models.outcome import Outcome
-from abilities.forms.create_outcome import CreateOutcomeForm
+from outcomes.models.outcome import Outcome
+from outcomes.forms.create_outcome import CreateOutcomeForm
 
 
 class OutcomeCreateView(CreateView):

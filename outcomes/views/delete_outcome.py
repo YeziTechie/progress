@@ -1,5 +1,5 @@
 from django.views import generic
-from abilities.models.outcome import Outcome
+from outcomes.models.outcome import Outcome
 
 
 class OutcomeDeleteView(generic.DeleteView):

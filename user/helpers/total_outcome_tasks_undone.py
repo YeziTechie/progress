@@ -1,5 +1,5 @@
 from tasks.models.task import Task
-from abilities.models.outcome import Outcome
+from outcomes.models.outcome import Outcome
 
 
 def outcome_total_tasks_undone(pk):
