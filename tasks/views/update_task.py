@@ -7,7 +7,7 @@ from tasks.forms.task_done import TaskUpdateForm
 
 
 class TaskUpdateView(FormView):
-    template_name = 'task_update.html'
+    template_name = 'update_task.html'
     form_class = TaskUpdateForm
 
     def form_valid(self, form):
