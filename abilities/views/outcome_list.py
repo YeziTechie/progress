@@ -7,11 +7,11 @@ from tasks.models.task import Task
 class OutcomeListGenericView(generic.ListView):
     model = Outcome
     template_name = 'outcome_list.html'
-    context_object_name = 'abilities'
+    context_object_name = 'outcomes'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        outcomes = context['abilities']
+        outcomes = context['outcomes']
 
         # Fetch tasks that do not have an associated ability
         tasks_without_outcome = Task.objects.filter(outcome__isnull=True)

@@ -1,0 +1,14 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+    <h2>Select an Outcome to assign tasks</h2>
+    <form method="post">{% csrf_token %}
+        <label for="outcome">Outcome:</label>
+        <select name="outcome" id="outcome">
+            {% for outcome in outcomes %}
+                <option value="{{ outcome.id }}">{{ outcome.name }}</option>
+            {% endfor %}
+        </select>
+        <input type="hidden" name="tasks" value="{{ tasks }}">
+        <button type="submit">Assign</button>
+    </form>
+{% endblock %}
