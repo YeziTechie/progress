@@ -15,3 +15,15 @@ class OutcomeAdmin(admin.ModelAdmin):
         'name',
     )
 
+    def set_xp_to_zero(modeladmin, request, queryset):
+        queryset.update(total_xp=0)
+        modeladmin.message_user(request, "Selected outcome's xp has set to zero")
+
+    set_xp_to_zero.short_description = "Set xp to Zero"
+
+    actions = [
+        set_xp_to_zero,
+    ]
+
+
+

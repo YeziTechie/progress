@@ -18,6 +18,6 @@ different type of tasks(the current being specifying a task with and outcome wit
 
 achievement
 
-change the ability to outcome
-
 add description for each task
+
+like when a task has done for 42 days, we get an achievement and it we no more can click and add xp to that. 
