@@ -30,6 +30,9 @@ class Task(models.Model):
                 self.outcome.save()
             self.is_added = True
 
+        if self.is_done:
+            self.outcome.last_task_done_at = datetime.datetime.now()
+
         super().save(*args, **kwargs)
 
     def __str__(self):
