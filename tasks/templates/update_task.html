@@ -63,7 +63,6 @@
         background-color:#0d0d0d;
         padding:10px;
         transition:ease-in-out 0.3s;
-        box-shadow:0px 0px 10px purple;
         font-size:1.5rem;
     }
 
@@ -82,13 +81,9 @@
             <div class="form-container">
                 <form method="post">
                     {% csrf_token %}
-                    <div class="form-title">Mark Task as Done</div>
-                    <div class="form-field">
-                        <label for="id_is_done">Mark as Done:</label>
-                        <input class="is-done" type="checkbox" id="id_is_done" name="is_done" {% if form.is_done.value %}checked{% endif %}>
-                    </div>
+                    {{ form }}
                     <div class="form-submit">
-                        <button type="submit" class="btn">Update</button>
+                        <button type="submit" class="btn">Update As Done</button>
                     </div>
                 </form>
             </div>
