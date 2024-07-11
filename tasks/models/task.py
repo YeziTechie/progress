@@ -14,11 +14,13 @@ class Task(models.Model):
     )
 
     description = models.TextField()
+    report = models.TextField(null=True)
     xp = models.IntegerField(default=0)
     is_done = models.BooleanField(default=False)
     is_added = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     done_at = models.DateTimeField(null=True, blank=True)
+
 
     def save(self, *args, **kwargs):
         if self.is_done and not self.done_at:
