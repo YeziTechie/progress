@@ -1,9 +1,9 @@
 from django import forms
 
-from tasks.models.task import Task
+from tasks.models.normal_task import NormalTask
 
 
 class CreateTaskForm(forms.ModelForm):
     class Meta:
-        model = Task
+        model = NormalTask
         fields = ['outcome', 'description', 'xp']

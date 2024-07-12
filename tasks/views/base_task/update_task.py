@@ -1,4 +1,4 @@
-from tasks.models.task import Task
+from tasks.models.normal_task import NormalTask
 
 from django.views.generic import FormView
 from django.urls import reverse_lazy
@@ -11,7 +11,7 @@ class TaskUpdateView(FormView):
     form_class = TaskUpdateForm
 
     def form_valid(self, form):
-        task = Task.objects.get(pk=self.kwargs['pk'])
+        task = NormalTask.objects.get(pk=self.kwargs['pk'])
         task.is_done = True
         task.save()
         return redirect('task_detail', pk=task.pk)

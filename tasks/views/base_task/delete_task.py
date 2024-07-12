@@ -1,8 +1,8 @@
 from django.views import generic
-from tasks.models.task import Task
+from tasks.models.normal_task import NormalTask
 
 
 class TaskDeleteView(generic.DeleteView):
-    model = Task
+    model = NormalTask
     template_name = 'delete_task.html'
     success_url = '/tasks/list/'

@@ -3,12 +3,12 @@ from abilities.models.outcome import Outcome
 import datetime
 
 
-class Task(models.Model):
+class NormalTask(models.Model):
 
     outcome = models.ForeignKey(
         Outcome,
         on_delete=models.SET_NULL,
-        related_name='tasks_outcome',
+        related_name='normal_task_outcome',
         null=True,
         blank=True
     )

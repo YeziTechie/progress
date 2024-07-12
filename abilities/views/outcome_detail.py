@@ -1,6 +1,6 @@
 from django.views.generic import DetailView
 from abilities.models.outcome import Outcome
-from tasks.models.task import Task
+from tasks.models.normal_task import NormalTask
 
 
 class OutcomeDetailView(DetailView):
@@ -10,6 +10,6 @@ class OutcomeDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         outcome = context['outcome']
-        tasks = Task.objects.filter(outcome=outcome)
+        tasks = NormalTask.objects.filter(outcome=outcome)
 
         return {'outcome': outcome, 'tasks': tasks}

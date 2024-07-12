@@ -3,7 +3,7 @@ from django.urls import path
 from django.contrib import admin
 
 from abilities.models.outcome import Outcome
-from .models.task import Task
+from .models.normal_task import NormalTask
 from .models.xp_per_count import XpPerCountTask
 
 
@@ -27,7 +27,7 @@ class TaskAdmin(admin.ModelAdmin):
             outcome_id = request.POST.get('outcome')
             task_ids = request.POST.get('tasks').split(',')
             new_outcome = Outcome.objects.get(pk=outcome_id)
-            tasks = Task.objects.filter(id__in=task_ids)
+            tasks = NormalTask.objects.filter(id__in=task_ids)
             tasks.update(outcome=new_outcome)
             self.message_user(request, "Selected tasks have been reassigned.")
             return redirect('..')
@@ -85,5 +85,5 @@ class XpPerCountTaskAdmin(admin.ModelAdmin):
         'xp'
     ]
 
-admin.site.register(Task, TaskAdmin)
+admin.site.register(NormalTask, TaskAdmin)
 admin.site.register(XpPerCountTask, XpPerCountTaskAdmin)
