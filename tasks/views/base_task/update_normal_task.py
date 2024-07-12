@@ -3,7 +3,7 @@ from tasks.models.normal_task import NormalTask
 from django.views.generic import FormView
 from django.urls import reverse_lazy
 from django.shortcuts import redirect
-from tasks.forms.task_done import TaskUpdateForm
+from tasks.forms.xp_per_count_task import TaskUpdateForm
 
 
 class TaskUpdateView(FormView):

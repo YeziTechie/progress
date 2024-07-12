@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 
-# from tasks.models.task import NormalTask
+# from tasks.models.task import Task
 from abilities.models.outcome import Outcome
 
 from .helpers.total_xp import total_xp

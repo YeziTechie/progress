@@ -1,6 +1,6 @@
 from django.views.generic.edit import CreateView
 from tasks.models.normal_task import NormalTask
-from tasks.forms.create_task import CreateTaskForm
+from tasks.forms.normal_task import CreateTaskForm
 
 
 class TaskCreateView(CreateView):

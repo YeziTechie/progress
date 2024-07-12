@@ -14,11 +14,11 @@ class OutcomeListGenericView(generic.ListView):
         outcomes = context['outcomes']
 
         # Fetch tasks that do not have an associated ability
-        tasks_without_outcome = NormalTask.objects.filter(outcome__isnull=True)
+        tasks_without_outcome = Task.objects.filter(outcome__isnull=True)
 
         # Iterate through each ability and fetch related tasks
         for outcome in outcomes:
-            tasks = NormalTask.objects.filter(outcome=outcome)
+            tasks = Task.objects.filter(outcome=outcome)
             outcome.tasks = tasks  # Add tasks to ability object
 
         # Add tasks without an associated ability to context

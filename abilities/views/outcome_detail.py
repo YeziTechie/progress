@@ -10,6 +10,6 @@ class OutcomeDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         outcome = context['outcome']
-        tasks = NormalTask.objects.filter(outcome=outcome)
+        tasks = Task.objects.filter(outcome=outcome)
 
         return {'outcome': outcome, 'tasks': tasks}

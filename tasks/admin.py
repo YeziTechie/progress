@@ -7,7 +7,7 @@ from .models.normal_task import NormalTask
 from .models.xp_per_count import XpPerCountTask
 
 
-class TaskAdmin(admin.ModelAdmin):
+class NormalTaskAdmin(admin.ModelAdmin):
     list_display = [
         'outcome',
         'description',
@@ -52,9 +52,11 @@ class TaskAdmin(admin.ModelAdmin):
     def make_is_done_true(modeladmin, request, queryset):
         queryset.update(is_done=True)
         modeladmin.message_user(request, "is done true")
+
     def make_is_done_false(modeladmin, request, queryset):
         queryset.update(is_done=False)
         modeladmin.message_user(request, "is done false")
+
     def save_task(modeladmin, request, queryset):
         for task in queryset:
             task.save()
@@ -85,5 +87,6 @@ class XpPerCountTaskAdmin(admin.ModelAdmin):
         'xp'
     ]
 
-admin.site.register(NormalTask, TaskAdmin)
+
+admin.site.register(NormalTask, NormalTaskAdmin)
 admin.site.register(XpPerCountTask, XpPerCountTaskAdmin)
