@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
 from django.urls import path
 from django.contrib import admin
+
 from abilities.models.outcome import Outcome
 from .models.task import Task
+from .models.xp_per_count import XpPerCountTask
+
 
 class TaskAdmin(admin.ModelAdmin):
     list_display = [
@@ -74,4 +77,13 @@ class TaskAdmin(admin.ModelAdmin):
     ]
 
 
+class XpPerCountTaskAdmin(admin.ModelAdmin):
+    list_display = [
+        'outcome',
+        'description',
+        'total_count',
+        'xp'
+    ]
+
 admin.site.register(Task, TaskAdmin)
+admin.site.register(XpPerCountTask, XpPerCountTaskAdmin)
