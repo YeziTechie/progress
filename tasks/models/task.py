@@ -21,7 +21,6 @@ class Task(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     done_at = models.DateTimeField(null=True, blank=True)
 
-
     def save(self, *args, **kwargs):
         if self.is_done and not self.done_at:
             self.done_at = datetime.datetime.now()
