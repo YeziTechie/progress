@@ -13,8 +13,8 @@ class Task(models.Model):
         blank=True
     )
 
-    description = models.TextField()
-    report = models.TextField(null=True)
+    description = models.CharField(max_length=512)
+    report = models.CharField(max_length=1024, null=True)
     xp = models.IntegerField(default=0)
     is_done = models.BooleanField(default=False)
     is_added = models.BooleanField(default=False)
