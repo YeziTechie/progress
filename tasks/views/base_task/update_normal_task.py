@@ -3,11 +3,11 @@ from tasks.models.normal_task import NormalTask
 from django.views.generic import FormView
 from django.urls import reverse_lazy
 from django.shortcuts import redirect
-from tasks.forms.xp_per_count_task import TaskUpdateForm
+from tasks.forms.normal_task import TaskUpdateForm
 
 
 class TaskUpdateView(FormView):
-    template_name = 'update_task.html'
+    template_name = 'normal_task/update_task.html'
     form_class = TaskUpdateForm
 
     def form_valid(self, form):
