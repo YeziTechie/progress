@@ -1,16 +1,23 @@
 tasks {
 	xp per count
+	    {
+	        outcome_fk
+
+	        description
+	        xp
+	        total_count
+	        date_created
+
+
+	    }
 	xp per time
 	42 day task
 	a task which has a time limit.
 		actions when the time limist is reached:
-			reducing xp(either doubly, half, or just itself)
+			reducing xp either doubly, half, or just itself)
 			get locked and canont work on that task for some duration
-	detailed task: a task which is defined, and certain other things that are defined for it, can be checked as true or false, add or remove xp accordingly. 
-	
-			
-	
-	
+	detailed task: a task which is defined, and certain other things that are defined for it, can be checked as true or false, add or remove xp accordingly.
+
 	}
 
 answering Ecology and Outcome questions on each createed Outcome, 
