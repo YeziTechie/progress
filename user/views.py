@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.views import View
 
-# from tasks.models.task import Task
 from abilities.models.outcome import Outcome
 
 from .helpers.total_xp import total_xp
@@ -17,7 +16,6 @@ class UserProfileView(View):
         xp = total_xp()
         level = calculate_level(xp=xp)
         next_level_xp = calculate_xp_for_level(calculate_level(xp=xp) + 1)
-
         xp = xp - calculate_xp_for_level(level)
         next_level_xp = next_level_xp - calculate_xp_for_level(level)
 

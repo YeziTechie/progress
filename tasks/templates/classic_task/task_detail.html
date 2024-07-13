@@ -103,18 +103,18 @@
 {% block content %}
     <div class="container">
         <div class="task">
-            <div class="name">{{ task.outcome.name }}</div>
-            <div class="xp">Points: {{ task.xp }}XP</div>
-            <div class="created">Created at: {{ task.created_at }}</div>
-            <div class="is-done">Is done: {{ task.is_done }}</div>
-            {% if task.is_done %}
-                <div class="done-at">Done at: {{ task.done_at }}</div>
+            <div class="name">{{ classic_task.outcome.name }}</div>
+            <div class="xp">Points: {{ classic_task.xp }}XP</div>
+            <div class="created">Created at: {{ classic_task.created_at }}</div>
+            <div class="is-done">Is done: {{ classic_task.is_done }}</div>
+            {% if classic_task.is_done %}
+                <div class="done-at">Done at: {{ classic_task.done_at }}</div>
             {% endif %}
-            <div class="description">{{ task.description }}</div>
+            <div class="description">{{ classic_task.description }}</div>
             <div class="button-container">
-                <a class="btn" href="{% url 'task_delete' task.pk %}">Delete</a>
-                {% if task.is_done == False%}
-                    <a class="btn" href="{% url 'task_update' task.pk %}">Update as Done</a>
+                <a class="btn" href="{% url 'classic_task_delete' classic_task.pk %}">Delete</a>
+                {% if classic_task.is_done == False%}
+                    <a class="btn" href="{% url 'classic_task_update' classic_task.pk %}">Update as Done</a>
                 {% else %}
                 {% endif %}
 

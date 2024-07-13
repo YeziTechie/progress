@@ -1,11 +1,11 @@
-from tasks.models.normal_task import NormalTask
+from tasks.models.classic_task import ClassicTask
 
 
 def total_tasks_done():
     result = 0
-    tasks = NormalTask.objects.all()
+    classic_tasks = ClassicTask.objects.all()
 
-    for task in tasks:
+    for task in classic_tasks:
         if task.is_done is True:
             result += 1
 

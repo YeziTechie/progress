@@ -1,4 +1,4 @@
-from tasks.models.normal_task import NormalTask
+from tasks.models.classic_task import ClassicTask
 from abilities.models.outcome import Outcome
 
 
@@ -9,9 +9,9 @@ def total_xp():
     for outcome in outcomes:
         result += outcome.total_xp
 
-    tasks = NormalTask.objects.all()
+    classic_tasks = ClassicTask.objects.all()
 
-    for task in tasks:
+    for task in classic_tasks:
         if task.is_done is True and task.is_added is False and task.outcome is False:
             result += task.xp
 

@@ -1,7 +1,7 @@
 from django.views import generic
 
 from abilities.models.outcome import Outcome
-from tasks.models.normal_task import NormalTask
+from tasks.models.classic_task import ClassicTask
 
 
 class OutcomeListGenericView(generic.ListView):
@@ -13,12 +13,12 @@ class OutcomeListGenericView(generic.ListView):
         context = super().get_context_data(**kwargs)
         outcomes = context['outcomes']
 
-        tasks_without_outcome = NormalTask.objects.filter(outcome__isnull=True)
+        classic_tasks_without_outcome = ClassicTask.objects.filter(outcome__isnull=True)
 
         for outcome in outcomes:
-            tasks = NormalTask.objects.filter(outcome=outcome)
-            outcome.tasks = tasks
+            classic_tasks = ClassicTask.objects.filter(outcome=outcome)
+            outcome.tasks = classic_tasks
 
-        context['normal task_without_outcome'] = tasks_without_outcome
+        context['classic_tasks_without_outcome'] = classic_tasks_without_outcome
 
         return context

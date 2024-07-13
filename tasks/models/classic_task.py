@@ -3,7 +3,7 @@ from abilities.models.outcome import Outcome
 import datetime
 
 
-class NormalTask(models.Model):
+class ClassicTask(models.Model):
 
     outcome = models.ForeignKey(
         Outcome,

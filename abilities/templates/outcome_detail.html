@@ -142,14 +142,14 @@
             <div class="last-task-done">last task done at: {{ outcome.last_task_done_at }}</div>
 
             <div class="tasks">
-                {% for task in tasks %}
+                {% for task in classic_tasks %}
                     {% if task.is_done == False %}
                         <div class="task" style="border: 1px red solid">
                             <div class="task-info">
 
                                 <div>{{ task.description }}</div>
                                 <div class="xp" >Points: {{ task.xp }}XP</div>
-                                <div class="create-outcome" style="text-align:right; padding:5px;"><a style="font-size:1.2rem;" href="{% url 'task_detail' task.pk %}">Details</a></div>
+                                <div class="create-outcome" style="text-align:right; padding:5px;"><a style="font-size:1.2rem;" href="{% url 'classic_task_detail' task.pk %}">Details</a></div>
 
                             </div>
 
@@ -163,7 +163,7 @@
 
                                 <div>{{ task.description }}</div>
                                 <div class="xp">Points: {{ task.xp }}XP</div>
-                                <div class="create-outcome" style="text-align:right; padding:5px;"><a style="font-size:1.2rem;" href="{% url 'task_detail' task.pk %}">Details</a></div>
+                                <div class="create-outcome" style="text-align:right; padding:5px;"><a style="font-size:1.2rem;" href="{% url 'classic_task_detail' task.pk %}">Details</a></div>
 
                             </div>
 

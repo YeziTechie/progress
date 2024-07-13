@@ -1,10 +1,10 @@
 from django import forms
 
-from tasks.models.normal_task import NormalTask
+from tasks.models.xp_per_count import XpPerCountTask
 
 
-class CreateXpPerCountTaskForm(forms.ModelForm):
+class XpPerCountTaskCreateForm(forms.ModelForm):
     class Meta:
-        model = NormalTask
+        model = XpPerCountTask
         fields = ['outcome', 'description', 'xp']
 
