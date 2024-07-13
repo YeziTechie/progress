@@ -1,17 +1,22 @@
 tasks {
+    classic_task ClassicTask
+    xp_per_count_task XpPerCountTask
+    xp_per_time_task XpPerTimeTask
+    42_day_task 42DayTask
+    dead_line_task DeadLineTask
+
 	xp per count
 	    {
 	        outcome_fk
-
 	        description
 	        xp
 	        total_count
 	        date_created
-
-
 	    }
 	xp per time
 	42 day task
+	    defining a foreign key table for each day of the 42 day and checking for each day, if done, xp is added, if not,
+	    xp is lost.
 	a task which has a time limit.
 		actions when the time limist is reached:
 			reducing xp either doubly, half, or just itself)

@@ -7,5 +7,5 @@ class OutcomeCreateView(CreateView):
     model = Outcome
     form_class = CreateOutcomeForm
     template_name = 'create_outcome.html'
-    success_url = '/abilities/list/'
+    success_url = '/outcomes/list/'
 
