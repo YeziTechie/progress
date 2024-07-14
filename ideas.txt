@@ -1,8 +1,8 @@
 tasks {
     classic_task ClassicTask
-    xp_per_count_task XpPerCountTask
-    xp_per_time_task XpPerTimeTask
-    42_day_task 42DayTask
+    xp_per_count_task CountTask
+    xp_per_time_task TimeTask
+    42_day_task 42Day 42DayTask
     dead_line_task DeadLineTask
 
 	xp per count
