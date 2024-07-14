@@ -7,4 +7,3 @@ class CountTaskCreateForm(forms.ModelForm):
     class Meta:
         model = CountTask
         fields = ['outcome', 'description', 'xp']
-

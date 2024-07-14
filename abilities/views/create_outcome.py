@@ -8,4 +8,3 @@ class OutcomeCreateView(CreateView):
     form_class = CreateOutcomeForm
     template_name = 'create_outcome.html'
     success_url = '/outcomes/'
-

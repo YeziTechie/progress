@@ -41,4 +41,3 @@ class UserProfileView(View):
         }
 
         return render(request, 'profile.html', context)
-

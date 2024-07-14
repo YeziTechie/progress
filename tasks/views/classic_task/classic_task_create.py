@@ -8,4 +8,3 @@ class ClassicTaskCreateView(CreateView):
     form_class = ClassicTaskCreateForm
     template_name = 'classic_task/create_task.html'
     success_url = ''
-

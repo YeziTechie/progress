@@ -24,6 +24,3 @@ class OutcomeAdmin(admin.ModelAdmin):
     actions = [
         set_xp_to_zero,
     ]
-
-
-

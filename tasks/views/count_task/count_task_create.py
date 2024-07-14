@@ -8,5 +8,4 @@ class CountTaskCreateView(CreateView):
     model = CountTask
     form_class = CountTaskCreateForm
     template_name = 'count_task/create_task.html'
-    success_url = ''
-
+    success_url = '/'
