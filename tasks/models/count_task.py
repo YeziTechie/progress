@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class XpPerCountTask(models.Model):
+class CountTask(models.Model):
     outcome = models.ForeignKey(
         'abilities.Outcome',
         models.SET_NULL,

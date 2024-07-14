@@ -4,7 +4,7 @@ from django.contrib import admin
 
 from abilities.models.outcome import Outcome
 from .models.classic_task import ClassicTask
-from .models.xp_per_count import XpPerCountTask
+from .models.count_task import CountTask
 
 
 class ClassicTaskAdmin(admin.ModelAdmin):
@@ -79,7 +79,7 @@ class ClassicTaskAdmin(admin.ModelAdmin):
     ]
 
 
-class XpPerCountTaskAdmin(admin.ModelAdmin):
+class CountTaskAdmin(admin.ModelAdmin):
     list_display = [
         'outcome',
         'description',
@@ -89,4 +89,4 @@ class XpPerCountTaskAdmin(admin.ModelAdmin):
 
 
 admin.site.register(ClassicTask, ClassicTaskAdmin)
-admin.site.register(XpPerCountTask, XpPerCountTaskAdmin)
+admin.site.register(CountTask, CountTaskAdmin)

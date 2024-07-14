@@ -6,7 +6,7 @@ from tasks.views.classic_task.classic_task_delete import ClassicTaskDeleteView
 from tasks.views.classic_task.classic_task_detail import ClassicTaskDetailView
 from tasks.views.classic_task.classic_task_update import ClassicTaskUpdateView
 
-from tasks.views.xp_per_count_task.create_xp_per_count_task import XpPerCountTaskCreateView
+from tasks.views.count_task.create_xp_per_count_task import XpPerCountTaskCreateView
 
 urlpatterns = [
     path('classic/list/', ClassicTaskListView.as_view(), name='classic_task_list'),
