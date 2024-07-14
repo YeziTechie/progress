@@ -1,13 +1,12 @@
 from django.db import models
 
-from outcome import Outcome
-
 
 class InternalEcology(models.Model):
     outcome = models.OneToOneField(
-        on_delete=models.CASCADE,
-        to=Outcome,
-        null=False
+        'abilities.Outcome',
+        models.CASCADE,
+        related_name='internal_ecology',
+        null=False,
     )
     q1 = models.CharField(max_length=512, null=True, blank=False, default='Not answered yet.')
     q2 = models.CharField(max_length=256, null=True, blank=False, default='Not answered yet.')
@@ -21,9 +20,10 @@ class InternalEcology(models.Model):
 
 class ExternalEcology(models.Model):
     outcome = models.OneToOneField(
-        on_delete=models.CASCADE,
-        to=Outcome,
-        null=False
+        'abilities.Outcome',
+        models.CASCADE,
+        related_name='external_ecology',
+        null=False,
     )
 
     q1 = models.CharField(max_length=256, null=True, blank=False, default='Not answered yet.')

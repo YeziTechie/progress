@@ -1,12 +1,10 @@
 from django.db import models
 
-from outcome import Outcome
-
 
 class Questions(models.Model):
     outcome = models.OneToOneField(
         on_delete=models.CASCADE,
-        to=Outcome,
+        to='abilities.Outcome',
         null=False
     )
     positive = models.CharField(max_length=128, default='Not answered yet.', null=True)

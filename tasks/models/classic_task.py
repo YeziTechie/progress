@@ -1,14 +1,13 @@
 from django.db import models
-from abilities.models.outcome import Outcome
 import datetime
 
 
 class ClassicTask(models.Model):
 
     outcome = models.ForeignKey(
-        Outcome,
-        on_delete=models.SET_NULL,
-        related_name='normal_task_outcome',
+        'abilities.Outcome',
+        models.SET_NULL,
+        related_name='classic_tasks',
         null=True,
         blank=True
     )

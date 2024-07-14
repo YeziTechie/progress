@@ -1,15 +1,13 @@
 from django.db import models
-from abilities.models.outcome import Outcome
 
 
 class XpPerCountTask(models.Model):
-
     outcome = models.ForeignKey(
-        Outcome,
-        on_delete=models.SET_NULL,
-        related_name='xp_per_count_task_outcome',
+        'abilities.Outcome',
+        models.SET_NULL,
+        related_name='count_tasks',
         null=True,
-        blank=True
+        blank=True,
     )
 
     description = models.CharField(max_length=256)
