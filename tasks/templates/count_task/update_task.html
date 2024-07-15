@@ -77,13 +77,14 @@
 {% block content %}
     <div class="box">
         <div class="container">
-            <h1 class="title">{{ classic_task.description }}</h1>
+            <h1 class="title">{{ count_task.description }}</h1>
+            <p> {{ count_task.xp }}</p>
             <div class="form-container">
                 <form method="post">
                     {% csrf_token %}
                     {{ form }}
                     <div class="form-submit">
-                        <button type="submit" class="btn">Update As Done</button>
+                        <button type="submit" class="btn">Update</button>
                     </div>
                 </form>
             </div>
