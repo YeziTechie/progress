@@ -9,9 +9,5 @@ class CountTaskCreateForm(forms.ModelForm):
         fields = ['outcome', 'description', 'xp']
 
 
-class CountTaskUpdateForm(forms.ModelForm):
-    count = forms.CharField(label='count', max_length=5, )
-
-    class Meta:
-        model = CountTask
-        fields = ['outcome', 'description', 'xp']
+class CountTaskUpdateForm(forms.Form):
+    count = forms.CharField(label='count', max_length=5)

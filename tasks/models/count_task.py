@@ -23,3 +23,4 @@ class CountTask(models.Model):
 
     def save(self, *args, **kwargs):
         self.last_submit = datetime.datetime.now()
+        super().save(*args, **kwargs)

@@ -119,8 +119,9 @@
         <div style="height:0.3em; width:6rem; background-color:purple;" ></div><br>
         <div style="height:0.3em; width:4rem; background-color:purple;" ></div><br>
         <div style="height:1rem; width:1rem; background-color:purple; border-radius:2rem;" ></div><br>
-        <div class="create-task">
-            <a href="{% url 'classic_task_create' %}">New Task</a>
+        <div >
+            <a class="create-task" href="{% url 'classic_task_create' %}">classic task</a>
+            <a class="create-task" style="margin-left:40px;" href="{% url 'count_task_create' %}">count task</a>
         </div>
     </center>
 
