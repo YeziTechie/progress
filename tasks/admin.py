@@ -2,9 +2,11 @@ from django.shortcuts import render, redirect
 from django.urls import path
 from django.contrib import admin
 
-from abilities.models.outcome import Outcome
 from .models.classic_task import ClassicTask
 from .models.count_task import CountTask
+from .models.time_task import TimeTask
+
+from abilities.models.outcome import Outcome
 
 
 class ClassicTaskAdmin(admin.ModelAdmin):
@@ -88,5 +90,15 @@ class CountTaskAdmin(admin.ModelAdmin):
     ]
 
 
+class TimeTaskAdmin(admin.ModelAdmin):
+    list_display = [
+        'outcome',
+        'description',
+        'total_time',
+        'xp'
+    ]
+
+
 admin.site.register(ClassicTask, ClassicTaskAdmin)
 admin.site.register(CountTask, CountTaskAdmin)
+admin.site.register(TimeTask, TimeTaskAdmin)

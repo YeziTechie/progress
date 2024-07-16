@@ -10,6 +10,10 @@ from tasks.views.count_task.count_task_create import CountTaskCreateView
 from tasks.views.count_task.count_task_update import CountTaskUpdateView
 from tasks.views.count_task.count_task_delete import CountTaskDeleteView
 
+from tasks.views.time_task.time_task_create import TimeTaskCreateView
+from tasks.views.time_task.time_task_update import TimeTaskUpdateView
+from tasks.views.time_task.time_task_delete import TimeTaskDeleteView
+
 urlpatterns = [
     path('classic/list/', ClassicTaskListView.as_view(), name='classic_task_list'),
     path('classic/create/', ClassicTaskCreateView.as_view(), name='classic_task_create'),
@@ -20,4 +24,8 @@ urlpatterns = [
     path('count/create/', CountTaskCreateView.as_view(), name='count_task_create'),
     path('count/<int:pk>/update/', CountTaskUpdateView.as_view(), name='count_task_update'),
     path('count/<int:pk>/delete/', CountTaskDeleteView.as_view(), name='count_task_delete'),
+
+    path('time/create/', TimeTaskCreateView.as_view(), name='time_task_create'),
+    path('time/<int:pk>/update/', TimeTaskUpdateView.as_view(), name='time_task_update'),
+    path('time/<int:pk>/delete/', TimeTaskDeleteView.as_view(), name='time_task_delete'),
 ]
