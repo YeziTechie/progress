@@ -8,6 +8,7 @@ from tasks.views.classic_task.classic_task_update import ClassicTaskUpdateView
 
 from tasks.views.count_task.count_task_create import CountTaskCreateView
 from tasks.views.count_task.count_task_update import CountTaskUpdateView
+from tasks.views.count_task.count_task_delete import CountTaskDeleteView
 
 urlpatterns = [
     path('classic/list/', ClassicTaskListView.as_view(), name='classic_task_list'),
@@ -18,4 +19,5 @@ urlpatterns = [
 
     path('count/create/', CountTaskCreateView.as_view(), name='count_task_create'),
     path('count/<int:pk>/update/', CountTaskUpdateView.as_view(), name='count_task_update'),
+    path('count/<int:pk>/delete/', CountTaskDeleteView.as_view(), name='count_task_delete'),
 ]
