@@ -29,3 +29,14 @@ class DeadlineTaskUpdateForm(forms.ModelForm):
     class Meta:
         model = DeadlineTask
         fields = ['report']
+
+
+class DeadlineTaskAbortForm(forms.ModelForm):
+    class Meta:
+        model = DeadlineTask
+        fields = ['is_aborted']
+
+class DeadlineTaskUpdateForm(forms.ModelForm):
+    class Meta:
+        model = DeadlineTask
+        fields = ['report']
