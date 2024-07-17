@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['127.0.0.1']
 
 # Time zone and stuff
 # Get the server's local timezone
+
 local_tz = datetime.now(pytz.timezone('Asia/Tehran')).strftime('%Z%z')
 
 # Use the local timezone for TIME_ZONE setting
