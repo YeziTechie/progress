@@ -16,7 +16,7 @@ from tasks.views.time_task.time_task_delete import TimeTaskDeleteView
 
 from tasks.views.deadline_task.deadline_task_create import DeadlineTaskCreateView
 from tasks.views.deadline_task.deadline_task_delete import DeadlineTaskDeleteView
-# from tasks.views.deadline_task.deadline_task_create import DeadlineTaskCreateView
+from tasks.views.deadline_task.deadline_task_status import DeadlineTaskStatus
 
 urlpatterns = [
     path('classic/list/', ClassicTaskListView.as_view(), name='classic_task_list'),
@@ -35,5 +35,6 @@ urlpatterns = [
 
     path('deadline/create/', DeadlineTaskCreateView.as_view(), name='deadline_task_create'),
     path('deadline/<int:pk>/delete/', DeadlineTaskDeleteView.as_view(), name='deadline_task_delete'),
+    path('deadline/<int:pk>/status/', DeadlineTaskStatus.as_view(), name='deadline_task_status'),
 
 ]

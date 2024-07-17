@@ -20,7 +20,12 @@ tasks {
 	a task which has a time limit.
 		actions when the time limist is reached:
 			reducing xp either doubly, half, or just itself)
-			get locked and canont work on that task for some duration
+			    done
+			        write report and update as done
+			    undone
+                    repeating it
+                    aborting it
+
 	detailed task: a task which is defined, and certain other things that are defined for it, can be checked as true or false, add or remove xp accordingly.
 
 	}

@@ -1,4 +1,5 @@
-from datetime import timedelta, datetime
+from datetime import timedelta
+from django.utils import timezone
 
 from django.db import models
 
@@ -36,7 +37,7 @@ class DeadlineTask(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.deadline_date and (self.duration_days or self.duration_hours):
-            now = datetime.now()
+            now = timezone.now()
             days = self.duration_days or 0
             hours = self.duration_hours or 0
             self.deadline_date = now + timedelta(days=days, hours=hours)
@@ -44,3 +45,6 @@ class DeadlineTask(models.Model):
 
     def __str__(self):
         return f'{self.description} (due {self.deadline_date})'
+
+    def is_time_over(self):
+        return self.deadline_date < timezone.now()
