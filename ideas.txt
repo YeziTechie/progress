@@ -3,7 +3,7 @@ tasks {
     xp_per_count_task CountTask
     xp_per_time_task TimeTask
     42_day_task 42Day 42DayTask
-    dead_line_task DeadLineTask
+    dead_line_task DeadlineTask
 
 	xp per count
 	    {
