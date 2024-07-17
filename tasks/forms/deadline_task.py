@@ -23,3 +23,9 @@ class DeadlineTaskCreateForm(forms.ModelForm):
             raise forms.ValidationError("You can only specify a deadline date or a duration, not both.")
 
         return cleaned_data
+
+
+class DeadlineTaskUpdateForm(forms.ModelForm):
+    class Meta:
+        model = DeadlineTask
+        fields = ['report']
