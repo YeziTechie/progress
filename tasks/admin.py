@@ -5,6 +5,7 @@ from django.contrib import admin
 from .models.classic_task import ClassicTask
 from .models.count_task import CountTask
 from .models.time_task import TimeTask
+from .models.deadline_task import DeadlineTask
 
 from abilities.models.outcome import Outcome
 
@@ -99,6 +100,16 @@ class TimeTaskAdmin(admin.ModelAdmin):
     ]
 
 
+class DeadlineTaskAdmin(admin.ModelAdmin):
+    list_display = [
+        'outcome',
+        'description',
+        'deadline_date',
+        'xp'
+    ]
+
+
 admin.site.register(ClassicTask, ClassicTaskAdmin)
 admin.site.register(CountTask, CountTaskAdmin)
 admin.site.register(TimeTask, TimeTaskAdmin)
+admin.site.register(DeadlineTask, DeadlineTaskAdmin)

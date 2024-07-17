@@ -14,6 +14,8 @@ from tasks.views.time_task.time_task_create import TimeTaskCreateView
 from tasks.views.time_task.time_task_update import TimeTaskUpdateView
 from tasks.views.time_task.time_task_delete import TimeTaskDeleteView
 
+from tasks.views.deadline_task.deadline_task_create import DeadlineTaskCreateView
+
 urlpatterns = [
     path('classic/list/', ClassicTaskListView.as_view(), name='classic_task_list'),
     path('classic/create/', ClassicTaskCreateView.as_view(), name='classic_task_create'),
@@ -28,4 +30,7 @@ urlpatterns = [
     path('time/create/', TimeTaskCreateView.as_view(), name='time_task_create'),
     path('time/<int:pk>/update/', TimeTaskUpdateView.as_view(), name='time_task_update'),
     path('time/<int:pk>/delete/', TimeTaskDeleteView.as_view(), name='time_task_delete'),
+
+    path('deadline/create/', DeadlineTaskCreateView.as_view(), name='deadline_task_create'),
+
 ]

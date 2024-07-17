@@ -1,13 +1,13 @@
 from django.views.generic import FormView
 from django.shortcuts import redirect, get_object_or_404
 
-from tasks.models.time_task import TimeTask
+from tasks.models.deadline_task import DeadlineTask
 from tasks.forms.time_task import TimeTaskUpdateForm
 
 
-class TimeTaskUpdateView(FormView):
+class DeadlineTaskUpdateView(FormView):
     form_class = TimeTaskUpdateForm
-    template_name = 'time_task/update_task.html'
+    template_name = 'deadline_task/update_task.html'
 
     def form_valid(self, form):
         time = int(form.cleaned_data['time'])

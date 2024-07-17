@@ -10,8 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
-from pathlib import Path
 import os
+from pathlib import Path
+from datetime import datetime
+
+import pytz
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,6 +29,15 @@ SECRET_KEY = 'django-insecure-!$4@*4y=-4&nktry_8i_jvg_y1l!85te=c^2!myt5!yo7ca950
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1']
+
+
+# Time zone and stuff
+# Get the server's local timezone
+local_tz = datetime.now(pytz.timezone('Asia/Tehran')).strftime('%Z%z')
+
+# Use the local timezone for TIME_ZONE setting
+TIME_ZONE = local_tz if local_tz else 'Asia/Tehran'
+USE_TZ = True
 
 
 # Application definition
