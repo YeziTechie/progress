@@ -40,6 +40,3 @@ urlpatterns = [
     path('deadline/<int:pk>/update/', DeadlineUpdateView.as_view(), name='deadline_update'),
 
 ]
-
-
-

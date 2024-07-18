@@ -21,4 +21,3 @@ class DeadlineUpdateView(FormView):
         deadline = get_object_or_404(Deadline, pk=self.kwargs['pk'])
         context['deadline'] = deadline
         return context
-

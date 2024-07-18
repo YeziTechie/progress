@@ -14,7 +14,7 @@ class ClassicUpdateView(UpdateView):
         classic = Classic.objects.get(pk=self.kwargs['pk'])
         classic.is_done = True
         classic.save()
-        return redirect('classic_detail', pk=classic_.pk)
+        return redirect('classic_detail', pk=classic.pk)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
