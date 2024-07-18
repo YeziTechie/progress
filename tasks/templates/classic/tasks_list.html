@@ -120,8 +120,8 @@
         <div style="height:0.3em; width:4rem; background-color:purple;" ></div><br>
         <div style="height:1rem; width:1rem; background-color:purple; border-radius:2rem;" ></div><br>
         <div >
-            <a class="create-task" href="{% url 'classic_task_create' %}">classic task</a>
-            <a class="create-task" style="margin-left:40px;" href="{% url 'count_task_create' %}">count task</a>
+            <a class="create-task" href="{% url 'classic_create' %}">classic task</a>
+            <a class="create-task" style="margin-left:40px;" href="{% url 'count_create' %}">count task</a>
         </div>
     </center>
 
@@ -136,9 +136,9 @@
                     <div class="done">Done at: {{ task.done_at }}</div>
                 {% endif %}
                 <div class="created">Created at: {{ task.created_at }}</div>
-                <a class="btn" href="{% url 'classic_task_delete' task.pk %}" style="color:red;">Delete</a>
-                <a class="btn" href="{% url 'classic_task_detail' task.pk %}">Details</a>
-                <a class="btn" href="{% url 'classic_task_update' task.pk %}" style="color:green;">Update</a>
+                <a class="btn" href="{% url 'classic_delete' task.pk %}" style="color:red;">Delete</a>
+                <a class="btn" href="{% url 'classic_detail' task.pk %}">Details</a>
+                <a class="btn" href="{% url 'classic_update' task.pk %}" style="color:green;">Update</a>
             </div>
         {% endfor %}
     </div>

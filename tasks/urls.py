@@ -18,6 +18,7 @@ from tasks.views.deadline.deadline_create import DeadlineCreateView
 from tasks.views.deadline.deadline_delete import DeadlineDeleteView
 from tasks.views.deadline.deadline_status import DeadlineStatus
 from tasks.views.deadline.deadline_update import DeadlineUpdateView
+from tasks.views.deadline.deadline_abort import DeadlineAbortView
 
 urlpatterns = [
     path('classic/list/', ClassicListView.as_view(), name='classic_list'),
@@ -38,5 +39,6 @@ urlpatterns = [
     path('deadline/<int:pk>/delete/', DeadlineDeleteView.as_view(), name='deadline_delete'),
     path('deadline/<int:pk>/status/', DeadlineStatus.as_view(), name='deadline_status'),
     path('deadline/<int:pk>/update/', DeadlineUpdateView.as_view(), name='deadline_update'),
+    path('deadline/<int:pk>/abort/', DeadlineAbortView.as_view(), name='deadline_abort'),
 
 ]
