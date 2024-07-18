@@ -1,8 +1,9 @@
 from django.views.generic import DetailView
-from tasks.models.classic_task import ClassicTask
+
+from tasks.models.classic import Classic
 
 
-class ClassicTaskDetailView(DetailView):
-    model = ClassicTask
-    context_object_name = 'classic_task'
-    template_name = 'classic_task/task_detail.html'
+class ClassicDetailView(DetailView):
+    model = Classic
+    context_object_name = 'classic'
+    template_name = 'classic/task_detail.html'

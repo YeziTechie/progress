@@ -1,25 +1,23 @@
 from django.views.generic import FormView
 from django.shortcuts import redirect, get_object_or_404
 
-from tasks.models.count_task import CountTask
-from tasks.forms.count_task import CountTaskUpdateForm
+from tasks.models.count import Count
+from tasks.forms.count import CountUpdateForm
 
 
-class CountTaskUpdateView(FormView):
-    form_class = CountTaskUpdateForm
-    template_name = 'count_task/update_task.html'
+class CountUpdateView(FormView):
+    form_class = CountUpdateForm
+    template_name = 'count/update_task.html'
 
     def form_valid(self, form):
         count = int(form.cleaned_data['count'])
         if count > 0:
-            count_task = get_object_or_404(CountTask, pk=self.kwargs['pk'])
-            count_task.total_count += count
-            count_task.save()
-            print(f"Updated total_count: {count_task.total_count}")
-
+            count = get_object_or_404(Count, pk=self.kwargs['pk'])
+            count.total_count += count
+            count.save()
         return redirect('outcome_list')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['count_task'] = get_object_or_404(CountTask, pk=self.kwargs['pk'])
+        context['count'] = get_object_or_404(Count, pk=self.kwargs['pk'])
         return context

@@ -1,9 +1,10 @@
 from django.views import generic
-from tasks.models.time_task import TimeTask
+
+from tasks.models.time import Time
 
 
-class TimeTaskDeleteView(generic.DeleteView):
-    model = TimeTask
-    context_object_name = 'time_task'
-    template_name = 'time_task/delete_task.html'
+class TimeDeleteView(generic.DeleteView):
+    model = Time
+    context_object_name = 'time'
+    template_name = 'time/delete_task.html'
     success_url = '/'

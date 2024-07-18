@@ -4,7 +4,7 @@ from django.utils import timezone
 from django.db import models
 
 
-class DeadlineTask(models.Model):
+class Deadline(models.Model):
 
     penalty_choices = [
         ('Half', 'Half XP loose'),

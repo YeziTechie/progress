@@ -1,12 +1,12 @@
 from django.urls import path
-from .views.outcome_list import OutcomeListGenericView
+from .views.outcome_list import OutcomeListView
 from .views.create_outcome import OutcomeCreateView
 from .views.delete_outcome import OutcomeDeleteView
 from .views.outcome_detail import OutcomeDetailView
 
 urlpatterns = [
-    path('', OutcomeListGenericView.as_view(), name='outcome_list'),
+    path('', OutcomeListView.as_view(), name='outcome_list'),
     path('create/', OutcomeCreateView.as_view(), name='outcome_create'),
-    path('delete/<int:pk>/', OutcomeDeleteView.as_view(), name='outcome_delete'),
-    path('detail/<int:pk>/', OutcomeDetailView.as_view(), name='outcome_detail'),
+    path('<int:pk>/delete/', OutcomeDeleteView.as_view(), name='outcome_delete'),
+    path('<int:pk>/detail/', OutcomeDetailView.as_view(), name='outcome_detail'),
 ]

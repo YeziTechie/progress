@@ -2,7 +2,7 @@ from django.db import models
 import datetime
 
 
-class ClassicTask(models.Model):
+class Classic(models.Model):
 
     outcome = models.ForeignKey(
         'abilities.Outcome',

@@ -3,7 +3,7 @@ import datetime
 from django.db import models
 
 
-class CountTask(models.Model):
+class Count(models.Model):
     outcome = models.ForeignKey(
         'abilities.Outcome',
         models.SET_NULL,

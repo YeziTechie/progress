@@ -1,10 +1,11 @@
 from django.views.generic.edit import CreateView
-from tasks.models.classic_task import ClassicTask
-from tasks.forms.classic_task import ClassicTaskCreateForm
+
+from tasks.models.classic import Classic
+from tasks.forms.classic import ClassicCreateForm
 
 
-class ClassicTaskCreateView(CreateView):
-    model = ClassicTask
-    form_class = ClassicTaskCreateForm
-    template_name = 'classic_task/create_task.html'
+class ClassicCreateView(CreateView):
+    model = Classic
+    form_class = ClassicCreateForm
+    template_name = 'classic/create_task.html'
     success_url = ''

@@ -1,11 +1,11 @@
 from django.views.generic.edit import CreateView
 
-from tasks.models.deadline_task import DeadlineTask
-from tasks.forms.deadline_task import DeadlineTaskCreateForm
+from tasks.models.deadline import Deadline
+from tasks.forms.deadline import DeadlineCreateForm
 
 
-class DeadlineTaskCreateView(CreateView):
-    model = DeadlineTask
-    form_class = DeadlineTaskCreateForm
-    template_name = 'deadline_task/create_task.html'
+class DeadlineCreateView(CreateView):
+    model = Deadline
+    form_class = DeadlineCreateForm
+    template_name = 'deadline/create_task.html'
     success_url = '/'

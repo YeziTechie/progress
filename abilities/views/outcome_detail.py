@@ -1,6 +1,6 @@
 from django.views.generic import DetailView
 from abilities.models.outcome import Outcome
-from tasks.models.classic_task import ClassicTask
+from tasks.models.classic import Classic
 
 
 class OutcomeDetailView(DetailView):
@@ -10,6 +10,6 @@ class OutcomeDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         outcome = context['outcome']
-        classic_tasks = ClassicTask.objects.filter(outcome=outcome)
+        classics = Classic.objects.filter(outcome=outcome)
 
-        return {'outcome': outcome, 'classic_tasks': classic_tasks}
+        return {'outcome': outcome, 'classics': classics}

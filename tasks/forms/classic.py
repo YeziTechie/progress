@@ -1,17 +1,17 @@
 from django import forms
 
-from tasks.models.classic_task import ClassicTask
+from tasks.models.classic import Classic
 
 
-class ClassicTaskCreateForm(forms.ModelForm):
+class ClassicCreateForm(forms.ModelForm):
     class Meta:
-        model = ClassicTask
+        model = Classic
         fields = ['outcome', 'description', 'xp']
 
 
-class ClassicTaskUpdateForm(forms.ModelForm):
+class ClassicUpdateForm(forms.ModelForm):
     class Meta:
-        model = ClassicTask
+        model = Classic
         fields = [
             'report'
         ]

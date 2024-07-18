@@ -1,9 +1,9 @@
 from django.views import generic
 
-from tasks.models.classic_task import ClassicTask
+from tasks.models.classic import Classic
 
 
-class ClassicTaskListView(generic.ListView):
-    model = ClassicTask
-    template_name = 'classic_task/tasks_list.html'
+class ClassicListView(generic.ListView):
+    model = Classic
+    template_name = 'classic/tasks_list.html'
     context_object_name = 'classic_tasks'

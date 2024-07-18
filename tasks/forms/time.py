@@ -1,13 +1,13 @@
 from django import forms
 
-from tasks.models.time_task import TimeTask
+from tasks.models.time import Time
 
 
-class TimeTaskCreateForm(forms.ModelForm):
+class TimeCreateForm(forms.ModelForm):
     class Meta:
-        model = TimeTask
+        model = Time
         fields = ['outcome', 'description', 'xp']
 
 
-class TimeTaskUpdateForm(forms.Form):
+class TimeUpdateForm(forms.Form):
     time = forms.CharField(label='time', max_length=5)

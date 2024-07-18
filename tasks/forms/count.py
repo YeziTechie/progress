@@ -1,13 +1,13 @@
 from django import forms
 
-from tasks.models.count_task import CountTask
+from tasks.models.count import Count
 
 
-class CountTaskCreateForm(forms.ModelForm):
+class CountCreateForm(forms.ModelForm):
     class Meta:
-        model = CountTask
+        model = Count
         fields = ['outcome', 'description', 'xp']
 
 
-class CountTaskUpdateForm(forms.Form):
+class CountUpdateForm(forms.Form):
     count = forms.CharField(label='count', max_length=5)

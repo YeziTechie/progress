@@ -3,7 +3,7 @@ import datetime
 from django.db import models
 
 
-class TimeTask(models.Model):
+class Time(models.Model):
     outcome = models.ForeignKey(
         'abilities.Outcome',
         models.SET_NULL,

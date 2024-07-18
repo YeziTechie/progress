@@ -1,10 +1,11 @@
 from django import forms
-from tasks.models.deadline_task import DeadlineTask
+
+from tasks.models.deadline import Deadline
 
 
-class DeadlineTaskCreateForm(forms.ModelForm):
+class DeadlineCreateForm(forms.ModelForm):
     class Meta:
-        model = DeadlineTask
+        model = Deadline
         fields = ['description', 'xp', 'penalty', 'deadline_date', 'duration_days', 'duration_hours']
         widgets = {
             'deadline_date': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
@@ -25,18 +26,13 @@ class DeadlineTaskCreateForm(forms.ModelForm):
         return cleaned_data
 
 
-class DeadlineTaskUpdateForm(forms.ModelForm):
+class DeadlineUpdateForm(forms.ModelForm):
     class Meta:
-        model = DeadlineTask
+        model = Deadline
         fields = ['report']
 
 
-class DeadlineTaskAbortForm(forms.ModelForm):
+class DeadlineAbortForm(forms.ModelForm):
     class Meta:
-        model = DeadlineTask
+        model = Deadline
         fields = ['is_aborted']
-
-class DeadlineTaskUpdateForm(forms.ModelForm):
-    class Meta:
-        model = DeadlineTask
-        fields = ['report']

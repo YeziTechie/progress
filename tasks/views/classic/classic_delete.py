@@ -1,9 +1,10 @@
-from django.views import generic
-from tasks.models.classic_task import ClassicTask
+from django.views.generic import DeleteView
+
+from tasks.models.classic import Classic
 
 
-class ClassicTaskDeleteView(generic.DeleteView):
-    model = ClassicTask
-    context_object_name = 'classic_task'
-    template_name = 'classic_task/delete_task.html'
+class ClassicDeleteView(DeleteView):
+    model = Classic
+    context_object_name = 'classic'
+    template_name = 'classic/delete_task.html'
     success_url = ''

@@ -2,15 +2,15 @@ from django.shortcuts import render, redirect
 from django.urls import path
 from django.contrib import admin
 
-from .models.classic_task import ClassicTask
-from .models.count_task import CountTask
-from .models.time_task import TimeTask
-from .models.deadline_task import DeadlineTask
+from .models.classic import Classic
+from .models.count import Count
+from .models.time import Time
+from .models.deadline import Deadline
 
 from abilities.models.outcome import Outcome
 
 
-class ClassicTaskAdmin(admin.ModelAdmin):
+class ClassicAdmin(admin.ModelAdmin):
     list_display = [
         'outcome',
         'description',
@@ -30,7 +30,7 @@ class ClassicTaskAdmin(admin.ModelAdmin):
             outcome_id = request.POST.get('outcome')
             task_ids = request.POST.get('tasks').split(',')
             new_outcome = Outcome.objects.get(pk=outcome_id)
-            tasks = ClassicTask.objects.filter(id__in=task_ids)
+            tasks = Classic.objects.filter(id__in=task_ids)
             tasks.update(outcome=new_outcome)
             self.message_user(request, "Selected tasks have been reassigned.")
             return redirect('..')
@@ -82,7 +82,7 @@ class ClassicTaskAdmin(admin.ModelAdmin):
     ]
 
 
-class CountTaskAdmin(admin.ModelAdmin):
+class CountAdmin(admin.ModelAdmin):
     list_display = [
         'outcome',
         'description',
@@ -91,7 +91,7 @@ class CountTaskAdmin(admin.ModelAdmin):
     ]
 
 
-class TimeTaskAdmin(admin.ModelAdmin):
+class TimeAdmin(admin.ModelAdmin):
     list_display = [
         'outcome',
         'description',
@@ -100,7 +100,7 @@ class TimeTaskAdmin(admin.ModelAdmin):
     ]
 
 
-class DeadlineTaskAdmin(admin.ModelAdmin):
+class DeadlineAdmin(admin.ModelAdmin):
     list_display = [
         'outcome',
         'description',
@@ -109,7 +109,7 @@ class DeadlineTaskAdmin(admin.ModelAdmin):
     ]
 
 
-admin.site.register(ClassicTask, ClassicTaskAdmin)
-admin.site.register(CountTask, CountTaskAdmin)
-admin.site.register(TimeTask, TimeTaskAdmin)
-admin.site.register(DeadlineTask, DeadlineTaskAdmin)
+admin.site.register(Classic, ClassicAdmin)
+admin.site.register(Count, CountAdmin)
+admin.site.register(Time, TimeAdmin)
+admin.site.register(Deadline, DeadlineAdmin)

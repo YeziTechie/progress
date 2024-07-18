@@ -1,11 +1,11 @@
 from django.views.generic.edit import CreateView
 
-from tasks.models.time_task import TimeTask
-from tasks.forms.time_task import TimeTaskCreateForm
+from tasks.models.time import Time
+from tasks.forms.time import TimeCreateForm
 
 
-class TimeTaskCreateView(CreateView):
-    model = TimeTask
-    form_class = TimeTaskCreateForm
-    template_name = 'time_task/create_task.html'
+class TimeCreateView(CreateView):
+    model = Time
+    form_class = TimeCreateForm
+    template_name = 'time/create_task.html'
     success_url = '/'
