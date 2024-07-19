@@ -14,8 +14,8 @@ class DeadlineRepeatView(FormView):
         obj = get_object_or_404(Deadline, pk=self.kwargs['pk'])
         if obj.is_time_over():
             date = form.cleaned_data.get('deadline_date')
-            print(date)
             obj.deadline_date = date
+            obj.penalty_xp += obj.xp * obj.penalty
             obj.save()
             return redirect(self.success_url)
         else:
