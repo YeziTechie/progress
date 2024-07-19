@@ -1,4 +1,3 @@
-from datetime import timedelta
 from django.utils import timezone
 
 from django.db import models
@@ -26,25 +25,15 @@ class Deadline(models.Model):
     penalty_xp = models.IntegerField(default=0)
     report = models.CharField(max_length=1024, null=True, blank=True)
     penalty = models.IntegerField(choices=penalty_choices, default=1)
-
     deadline_date = models.DateTimeField(null=True, blank=True)
-    duration_days = models.IntegerField(null=True, blank=True)
-    duration_hours = models.IntegerField(null=True, blank=True)
-
     is_done = models.BooleanField(default=False)
     is_aborted = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
-
-    def save(self, *args, **kwargs):
-        if not self.deadline_date and (self.duration_days or self.duration_hours):
-            now = timezone.now()
-            days = self.duration_days or 0
-            hours = self.duration_hours or 0
-            self.deadline_date = now + timedelta(days=days, hours=hours)
-        super().save(*args, **kwargs)
 
     def __str__(self):
         return f'{self.description} (due {self.deadline_date})'
 
     def is_time_over(self):
+        if self.deadline_date is None:
+            return False
         return self.deadline_date < timezone.now()

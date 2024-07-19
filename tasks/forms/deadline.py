@@ -1,12 +1,17 @@
+from datetime import timedelta
+from django.utils import timezone
+
 from django import forms
 
 from tasks.models.deadline import Deadline
 
 
 class DeadlineCreateForm(forms.ModelForm):
+    deadline_days = forms.IntegerField(required=False)
+    deadline_hours = forms.IntegerField(required=False)
     class Meta:
         model = Deadline
-        fields = ['description', 'xp', 'penalty', 'deadline_date', 'duration_days', 'duration_hours']
+        fields = ['description', 'xp', 'penalty', 'deadline_date']
         widgets = {
             'deadline_date': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
         }
@@ -23,6 +28,12 @@ class DeadlineCreateForm(forms.ModelForm):
         if deadline_date and (duration_days is not None or duration_hours is not None):
             raise forms.ValidationError("You can only specify a deadline date or a duration, not both.")
 
+        if not deadline_date and (duration_days or duration_hours):
+            now = timezone.now()
+            days = duration_days or 0
+            hours = duration_hours or 0
+            cleaned_data.deadline_date = now + timedelta(days=days, hours=hours)
+
         return cleaned_data
 
 
@@ -31,3 +42,35 @@ class DeadlineUpdateForm(forms.ModelForm):
         model = Deadline
         fields = ['report']
 
+
+class DeadlineRepeatForm(forms.ModelForm):
+    days = forms.IntegerField(required=False)
+    hours = forms.IntegerField(required=False)
+
+    class Meta:
+        model = Deadline
+        fields = ['deadline_date', 'days', 'hours']
+        widgets = {
+            'deadline_date': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
+        }
+
+    def clean(self):
+        cleaned_data = super().clean()
+        deadline_date = cleaned_data.get('deadline_date')
+        days = cleaned_data.get('days')
+        hours = cleaned_data.get('hours')
+
+        if not deadline_date and (days is None and hours is None):
+            raise forms.ValidationError("You must specify either a deadline date or a duration.")
+
+        if deadline_date and (days is not None or hours is not None):
+            raise forms.ValidationError("You can only specify a deadline date or a duration, not both.")
+
+        if not deadline_date and (days or hours):
+            now = timezone.now()
+            days = days or 0
+            hours = hours or 0
+            deadline_date = now + timedelta(days=days, hours=hours)
+
+        cleaned_data['deadline_date'] = deadline_date
+        return cleaned_data

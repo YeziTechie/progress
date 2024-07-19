@@ -30,17 +30,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1']
 
-
-# Time zone and stuff
-# Get the server's local timezone
-
-local_tz = datetime.now(pytz.timezone('Asia/Tehran')).strftime('%Z%z')
-
-# Use the local timezone for TIME_ZONE setting
-TIME_ZONE = local_tz if local_tz else 'Asia/Tehran'
-USE_TZ = True
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -125,7 +114,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+local_tz = datetime.now(pytz.timezone('Asia/Tehran')).strftime('%Z%z')
+
+TIME_ZONE = 'Asia/Tehran'
 
 USE_I18N = True
 
