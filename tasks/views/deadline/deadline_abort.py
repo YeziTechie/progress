@@ -7,12 +7,13 @@ from tasks.forms.deadline import DeadlineAbortForm
 
 class DeadlineAbortView(FormView):
     form_class = DeadlineAbortForm
-    template_name = 'deadline/Abort.html'
+    template_name = 'deadline/abort.html'
     success_url = '/'
 
     def form_valid(self, form):
         deadline = get_object_or_404(Deadline, pk=self.kwargs['pk'])
         deadline.is_aborted = True
+        deadline.penalty_xp = deadline.penalty_xp + deadline.xp * deadline.penalty
         deadline.save()
         return redirect('outcome_list')
 

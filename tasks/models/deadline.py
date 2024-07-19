@@ -7,10 +7,10 @@ from django.db import models
 class Deadline(models.Model):
 
     penalty_choices = [
-        ('Half', 'Half XP loose'),
-        ('Equal', 'Equal XP loose'),
-        ('Double', 'Double XP loose'),
-        ('Fourfold', 'Four fold XP loose'),
+        (0.5, 'Half XP loose'),
+        (1, 'Equal XP loose'),
+        (2, 'Double XP loose'),
+        (4, 'Four fold XP loose'),
     ]
 
     outcome = models.ForeignKey(
@@ -24,8 +24,8 @@ class Deadline(models.Model):
     description = models.CharField(max_length=512)
     xp = models.IntegerField(default=0)
     penalty_xp = models.IntegerField(default=0)
-    report = models.CharField(max_length=1024, null=True)
-    penalty = models.CharField(choices=penalty_choices, max_length=32)
+    report = models.CharField(max_length=1024, null=True, blank=True)
+    penalty = models.IntegerField(choices=penalty_choices, default=1)
 
     deadline_date = models.DateTimeField(null=True, blank=True)
     duration_days = models.IntegerField(null=True, blank=True)

@@ -17,14 +17,17 @@ tasks {
 	42 day task
 	    defining a foreign key table for each day of the 42 day and checking for each day, if done, xp is added, if not,
 	    xp is lost.
+
 	a task which has a time limit.
-		actions when the time limist is reached:
-			reducing xp either doubly, half, or just itself)
-			    done
-			        write report and update as done
-			    undone
-                    repeating it
-                    aborting it
+        update before time gets over
+            simple update with report
+        update after time gets over
+            update as done with report
+            abort task, beacuse is undone, and would not like to do anymore
+                adding reduce xp
+            repeat task
+                updating the time, all other fields are the same
+                adding reduce xp
 
 	detailed task: a task which is defined, and certain other things that are defined for it, can be checked as true or false, add or remove xp accordingly.
 

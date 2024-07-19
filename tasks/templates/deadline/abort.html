@@ -77,15 +77,16 @@
 {% block content %}
     <div class="box">
         <div class="container">
-            <h1 class="title">DeadLine Task ->  {{ obj.description }}</h1>
-            <p> what you shall do with the task now? </p>
+            <h1 class="title">DeadLine Task ->  {{ deadline.description }}</h1>
+            <p> Update as Abort </p>
             <div class="form-container">
-                {% if obj.is_time_over == True %}
-                <button>Abort task</button>
-                <button>Repeat again</button>
-                {% else %}
-                <button>Update as done</button>
-                {% endif %}
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                    <div class="form-submit">
+                        <button type="submit" class="btn">Update</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
