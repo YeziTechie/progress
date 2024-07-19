@@ -1,24 +1,22 @@
 from django.views.generic import FormView
-from django.shortcuts import redirect, get_object_or_404
+from django.views import View
+from django.shortcuts import redirect, get_object_or_404, render
+from django.urls import reverse
 
 from tasks.models.deadline import Deadline
-from tasks.forms.deadline import DeadlineAbortForm
 
 
-class DeadlineAbortView(FormView):
-    form_class = DeadlineAbortForm
-    template_name = 'deadline/abort.html'
-    success_url = '/'
-
-    def form_valid(self, form):
+class DeadlineAbortView(View):
+    def post(self, request, *args, **kwargs):
         deadline = get_object_or_404(Deadline, pk=self.kwargs['pk'])
-        deadline.is_aborted = True
-        deadline.penalty_xp = deadline.penalty_xp + deadline.xp * deadline.penalty
-        deadline.save()
-        return redirect('outcome_list')
+        if deadline.is_aborted is False:
+            deadline.is_aborted = True
+            deadline.penalty_xp += deadline.xp * deadline.penalty
+            deadline.save()
+            return redirect(reverse('outcome_list'))
+        else:
+            raise Exception("this task is already aborted".title())
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
+    def get(self, request, *args, **kwargs):
         deadline = get_object_or_404(Deadline, pk=self.kwargs['pk'])
-        context['deadline'] = deadline
-        return context
+        return render(request, 'deadline/abort.html', {'deadline': deadline})

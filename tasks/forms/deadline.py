@@ -31,8 +31,3 @@ class DeadlineUpdateForm(forms.ModelForm):
         model = Deadline
         fields = ['report']
 
-
-class DeadlineAbortForm(forms.ModelForm):
-    class Meta:
-        model = Deadline
-        fields = ['is_aborted']
