@@ -1,6 +1,5 @@
 from datetime import timedelta
 from django.utils import timezone
-
 from django import forms
 
 from tasks.models.deadline import Deadline
@@ -9,6 +8,7 @@ from tasks.models.deadline import Deadline
 class DeadlineCreateForm(forms.ModelForm):
     deadline_days = forms.IntegerField(required=False)
     deadline_hours = forms.IntegerField(required=False)
+
     class Meta:
         model = Deadline
         fields = ['description', 'xp', 'penalty', 'deadline_date']
