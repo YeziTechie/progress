@@ -1,154 +1,139 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../style/navbar.css">
-    <link rel="stylesheet" href="../style/base.css">
+{% extends 'base.html' %}
+{% load static %}
 
-    <link rel="stylesheet" href="../style/index/status.css">
-    <link rel="stylesheet" href="../style/index/tasks.css">
-    <link rel="stylesheet" href="../style/index/outcomes.css">
-  </head>
-  <body>
+{% block title %}
+Targoon's Profile
+{% endblock %}
 
-    <div class="js-navbar-button navbar-button"></div>
 
-    <a href="">
-      <div class="js-navbar-tasks navbar-tasks">
-        <p class="navbar-text">Tasks</p>
-      </div>
-    </a>
-    <a href=""><div class="js-navbar-profile navbar-profile">
-      <p class="navbar-text">Profile</p>
+{% block styles %}
+<link rel="stylesheet" href="../style/index/status.css">
+<link rel="stylesheet" href="../style/index/tasks.css">
+<link rel="stylesheet" href="../style/index/outcomes.css">
+{% endblock %}
+
+
+{% block body %} 
+<div class="status">
+
+  <div class="side-status">
+    <div class="first-row">
+      <span class="infograph" style="margin-right:20px;border-left:1px solid var(--theme-color);">Tasks Aborted: 10</span>
+      <span class="infograph" >Tasks Failed: 3</span>
     </div>
-    </a>
-    <a href=""><div class="js-navbar-outcomes navbar-outcomes">
-      <p class="navbar-text">Outcomes</p>
+    <div class="other-row">
+      <p>Last outcome created: 3 day</p>
     </div>
-    </a>
-
-
-    <div class="status">
-
-      <div class="side-status">
-        <div class="first-row">
-          <span class="infograph" style="margin-right:20px;border-left:1px solid var(--theme-color);">Tasks Aborted: 10</span>
-          <span class="infograph" >Tasks Failed: 3</span>
-        </div>
-        <div class="other-row">
-          <p>Last outcome created: 3 day</p>
-        </div>
-        <div class="other-row">
-          <p>Tasks done in previous month: 30 </p>
-        </div>
-        <div class="other-row" style="border-bottom: solid 1px var(--theme-color);">
-          <p>Task done strike in a day: 13</p>
-        </div>
-      </div>
-
-      <div class="middle-status">
-        <div class="level chaotic-box-shadow">
-          <span class="level-number chaotic-font-color ">20</span>
-        </div>
-        <div class="xp-bar">
-          <div class="xp-bar-filled chaotic-bg-color"></div>
-          <span class="xp-number">103 / 510</span>
-          <div class="xp-bar-remaining"></div>
-        </div>
-        <div class="create-button">
-          <div class="btn">New Task</div>
-          <div class="btn">New Outcome</div>
-        </div>
-      </div>
-     
-      <div class="side-status">
-        <div class="first-row">
-          <span class="infograph" style="margin-right:20px;">Tasks Aborted: 10</span>
-          <span class="infograph" style="border-right:1px solid var(--theme-color);">Tasks Failed: 3</span>
-        </div>
-        <div class="other-row">
-          <p>Last outcome created: 3 day</p>
-        </div>
-        <div class="other-row">
-          <p>Tasks done in previous month: 30 </p>
-        </div>
-        <div class="other-row" style="border-bottom: solid 1px var(--theme-color);">
-          <p>Task done strike in a day: 13</p>
-        </div>
-      </div>
-
+    <div class="other-row">
+      <p>Tasks done in previous month: 30 </p>
     </div>
-
-    <div class="tasks">
-
-      <div class="task">
-        <div class="task-header">
-          <div class="task-outcome">
-            <p>Acquire Magickal Skills and Self Mastery </p>
-          </div>
-          <div class="task-info">
-            <p class="task-xp">XP: 40</p>
-            <p class="task-created-at">3 days</p>
-          </div>
-        </div>
-        <div class="task-description">
-          <p>Do the drawing concentration loveingfuly wihtout bothering anyone</p>
-        </div>
-      </div>
-      
-      <div class="task">
-        <div class="task-header">
-          <div class="task-outcome">
-            <p>Acquire Magickal Skills and Self Mastery </p>
-          </div>
-          <div class="task-info">
-            <p class="task-xp">XP: 40</p>
-            <p class="task-created-at">3 days</p>
-          </div>
-        </div>
-        <div class="task-description">
-          <p>Do the drawing concentration loveingfuly wihtout bothering anyone</p>
-        </div>
-      </div>
-      
-      <div class="task">
-        <div class="task-header">
-          <div class="task-outcome">
-            <p>Acquire Magickal Skills and Self Mastery </p>
-          </div>
-          <div class="task-info">
-            <p class="task-xp">XP: 40</p>
-            <p class="task-created-at">3 days</p>
-          </div>
-        </div>
-        <div class="task-description">
-          <p>Do the drawing concentration loveingfuly wihtout bothering anyone</p>
-        </div>
-      </div>
-      
+    <div class="other-row" style="border-bottom: solid 1px var(--theme-color);">
+      <p>Task done strike in a day: 13</p>
     </div>
+  </div>
 
-    <div class="outcomes">
-      <div class="outcome">
-        <div class="tasks-undone chaotic-font-color chaotic-bg-color">8</div>
-        <div class="outcome-name">Master Thyself</div>
-      </div>
-
-      <div class="outcome">
-        <div class="tasks-undone chaotic-font-color chaotic-bg-color">8</div>
-        <div class="outcome-name">learn front end</div>
-      </div>
-
-      <div class="outcome">
-        <div class="tasks-undone chaotic-font-color chaotic-bg-color">8</div>
-        <div class="outcome-name">protect the nature</div>
-      </div>
-
+  <div class="middle-status">
+    <div class="level chaotic-box-shadow">
+      <span class="level-number chaotic-font-color ">20</span>
     </div>
+    <div class="xp-bar">
+      <div class="xp-bar-filled chaotic-bg-color"></div>
+      <span class="xp-number">103 / 510</span>
+      <div class="xp-bar-remaining"></div>
+    </div>
+    <div class="create-button">
+      <div class="btn">New Task</div>
+      <div class="btn">New Outcome</div>
+    </div>
+  </div>
+ 
+  <div class="side-status">
+    <div class="first-row">
+      <span class="infograph" style="margin-right:20px;">Tasks Aborted: 10</span>
+      <span class="infograph" style="border-right:1px solid var(--theme-color);">Tasks Failed: 3</span>
+    </div>
+    <div class="other-row">
+      <p>Last outcome created: 3 day</p>
+    </div>
+    <div class="other-row">
+      <p>Tasks done in previous month: 30 </p>
+    </div>
+    <div class="other-row" style="border-bottom: solid 1px var(--theme-color);">
+      <p>Task done strike in a day: 13</p>
+    </div>
+  </div>
 
-    <script src="../script/navbar.js"></script>
-    <script src="../script/profile/general.js"></script>
-  </body>
-</html>
+</div>
+
+<div class="tasks">
+
+  <div class="task">
+    <div class="task-header">
+      <div class="task-outcome">
+        <p>Acquire Magickal Skills and Self Mastery </p>
+      </div>
+      <div class="task-info">
+        <p class="task-xp">XP: 40</p>
+        <p class="task-created-at">3 days</p>
+      </div>
+    </div>
+    <div class="task-description">
+      <p>Do the drawing concentration loveingfuly wihtout bothering anyone</p>
+    </div>
+  </div>
+  
+  <div class="task">
+    <div class="task-header">
+      <div class="task-outcome">
+        <p>Acquire Magickal Skills and Self Mastery </p>
+      </div>
+      <div class="task-info">
+        <p class="task-xp">XP: 40</p>
+        <p class="task-created-at">3 days</p>
+      </div>
+    </div>
+    <div class="task-description">
+      <p>Do the drawing concentration loveingfuly wihtout bothering anyone</p>
+    </div>
+  </div>
+  
+  <div class="task">
+    <div class="task-header">
+      <div class="task-outcome">
+        <p>Acquire Magickal Skills and Self Mastery </p>
+      </div>
+      <div class="task-info">
+        <p class="task-xp">XP: 40</p>
+        <p class="task-created-at">3 days</p>
+      </div>
+    </div>
+    <div class="task-description">
+      <p>Do the drawing concentration loveingfuly wihtout bothering anyone</p>
+    </div>
+  </div>
+  
+</div>
+
+<div class="outcomes">
+  <div class="outcome">
+    <div class="tasks-undone chaotic-font-color chaotic-bg-color">8</div>
+    <div class="outcome-name">Master Thyself</div>
+  </div>
+
+  <div class="outcome">
+    <div class="tasks-undone chaotic-font-color chaotic-bg-color">8</div>
+    <div class="outcome-name">learn front end</div>
+  </div>
+
+  <div class="outcome">
+    <div class="tasks-undone chaotic-font-color chaotic-bg-color">8</div>
+    <div class="outcome-name">protect the nature</div>
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+<script src="../script/profile/general.js"></script>
+{% endblock %}

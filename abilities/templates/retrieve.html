@@ -28,485 +28,507 @@
     <a href=""><div class="js-navbar-outcomes navbar-outcomes">
       <p class="navbar-text">Outcomes</p>
     </div>
-    </a>
+    </a>{% extends 'base.html' %}
+{% load static %}
 
-    <div class="container">
-      <!-- page header -->
-      <div class="header">
-        <div class="outcome-detail">
-          <div class="first-row">
-            <div class="first-column">
-              <div class="buttons">
-                <div class="update">Hide</div>
-                <div class="delete">Delete</div>
-              </div>
-              <div class="level">14</div>
-            </div>
+{% block title %}
+Master Thyself
+{% endblock %}
 
 
-            <div class="second-column">
-              <div class="dates">
-                <div class="created">Created: 2022/12/32</div>
-                <div class="achieved">Achieved: 2022/12/32</div>
-
-                <div class="xp-bar">
-                  <div class="xp-bar-filled"></div>
-                  <div class="xp-number">103 / 510</div>
-                  <div class="xp-bar-remaining"></div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-          <div class="second-row">
-            <div>Tasks Done: 55</div>
-            <div>Tasks Undone: 22</div>
-          </div>
-        </div>
-
-        <div class="outcome-name">
-          <div class="create-btn">
-            Set As Achieved
-          </div>
-          <div class="text">Master Thyself</div>
-        </div>
-      </div>
-      <!-- questions -->
-      <div class="question-buttons">
-        <div class="btn-1 btn-1-js">Internal Ecology</div>
-        <div class="btn-2 btn-2-js">Outcome Questions</div>
-        <div class="btn-3 btn-3-js">External Ecology</div>
-      </div>
+{% block styles %}
+<link rel="stylesheet" href="/style/outcome/retreive/main.css">
+<link rel="stylesheet" href="/style/outcome/retreive/buttons.css">
+<link rel="stylesheet" href="/style/outcome/retreive/header.css">
+<link rel="stylesheet" href="/style/outcome/retreive/questions.css">
+<link rel="stylesheet" href="/style/outcome/retreive/tasks.css">
+{% endblock %}
 
 
-      <!-- Internal ecoology questions  -->
-      <div class="questions js-1">
-        <div class="header">
-          <div class="title"><h2>Internal Ecology Questions</h2></div>
-          <div class="btn"><button class='update'>Update</button></div>
-        </div>
-
-        <div class="content">
-         <div class="question">
-            <div class="question-text">
-              1. What are the wider consequences of my action?
-            </div>
-            <div class="line"></div>
-            <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
-            </div>
-          </div>
-
-          <div class="question">
-            <div class="question-text">
-              2. What will I lose if I make this change?
-            </div>
-            <div class="line"></div>
-            <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
-            </div>
-          </div>
-
-          <div class="question">
-            <div class="question-text">
-              3. What extra will I have to do? 
-            </div>
-            <div class="line"></div>
-            <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
-            </div>
-          </div>
-
-          <div class="question">
-            <div class="question-text">
-              4. Is it worth it?
-            </div>
-            <div class="line"></div>
-            <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
-            </div>
-          </div>
-
-          <div class="question">
-            <div class="question-text">
-              5. What will I gain if I make this change? 
-            </div>
-            <div class="line"></div>
-            <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
-            </div>
-          </div>
-
-          <div class="question">
-            <div class="question-text">
-              6. What is the price of making this chagne and am I willing to pay it? 
-            </div>
-            <div class="line"></div>
-            <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- outcome questions -->
-      <div class="questions js-2">
-        <div class="header">
-          <div class="title"><h2>Outcome Questions</h2></div>
-          <div class="btn"><button class='update'>Update</button></div>
-        </div>
-
-        <div class="content">
-
-          <div class="question">
-            <div class="question-text">
-              1. Positive: What do you want?
-            </div>
-            <div class="line"></div>
-            <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
-            </div>
-          </div>
-
-          <div class="question">
-            <div class="question-text">
-              2. Evidence: How will you know you are succeeding/have succeeded?
-            </div>
-            <div class="line"></div>
-            <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
-            </div>
-          </div>
-
-          <div class="question">
-            <div class="question-text">
-              3. Specifics: Where, when and with whom?
-            </div>
-            <div class="line"></div>
-            <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
-            </div>
-          </div>
-
-          <div class="question">
-            <div class="question-text">
-              4. Resources: What resources do you have?
-            </div>
-            <div class="line"></div>
-            <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
-            </div>
-          </div>
-
-          <div class="question">
-            <div class="question-text">
-              5. Control: Can you start and maintain this outcome?
-            </div>
-            <div class="line"></div>
-            <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
-            </div>
-          </div>
-
-          <div class="question">
-            <div class="question-text">
-              6. Identity: Is this outcome inkeeping with who you are?
-            </div>
-            <div class="line"></div>
-            <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
-            </div>
-          </div>
-
-          <div class="question">
-            <div class="question-text">
-              7. How do your outcomes fit together?
-            </div>
-            <div class="line"></div>
-            <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
-            </div>
-          </div>
-
-          <div class="question">
-            <div class="question-text">
-              8. Action plan: What to do next?
-            </div>
-            <div class="line"></div>
-            <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
-            </div>
-          </div>
-
-        </div>
-      </div>
-      
-      <!-- external ecology questions  -->
-      <div class="questions js-3">
-        <div class="header">
-          <div class="title"><h2>External Ecology Questions</h2></div>
-          <div class="btn"><button class='update'>Update</button></div>
-        </div>
-
-        <div class="content">
-
-          <div class="question">
-            <div class="question-text">
-              1. How will you change affect them?
-            </div>
-            <div class="line"></div>
-            <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
-            </div>
-          </div>
-
-          <div class="question">
-            <div class="question-text">
-              2. Does it goes against any of their values? 
-            </div>
-            <div class="line"></div>
-            <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
-            </div>
-          </div>
-
-          <div class="question">
-            <div class="question-text">
-              3. Does this matter? 
-            </div>
-            <div class="line"></div>
-            <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
-            </div>
-          </div>
-
-          <div class="question">
-            <div class="question-text">
-              4. How will they react?
-            </div>
-            <div class="line"></div>
-            <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-
-      <!-- tasks -->
-      <div class="tasks">
-        <div class="title"><h1>Tasks</h1></div>
-        <div class="task-buttons">
-          <div class="classic classic-btn-js">Classic</div>
-          <div class="time time-btn-js">Time</div>
-          <div class="count count-btn-js">Count</div>
-          <div class="deadline deadline-btn-js">Deadline</div>
-        </div>
-      </div>
-      
-      <!-- time task -->
-      <div class="time-task-container time-container-js">
-
-        <div class="task">
-          <div class="header">
-            <div class="date">
-              2232/23/12 - 12:22:02
-            </div>
-            <div class="xp">
-              <span class="num">34</span><span class="text chaotic-font-color"> XP</span>
-            </div>
-          </div>
-          <div class="desc">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora vitae odio molestiae nulla hic.
-            </p>
-          </div>
-
-          <div class="status">
-            <div class="left">
-              <div class="total"><p>Total:</p></div>
-              <div class="longest"><p>Longest:</p></div>
-              <div class="last-submit"><p>Last Submit:</p></div>
-            </div>
-            <div class="right">
-              <div class="total-data"><p>245m</p></div>
-              <div class="longest-data"><p>22m</p></div>
-              <div class="last-submit-data"><p>2232/23/12 - 12:22:02</p></div>
-            </div>
-          </div>
+{% block body %}
+<div class="container">
+  <!-- page header -->
+  <div class="header">
+    <div class="outcome-detail">
+      <div class="first-row">
+        <div class="first-column">
           <div class="buttons">
+            <div class="update">Hide</div>
             <div class="delete">Delete</div>
-            <div class="create-btn delete">Submit</div>
+          </div>
+          <div class="level">14</div>
+        </div>
+
+
+        <div class="second-column">
+          <div class="dates">
+            <div class="created">Created: 2022/12/32</div>
+            <div class="achieved">Achieved: 2022/12/32</div>
+
+            <div class="xp-bar">
+              <div class="xp-bar-filled"></div>
+              <div class="xp-number">103 / 510</div>
+              <div class="xp-bar-remaining"></div>
+            </div>
+
           </div>
         </div>
       </div>
-   
-      <!-- count task -->
-      <div class="count-task-container count-container-js">
 
-        <div class="task">
-          <div class="header">
-            <div class="date">2232/23/12 - 12:22:02</div>
-            <div class="xp">
-              <span class="num">34</span>
-              <span class="text">xpph</span>
-            </div>
-          </div>
-          <div class="desc">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora vitae odio molestiae nulla hic.
-            </p>
-          </div>
-          
-          <div class="status">
-            <div class="left">
-              <div class="longest"><p>Longest:</p></div>
-              <div class="last-submit"><p>Last Submit:</p></div>
-            </div>
-            <div class="right">
-              <div class="total-data"><p>245m</p></div>
-              <div class="last-submit-data"><p>2232/23/12 - 12:22:02</p></div>
-            </div>
-          </div>
-
-          <div class="buttons">
-            <div class="delete">Delete</div>
-            <div class="create-btn delete">Submit</div>
-          </div>
-        </div>  
-
+      <div class="second-row">
+        <div>Tasks Done: 55</div>
+        <div>Tasks Undone: 22</div>
       </div>
-    
-      <!-- classic task -->
-      <div class="classic-task-container classic-container-js">
-        <div class="task">
-          <div class="header">
-            <div class="date">2232/23/12 - 12:22:02</div>
-            <div class="done-or-undone">
-              <p>Not Done Yet</p>
-            </div>
-          </div>
-          <div class="desc">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora vitae odio molestiae nulla hic.
-            </p>
-          </div>
-          
-          <div class="xp">
-            <span class="num">34</span>
-            <span class="text chaotic-font-color">XP</span>
-          </div>
-
-          <div class="buttons">
-            <div class="delete">Delete</div>
-            <div class="create-btn delete">Submit</div>
-          </div>
-        </div>
-        
-        <div class="task">
-          <div class="header">
-            <div class="date">2232/23/12 - 12:22:02</div>
-            <div class="done-or-undone">
-              <p>2232/23/12 - 12:22:02</p>
-            </div>
-          </div>
-          <div class="desc">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora vitae odio molestiae nulla hic.
-            </p>
-          </div>
-          
-          <div class="xp">
-            <span class="num">34</span>
-            <span class="text chaotic-font-color">XP</span>
-          </div>
-
-          <div class="report desc">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora vitae odio molestiae nulla hic.
-            </p>
-          </div>
-        </div>  
-      </div>
-
-      <!--  deadline task -->
-      <div class="deadline-task-container deadline-container-js">
-
-        <div class="task">
-          <div class="header">
-            <div class="date">2232/23/12 - 12:22:02</div>
-            <div class="failed">
-              <p>Failed: 2</p>
-            </div>
-          </div>
-          <div class="desc">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora vitae odio molestiae nulla hic.
-            </p>
-          </div>
-          
-          <div class="date">
-            <div class="title">Deadline:</div>
-            <div class="data">3031/22/12 - 12:43</div>
-          </div>
-
-          <div class="count-down">
-            <div class="days"><p>02</p></div>
-            <div class="hours"><p>02</p></div>
-            <div class="minutes"><p>02</p></div>
-          </div>
-
-          <div class="status">
-            <div class="left">
-              <div class="title"><p>Success XP:</p></div>
-              <div class="title"><p>Failure Penalty:</p></div>
-              <div class="title"><p>Current Penalty:</p></div>
-            </div>
-            <div class="right">
-              <div class="xp-gained"><p>20xp</p></div>
-              <div class="xp-lost"><p>-40xp</p></div>
-              <div class="xp-lost"><p>-40xp</p></div>
-            </div>
-          </div>
-
-          <div class="report desc">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora vitae odio molestiae nulla hic.
-            </p>
-          </div>
-
-          <div class="buttons">
-            <div class="delete">Abort</div>
-            <div class="create-btn delete">Update</div>
-          </div>
-        </div>   
-
-        <div class="task">
-          <div class="header">
-            <div class="date">2232/23/12 - 12:22:02</div>
-            <div class="done-or-undone">
-              <p>Failed: 2</p>
-            </div>
-          </div>
-          <div class="desc">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur provident beatae numquam voluptatem deleniti iusto ipsum ut ab laudantium sit, atque animi quo dolor officiis sequi nesciunt, est unde, in recusandae dicta velit maxime expedita id. Sapiente voluptate culpa, deleniti odit reprehenderit quod voluptatum fugiat iste, nemo labore quibusdam quasi.
-            </p>
-          </div>
-          
-          <div class="date">
-            <div class="title">Done At:</div>
-            <div class="data">3031/22/12 - 12:43</div>
-          </div>
-
-          <div class="status">
-            <div class="left">
-              <div class="title"><p>XP Gained:</p></div>
-              <div class="title"><p>XP Lost:</p></div>
-            </div>
-            <div class="right">
-              <div class="xp-gained"><p>20<span class="chaotic-font-color" style="transition: ease-in-out 2s;">XP</span></p></div>
-              <div class="xp-lost"><p>-40<span class="chaotic-font-color" style="transition: ease-in-out 2s;">XP</span></p></div>
-            </div>
-          </div>
-
-          <div class="report desc">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora vitae odio molestiae nulla hic.
-            </p>
-          </div>
-        </div>  
-      </div>
-      
     </div>
+
+    <div class="outcome-name">
+      <div class="create-btn">
+        Set As Achieved
+      </div>
+      <div class="text">Master Thyself</div>
+    </div>
+  </div>
+  <!-- questions -->
+  <div class="question-buttons">
+    <div class="btn-1 btn-1-js">Internal Ecology</div>
+    <div class="btn-2 btn-2-js">Outcome Questions</div>
+    <div class="btn-3 btn-3-js">External Ecology</div>
+  </div>
+
+
+  <!-- Internal ecoology questions  -->
+  <div class="questions js-1">
+    <div class="header">
+      <div class="title"><h2>Internal Ecology Questions</h2></div>
+      <div class="btn"><button class='update'>Update</button></div>
+    </div>
+
+    <div class="content">
+     <div class="question">
+        <div class="question-text">
+          1. What are the wider consequences of my action?
+        </div>
+        <div class="line"></div>
+        <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-text">
+          2. What will I lose if I make this change?
+        </div>
+        <div class="line"></div>
+        <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-text">
+          3. What extra will I have to do?
+        </div>
+        <div class="line"></div>
+        <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-text">
+          4. Is it worth it?
+        </div>
+        <div class="line"></div>
+        <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-text">
+          5. What will I gain if I make this change?
+        </div>
+        <div class="line"></div>
+        <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-text">
+          6. What is the price of making this chagne and am I willing to pay it?
+        </div>
+        <div class="line"></div>
+        <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- outcome questions -->
+  <div class="questions js-2">
+    <div class="header">
+      <div class="title"><h2>Outcome Questions</h2></div>
+      <div class="btn"><button class='update'>Update</button></div>
+    </div>
+
+    <div class="content">
+
+      <div class="question">
+        <div class="question-text">
+          1. Positive: What do you want?
+        </div>
+        <div class="line"></div>
+        <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-text">
+          2. Evidence: How will you know you are succeeding/have succeeded?
+        </div>
+        <div class="line"></div>
+        <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-text">
+          3. Specifics: Where, when and with whom?
+        </div>
+        <div class="line"></div>
+        <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-text">
+          4. Resources: What resources do you have?
+        </div>
+        <div class="line"></div>
+        <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-text">
+          5. Control: Can you start and maintain this outcome?
+        </div>
+        <div class="line"></div>
+        <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-text">
+          6. Identity: Is this outcome inkeeping with who you are?
+        </div>
+        <div class="line"></div>
+        <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-text">
+          7. How do your outcomes fit together?
+        </div>
+        <div class="line"></div>
+        <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-text">
+          8. Action plan: What to do next?
+        </div>
+        <div class="line"></div>
+        <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- external ecology questions  -->
+  <div class="questions js-3">
+    <div class="header">
+      <div class="title"><h2>External Ecology Questions</h2></div>
+      <div class="btn"><button class='update'>Update</button></div>
+    </div>
+
+    <div class="content">
+
+      <div class="question">
+        <div class="question-text">
+          1. How will you change affect them?
+        </div>
+        <div class="line"></div>
+        <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-text">
+          2. Does it goes against any of their values?
+        </div>
+        <div class="line"></div>
+        <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-text">
+          3. Does this matter?
+        </div>
+        <div class="line"></div>
+        <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-text">
+          4. How will they react?
+        </div>
+        <div class="line"></div>
+        <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- tasks -->
+  <div class="tasks">
+    <div class="title"><h1>Tasks</h1></div>
+    <div class="task-buttons">
+      <div class="classic classic-btn-js">Classic</div>
+      <div class="time time-btn-js">Time</div>
+      <div class="count count-btn-js">Count</div>
+      <div class="deadline deadline-btn-js">Deadline</div>
+    </div>
+  </div>
+
+  <!-- time task -->
+  <div class="time-task-container time-container-js">
+
+    <div class="task">
+      <div class="header">
+        <div class="date">
+          2232/23/12 - 12:22:02
+        </div>
+        <div class="xp">
+          <span class="num">34</span><span class="text chaotic-font-color"> XP</span>
+        </div>
+      </div>
+      <div class="desc">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora vitae odio molestiae nulla hic.
+        </p>
+      </div>
+
+      <div class="status">
+        <div class="left">
+          <div class="total"><p>Total:</p></div>
+          <div class="longest"><p>Longest:</p></div>
+          <div class="last-submit"><p>Last Submit:</p></div>
+        </div>
+        <div class="right">
+          <div class="total-data"><p>245m</p></div>
+          <div class="longest-data"><p>22m</p></div>
+          <div class="last-submit-data"><p>2232/23/12 - 12:22:02</p></div>
+        </div>
+      </div>
+      <div class="buttons">
+        <div class="delete">Delete</div>
+        <div class="create-btn delete">Submit</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- count task -->
+  <div class="count-task-container count-container-js">
+
+    <div class="task">
+      <div class="header">
+        <div class="date">2232/23/12 - 12:22:02</div>
+        <div class="xp">
+          <span class="num">34</span>
+          <span class="text">xpph</span>
+        </div>
+      </div>
+      <div class="desc">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora vitae odio molestiae nulla hic.
+        </p>
+      </div>
+
+      <div class="status">
+        <div class="left">
+          <div class="longest"><p>Longest:</p></div>
+          <div class="last-submit"><p>Last Submit:</p></div>
+        </div>
+        <div class="right">
+          <div class="total-data"><p>245m</p></div>
+          <div class="last-submit-data"><p>2232/23/12 - 12:22:02</p></div>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <div class="delete">Delete</div>
+        <div class="create-btn delete">Submit</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- classic task -->
+  <div class="classic-task-container classic-container-js">
+    <div class="task">
+      <div class="header">
+        <div class="date">2232/23/12 - 12:22:02</div>
+        <div class="done-or-undone">
+          <p>Not Done Yet</p>
+        </div>
+      </div>
+      <div class="desc">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora vitae odio molestiae nulla hic.
+        </p>
+      </div>
+
+      <div class="xp">
+        <span class="num">34</span>
+        <span class="text chaotic-font-color">XP</span>
+      </div>
+
+      <div class="buttons">
+        <div class="delete">Delete</div>
+        <div class="create-btn delete">Submit</div>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="header">
+        <div class="date">2232/23/12 - 12:22:02</div>
+        <div class="done-or-undone">
+          <p>2232/23/12 - 12:22:02</p>
+        </div>
+      </div>
+      <div class="desc">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora vitae odio molestiae nulla hic.
+        </p>
+      </div>
+
+      <div class="xp">
+        <span class="num">34</span>
+        <span class="text chaotic-font-color">XP</span>
+      </div>
+
+      <div class="report desc">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora vitae odio molestiae nulla hic.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!--  deadline task -->
+  <div class="deadline-task-container deadline-container-js">
+
+    <div class="task">
+      <div class="header">
+        <div class="date">2232/23/12 - 12:22:02</div>
+        <div class="failed">
+          <p>Failed: 2</p>
+        </div>
+      </div>
+      <div class="desc">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora vitae odio molestiae nulla hic.
+        </p>
+      </div>
+
+      <div class="date">
+        <div class="title">Deadline:</div>
+        <div class="data">3031/22/12 - 12:43</div>
+      </div>
+
+      <div class="count-down">
+        <div class="days"><p>02</p></div>
+        <div class="hours"><p>02</p></div>
+        <div class="minutes"><p>02</p></div>
+      </div>
+
+      <div class="status">
+        <div class="left">
+          <div class="title"><p>Success XP:</p></div>
+          <div class="title"><p>Failure Penalty:</p></div>
+          <div class="title"><p>Current Penalty:</p></div>
+        </div>
+        <div class="right">
+          <div class="xp-gained"><p>20xp</p></div>
+          <div class="xp-lost"><p>-40xp</p></div>
+          <div class="xp-lost"><p>-40xp</p></div>
+        </div>
+      </div>
+
+      <div class="report desc">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora vitae odio molestiae nulla hic.
+        </p>
+      </div>
+
+      <div class="buttons">
+        <div class="delete">Abort</div>
+        <div class="create-btn delete">Update</div>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="header">
+        <div class="date">2232/23/12 - 12:22:02</div>
+        <div class="done-or-undone">
+          <p>Failed: 2</p>
+        </div>
+      </div>
+      <div class="desc">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur provident beatae numquam voluptatem deleniti iusto ipsum ut ab laudantium sit, atque animi quo dolor officiis sequi nesciunt, est unde, in recusandae dicta velit maxime expedita id. Sapiente voluptate culpa, deleniti odit reprehenderit quod voluptatum fugiat iste, nemo labore quibusdam quasi.
+        </p>
+      </div>
+
+      <div class="date">
+        <div class="title">Done At:</div>
+        <div class="data">3031/22/12 - 12:43</div>
+      </div>
+
+      <div class="status">
+        <div class="left">
+          <div class="title"><p>XP Gained:</p></div>
+          <div class="title"><p>XP Lost:</p></div>
+        </div>
+        <div class="right">
+          <div class="xp-gained"><p>20<span class="chaotic-font-color" style="transition: ease-in-out 2s;">XP</span></p></div>
+          <div class="xp-lost"><p>-40<span class="chaotic-font-color" style="transition: ease-in-out 2s;">XP</span></p></div>
+        </div>
+      </div>
+
+      <div class="report desc">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora vitae odio molestiae nulla hic.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+<script src="/script/outcomes/retrieve.js"></script>
+{% endblock %}
+
 
     <script src="/script/navbar.js"></script>
     <script src="/script/general.js"></script>
-    <script src="/script/outcomes/retrieve.js"></script>
 
   </body>
 </html>

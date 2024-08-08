@@ -1,84 +1,70 @@
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete Count Task</title>
-    <link rel="stylesheet" href="/style/navbar.css">
-    <link rel="stylesheet" href="/style/base.css">
-    <link rel="stylesheet" href="/style/tasks/classic/create.css">
-    <link rel="stylesheet" href="/style/tasks/classic/delete.css">
-    <link rel="stylesheet" href="/style/tasks/count/delete.css">
-  </head>
-  <body>
-    <!-- Nav Bar -->
-    <div class="js-navbar-button navbar-button"></div>
-    <a href="">
-      <div class="js-navbar-tasks navbar-tasks">
-        <p class="navbar-text">Tasks</p>
-      </div>
-    </a>
-    <a href="">
-      <div class="js-navbar-profile navbar-profile">
-        <p class="navbar-text">Profile</p>
-      </div>
-    </a>
-    <a href="">
-      <div class="js-navbar-outcomes navbar-outcomes">
-        <p class="navbar-text">Outcomes</p>
-      </div>
-    </a>
+{% extends 'base.html' %}
+{% load static %}
 
-    <!-- Body Content -->
-    <div class="container">
+{% block title %}
+Delete Count Task
+{% endblock %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="/style/tasks/classic/create.css">
+<link rel="stylesheet" href="/style/tasks/classic/delete.css">
+<link rel="stylesheet" href="/style/tasks/count/delete.css">
+{% endblock %}
+
+
+{% block body %} 
+<div class="container">
       
-      <div class="page-title">
-        <h2>Delete Count Task</h2>
+  <div class="page-title">
+    <h2>Delete Count Task</h2>
+  </div>
+
+  <div class="outcome-name">
+    <h1>Master Communication Skills</h1>
+  </div>
+
+  <div class="info">
+
+    <div class="desc-xp">
+      <div class="desc"><p>Description:</p></div>
+      <div class="xp">
+        <div class="title chaotic-font-color" >XP</div>
+        <div class="amount">49</div>
+      </div>
+    </div>
+
+    <div class="desc-container">
+      <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, explicabo et! Aliquam sint distinctio adipisci doloribus iste voluptates ut perspiciatis non, ratione nobis libero, explicabo id ipsum tenetur nihil nulla.</div>
+    </div>
+
+    <div class="date">
+      <div class="the-date">
+        <div class="title"><p>Created:</p></div>
+        <div class="text"><p>2024/2/12 - 13:42</p></div>
       </div>
 
-      <div class="outcome-name">
-        <h1>Master Communication Skills</h1>
+      <div class="the-date">
+        <div class="title"><p>Last Submit:</p></div>
+        <div class="text"><p>2024/2/12 - 13:42</p></div>
       </div>
 
-      <div class="info">
+    </div>
 
-        <div class="desc-xp">
-          <div class="desc"><p>Description:</p></div>
-          <div class="xp">
-            <div class="title chaotic-font-color" >XP</div>
-            <div class="amount">49</div>
-          </div>
-        </div>
+    <div class="total-count">
+      <div class="title">Total Count:</div>
+      <div class="amount chaotic-font-color">32</div>
+    </div>
 
-        <div class="desc-container">
-          <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, explicabo et! Aliquam sint distinctio adipisci doloribus iste voluptates ut perspiciatis non, ratione nobis libero, explicabo id ipsum tenetur nihil nulla.</div>
-        </div>
+    <div class="btn">
+      <button class="delete">Delete</button>
+    </div>
 
-        <div class="date">
-          <div class="the-date">
-            <div class="title"><p>Created:</p></div>
-            <div class="text"><p>2024/2/12 - 13:42</p></div>
-          </div>
-
-          <div class="the-date">
-            <div class="title"><p>Last Submit:</p></div>
-            <div class="text"><p>2024/2/12 - 13:42</p></div>
-          </div>
-
-        </div>
-
-        <div class="total-count">
-          <div class="title">Total Count:</div>
-          <div class="amount chaotic-font-color">32</div>
-        </div>
-
-        <div class="btn">
-          <button class="delete">Delete</button>
-        </div>
-
-      </div>
+  </div>
+</div>
+{% endblock %}
 
 
-    <script src="/script/navbar.js"></script>
-    <script src="/script/general.js"></script>
-  </body>
-</html>
+{% block scripts %}
+
+{% endblock %}

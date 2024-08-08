@@ -1,130 +1,114 @@
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Repeat Deadline Task</title>
-    <link rel="stylesheet" href="/style/navbar.css">
-    <link rel="stylesheet" href="/style/base.css">
-    <link rel="stylesheet" href="/style/tasks/classic/create.css">
-    <link rel="stylesheet" href="/style/tasks/classic/delete.css">
-    <link rel="stylesheet" href="/style/tasks/deadline/create.css">
-    <link rel="stylesheet" href="/style/tasks/count/delete.css">
-    <link rel="stylesheet" href="/style/tasks/time/delete.css">
-    <link rel="stylesheet" href="/style/tasks/classic/update.css">
+{% extends 'base.html' %}
+{% load static %}
 
-  </head>
-  <body>
-    <!-- Nav Bar -->
-    <div class="js-navbar-button navbar-button"></div>
-    <a href="">
-      <div class="js-navbar-tasks navbar-tasks">
-        <p class="navbar-text">Tasks</p>
-      </div>
-    </a>
-    <a href="">
-      <div class="js-navbar-profile navbar-profile">
-        <p class="navbar-text">Profile</p>
-      </div>
-    </a>
-    <a href="">
-      <div class="js-navbar-outcomes navbar-outcomes">
-        <p class="navbar-text">Outcomes</p>
-      </div>
-    </a>
+{% block title %}
+Repeat Deadline Task
+{% endblock %}
 
-    <!-- Body Content -->
-    <div class="container">
+
+{% block styles %}
+<link rel="stylesheet" href="/style/tasks/classic/create.css">
+<link rel="stylesheet" href="/style/tasks/classic/delete.css">
+<link rel="stylesheet" href="/style/tasks/deadline/create.css">
+<link rel="stylesheet" href="/style/tasks/count/delete.css">
+<link rel="stylesheet" href="/style/tasks/time/delete.css">
+<link rel="stylesheet" href="/style/tasks/classic/update.css">
+{% endblock %}
+
+
+{% block body %} 
+<div class="container">
       
-      <div class="page-title">
-        <h2>Create a Deadline Task</h2>
+  <div class="page-title">
+    <h2>Create a Deadline Task</h2>
+  </div>
+
+  <div class="outcome-name">
+    <h1>Master Communication Skills</h1>
+  </div>
+
+  <div class="form">
+
+    <form action="#">
+      <div class="desc">
+        <div class="desc-label">
+            <p>What must be done? Describe it.</p>
+        </div>
+        <div class="desc-container">
+          <textarea class=desc-input placeholder="Describe Your Task.."></textarea>
+        </div>
       </div>
 
-      <div class="outcome-name">
-        <h1>Master Communication Skills</h1>
+      <div class="date">
+        <div class="the-date">
+          <div class="title"><p>Created:</p></div>
+          <div class="text"><p>2024/2/12 - 13:42</p></div>
+        </div>
+
+        <div class="the-date">
+          <div class="title"><p>Last Submit:</p></div>
+          <div class="text"><p>2024/2/12 - 13:42</p></div>
+        </div>
       </div>
 
-      <div class="form">
+      <div class="deadline">
+        <div class="label">
+          <p>Define Deadline</p>
+        </div>
 
-        <form action="#">
-          <div class="desc">
-            <div class="desc-label">
-                <p>What must be done? Describe it.</p>
-            </div>
-            <div class="desc-container">
-              <textarea class=desc-input placeholder="Describe Your Task.."></textarea>
-            </div>
+        <div class="method">
+          <div class="by-date by-date-js selected">
+            <p>Date & Time</p>
           </div>
-
-          <div class="date">
-            <div class="the-date">
-              <div class="title"><p>Created:</p></div>
-              <div class="text"><p>2024/2/12 - 13:42</p></div>
-            </div>
-  
-            <div class="the-date">
-              <div class="title"><p>Last Submit:</p></div>
-              <div class="text"><p>2024/2/12 - 13:42</p></div>
-            </div>
+          <div class="by-duration by-duration-js">
+            <p>Day & Hour</p>
           </div>
+        </div>
 
-          <div class="deadline">
-            <div class="label">
-              <p>Define Deadline</p>
-            </div>
+        <div class="date-input date-js">
+          <input class='xp-input-elem' type="datetime-local">
+        </div>
 
-            <div class="method">
-              <div class="by-date by-date-js selected">
-                <p>Date & Time</p>
-              </div>
-              <div class="by-duration by-duration-js">
-                <p>Day & Hour</p>
-              </div>
-            </div>
-
-            <div class="date-input date-js">
-              <input class='xp-input-elem' type="datetime-local">
-            </div>
-
-            <div class="duration duration-js" style="display:none;">
-              <div class="day-label">
-                <p>Days:</p>
-              </div>
-              <div class="day-input">
-                <input class="xp-input-elem" type="text">
-              </div>
-              <div class="hours-label">
-                <p>Hours:</p>
-              </div>
-              <div class="hours-input">
-                <input class="xp-input-elem" type="text">
-              </div>
-            </div>
+        <div class="duration duration-js" style="display:none;">
+          <div class="day-label">
+            <p>Days:</p>
           </div>
-
-          <br><br> 
-
-          <div class="total-count">
-            <div class="div">
-              <div class="title">Penalty:</div>
-              <div class="amount chaotic-font-color"> Half XP Loose</div>
-            </div>
-            <div class="div">
-              <div class="title">Penalty XP:</div>
-              <div class="amount chaotic-font-color">75</div>
-            </div>
+          <div class="day-input">
+            <input class="xp-input-elem" type="text">
           </div>
-          
-          <div class="create">
-            <button type="submit" class="update">Repeat</button>
+          <div class="hours-label">
+            <p>Hours:</p>
           </div>
+          <div class="hours-input">
+            <input class="xp-input-elem" type="text">
+          </div>
+        </div>
+      </div>
 
-        </form>
+      <br><br> 
 
-    </div>
-    
+      <div class="total-count">
+        <div class="div">
+          <div class="title">Penalty:</div>
+          <div class="amount chaotic-font-color"> Half XP Loose</div>
+        </div>
+        <div class="div">
+          <div class="title">Penalty XP:</div>
+          <div class="amount chaotic-font-color">75</div>
+        </div>
+      </div>
+      
+      <div class="create">
+        <button type="submit" class="update">Repeat</button>
+      </div>
 
-    <script src="/script/navbar.js"></script>
-    <script src="/script/general.js"></script>
-    <script src="/script/tasks/deadline/create.js"></script>
-  </body>
-</html>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+<script src="/script/tasks/deadline/create.js"></script>
+{% endblock %}
