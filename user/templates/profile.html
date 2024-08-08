@@ -1,200 +1,154 @@
-{% extends 'base.html' %}
-{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/navbar.css">
+    <link rel="stylesheet" href="../style/base.css">
 
+    <link rel="stylesheet" href="../style/index/status.css">
+    <link rel="stylesheet" href="../style/index/tasks.css">
+    <link rel="stylesheet" href="../style/index/outcomes.css">
+  </head>
+  <body>
 
-{% block title %}
-    Profile
-{% endblock %}
+    <div class="js-navbar-button navbar-button"></div>
 
-{% block style %}
-    body {
-        font-family: monospace;
-        background-color: black;
-        color: #d9d9d9;
-        font-size: 1.5em;
-    }
-
-    .box {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 80%;
-        max-width: 870px;
-        margin: 0 auto;
-    }
-
-    .level-box-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        margin-bottom: 20px;
-    }
-
-    .level-box {
-        z-index: 1;
-
-        width: 200px;
-        height: 200px;
-        border: 1px solid transparent;
-        border-radius: 100px;
-        background-image: url('{% static "gif/fxVE.gif" %}');
-        background-size: cover;
-        background-repeat: no-repeat;
-        filter: blur(10px);
-        transition: 0.5s ease-in-out;
-    }
-
-    .level-box:hover {
-        transition: 0.5s ease-in-out;
-        filter: blur(0px);
-    }
-
-    .level-txt {
-        color: transparent;
-        padding: 0;
-        margin-top:23%;
-        transition: 5s ease-in-out;
-        font-size: 5rem;
-        text-align: center;
-        text-shadow:
-            0px 0px 0px black,
-            0px 0px 30px violet,
-            10px 5px 15px indigo,
-            -10px 5px 15px blue,
-            0px -12px 15px green,
-            -10px -5px 15px yellow,
-            10px -5px 15px orange,
-            0px 12px 15px red;
-    }
-
-    .level-txt:hover {
-        transition: 0.3s ease-in-out;
-        text-shadow:
-            0px 0px 0px white,
-            0px 0px 4px white,
-            0px 0px 8px white,
-            0px 0px 14px white,
-            0px 0px 5px black,
-            60px 30px 5px black,
-            -60px 30px 5px black,
-            0px -75px 5px black,
-            -60px -30px 5px black,
-            60px -30px 5px black,
-            0px 75px 5px black;
-    }
-
-    .xp-box-container {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        margin-left: 20px;
-    }
-
-    .xp-box {
-        display: flex;
-        left:-100px;
-        position: relative;
-        align-items: center;
-        justify-content: center;
-        border-radius: 0px 35px 35px 0px;
-        border: 1px solid purple;
-        background-color: #0d0d0d;
-        width: 400px;
-        height: 70px;
-        transition: 5s ease-in-out;
-        box-shadow: 0px 0px 15px indigo;
-        margin-bottom: 20px;
-    }
-
-    .xp-box:hover {
-        transition: 0.3s ease-in-out;
-        box-shadow:
-            0px 0px 30px violet,
-            10px 5px 15px indigo,
-            -10px 5px 15px blue,
-            0px -12px 15px green,
-            -10px -5px 15px yellow,
-            10px -5px 15px orange,
-            0px 12px 15px red;
-    }
-
-    .xp-txt {
-        transition: 5s ease-in-out;
-        font-size: 2rem;
-        text-align: center;
-        text-shadow: 0px 0px 5px indigo;
-    }
-
-    .xp-txt:hover {
-        transition: 0.3s ease-in-out;
-        text-shadow:
-            0px 0px 10px black,
-            0px 0px 30px red,
-            10px 5px 15px orange,
-            -10px 5px 15px yellow,
-            0px -12px 15px green,
-            -10px -5px 15px blue,
-            10px -5px 15px indigo,
-            0px 12px 15px violet;
-    }
-
-    .tasks-done {
-        font-size: 1.5rem;
-        color: white;
-        margin-bottom: 10px;
-    }
-
-    .outcome-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
-
-    .outcome-box {
-        flex: 0 1 45%;
-        background-color: #1a1a1a;
-        margin: 10px;
-        padding: 20px;
-        border: 1px solid purple;
-        box-shadow: 0px 0px 10px indigo;
-        border-radius: 10px;
-        box-shadow
-    }
-
-    .outcome-box p {
-        margin: 5px 0;
-    }
-{% endblock %}
-
-{% block content%}
-
-<div class="box">
-    <div class="level-box-container">
-        <div class="level-box">
-            <p class="level-txt">{{ level }}</p>
-        </div>
-        <div class="xp-box-container">
-            <div class="tasks-done">
-                <p class="xp-txt" style="font-size: 1.5rem;">Total tasks done: {{ total_tasks_done }}</p>
-            </div>
-            <div class="xp-box">
-                <p class="xp-txt" >{{ total_xp }} / {{ next_level_xp }}</p>
-            </div>
-        </div>
+    <a href="">
+      <div class="js-navbar-tasks navbar-tasks">
+        <p class="navbar-text">Tasks</p>
+      </div>
+    </a>
+    <a href=""><div class="js-navbar-profile navbar-profile">
+      <p class="navbar-text">Profile</p>
     </div>
-</div>
-<div class="outcome-container">
-    {% for outcome in outcomes %}
-    <div class="outcome-box">
-        <p>Name: {{ outcome.name }}</p>
-        <p>Level: {{ outcome.level }}</p>
-        <p>Total Tasks Done: {{ outcome.total_tasks_done }}</p>
-        <p>Total Tasks Undone: {{ outcome.total_tasks_undone }}</p>
+    </a>
+    <a href=""><div class="js-navbar-outcomes navbar-outcomes">
+      <p class="navbar-text">Outcomes</p>
     </div>
-    {% endfor %}
-</div>
-
-{% endblock %}
+    </a>
 
 
+    <div class="status">
+
+      <div class="side-status">
+        <div class="first-row">
+          <span class="infograph" style="margin-right:20px;border-left:1px solid var(--theme-color);">Tasks Aborted: 10</span>
+          <span class="infograph" >Tasks Failed: 3</span>
+        </div>
+        <div class="other-row">
+          <p>Last outcome created: 3 day</p>
+        </div>
+        <div class="other-row">
+          <p>Tasks done in previous month: 30 </p>
+        </div>
+        <div class="other-row" style="border-bottom: solid 1px var(--theme-color);">
+          <p>Task done strike in a day: 13</p>
+        </div>
+      </div>
+
+      <div class="middle-status">
+        <div class="level chaotic-box-shadow">
+          <span class="level-number chaotic-font-color ">20</span>
+        </div>
+        <div class="xp-bar">
+          <div class="xp-bar-filled chaotic-bg-color"></div>
+          <span class="xp-number">103 / 510</span>
+          <div class="xp-bar-remaining"></div>
+        </div>
+        <div class="create-button">
+          <div class="btn">New Task</div>
+          <div class="btn">New Outcome</div>
+        </div>
+      </div>
+     
+      <div class="side-status">
+        <div class="first-row">
+          <span class="infograph" style="margin-right:20px;">Tasks Aborted: 10</span>
+          <span class="infograph" style="border-right:1px solid var(--theme-color);">Tasks Failed: 3</span>
+        </div>
+        <div class="other-row">
+          <p>Last outcome created: 3 day</p>
+        </div>
+        <div class="other-row">
+          <p>Tasks done in previous month: 30 </p>
+        </div>
+        <div class="other-row" style="border-bottom: solid 1px var(--theme-color);">
+          <p>Task done strike in a day: 13</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="tasks">
+
+      <div class="task">
+        <div class="task-header">
+          <div class="task-outcome">
+            <p>Acquire Magickal Skills and Self Mastery </p>
+          </div>
+          <div class="task-info">
+            <p class="task-xp">XP: 40</p>
+            <p class="task-created-at">3 days</p>
+          </div>
+        </div>
+        <div class="task-description">
+          <p>Do the drawing concentration loveingfuly wihtout bothering anyone</p>
+        </div>
+      </div>
+      
+      <div class="task">
+        <div class="task-header">
+          <div class="task-outcome">
+            <p>Acquire Magickal Skills and Self Mastery </p>
+          </div>
+          <div class="task-info">
+            <p class="task-xp">XP: 40</p>
+            <p class="task-created-at">3 days</p>
+          </div>
+        </div>
+        <div class="task-description">
+          <p>Do the drawing concentration loveingfuly wihtout bothering anyone</p>
+        </div>
+      </div>
+      
+      <div class="task">
+        <div class="task-header">
+          <div class="task-outcome">
+            <p>Acquire Magickal Skills and Self Mastery </p>
+          </div>
+          <div class="task-info">
+            <p class="task-xp">XP: 40</p>
+            <p class="task-created-at">3 days</p>
+          </div>
+        </div>
+        <div class="task-description">
+          <p>Do the drawing concentration loveingfuly wihtout bothering anyone</p>
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="outcomes">
+      <div class="outcome">
+        <div class="tasks-undone chaotic-font-color chaotic-bg-color">8</div>
+        <div class="outcome-name">Master Thyself</div>
+      </div>
+
+      <div class="outcome">
+        <div class="tasks-undone chaotic-font-color chaotic-bg-color">8</div>
+        <div class="outcome-name">learn front end</div>
+      </div>
+
+      <div class="outcome">
+        <div class="tasks-undone chaotic-font-color chaotic-bg-color">8</div>
+        <div class="outcome-name">protect the nature</div>
+      </div>
+
+    </div>
+
+    <script src="../script/navbar.js"></script>
+    <script src="../script/profile/general.js"></script>
+  </body>
+</html>

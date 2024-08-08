@@ -1,92 +1,90 @@
-{% extends 'base.html'%}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deadline Task Status</title>
+    <link rel="stylesheet" href="/style/navbar.css">
+    <link rel="stylesheet" href="/style/base.css">
+    <link rel="stylesheet" href="/style/tasks/classic/create.css">
+    <link rel="stylesheet" href="/style/tasks/classic/delete.css">
+    <link rel="stylesheet" href="/style/tasks/classic/update.css">
+    <link rel="stylesheet" href="/style/tasks/count/delete.css">
+    <link rel="stylesheet" href="/style/tasks/time/delete.css">
+    <link rel="stylesheet" href="/style/tasks/deadline/status.css">
+  </head>
+  <body>
+    <!-- Nav Bar -->
+    <div class="js-navbar-button navbar-button"></div>
+    <a href="">
+      <div class="js-navbar-tasks navbar-tasks">
+        <p class="navbar-text">Tasks</p>
+      </div>
+    </a>
+    <a href="">
+      <div class="js-navbar-profile navbar-profile">
+        <p class="navbar-text">Profile</p>
+      </div>
+    </a>
+    <a href="">
+      <div class="js-navbar-outcomes navbar-outcomes">
+        <p class="navbar-text">Outcomes</p>
+      </div>
+    </a>
 
-{% block title %}
-    Update Task as Done
-{% endblock %}
+    <!-- Body Content -->
+    <div class="container">
+      
+      <div class="page-title">
+        <h2>Deadline Task Status</h2>
+      </div>
 
-{% block style %}
-    .box {
-        font-family: monospace;
-        background-color: #0d0d0d;
-        color: #d9d9d9;
-        font-size: 1.5em;
-    }
+      <div class="outcome-name">
+        <h1>Master Communication Skills</h1>
+      </div>
 
-    .title {
-        text-shadow: 0px 3px 10px black;
-    }
+      <div class="info">
 
-    .container {
-        height: max-content;
-        width: 80%;
-        min-width: 600px;
-        padding: 20px;
-        margin: 0 auto;
-    }
-
-    .form-container {
-        margin-top: 20px;
-        border: solid 1px purple;
-        border-radius: 6px;
-        padding: 20px;
-        background-color: black;
-    }
-
-    .form-title {
-        font-weight: bold;
-        margin-bottom: 10px;
-        font-size: 1.5em;
-        text-align: center;
-        text-shadow: 0px 0px 1px black, 0px 0px 4px purple, px 0px 7px gray;
-    }
-
-    .form-field {
-        margin-bottom: 10px;
-        font-size: 1em;
-        text-align: left;
-    }
-
-    .form-submit {
-        text-align: center;
-    }
-
-    .is-done {
-        /* Increase the size of the checkbox */
-        width: 20px;
-        height: 20px;
-        color:yellow;
-        margin-right: 10px; /* Optional: Add some space between checkbox and label */
-    }
-    .btn {
-        text-decoration:none;
-        color:#d9d9d9;
-        background-color:#0d0d0d;
-        padding:10px;
-        transition:ease-in-out 0.3s;
-        font-size:1.5rem;
-    }
-
-    .btn:hover {
-        transition:ease-in-out 0.3s;
-        color:black;
-        background-color:black;
-    }
-
-{% endblock %}
-
-{% block content %}
-    <div class="box">
-        <div class="container">
-            <h1 class="title">DeadLine Task ->  {{ obj.description }}</h1>
-            <p> what you shall do with the task now? </p>
-            <div class="form-container">
-                {% if obj.is_time_over == True %}
-                <button>Abort task</button>
-                <button>Repeat again</button>
-                {% else %}
-                <button>Update as done</button>
-                {% endif %}
-            </div>
+        <div class="desc-xp">
+          <div class="desc"><p>Description:</p></div>
+          <div class="xp">
+            <div class="title chaotic-font-color" >XP</div>
+            <div class="amount">49</div>
+          </div>
         </div>
-    </div>
-{% endblock %}
+
+        <div class="desc-container">
+          <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, explicabo et! Aliquam sint distinctio adipisci doloribus iste voluptates ut perspiciatis non, ratione nobis libero, explicabo id ipsum tenetur nihil nulla.</div>
+        </div>
+
+        <div class="date">
+          <div class="the-date">
+            <div class="title"><p>Created:</p></div>
+            <div class="text"><p>2024/2/12 - 13:42</p></div>
+          </div>
+
+          <div class="the-date">
+            <div class="title"><p>Last Submit:</p></div>
+            <div class="text"><p>2024/2/12 - 13:42</p></div>
+          </div>
+        </div>
+
+        <div class="total-count">
+          <div class="div">
+            <div class="title">Days Remaining:</div>
+            <div class="amount chaotic-font-color">3</div>
+          </div>
+        </div>
+
+        <div class="btn">
+          <button class="Update">Update</button>
+          <button class="delete">Abort</button>
+          <button class="create-btn">Repeat</button>
+        </div>
+
+      </div>
+
+
+    <script src="/script/navbar.js"></script>
+    <script src="/script/general.js"></script>
+  </body>
+</html>

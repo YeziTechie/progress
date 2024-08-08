@@ -2,16 +2,11 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Repeat Deadline Task</title>
+    <title>Create a Deadline Task</title>
     <link rel="stylesheet" href="/style/navbar.css">
     <link rel="stylesheet" href="/style/base.css">
     <link rel="stylesheet" href="/style/tasks/classic/create.css">
-    <link rel="stylesheet" href="/style/tasks/classic/delete.css">
     <link rel="stylesheet" href="/style/tasks/deadline/create.css">
-    <link rel="stylesheet" href="/style/tasks/count/delete.css">
-    <link rel="stylesheet" href="/style/tasks/time/delete.css">
-    <link rel="stylesheet" href="/style/tasks/classic/update.css">
-
   </head>
   <body>
     <!-- Nav Bar -->
@@ -55,16 +50,32 @@
             </div>
           </div>
 
-          <div class="date">
-            <div class="the-date">
-              <div class="title"><p>Created:</p></div>
-              <div class="text"><p>2024/2/12 - 13:42</p></div>
+          <div class="xp-and-penalty">
+            <div class="xp">
+              <div class="xp-label">
+                <p class="chaotic-font-color">XP</p>
+              </div>
+              <div class="xp-input">
+                <input type="text" class="xp-input-elem">
+              </div>
             </div>
-  
-            <div class="the-date">
-              <div class="title"><p>Last Submit:</p></div>
-              <div class="text"><p>2024/2/12 - 13:42</p></div>
+
+            <div class="penalty">
+              <div class="penalty-label">
+                <p>Penalty:</p>
+              </div>
+              <div class="penalty-input">
+                <select class='xp-input-elem' name="Penalty" id="penalty">
+                  <option value="1">bib</option>
+                  <option value="3">bnoob</option>
+                  <option value="3">bnoob</option>
+                  <option value="3">bnoob</option>
+                  <option value="3">bnoob</option>
+                  <option value="3">bnoob</option>
+                </select>
+              </div>
             </div>
+
           </div>
 
           <div class="deadline">
@@ -101,21 +112,9 @@
             </div>
           </div>
 
-          <br><br> 
 
-          <div class="total-count">
-            <div class="div">
-              <div class="title">Penalty:</div>
-              <div class="amount chaotic-font-color"> Half XP Loose</div>
-            </div>
-            <div class="div">
-              <div class="title">Penalty XP:</div>
-              <div class="amount chaotic-font-color">75</div>
-            </div>
-          </div>
-          
           <div class="create">
-            <button type="submit" class="update">Repeat</button>
+            <button type="submit" class="create-btn">Create</button>
           </div>
 
         </form>
