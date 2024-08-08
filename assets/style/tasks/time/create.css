@@ -1,0 +1,35 @@
+
+.desc-label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.more-info {
+  border: 1px solid var(--theme-color);
+  display: flex;
+  height:18px;
+  width:19px;
+  border-radius: 11px;
+  font-size: 13px;
+  justify-content: center;
+  align-items: center;
+  padding-bottom:2px;
+  padding-left:1px;
+  cursor: help;
+  min-width: 19px;
+  margin-left: 10px;
+}
+
+.more-info-container {
+  cursor: no-drop;
+  opacity: 0%;
+  z-index: 1;
+  position: fixed;
+  top: 40%;
+  left: 10%;
+  right: 10%;
+  border: 1px solid var(--theme-color);
+  padding: 20px;
+  transition:ease-in-out opacity 1s, top 1.5s;
+}

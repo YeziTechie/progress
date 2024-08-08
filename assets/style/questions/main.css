@@ -1,0 +1,50 @@
+.header {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.questions {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+
+.question {
+  display: flex;
+  flex-direction: column;
+}
+
+.text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.question .text .title {
+  font-size: 20px;
+}
+
+.answer {
+  width: 80%;
+  margin: 10px auto;
+}
+
+.note p {
+  border-left: solid 10px var(--theme-color);
+  padding-left: 10px;
+}
+
+.more-info-container {
+  top: -1000px;
+}
+
+.more-info {
+
+}

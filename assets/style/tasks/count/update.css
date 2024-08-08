@@ -1,0 +1,13 @@
+.xp-input-elem {
+  width:30px;
+  height:30px;
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+.xp-input-elem:focus {
+  width:30px;
+  height:28px;
+  margin-left: 9px;
+  font-size: 16px;
+}

@@ -1,0 +1,111 @@
+.navbar-button,
+.navbar-tasks,
+.navbar-profile,
+.navbar-outcomes {
+  position: fixed;
+  background-color: var(--bg-color);
+  transition: ease-in-out box-shadow 0.6s, background-color 0.6s;
+}
+
+.navbar-button {
+  z-index: 1;
+  cursor: pointer;
+  left:30px;
+  top:30px;
+  width:40px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: var(--theme-color);
+  box-shadow:
+    0px 0px 5px var(--bg-color),
+    0px 0px 8px var(--bg-color),
+    0px 0px 10px var(--bg-color),
+    0px 0px 12px var(--bg-color),
+    0px 0px 13px var(--bg-color);
+}
+.navbar-button:hover {
+  background-color: transparent;  
+}
+
+
+
+.navbar-button-clicked {
+  box-shadow:
+  0px 0px 10px var(--theme-color),
+  0px 0px 16px var(--theme-color),
+  0px 0px 20px var(--theme-color),
+  0px 0px 24px var(--theme-color),
+  0px 0px 26px var(--theme-color);
+  background-color: var(--bg-color);
+}
+
+
+.navbar-tasks {  
+  left:10px;
+  top:10px;
+  width:10px;
+  height: 10px;
+  border-radius: 50px;
+  box-shadow:
+    0px 0px 12px var(--theme-color),
+    0px 0px 13px var(--theme-color);
+}
+
+.navbar-profile {  
+  left:10px;
+  top:10px;
+  width:10px;
+  height: 10px;
+  border-radius: 50px;
+  box-shadow:
+  0px 0px 12px var(--theme-color),
+  0px 0px 13px var(--theme-color);
+}
+
+.navbar-outcomes {  
+  left:10px;
+  top: 10px;
+  width:10px;
+  height: 10px;
+  border-radius: 50px;
+  box-shadow:
+  0px 0px 12px var(--theme-color),
+  0px 0px 13px var(--theme-color);
+}
+
+.navbar-text {
+  color:rgb(135, 135, 135);
+  font-size: 0px;
+  text-decoration: none;
+  font-weight: bold;
+  transition:cubic-bezier(0.6, 1, 0.1, 1.6) font-size 1s, opacity 1s;
+  /* opacity: 0%; */
+}
+
+.navbar-tasks .navbar-text {
+  position: fixed;
+  top:47px;
+  left: 202px;
+}
+.navbar-profile .navbar-text {
+  position: fixed;
+  top: 92px;
+  left: 67px;
+}
+.navbar-outcomes .navbar-text {
+  position: fixed;
+  top: 216px;
+  left: 17px;
+}
+
+.navbar-tasks:hover,
+.navbar-profile:hover,
+.navbar-outcomes:hover {
+  box-shadow:
+  0px 0px 15px var(--theme-color),
+  0px 0px 15px var(--theme-color),
+  0px 0px 15px var(--theme-color),
+  0px 0px 15px var(--theme-color),
+  0px 0px 15px var(--theme-color);
+}
+

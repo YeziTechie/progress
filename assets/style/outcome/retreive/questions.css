@@ -1,0 +1,103 @@
+.question-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0;
+  column-gap: 10px;
+}
+
+.btn-1, .btn-2, .btn-3 {
+  background-color: var(--theme-color);
+  text-align: center;
+  color: black;
+  padding:10px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: ease-in-out background-color 0.6s, box-shadow 1.2s;
+}
+
+
+.btn-1:hover, .btn-2:hover, .btn-3:hover {
+  transition: ease-in-out background-color 0.2s, box-shadow 0.4s;
+  background-color: var(--body-bg-color);
+  box-shadow: 
+    0px 0px 10px var(--theme-color),
+    0px 0px 15px var(--theme-color),
+    0px 0px 20px var(--theme-color),
+    0px 0px 30px var(--theme-color),
+    0px 0px 40px var(--theme-color),
+    0px 0px 60px var(--theme-color);
+}
+
+
+
+.question-selected {
+  transition: ease-in-out 0.5s;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--theme-color);
+  box-shadow: 0px 0px 20px var(--theme-color);
+}
+
+.questions {
+  width: 90%;
+  margin: 0 auto;
+  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.questions .header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.questions .header .title {
+  border-left: 5px solid var(--theme-color);
+  padding-left: 10px;
+  margin-bottom: 20px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+
+.question {
+  border: solid 1px var(--theme-color);
+  padding: 10px;
+  
+}
+
+
+.question-text {
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+}
+
+.line {
+  transition: ease-in-out 3s;
+  height: 3px;
+  width: 3px;
+  margin: 4px auto;
+  background-color: var(--theme-color);
+}
+
+.answer {
+  transition: ease-in-out 3s;
+  background-color: var(--body-bg-color);
+  padding: 5px;  
+  font-size: 1px;
+}
+
+.js-1, .js-2, .js-3 {
+  opacity: 0;
+  display: none;
+  transition: ease-in-out 1s;
+}

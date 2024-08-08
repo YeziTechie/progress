@@ -1,0 +1,16 @@
+.total-count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.total-count .title, .amount {
+  font-size: 16px;
+
+}
+
+.total-count .amount {
+  transition: ease-in-out color 2s;
+  font-size: 20px;
+  margin-left: 10px;
+}

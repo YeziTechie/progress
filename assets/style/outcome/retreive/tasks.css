@@ -1,0 +1,184 @@
+.tasks {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 10px;
+  margin-bottom: 20px;
+}
+
+.classic, .time, .count, .deadline {
+  background-color: var(--theme-color);
+  font-weight: bold;
+  width: 100px;
+  text-align: center;
+  color: black;
+  padding:10px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: ease-in-out background-color 0.6s, box-shadow 1.2s;
+}
+
+.selected {
+  background-color: var(--bg-color);
+  color: var(--color);
+}
+
+.classic:hover, .time:hover, .count:hover, .deadline:hover {
+
+  transition: ease-in-out background-color 0.2s, box-shadow 0.4s;
+  background-color: var(--body-bg-color);
+  box-shadow: 
+    0px 0px 10px var(--theme-color),
+    0px 0px 15px var(--theme-color),
+    0px 0px 20px var(--theme-color),
+    0px 0px 30px var(--theme-color),
+    0px 0px 40px var(--theme-color),
+    0px 0px 60px var(--theme-color);
+}
+
+
+.time-task-container, .count-task-container, .deadline-task-container, .classic-task-container {
+  border: solid 1px var(--theme-color);
+  border-left: none;
+  border-right: none;
+  background-color: var(--bg-color);
+  padding: 10px;
+  display: none;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.task {
+  width: 46%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 2px 1px var(--theme-color);
+  padding: 5px 10px;
+  background-color: var(--body-bg-color);
+
+}
+
+.task .header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .date {
+  font-size: 12px;
+}
+
+.xp {
+  border-bottom: solid 1px var(--theme-color);
+}
+
+.xp .text {
+  transition: ease-in-out 2s;
+}
+
+.task .desc {
+  font-size: 12px;
+  margin: 10px 0px;
+  padding: 5px;
+  border: solid 1px var(--theme-color);
+  border-top: none;
+  border-bottom: none;
+  background-color: var(--bg-color);
+}
+
+.task .status {
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.task .right, .left {
+  width: 50%;
+}
+
+.task .right {
+  border-left: 1px solid var(--theme-color);
+  padding-left: 6px;
+  margin-right: -5px;
+}
+
+.task .buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.done-or-undone {
+  font-size: 12px;
+}
+
+.classic-task-container .xp {
+  font-size: 25px;
+  text-align: center;
+  border-bottom: none;
+  margin-bottom: 10px;
+}
+
+.classic-task-container, .deadline-task-container .report {
+  border: 1px solid var(--theme-color);
+}
+
+.deadline-task-container .xp-lost {
+  color: var(--red);
+  font-size: 16px;
+
+}
+
+.deadline-task-container .right {
+  text-align: center;
+}
+
+.deadline-task-container .xp-gained {
+  color: var(--green);
+  font-size: 16px;
+}
+
+.deadline-task-container .date {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.count-down {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: 10px;
+  margin-bottom: 10px;
+}
+
+.count-down div {
+  background-color: var(--bg-color);
+  padding: 10px;
+  font-size: 22px;
+
+}
+
+.task-selected {
+  transition: ease-in-out 0.5s;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--theme-color);
+  box-shadow: 0px 0px 20px var(--theme-color);
+}

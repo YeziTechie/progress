@@ -1,0 +1,118 @@
+.xp-and-penalty {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.penalty {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.penalty-label {
+  margin-right: 10px;
+}
+
+.penalty-input select {
+  background-color: var(--body-bg-color);
+  font-size: 16px;
+  width: max-content;
+}
+
+.penalty-input option {
+  text-align: left;
+}
+
+.penalty-input option:checked {
+  background-color: var(--theme-color);
+  color:black;
+}
+
+.deadline {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.deadline .label {
+  margin:10px;
+  font-size: 20px;
+  border-bottom: 1px solid var(--theme-color);
+  padding-bottom: 10px;
+}
+
+.method {
+  display: flex;
+  justify-content:space-evenly;
+  column-gap: 30px;
+  margin: 20px 0px;
+}
+
+.by-date, .by-duration {
+  background-color: var(--theme-color);
+  color: black;
+  padding:10px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: ease-in-out background-color 0.6s, box-shadow 1.2s;
+}
+
+.by-date:hover, .by-duration:hover {
+  transition: ease-in-out background-color 0.2s, box-shadow 0.4s;
+  background-color: var(--body-bg-color);
+  box-shadow: 
+    0px 0px 10px var(--theme-color),
+    0px 0px 15px var(--theme-color),
+    0px 0px 20px var(--theme-color),
+    0px 0px 30px var(--theme-color),
+    0px 0px 40px var(--theme-color),
+    0px 0px 60px var(--theme-color);
+}
+
+.selected {
+  transition: ease-in-out 0.5s;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--theme-color);
+  box-shadow: 0px 0px 20px var(--theme-color);
+}
+
+.date-input {
+  transition: ease-in-out margin 1s;
+
+}
+
+.penalty-input .xp-input-elem:focus {
+  width: max-content;
+}
+
+.date-input input {
+  width: max-content;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.date-input input:focus {
+  width: max-content;
+  margin-bottom: 11px;
+}
+
+.duration {
+  transition: ease-in-out margin 1s;
+  display: flex;
+  column-gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.duration .day-label p, .hours-label p {
+  font-size: 22px;
+}
+
+.desc-container {
+  width:80%;
+}
