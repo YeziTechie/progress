@@ -1,69 +1,37 @@
 <!-- base.html -->
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        {% block title %}
-        {% endblock %}
-    </title>
-    <style>
-        body {
-            font-family: monospace;
-            background-color: #0d0d0d;
-            color: #d9d9d9;
-        }
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="/style/navbar.css">
+        <link rel="stylesheet" href="/style/base.css">
+        <!-- CSS file links -->
+        {% block styles %} {% endblock %}
+    </head>
+    <body>
+        <!-- Nav Bar -->
+        <div class="js-navbar-button navbar-button"></div>
+        <a href="">
+          <div class="js-navbar-tasks navbar-tasks">
+            <p class="navbar-text">Tasks</p>
+          </div>
+        </a>
+        <a href="">
+          <div class="js-navbar-profile navbar-profile">
+            <p class="navbar-text">Profile</p>
+          </div>
+        </a>
+        <a href="">
+          <div class="js-navbar-outcomes navbar-outcomes">
+            <p class="navbar-text">Outcomes</p>
+          </div>
+        </a>
 
-        .navbar {
-            background-color: black;
-            overflow: hidden;
-            border:white solid 1px;
-            position:fixed;
-            opacity:20%;
-            transition:ease-in-out 0.6s;
-            margin-left:0%;
-            margin-top:0%;
-        }
-
-        .navbar:hover {
-            opacity:100%;
-            transition:ease-in-out 0.2s;
-        }
-
-        .navbar a {
-            font-size:1.2rem;
-            float: left;
-            display: block;
-            color: #d9d9d9;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            transition:ease-in-out 0.5s;
-
-        }
-
-        .navbar a:hover {
-            background-color: #0d0d0d;
-            color: purple;
-            transition:ease-in-out 0.5s;
-        }
-
-        {% block style %}
-        {% endblock %}
-    </style>
-</head>
-<body>
-    <div class="navbar">
-        <a href="{% url 'outcome_list' %}">Outcomes</a>
-        <a href="{% url 'classic_list' %}">Tasks</a>
-        <a href="{% url 'profile' %}">Profile</a>
-    </div>
-
-
-    <div class="content">
-        {% block content %}
-        {% endblock %}
-    </div>
-</body>
+        <!-- Body content-->
+        {% block body %} {% endblock %}
+        <!-- Script file links -->
+        {% block scripts %} {% endblock %}
+    </body>
 </html>
