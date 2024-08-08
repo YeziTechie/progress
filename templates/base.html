@@ -1,12 +1,12 @@
-<!-- base.html -->
 <!DOCTYPE html>
+{% load static %}
 <html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}{% endblock %}</title>
-        <link rel="stylesheet" href="/style/navbar.css">
-        <link rel="stylesheet" href="/style/base.css">
+        <link rel="stylesheet" href="{% static '/style/navbar.css' %}">
+        <link rel="stylesheet" href="{% static '/style/base.css' %}">
         <!-- CSS file links -->
         {% block styles %} {% endblock %}
     </head>
@@ -33,8 +33,8 @@
         {% block body %} {% endblock %}
 
         <!-- Script file links -->
-        <script src="/script/navbar.js"></script>
-        <script src="/script/general.js"></script>
+        <script src="{% static '/script/navbar.js' %}"></script>
+        <script src="{% static '/script/general.js' %}"></script>
         {% block scripts %} {% endblock %}
     </body>
 </html>

@@ -7,5 +7,5 @@ from tasks.forms.classic import ClassicCreateForm
 class ClassicCreateView(CreateView):
     model = Classic
     form_class = ClassicCreateForm
-    template_name = 'classic/create_task.html'
+    template_name = 'classic/create.html'
     success_url = ''

@@ -12,7 +12,7 @@ class Classic(models.Model):
         blank=True
     )
 
-    description = models.CharField(max_length=512)
+    description = models.TextField(null=False, blank=False)
     report = models.CharField(max_length=1024, null=True)
     xp = models.IntegerField(default=0)
     is_done = models.BooleanField(default=False)

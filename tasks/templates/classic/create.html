@@ -7,7 +7,7 @@ Create a Classic Task
 
 
 {% block styles %}
-<link rel="stylesheet" href="/style/tasks/classic/create.css">
+<link rel="stylesheet" href="{% static 'style/tasks/classic/create.css' %}">
 {% endblock %}
 
 
@@ -23,7 +23,7 @@ Create a Classic Task
   </div>
 
   <div class="form">
-
+    {{ csrt_token }}
     <form action="#">
 
       <div class="desc">
@@ -31,7 +31,8 @@ Create a Classic Task
             <p>What must be done? Describe it.</p>
         </div>
         <div class="desc-container">
-          <textarea class=desc-input placeholder="Describe Your Task.."></textarea>
+          {{ form.description  }}
+          <textarea class="desc-input" placeholder="Describe Your Task.."></textarea>
         </div>
       </div>
 
