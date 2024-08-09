@@ -5,6 +5,6 @@ from tasks.models.classic import Classic
 
 class ClassicDeleteView(DeleteView):
     model = Classic
-    context_object_name = 'classic'
-    template_name = 'classic/delete_task.html'
-    success_url = ''
+    context_object_name = 'task'
+    template_name = 'classic/delete.html'
+    success_url = '/'
