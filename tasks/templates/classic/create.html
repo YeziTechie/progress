@@ -19,20 +19,19 @@ Create a Classic Task
   </div>
 
   <div class="outcome-name">
-    <h1>Master Communication Skills</h1>
+    <h1>{{ outcome.name }}</h1>
   </div>
 
   <div class="form">
-    {{ csrt_token }}
-    <form action="#">
-
+    <form method="post">
+      {% csrf_token %}
       <div class="desc">
         <div class="desc-label">
             <p>What must be done? Describe it.</p>
         </div>
         <div class="desc-container">
           {{ form.description  }}
-          <textarea class="desc-input" placeholder="Describe Your Task.."></textarea>
+<!--          <textarea class="desc-input" placeholder="Describe Your Task.."></textarea>-->
         </div>
       </div>
 
@@ -41,7 +40,7 @@ Create a Classic Task
           <p class="chaotic-font-color">XP</p>
         </div>
         <div class="xp-input">
-          <input type="text" class="xp-input-elem">
+          {{ form.xp }}
         </div>
       </div>
 

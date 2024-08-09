@@ -9,10 +9,14 @@ class ClassicCreateForm(forms.ModelForm):
 
         self.fields['description'].widget.attrs['class'] = 'desc-input'
         self.fields['description'].widget.attrs['placeholder'] = 'Describe Your Task..'
+        self.fields['description'].widget.attrs['cols'] = '0'
+        self.fields['description'].widget.attrs['rows'] = '0'
+
+        self.fields['xp'].widget.attrs['class'] = 'xp-input-elem'
 
     class Meta:
         model = Classic
-        fields = ['outcome', 'description', 'xp']
+        fields = ['description', 'xp', 'outcome']
 
 
 class ClassicUpdateForm(forms.ModelForm):
