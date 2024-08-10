@@ -7,6 +7,7 @@ class Outcome(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     last_task_done_at = models.DateTimeField(null=True, blank=True)
     is_achieved = models.BooleanField(default=False)
+    achieved_at = models.DateTimeField(default=None, null=True)
     is_hided = models.BooleanField(default=False)
 
     def __str__(self):

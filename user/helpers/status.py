@@ -6,12 +6,16 @@ from tasks.models.count import Count
 from abilities.models.outcome import Outcome
 
 
-def outcome_total_tasks_undone(pk):
+def outcome_active_tasks(pk):
     outcome = Outcome.objects.get(pk=pk)
+
     classics = Classic.objects.filter(outcome=outcome)
     deadlines = Deadline.objects.filter(outcome=outcome)
+    counts = Count.objects.filter(outcome=outcome)
+    times = Time.objects.filter(outcome=outcome)
 
     result = 0
+    result += len(times) + len(counts)
 
     for classic in classics:
         if classic.is_done is False:
@@ -49,7 +53,7 @@ def total_xp():
 
 
 def time_spent():
-    tasks = Time.object.all()
+    tasks = Time.objects.all()
     total_time = 0
     for task in tasks:
         total_time += task.total_time
@@ -58,12 +62,18 @@ def time_spent():
 
 
 def count_scored():
-    tasks = Count.object.all()
+    tasks = Count.objects.all()
     total_count = 0
     for task in tasks:
         total_count += task.total_count
 
-    return t
+    return total_count
 
 
-def total_xp_lost()
+def total_xp_lost():
+    tasks = Deadline.objects.all()
+    xp_lost = 0
+    for task in tasks:
+        xp_lost += task.penalty_xp
+
+    return xp_lost

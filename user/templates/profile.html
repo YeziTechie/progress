@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block title %}
 Targoon's Profile
 {% endblock %}
@@ -21,14 +20,14 @@ Targoon's Profile
       <span class="infograph" style="margin-right:20px;border-left:1px solid var(--theme-color);">Deadline Done: {{ deadline_done }}</span>
       <span class="infograph" >Classic Done: {{ classic_done }}</span>
     </div>
-    <div class="other-row">
-      <p>Last Outcome Created:</p>
+    <div class="other-row" title='{{ last_outcome_created.created_at|date:"fA j(l) n(M) Y" }}'>
+      <p>Last Outcome Created: {{ last_outcome_created.created_at|date:"j-n-y" }}</p>
     </div>
     <div class="other-row">
-      <p>Total Outcomes:</p>
+      <p>Total Outcomes: {{ total_outcomes }}</p>
     </div>
-    <div class="other-row" style="border-bottom: solid 1px var(--theme-color);">
-      <p>Last Outcome Achieved:</p>
+    <div class="other-row" title='{{ last_outcome_achieved.achieved_at|date:"fA j(l) n(M) Y" }}' style="border-bottom: solid 1px var(--theme-color);">
+      <p>Last Outcome Achieved: {{ last_outcome_achieved.achieved_at|date:"j-n-y" }}</p>
     </div>
   </div>
 
@@ -49,17 +48,17 @@ Targoon's Profile
  
   <div class="side-status">
     <div class="first-row">
-      <span class="infograph" style="margin-right:20px;">Count Scored: {{ total_tasks_done }}</span>
-      <span class="infograph" style="border-right:1px solid var(--theme-color);">Time Spent:</span>
+      <span class="infograph" style="margin-right:20px;">Count Scored: {{ count_scored }}</span>
+      <span class="infograph" style="border-right:1px solid var(--theme-color);">Time Spent: {{ time_spent }}</span>
     </div>
     <div class="other-row">
-      <p>Highest XP By Single Task:</p>
+      <p>Highest XP By Single Task: {{ highest_xp_by_single_task }}</p>
     </div>
-    <div class="other-row">
-      <p>Last Task Done At: </p>
+    <div class="other-row" title='{{ last_task_done|date:"fA j(l) n(M) Y" }}'>
+      <p>Last Task Done At: {{ last_task_done|date:"j-n-y" }}</p>
     </div>
     <div class="other-row" style="border-bottom: solid 1px var(--theme-color);">
-      <p>Total XP Lost:</p>
+      <p>Total XP Lost: {{ total_xp_lost }}</p>
     </div>
   </div>
 
@@ -67,50 +66,43 @@ Targoon's Profile
 
 <div class="tasks">
 
-  <div class="task">
-    <div class="task-header">
-      <div class="task-outcome">
-        <p>Acquire Magickal Skills and Self Mastery </p>
+  {% for task in deadlines %}
+    <div class="task">
+      <div class="task-header">
+        <div class="task-outcome">
+          <p>{{ task.outcome.name }}</p>
+        </div>
+        <div class="task-info">
+          <p class="task-xp">XP: {{ task.xp }}</p>
+          {% if task.deadline_date > 0 %}
+            <p class="task-created-at" style="color:var(--red)">{{ task.deadline_date }} days <br>left..</p>
+          {% else %}
+            <p class="task-created-at">{{ task.deadline_date }} <span style="color:var(--red)">days passed..</span></p>
+          {% endif %}
+        </div>
       </div>
-      <div class="task-info">
-        <p class="task-xp">XP: 40</p>
-        <p class="task-created-at">3 days</p>
-      </div>
-    </div>
-    <div class="task-description">
-      <p>Do the drawing concentration loveingfuly wihtout bothering anyone</p>
-    </div>
-  </div>
-  
-  <div class="task">
-    <div class="task-header">
-      <div class="task-outcome">
-        <p>Acquire Magickal Skills and Self Mastery </p>
-      </div>
-      <div class="task-info">
-        <p class="task-xp">XP: 40</p>
-        <p class="task-created-at">3 days</p>
+      <div class="task-description">
+        <p>{{ task.description }}</p>
       </div>
     </div>
-    <div class="task-description">
-      <p>Do the drawing concentration loveingfuly wihtout bothering anyone</p>
-    </div>
-  </div>
-  
-  <div class="task">
-    <div class="task-header">
-      <div class="task-outcome">
-        <p>Acquire Magickal Skills and Self Mastery </p>
+  {% endfor %}
+
+    {% for task in classics %}
+    <div class="task">
+      <div class="task-header">
+        <div class="task-outcome">
+          <p>{{ task.outcome.name }}</p>
+        </div>
+        <div class="task-info">
+          <p class="task-xp">XP: {{ task.xp }}</p>
+          <p class="task-created-at">{{ task.created_at }} days ago..</p>
+        </div>
       </div>
-      <div class="task-info">
-        <p class="task-xp">XP: 40</p>
-        <p class="task-created-at">3 days</p>
+      <div class="task-description">
+        <p>{{ task.description }}</p>
       </div>
     </div>
-    <div class="task-description">
-      <p>Do the drawing concentration loveingfuly wihtout bothering anyone</p>
-    </div>
-  </div>
+  {% endfor %}
   
   <p style="display:none;" class="js-help-1">{{ filled }}</p>
   <p style="display:none;" class="js-help-2">{{ remaining }}</p>
@@ -121,7 +113,7 @@ Targoon's Profile
 
   {% for outcome in outcomes %}
   <div class="outcome" onclick="window.location.href = 'www.google.com'">
-    <div class="tasks-undone chaotic-font-color chaotic-bg-color">{{ outcome.total_tasks_undone }}</div>
+    <div class="tasks-undone chaotic-font-color chaotic-bg-color">{{ outcome.active_tasks }}</div>
     <div class="outcome-name">{{ outcome.name }}</div>
   </div>
   {% endfor %}
