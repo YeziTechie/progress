@@ -56,5 +56,28 @@ function bgColorSkirmish() {
   return setInterval(changeBGColor, 2000);
 };
 
-bgColorSkirmish()
-fontColorSkirmish()
+function borderSkirmish(direction, element) {
+
+  console.log('asdf')
+
+  function returnColor() {
+    const color = '#' + Math.floor(Math.random()*16777215).toString(16);
+    return color;
+  }
+  function changeBorder() {
+    if (direction === 'top') {
+      element.style.borderTop = `solid 1px ${returnColor()}`
+    } else if (direction === 'bottom') {
+      element.style.borderBottom === `solid 1px ${returnColor()}`
+    } else if (direction === 'left') {
+      element.style.borderLeft === `solid 1px ${returnColor()}`
+    } else if (direction === 'right') {
+      element.style.borderRight === `solid 1px ${returnColor()}`
+    }
+  }
+  return setInterval(changeBorder, 2000);
+}
+
+bgColorSkirmish();
+fontColorSkirmish();
+borderSkirmish('bottom', document.querySelector('.tasks'));

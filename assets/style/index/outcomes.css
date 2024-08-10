@@ -11,6 +11,7 @@
 
 .outcome {
   display: flex;
+  cursor: pointer;
   flex-direction: row;
   justify-content: start;
   flex-shrink: 0;
@@ -48,5 +49,4 @@
 
 .chaotic-font-color {
   transition: ease color 2.2s, background-color 2.2s;
-  
 }

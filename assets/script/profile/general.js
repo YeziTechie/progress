@@ -2,7 +2,7 @@
 function BoxShadowSkirmish() {
 
   function changeBoxShadow() {
-    const element = document.querySelector('.chaotic-box-shadow');  
+    const element = document.querySelectorAll('.chaotic-box-shadow');  
 
     const ran1 = '#' + Math.floor(Math.random()*16777215).toString(16);
     const ran2 = '#' + Math.floor(Math.random()*16777215).toString(16);
@@ -24,7 +24,7 @@ function BoxShadowSkirmish() {
     0px 0px 68px ${ran8}
     `;
   
-    element.style.boxShadow = data;
+    element.forEach(elem => {elem.style.boxShadow = data;})
   };
 
   return setInterval(changeBoxShadow, 500);
@@ -60,16 +60,12 @@ function bgColorSkirmish() {
 function addHoverClass(event) {
   event.target.classList.add('chaotic-box-shadow');
   intervalNum = BoxShadowSkirmish()
-  console.log(intervalNum)
-
-};
+ };
 
 function removeHoverClass(event) {
   event.target.classList.remove('chaotic-box-shadow');
   event.target.style.boxShadow = '';
   clearInterval(intervalNum)
-  console.log(intervalNum)
-
 };
 
 document.querySelectorAll('.task').forEach(element => {

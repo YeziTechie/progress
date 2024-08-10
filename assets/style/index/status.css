@@ -62,7 +62,7 @@
   flex:1;
 }
 
-.middle-status .level {
+.level {
   background-color: var(--bg-color);
   width:160px;
   height: 160px;
@@ -71,10 +71,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: ease-in-out 2s;
+  transition: ease box-shadow 1s;
 }
 
-.middle-status .level .level-number {
+.level-number {
   font-size: 64px;
 }
 

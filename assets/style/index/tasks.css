@@ -10,13 +10,13 @@
 }
 
 .task {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   background-color: var(--bg-color);
   padding: 10px;
   margin:0px 10px;
-  border: solid 1px var(--theme-color);
-  border-radius: 20px;
+  border-bottom: solid 1px var(--theme-color);
   transition: ease box-shadow 1s;
 }
 
@@ -54,8 +54,8 @@
     0px 0px 4px var(--theme-color),
     0px 0px 6px var(--theme-color),
     0px 0px 12px var(--theme-color),
-    0px 0px 18px var(--theme-color),
-    0px 0px 30px var(--theme-color),
+    0px 0px 18px var(--theme-color); 
+    /* 0px 0px 30px var(--theme-color),
     0px 0px 48px var(--theme-color),
-    0px 0px 78px var(--theme-color);
+    0px 0px 78px var(--theme-color); */
 }
