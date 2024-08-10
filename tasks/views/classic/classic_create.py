@@ -12,12 +12,6 @@ class ClassicCreateView(CreateView):
     template_name = 'classic/create.html'
     success_url = '/'
 
-    def get_form_kwargs(self):
-        kwargs = super().get_form_kwargs()
-        outcome = Outcome.objects.get(pk=self.kwargs['outcome_pk'])
-        kwargs['initial'] = {'outcome': outcome}
-        return kwargs
-
     def form_valid(self, form):
         form.instance.outcome = Outcome.objects.get(pk=self.kwargs['outcome_pk'])
         return super().form_valid(form)

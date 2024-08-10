@@ -1,9 +1,7 @@
 from django.urls import path
 
-from tasks.views.classic.classic_list import ClassicListView
 from tasks.views.classic.classic_create import ClassicCreateView
 from tasks.views.classic.classic_delete import ClassicDeleteView
-from tasks.views.classic.classic_detail import ClassicDetailView
 from tasks.views.classic.classic_update import ClassicUpdateView
 
 from tasks.views.count.count_create import CountCreateView
@@ -23,10 +21,8 @@ from tasks.views.deadline.deadline_repeat import DeadlineRepeatView
 
 
 urlpatterns = [
-    path('classic/list/', ClassicListView.as_view(), name='classic_list'),
     path('<int:outcome_pk>/classic/create/', ClassicCreateView.as_view(), name='classic_create'),
     path('classic/<int:pk>/delete/', ClassicDeleteView.as_view(), name='classic_delete'),
-    path('classic/<int:pk>/detail/', ClassicDetailView.as_view(), name='classic_detail'),
     path('classic/<int:pk>/update/', ClassicUpdateView.as_view(), name='classic_update'),
 
     path('<int:outcome_pk>/count/create/', CountCreateView.as_view(), name='count_create'),
