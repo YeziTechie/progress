@@ -1,5 +1,3 @@
-from datetime import timedelta
-
 from django.utils import timezone
 from django.shortcuts import render
 from django.views import View
@@ -62,6 +60,7 @@ class UserProfileView(View):
         now = timezone.now().date()
 
         for deadline in deadlines:
+            print(deadline)
             days = (deadline.deadline_date.date() - now).days
 
             if days < 0:

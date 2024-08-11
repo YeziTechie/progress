@@ -7,47 +7,60 @@ Repeat Deadline Task
 
 
 {% block styles %}
-<link rel="stylesheet" href="/style/tasks/classic/create.css">
-<link rel="stylesheet" href="/style/tasks/classic/delete.css">
-<link rel="stylesheet" href="/style/tasks/deadline/create.css">
-<link rel="stylesheet" href="/style/tasks/count/delete.css">
-<link rel="stylesheet" href="/style/tasks/time/delete.css">
-<link rel="stylesheet" href="/style/tasks/classic/update.css">
+  <link rel="stylesheet" href="{% static '/style/tasks/classic/create.css' %}">
+  <link rel="stylesheet" href="{% static '/style/tasks/classic/delete.css' %}">
+  <link rel="stylesheet" href="{% static '/style/tasks/deadline/create.css' %}">
+  <link rel="stylesheet" href="{% static '/style/tasks/count/delete.css' %}">
+  <link rel="stylesheet" href="{% static '/style/tasks/time/delete.css' %}">
+  <link rel="stylesheet" href="{% static '/style/tasks/classic/update.css' %}">
+
+  <style>
+    .desc-container {
+      display: flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .description {
+      width:100%;
+    }
+  </style>
 {% endblock %}
 
 
 {% block body %} 
-<div class="container">
-      
-  <div class="page-title">
-    <h2>Create a Deadline Task</h2>
-  </div>
+  <div class="container">
 
-  <div class="outcome-name">
-    <h1>Master Communication Skills</h1>
-  </div>
+    <div class="page-title">
+      <h2>Repeat Deadline Task</h2>
+    </div>
 
-  <div class="form">
+    <div class="outcome-name">
+      <h1>{{ task.outcome.name }}</h1>
+    </div>
 
-    <form action="#">
-      <div class="desc">
-        <div class="desc-label">
-            <p>What must be done? Describe it.</p>
+    <div class="form">
+      <div class="desc-xp">
+        <div class="desc"><p>Description:</p></div>
+        <div class="xp">
+          <div class="title chaotic-font-color" >XP</div>
+          <div class="amount">{{ task.xp }}</div>
         </div>
-        <div class="desc-container">
-          <textarea class=desc-input placeholder="Describe Your Task.."></textarea>
-        </div>
+      </div>
+
+      <div class="desc-container">
+        <div class="description">{{ task.description }}</div>
       </div>
 
       <div class="date">
         <div class="the-date">
           <div class="title"><p>Created:</p></div>
-          <div class="text"><p>2024/2/12 - 13:42</p></div>
+          <div title='{{ task.created_at|date:"fA j(l) n(M) Y" }}' class="text"><p>{{ task.created_at|date:"wA j-n-y" }}</p></div>
         </div>
 
         <div class="the-date">
-          <div class="title"><p>Last Submit:</p></div>
-          <div class="text"><p>2024/2/12 - 13:42</p></div>
+          <div class="title"><p>Deadline:</p></div>
+          <div title='{{ task.created_at|date:"fA j(l) n(M) Y" }}' class="text"><p>{{ task.created_at|date:"wA j-n-y" }}</p></div>
         </div>
       </div>
 
@@ -64,51 +77,52 @@ Repeat Deadline Task
             <p>Day & Hour</p>
           </div>
         </div>
+        <form method="post">
+        {% csrf_token %}
+          <div class="date-input date-js">
+            {{ form.deadline_date }}
+          </div>
 
-        <div class="date-input date-js">
-          <input class='xp-input-elem' type="datetime-local">
+          <div class="duration duration-js" style="display:none;">
+            <div class="day-label">
+              <p>Days:</p>
+            </div>
+            <div class="day-input">
+              {{ form.duration_days }}
+            </div>
+            <div class="hours-label">
+              <p>Hours:</p>
+            </div>
+            <div class="hours-input">
+              {{ form.duration_hours }}
+            </div>
+          </div>
         </div>
 
-        <div class="duration duration-js" style="display:none;">
-          <div class="day-label">
-            <p>Days:</p>
+        <br><br>
+
+        <div class="total-count">
+          <div class="div">
+            <div class="title">Penalty:</div>
+            <div class="amount chaotic-font-color"> {{ task.penalty }}</div>
           </div>
-          <div class="day-input">
-            <input class="xp-input-elem" type="text">
-          </div>
-          <div class="hours-label">
-            <p>Hours:</p>
-          </div>
-          <div class="hours-input">
-            <input class="xp-input-elem" type="text">
+          <div class="div">
+            <div class="title">Penalty XP:</div>
+            <div class="amount chaotic-font-color">{{ task.penalty_xp }}</div>
           </div>
         </div>
-      </div>
 
-      <br><br> 
-
-      <div class="total-count">
-        <div class="div">
-          <div class="title">Penalty:</div>
-          <div class="amount chaotic-font-color"> Half XP Loose</div>
+        <div class="create">
+          <button type="submit" class="update">Repeat</button>
         </div>
-        <div class="div">
-          <div class="title">Penalty XP:</div>
-          <div class="amount chaotic-font-color">75</div>
-        </div>
-      </div>
-      
-      <div class="create">
-        <button type="submit" class="update">Repeat</button>
-      </div>
+      </form>
 
-    </form>
+    </div>
   </div>
-</div>
 
 {% endblock %}
 
 
 {% block scripts %}
-<script src="/script/tasks/deadline/create.js"></script>
+  <script src="{% static '/script/tasks/deadline/create.js' %}"></script>
 {% endblock %}

@@ -13,11 +13,12 @@ class DeadlineUpdateView(FormView):
     def form_valid(self, form):
         deadline = get_object_or_404(Deadline, pk=self.kwargs['pk'])
         deadline.is_done = True
+        deadline.report = form.cleaned_data['report']
         deadline.save()
-        return redirect('outcome_list')
+        return redirect('/')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        deadline = get_object_or_404(Deadline, pk=self.kwargs['pk'])
-        context['deadline'] = deadline
+        task = get_object_or_404(Deadline, pk=self.kwargs['pk'])
+        context['task'] = task
         return context

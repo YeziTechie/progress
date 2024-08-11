@@ -1,3 +1,4 @@
+from django.utils import timezone
 from django.views.generic import TemplateView
 from django.shortcuts import get_object_or_404
 
@@ -10,6 +11,14 @@ class DeadlineStatus(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        obj = get_object_or_404(Deadline, pk=self.kwargs['pk'])
-        context['obj'] = obj
+        task = get_object_or_404(Deadline, pk=self.kwargs['pk'])
+
+        now = timezone.now().date()
+        days = (task.deadline_date.date() - now).days
+        if days < 0:
+            days = 0
+
+        context['task'] = task
+        context['days_remaining'] = days
+
         return context

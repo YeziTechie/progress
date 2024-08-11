@@ -7,67 +7,67 @@ Deadline Task Status
 
 
 {% block styles %}
-<link rel="stylesheet" href="/style/tasks/classic/create.css">
-<link rel="stylesheet" href="/style/tasks/classic/delete.css">
-<link rel="stylesheet" href="/style/tasks/classic/update.css">
-<link rel="stylesheet" href="/style/tasks/count/delete.css">
-<link rel="stylesheet" href="/style/tasks/time/delete.css">
-<link rel="stylesheet" href="/style/tasks/deadline/status.css">
+  <link rel="stylesheet" href="{% static '/style/tasks/classic/create.css' %}">
+  <link rel="stylesheet" href="{% static '/style/tasks/classic/delete.css' %}">
+  <link rel="stylesheet" href="{% static '/style/tasks/classic/update.css' %}">
+  <link rel="stylesheet" href="{% static '/style/tasks/count/delete.css' %}">
+  <link rel="stylesheet" href="{% static '/style/tasks/time/delete.css' %}">
+  <link rel="stylesheet" href="{% static '/style/tasks/deadline/status.css' %}">
 {% endblock %}
 
 
 {% block body %} 
-<div class="container">
-      
-  <div class="page-title">
-    <h2>Deadline Task Status</h2>
+  <div class="container">
+
+    <div class="page-title">
+      <h2>Deadline Task Status</h2>
+    </div>
+
+    <div class="outcome-name">
+      <h1>{{ task.outcome.name }}</h1>
+    </div>
+
+    <div class="info">
+
+      <div class="desc-xp">
+        <div class="desc"><p>Description:</p></div>
+        <div class="xp">
+          <div class="title chaotic-font-color" >XP</div>
+          <div class="amount">{{ task.xp }}</div>
+        </div>
+      </div>
+
+      <div class="desc-container">
+        <div class="description">{{ task.description }}</div>
+      </div>
+
+      <div class="date">
+        <div class="the-date">
+          <div class="title"><p>Created:</p></div>
+          <div title='{{ task.created_at|date:"fA j(l) n(M) Y" }}' class="text"><p>{{ task.created_at|date:"wA j-n-y" }}</p></div>
+        </div>
+
+        <div class="the-date">
+          <div class="title"><p>Deadline:</p></div>
+          <div title='{{ task.deadline_date|date:"fA j(l) n(M) Y" }}' class="text"><p>{{ task.deadline_date|date:"wA j-n-y" }}</p></div>
+        </div>
+      </div>
+
+      <div class="total-count">
+        <div class="div">
+          <div class="title">Days Remaining:</div>
+          <div class="amount chaotic-font-color">{{ days_remaining }}</div>
+        </div>
+      </div>
+
+      <div class="btn">
+        <button class="update">Update</button>
+        <button class="delete">Abort</button>
+        <button class="create-btn">Repeat</button>
+      </div>
+
+    </div>
   </div>
-
-  <div class="outcome-name">
-    <h1>Master Communication Skills</h1>
-  </div>
-
-  <div class="info">
-
-    <div class="desc-xp">
-      <div class="desc"><p>Description:</p></div>
-      <div class="xp">
-        <div class="title chaotic-font-color" >XP</div>
-        <div class="amount">49</div>
-      </div>
-    </div>
-
-    <div class="desc-container">
-      <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, explicabo et! Aliquam sint distinctio adipisci doloribus iste voluptates ut perspiciatis non, ratione nobis libero, explicabo id ipsum tenetur nihil nulla.</div>
-    </div>
-
-    <div class="date">
-      <div class="the-date">
-        <div class="title"><p>Created:</p></div>
-        <div class="text"><p>2024/2/12 - 13:42</p></div>
-      </div>
-
-      <div class="the-date">
-        <div class="title"><p>Last Submit:</p></div>
-        <div class="text"><p>2024/2/12 - 13:42</p></div>
-      </div>
-    </div>
-
-    <div class="total-count">
-      <div class="div">
-        <div class="title">Days Remaining:</div>
-        <div class="amount chaotic-font-color">3</div>
-      </div>
-    </div>
-
-    <div class="btn">
-      <button class="Update">Update</button>
-      <button class="delete">Abort</button>
-      <button class="create-btn">Repeat</button>
-    </div>
-
-  </div>
-</div>
 {% endblock %}
 
 

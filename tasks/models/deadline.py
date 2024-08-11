@@ -37,3 +37,6 @@ class Deadline(models.Model):
         if self.deadline_date is None:
             return False
         return self.deadline_date < timezone.now()
+
+    def penalty_text(self):
+        return self.penalty_choices[self.penalty][1]
