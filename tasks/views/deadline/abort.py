@@ -12,10 +12,10 @@ class DeadlineAbortView(View):
             deadline.is_aborted = True
             deadline.penalty_xp += deadline.xp * deadline.penalty
             deadline.save()
-            return redirect(reverse('outcome_list'))
+            return redirect(reverse('/'))
         else:
             raise Exception("this task is already aborted".title())
 
     def get(self, request, *args, **kwargs):
-        deadline = get_object_or_404(Deadline, pk=self.kwargs['pk'])
-        return render(request, 'deadline/abort.html', {'deadline': deadline})
+        task = get_object_or_404(Deadline, pk=self.kwargs['pk'])
+        return render(request, 'deadline/abort.html', {'task': task})
