@@ -6,8 +6,9 @@ from tasks.models.deadline import Deadline
 
 
 class DeadlineCreateForm(forms.ModelForm):
-    deadline_days = forms.IntegerField(required=False)
-    deadline_hours = forms.IntegerField(required=False)
+    duration_days = forms.IntegerField(required=False)
+    duration_hours = forms.IntegerField(required=False)
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -19,8 +20,8 @@ class DeadlineCreateForm(forms.ModelForm):
         self.fields['xp'].widget.attrs['class'] = 'xp-input-elem'
         self.fields['penalty'].widget.attrs['class'] = 'xp-input-elem'
 
-        self.fields['deadline_days'].widget.attrs['class'] = 'xp-input-elem'
-        self.fields['deadline_hours'].widget.attrs['class'] = 'xp-input-elem'
+        self.fields['duration_days'].widget.attrs['class'] = 'xp-input-elem'
+        self.fields['duration_hours'].widget.attrs['class'] = 'xp-input-elem'
         self.fields['deadline_date'].widget.attrs['class'] = 'xp-input-elem'
 
     class Meta:
@@ -46,7 +47,7 @@ class DeadlineCreateForm(forms.ModelForm):
             now = timezone.now()
             days = duration_days or 0
             hours = duration_hours or 0
-            cleaned_data.deadline_date = now + timedelta(days=days, hours=hours)
+            cleaned_data['deadline_date'] = now + timedelta(days=days, hours=hours)
 
         return cleaned_data
 

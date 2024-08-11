@@ -65,9 +65,9 @@ class UserProfileView(View):
             days = (deadline.deadline_date.date() - now).days
 
             if days < 0:
-                deadline.deadline_date = f'{abs((deadline.deadline_date.date() - now).days)} day passed..'
+                deadline.deadline_date = f'{abs((deadline.deadline_date.date() - now).days)} day passed'
             else:
-                deadline.deadline_date = f'{abs((deadline.deadline_date.date() - now).days)} day left..'
+                deadline.deadline_date = f'{abs((deadline.deadline_date.date() - now).days)} day left'
 
         for classic in classics:
             classic.created_at = (classic.created_at.date() - now).days * -1
