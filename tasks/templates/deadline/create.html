@@ -7,108 +7,101 @@ Create a Deadline Task
 
 
 {% block styles %}
-<link rel="stylesheet" href="/style/tasks/classic/create.css">
-<link rel="stylesheet" href="/style/tasks/deadline/create.css">
+  <link rel="stylesheet" href="{% static '/style/tasks/classic/create.css' %}">
+  <link rel="stylesheet" href="{% static '/style/tasks/deadline/create.css' %}">
 {% endblock %}
 
 
 {% block body %} 
-<div class="container">
-      
-  <div class="page-title">
-    <h2>Create a Deadline Task</h2>
+  <div class="container">
+
+    <div class="page-title">
+      <h2>Create a Deadline Task</h2>
+    </div>
+
+    <div class="outcome-name">
+      <h1>{{ outcome.name }}</h1>
+    </div>
+
+    <div class="form">
+      <form method="post">
+        {% csrf_token %}
+        <div class="desc">
+          <div class="desc-label">
+              <p>What must be done? Describe it.</p>
+          </div>
+          <div class="desc-container">
+            {{ form.description }}
+          </div>
+        </div>
+
+        <div class="xp-and-penalty">
+          <div class="xp">
+            <div class="xp-label">
+              <p class="chaotic-font-color">XP</p>
+            </div>
+            <div class="xp-input">
+              {{ form.xp }}
+            </div>
+          </div>
+
+          <div class="penalty">
+            <div class="penalty-label">
+              <p>Penalty:</p>
+            </div>
+            <div class="penalty-input">
+              {{ form.penalty }}
+            </div>
+          </div>
+
+        </div>
+
+        <div class="deadline">
+          <div class="label">
+            <p>Define Deadline</p>
+          </div>
+
+          <div class="method">
+            <div class="by-date by-date-js selected">
+              <p>Date & Time</p>
+            </div>
+            <div class="by-duration by-duration-js">
+              <p>Day & Hour</p>
+            </div>
+          </div>
+
+          <div class="date-input date-js">
+            {{ form.deadline_date }}
+          </div>
+
+          <div class="duration duration-js" style="display:none;">
+            <div class="day-label">
+              <p>Days:</p>
+            </div>
+            <div class="day-input">
+              {{ form.deadline_days }}
+            </div>
+            <div class="hours-label">
+              <p>Hours:</p>
+            </div>
+            <div class="hours-input">
+              {{ form.deadline_hours }}
+            </div>
+          </div>
+        </div>
+
+        <div class="create">
+          {{ form.errors }}
+          <button type="submit" class="create-btn">Create</button>
+        </div>
+      </form>
+
+    </div>
   </div>
-
-  <div class="outcome-name">
-    <h1>Master Communication Skills</h1>
-  </div>
-
-  <div class="form">
-
-    <form action="#">
-      <div class="desc">
-        <div class="desc-label">
-            <p>What must be done? Describe it.</p>
-        </div>
-        <div class="desc-container">
-          <textarea class=desc-input placeholder="Describe Your Task.."></textarea>
-        </div>
-      </div>
-
-      <div class="xp-and-penalty">
-        <div class="xp">
-          <div class="xp-label">
-            <p class="chaotic-font-color">XP</p>
-          </div>
-          <div class="xp-input">
-            <input type="text" class="xp-input-elem">
-          </div>
-        </div>
-
-        <div class="penalty">
-          <div class="penalty-label">
-            <p>Penalty:</p>
-          </div>
-          <div class="penalty-input">
-            <select class='xp-input-elem' name="Penalty" id="penalty">
-              <option value="1">bib</option>
-              <option value="3">bnoob</option>
-              <option value="3">bnoob</option>
-              <option value="3">bnoob</option>
-              <option value="3">bnoob</option>
-              <option value="3">bnoob</option>
-            </select>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="deadline">
-        <div class="label">
-          <p>Define Deadline</p>
-        </div>
-
-        <div class="method">
-          <div class="by-date by-date-js selected">
-            <p>Date & Time</p>
-          </div>
-          <div class="by-duration by-duration-js">
-            <p>Day & Hour</p>
-          </div>
-        </div>
-
-        <div class="date-input date-js">
-          <input class='xp-input-elem' type="datetime-local">
-        </div>
-
-        <div class="duration duration-js" style="display:none;">
-          <div class="day-label">
-            <p>Days:</p>
-          </div>
-          <div class="day-input">
-            <input class="xp-input-elem" type="text">
-          </div>
-          <div class="hours-label">
-            <p>Hours:</p>
-          </div>
-          <div class="hours-input">
-            <input class="xp-input-elem" type="text">
-          </div>
-        </div>
-      </div>
-
-
-      <div class="create">
-        <button type="submit" class="create-btn">Create</button>
-      </div>
-
-    </form>
-  </div>
-</div>
 
 {% endblock %}
 
 
 {% block scripts %}
-<script src="/script/tasks/deadline/create.js"></script>
+  <script src="{% static '/script/tasks/deadline/create.js' %}"></script>
 {% endblock %}

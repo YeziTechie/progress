@@ -20,6 +20,16 @@ class ClassicCreateForm(forms.ModelForm):
 
 
 class ClassicUpdateForm(forms.ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.fields['report'].widget.attrs['class'] = 'desc-input'
+        self.fields['report'].widget.attrs['placeholder'] = 'How things went on? the result, ' \
+                                                            'the process, next step, etc,.'
+        self.fields['report'].widget.attrs['cols'] = '0'
+        self.fields['report'].widget.attrs['rows'] = '0'
+
     class Meta:
         model = Classic
         fields = [

@@ -62,10 +62,18 @@ class UserProfileView(View):
         now = timezone.now().date()
 
         for deadline in deadlines:
-            deadline.deadline_date = abs((deadline.deadline_date.date() - now).days)
+            days = (deadline.deadline_date.date() - now).days
+
+            if days < 0:
+                deadline.deadline_date = f'{abs((deadline.deadline_date.date() - now).days)} day passed..'
+            else:
+                deadline.deadline_date = f'{abs((deadline.deadline_date.date() - now).days)} day left..'
+
         for classic in classics:
             classic.created_at = (classic.created_at.date() - now).days * -1
 
+
+        # finally, context
         context = {
             'total_xp': xp,
             'level': calculate_level(xp=total_xp()),

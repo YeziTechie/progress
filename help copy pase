@@ -1,0 +1,2 @@
+<div title='{{ task.created_at|date:"fA j(l) n(M) Y" }}' class="text"><p>{{ task.created_at|date:"wA j-n-y" }}</p></div>
+{{  }}

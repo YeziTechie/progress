@@ -8,15 +8,15 @@ from tasks.forms.classic import ClassicUpdateForm
 class ClassicUpdateView(UpdateView):
     model = Classic
     form_class = ClassicUpdateForm
-    template_name = 'classic/update_task.html'
+    template_name = 'classic/update.html'
 
     def form_valid(self, form):
-        classic = Classic.objects.get(pk=self.kwargs['pk'])
-        classic.is_done = True
-        classic.save()
-        return redirect('classic_detail', pk=classic.pk)
+        task = Classic.objects.get(pk=self.kwargs['pk'])
+        task.is_done = True
+        task.save()
+        return redirect('classic_detail', pk=task.pk)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['classic'] = self.object
+        context['task'] = self.object
         return context

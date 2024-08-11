@@ -8,6 +8,20 @@ from tasks.models.deadline import Deadline
 class DeadlineCreateForm(forms.ModelForm):
     deadline_days = forms.IntegerField(required=False)
     deadline_hours = forms.IntegerField(required=False)
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.fields['description'].widget.attrs['class'] = 'desc-input'
+        self.fields['description'].widget.attrs['placeholder'] = 'Describe Your Task..'
+        self.fields['description'].widget.attrs['cols'] = '0'
+        self.fields['description'].widget.attrs['rows'] = '0'
+
+        self.fields['xp'].widget.attrs['class'] = 'xp-input-elem'
+        self.fields['penalty'].widget.attrs['class'] = 'xp-input-elem'
+
+        self.fields['deadline_days'].widget.attrs['class'] = 'xp-input-elem'
+        self.fields['deadline_hours'].widget.attrs['class'] = 'xp-input-elem'
+        self.fields['deadline_date'].widget.attrs['class'] = 'xp-input-elem'
 
     class Meta:
         model = Deadline

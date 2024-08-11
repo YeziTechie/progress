@@ -7,7 +7,7 @@ Create a Count Task
 
 
 {% block styles %}
-<link rel="stylesheet" href="/style/tasks/classic/create.css">
+<link rel="stylesheet" href="{% static '/style/tasks/classic/create.css' %}">
 {% endblock %}
 
 
@@ -19,19 +19,19 @@ Create a Count Task
   </div>
 
   <div class="outcome-name">
-    <h1>Master Communication Skills</h1>
+    <h1>{{ outcome.name }}</h1>
   </div>
 
   <div class="form">
 
-    <form action="#">
-
+    <form method="post">
+      {% csrf_token %}
       <div class="desc">
         <div class="desc-label">
             <p>What must be done? Describe it.</p>
         </div>
         <div class="desc-container">
-          <textarea class=desc-input placeholder="Describe Your Task.."></textarea>
+          {{ form.description }}
         </div>
       </div>
 
@@ -40,7 +40,7 @@ Create a Count Task
           <p class="chaotic-font-color">XP</p>
         </div>
         <div class="xp-input">
-          <input type="text" class="xp-input-elem">
+          {{ form.xp }}
         </div>
       </div>
 

@@ -1,23 +1,23 @@
 from django.urls import path
 
-from tasks.views.classic.classic_create import ClassicCreateView
-from tasks.views.classic.classic_delete import ClassicDeleteView
-from tasks.views.classic.classic_update import ClassicUpdateView
+from tasks.views.classic.create import ClassicCreateView
+from tasks.views.classic.delete import ClassicDeleteView
+from tasks.views.classic.update import ClassicUpdateView
 
-from tasks.views.count.count_create import CountCreateView
-from tasks.views.count.count_update import CountUpdateView
-from tasks.views.count.count_delete import CountDeleteView
+from tasks.views.count.create import CountCreateView
+from tasks.views.count.update import CountUpdateView
+from tasks.views.count.delete import CountDeleteView
 
-from tasks.views.time.time_create import TimeCreateView
-from tasks.views.time.time_update import TimeUpdateView
-from tasks.views.time.time_delete import TimeDeleteView
+from tasks.views.time.create import TimeCreateView
+from tasks.views.time.update import TimeUpdateView
+from tasks.views.time.delete import TimeDeleteView
 
-from tasks.views.deadline.deadline_create import DeadlineCreateView
-from tasks.views.deadline.deadline_delete import DeadlineDeleteView
-from tasks.views.deadline.deadline_status import DeadlineStatus
-from tasks.views.deadline.deadline_update import DeadlineUpdateView
-from tasks.views.deadline.deadline_abort import DeadlineAbortView
-from tasks.views.deadline.deadline_repeat import DeadlineRepeatView
+from tasks.views.deadline.create import DeadlineCreateView
+from tasks.views.deadline.delete import DeadlineDeleteView
+from tasks.views.deadline.status import DeadlineStatus
+from tasks.views.deadline.update import DeadlineUpdateView
+from tasks.views.deadline.abort import DeadlineAbortView
+from tasks.views.deadline.repeat import DeadlineRepeatView
 
 
 urlpatterns = [

@@ -73,10 +73,10 @@ Targoon's Profile
         </div>
         <div class="task-info">
           <p class="task-xp">XP: {{ task.xp }}</p>
-          {% if task.deadline_date > 0 %}
-            <p class="task-created-at" style="color:var(--red)">{{ task.deadline_date }} days <br>left..</p>
+          {% if task.deadline_date %}
+            <p class="task-created-at" style="color:var(--red)">{{ task.deadline_date }}</p>
           {% else %}
-            <p class="task-created-at">{{ task.deadline_date }} <span style="color:var(--red)">days passed..</span></p>
+            <p class="task-created-at" style="color:var(--red)"> {{ task.deadline_date }}</p>
           {% endif %}
         </div>
       </div>

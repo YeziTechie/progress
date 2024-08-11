@@ -7,9 +7,9 @@ Delete Count Task
 
 
 {% block styles %}
-<link rel="stylesheet" href="/style/tasks/classic/create.css">
-<link rel="stylesheet" href="/style/tasks/classic/delete.css">
-<link rel="stylesheet" href="/style/tasks/count/delete.css">
+<link rel="stylesheet" href="{% static '/style/tasks/classic/create.css' %}">
+<link rel="stylesheet" href="{% static '/style/tasks/classic/delete.css' %}">
+<link rel="stylesheet" href="{% static '/style/tasks/count/delete.css' %}">
 {% endblock %}
 
 
@@ -21,7 +21,7 @@ Delete Count Task
   </div>
 
   <div class="outcome-name">
-    <h1>Master Communication Skills</h1>
+    <h1>{{ task.outcome.name }}</h1>
   </div>
 
   <div class="info">
@@ -30,35 +30,38 @@ Delete Count Task
       <div class="desc"><p>Description:</p></div>
       <div class="xp">
         <div class="title chaotic-font-color" >XP</div>
-        <div class="amount">49</div>
+        <div class="amount">{{ task.xp }}</div>
       </div>
     </div>
 
     <div class="desc-container">
-      <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, explicabo et! Aliquam sint distinctio adipisci doloribus iste voluptates ut perspiciatis non, ratione nobis libero, explicabo id ipsum tenetur nihil nulla.</div>
+      <div class="description">{{ task.description }}</div>
     </div>
 
     <div class="date">
       <div class="the-date">
         <div class="title"><p>Created:</p></div>
-        <div class="text"><p>2024/2/12 - 13:42</p></div>
+<div title='{{ task.created_at|date:"fA j(l) n(M) Y" }}' class="text"><p>{{ task.created_at|date:"wA j-n-y" }}</p></div>
       </div>
 
       <div class="the-date">
         <div class="title"><p>Last Submit:</p></div>
-        <div class="text"><p>2024/2/12 - 13:42</p></div>
+        <div title='{{ task.last_submit|date:"fA j(l) n(M) Y" }}' class="text"><p>{{ task.last_submit|date:"wA j-n-y" }}</p></div>
       </div>
 
     </div>
 
     <div class="total-count">
       <div class="title">Total Count:</div>
-      <div class="amount chaotic-font-color">32</div>
+      <div class="amount chaotic-font-color">{{ task.total_count }}</div>
     </div>
+    <form method="post">
+      {% csrf_token %}
+      <div class="btn">
+        <button class="delete">Delete</button>
+      </div>
+    </form>
 
-    <div class="btn">
-      <button class="delete">Delete</button>
-    </div>
 
   </div>
 </div>

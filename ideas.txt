@@ -33,7 +33,11 @@ tasks {
 
 	}
 
-answering Ecology and Outcome questions on each createed Outcome, 
+answering Ecology and Outcome questions on each createed Outcome,
 
 achievement
-like when a task has done for 42 days, we get an achievement and it we no more can click and add xp to that. 
+like when a task has done for 42 days, we get an achievement and it we no more can click and add xp to that.
+
+v2:
+    design messages for each event when redirection
+    gradient smooth transition chaotic.
