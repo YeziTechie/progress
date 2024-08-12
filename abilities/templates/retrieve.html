@@ -32,12 +32,14 @@
 
           <div class="second-column">
             <div class="dates">
-              <div class="created">Created: 2022/12/32</div>
-              <div class="achieved">Achieved: 2022/12/32</div>
+              <div class="created" title='{{ outcome.created_at|date:"fA j(l) n(M) Y" }}'>Created: {{ outcome.created_at|date:"wA j-n-y" }}</div>
+              <div class="achieved" title='{{ outcome.achieved_at|date:"fA j(l) n(M) Y" }}'>Achieved: {{ outcome.achieved_at|date:"wA j-n-y" }}</div>
+<div title='{{ task.created_at|date:"fA j(l) n(M) Y" }}' class="text"><p>{{ task.created_at|date:"wA j-n-y" }}</p></div>
+
 
               <div class="xp-bar">
                 <div class="xp-bar-filled"></div>
-                <div class="xp-number">103 / 510</div>
+                <div class="xp-number">{{ xp_remaining }} / {{ xp_filled }}</div>
                 <div class="xp-bar-remaining"></div>
               </div>
 
@@ -55,7 +57,7 @@
         <div class="create-btn">
           Set As Achieved
         </div>
-        <div class="text">Master Thyself</div>
+        <div class="text">{{ outcome.name }}</div>
       </div>
     </div>
     <!-- questions -->

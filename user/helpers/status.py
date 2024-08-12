@@ -3,10 +3,9 @@ from tasks.models.deadline import Deadline
 from tasks.models.time import Time
 from tasks.models.count import Count
 
-from abilities.models.outcome import Outcome
-
 
 def outcome_active_tasks(pk):
+    from abilities.models.outcome import Outcome
     outcome = Outcome.objects.get(pk=pk)
 
     classics = Classic.objects.filter(outcome=outcome)
@@ -28,28 +27,12 @@ def outcome_active_tasks(pk):
     return result
 
 
-def total_tasks_done():
-    result = 0
-    tasks = Classic.objects.all()
-
-    for task in tasks:
-        if task.is_done is True:
-            result += 1
-
-    return result
-
-
 def total_xp():
-    outcomes = Outcome.objects.all()
-    tasks = Classic.objects.all()
-    result = 0
-
-    for outcome in outcomes:
-        result += outcome.total_xp
-    for task in tasks:
-        if task.is_done is True and task.is_added is False and task.outcome is False:
-            result += task.xp
-    return result
+    from abilities.models.outcome import Outcome
+    level = 0
+    for i in Outcome.objects.all():
+        level += i.level()
+    return level
 
 
 def time_spent():

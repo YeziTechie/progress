@@ -5,6 +5,8 @@ from django.views import View
 from .helpers.status import *
 from .helpers.generate_level import calculate_level, calculate_xp_for_level
 
+from abilities.models.outcome import Outcome
+
 
 class UserProfileView(View):
 
@@ -60,17 +62,15 @@ class UserProfileView(View):
         now = timezone.now().date()
 
         for deadline in deadlines:
-            print(deadline)
             days = (deadline.deadline_date.date() - now).days
 
             if days < 0:
-                deadline.deadline_date = f'{abs((deadline.deadline_date.date() - now).days)} day passed'
+                deadline.deadline_date = f'{abs((deadline.deadline_date.date() - now).days)} days passed'
             else:
-                deadline.deadline_date = f'{abs((deadline.deadline_date.date() - now).days)} day left'
+                deadline.deadline_date = f'{abs((deadline.deadline_date.date() - now).days)} days left'
 
         for classic in classics:
             classic.created_at = (classic.created_at.date() - now).days * -1
-
 
         # finally, context
         context = {

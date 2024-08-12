@@ -62,7 +62,6 @@ class ClassicAdmin(admin.ModelAdmin):
     save_task.short_description = "Save tasks"
 
     actions = [
-
         make_is_done_false,
         make_is_done_true,
         change_outcome,
