@@ -1,10 +1,37 @@
 from django.db import models
 
-from user.helpers.generate_level import *
+from .questions import OutcomeQuestions
+from .ecology import ExternalEcology, InternalEcology
+
 from user.helpers.status import outcome_active_tasks
 
 
 class Outcome(models.Model):
+    o_questions = models.OneToOneField(
+        OutcomeQuestions,
+        on_delete=models.CASCADE,
+        default='Not answered at all',
+        related_name='o_questions',
+        null=False,
+        blank=False
+    )
+    ie_questions = models.OneToOneField(
+        InternalEcology,
+        on_delete=models.CASCADE,
+        default='Not answered at all',
+        related_name='ie_questions',
+        null=False,
+        blank=False
+    )
+    ee_questions = models.OneToOneField(
+        ExternalEcology,
+        on_delete=models.CASCADE,
+        default='Not answered at all',
+        related_name='ee_questions',
+        null=False,
+        blank=False
+    )
+
     name = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     last_task_done_at = models.DateTimeField(null=True, blank=True)
@@ -18,7 +45,7 @@ class Outcome(models.Model):
     def active_tasks(self):
         return outcome_active_tasks(self.pk)
 
-    def level(self):
+    def total_xp(self):
         level = 0
         for i in self.classic_tasks.filter(is_done=True):
             level += i.xp

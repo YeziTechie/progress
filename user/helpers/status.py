@@ -31,7 +31,7 @@ def total_xp():
     from abilities.models.outcome import Outcome
     level = 0
     for i in Outcome.objects.all():
-        level += i.level()
+        level += i.total_xp()
     return level
 
 

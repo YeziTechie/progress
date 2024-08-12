@@ -26,7 +26,7 @@
               <div class="update">Hide</div>
               <div class="delete">Delete</div>
             </div>
-            <div class="level">{{ outcome.level }}</div>
+            <div class="level">{{ level }}</div>
           </div>
 
 
@@ -38,9 +38,9 @@
 
 
               <div class="xp-bar">
-                <div class="xp-bar-filled"></div>
-                <div class="xp-number">{{ xp_remaining }} / {{ xp_filled }}</div>
-                <div class="xp-bar-remaining"></div>
+                <div class="xp-bar-filled" style="width: {{ per1 }}%;"></div>
+                <div class="xp-number">{{ current_xp }} / {{ required_xp }}</div>
+                <div class="xp-bar-remaining" style="width: {{ per2 }}%"></div>
               </div>
 
             </div>
@@ -48,8 +48,8 @@
         </div>
 
         <div class="second-row">
-          <div>Tasks Done: 55</div>
-          <div>Tasks Undone: 22</div>
+          <div>Tasks Done: {{ done_tasks }}</div>
+          <div>Active Tasks: {{ active_tasks }}</div>
         </div>
       </div>
 
@@ -81,7 +81,7 @@
             1. What are the wider consequences of my action?
           </div>
           <div class="line"></div>
-          <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+          <div class="answer">{{ internal_ecology.q1 }}
           </div>
         </div>
 
@@ -90,7 +90,7 @@
             2. What will I lose if I make this change?
           </div>
           <div class="line"></div>
-          <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+          <div class="answer">{{ internal_ecology.q2 }}
           </div>
         </div>
 
@@ -99,7 +99,7 @@
             3. What extra will I have to do?
           </div>
           <div class="line"></div>
-          <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+          <div class="answer">{{ internal_ecology.q3 }}
           </div>
         </div>
 
@@ -108,7 +108,7 @@
             4. Is it worth it?
           </div>
           <div class="line"></div>
-          <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+          <div class="answer">{{ internal_ecology.q4 }}
           </div>
         </div>
 
@@ -117,18 +117,36 @@
             5. What will I gain if I make this change?
           </div>
           <div class="line"></div>
-          <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+          <div class="answer">{{ internal_ecology.q5 }}
           </div>
         </div>
 
         <div class="question">
           <div class="question-text">
-            6. What is the price of making this chagne and am I willing to pay it?
+            6. What is the price of making this change and am I willing to pay it?
           </div>
           <div class="line"></div>
-          <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+          <div class="answer">{{ internal_ecology.q6 }}
           </div>
         </div>
+        
+        <div class="question">
+          <div class="question-text">
+            7. What are the good aspects of the present state?
+          </div>
+          <div class="line"></div>
+          <div class="answer">{{ internal_ecology.q7 }}
+          </div>
+        </div>
+        
+        <div class="question">
+          <div class="question-text">
+            8. How can i keep those good aspects while making the change i want?
+          </div>
+          <div class="line"></div>
+          <div class="answer">{{ internal_ecology.q8 }}
+          </div>
+        </div>        
       </div>
     </div>
 
@@ -146,7 +164,7 @@
             1. Positive: What do you want?
           </div>
           <div class="line"></div>
-          <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+          <div class="answer">{{ outcome_questions.positive }}
           </div>
         </div>
 
@@ -155,7 +173,7 @@
             2. Evidence: How will you know you are succeeding/have succeeded?
           </div>
           <div class="line"></div>
-          <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+          <div class="answer">{{ outcome_questions.evidence }}
           </div>
         </div>
 
@@ -164,7 +182,7 @@
             3. Specifics: Where, when and with whom?
           </div>
           <div class="line"></div>
-          <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+          <div class="answer">{{ outcome_questions.specific }}
           </div>
         </div>
 
@@ -173,7 +191,7 @@
             4. Resources: What resources do you have?
           </div>
           <div class="line"></div>
-          <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+          <div class="answer">{{ outcome_questions.resource }}
           </div>
         </div>
 
@@ -182,16 +200,16 @@
             5. Control: Can you start and maintain this outcome?
           </div>
           <div class="line"></div>
-          <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+          <div class="answer">{{ outcome_questions.control }}
           </div>
         </div>
 
         <div class="question">
           <div class="question-text">
-            6. Identity: Is this outcome inkeeping with who you are?
+            6. Identity: Is this outcome in keeping with who you are?
           </div>
           <div class="line"></div>
-          <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+          <div class="answer">{{ outcome_questions.identity }}
           </div>
         </div>
 
@@ -200,7 +218,7 @@
             7. How do your outcomes fit together?
           </div>
           <div class="line"></div>
-          <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+          <div class="answer">{{ outcome_questions.relation_with_other_outcomess }}
           </div>
         </div>
 
@@ -209,7 +227,7 @@
             8. Action plan: What to do next?
           </div>
           <div class="line"></div>
-          <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+          <div class="answer">{{ outcome_questions.action }}
           </div>
         </div>
 
@@ -230,7 +248,7 @@
             1. How will you change affect them?
           </div>
           <div class="line"></div>
-          <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+          <div class="answer">{{ external_ecology.q1 }}
           </div>
         </div>
 
@@ -239,7 +257,7 @@
             2. Does it goes against any of their values?
           </div>
           <div class="line"></div>
-          <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+          <div class="answer">{{ external_ecology.q2 }}
           </div>
         </div>
 
@@ -248,7 +266,7 @@
             3. Does this matter?
           </div>
           <div class="line"></div>
-          <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+          <div class="answer">{{ external_ecology.q3 }}
           </div>
         </div>
 
@@ -257,7 +275,7 @@
             4. How will they react?
           </div>
           <div class="line"></div>
-          <div class="answer">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea pariatur inventore voluptatibus perspiciatis qui eaque nobis molestiae eius veniam exercitationem?
+          <div class="answer">{{ external_ecology.q4 }}
           </div>
         </div>
 

@@ -15,7 +15,7 @@ class UserProfileView(View):
         # xp and level, next level and current xp and stuff
         xp = total_xp()
         level = calculate_level(xp=xp)
-        next_level_xp = calculate_xp_for_level(calculate_level(xp=xp) + 1)
+        next_level_xp = calculate_xp_for_level(level + 1)
         xp = xp - calculate_xp_for_level(level)
         next_level_xp = next_level_xp - calculate_xp_for_level(level)
 
