@@ -15,7 +15,6 @@ class ClassicAdmin(admin.ModelAdmin):
         'outcome',
         'description',
         'is_done',
-        'is_added'
     ]
 
     def get_urls(self):
@@ -44,14 +43,6 @@ class ClassicAdmin(admin.ModelAdmin):
         task_ids = ','.join([str(task.id) for task in queryset])
         return redirect(f'change_outcome/?tasks={task_ids}')
 
-    def make_is_added_false(modeladmin, request, queryset):
-        queryset.update(is_added=False)
-        modeladmin.message_user(request, "is added false")
-
-    def make_is_added_true(modeladmin, request, queryset):
-        queryset.update(is_added=True)
-        modeladmin.message_user(request, "is added true")
-
     def make_is_done_true(modeladmin, request, queryset):
         queryset.update(is_done=True)
         modeladmin.message_user(request, "is done true")
@@ -65,16 +56,13 @@ class ClassicAdmin(admin.ModelAdmin):
             task.save()
         modeladmin.message_user(request, "save")
 
-    make_is_added_false.short_description = "is added false"
-    make_is_added_true.short_description = "is added true"
     make_is_done_false.short_description = "is done false"
     make_is_done_true.short_description = "is done true"
     change_outcome.short_description = "Change assigned outcome for selected tasks"
     save_task.short_description = "Save tasks"
 
     actions = [
-        make_is_added_true,
-        make_is_added_false,
+
         make_is_done_false,
         make_is_done_true,
         change_outcome,
