@@ -2,57 +2,55 @@
 {% load static %}
 
 {% block title %}
-Delete Classic Task
+  Delete Classic Task
 {% endblock %}
 
 
 {% block styles %}
-<link rel="stylesheet" href="{% static '/style/tasks/classic/create.css' %} ">
-<link rel="stylesheet" href="{% static '/style/tasks/classic/delete.css' %} ">
+  <link rel="stylesheet" href="{% static '/style/tasks/classic/create.css' %} ">
+  <link rel="stylesheet" href="{% static '/style/tasks/classic/delete.css' %} ">
 {% endblock %}
 
 
 {% block body %} 
-<div class="container">
-      
-  <div class="page-title">
-    <h2>Delete Classic Task</h2>
-  </div>
+  <div class="container">
 
-  <div class="outcome-name">
-    <h1>{{ task.outcome.name }}</h1>
-  </div>
-
-  <div class="info">
-
-    <div class="desc-xp">
-      <div class="desc"><p>Description:</p></div>
-      <div class="xp">
-        <div class="title chaotic-font-color" >XP</div>
-        <div class="amount">{{ task.xp }}</div>
-      </div>
+    <div class="page-title">
+      <h2>Delete Classic Task</h2>
     </div>
 
-    <div class="desc-container">
-      <div class="description">{{ task.description }}</div>
+    <div class="outcome-name">
+      <h1>{{ task.outcome.name }}</h1>
     </div>
 
-    <div class="date">
-      <div class="the-date">
-        <div class="title"><p>Created:</p></div>
-        <div title='{{ task.created_at|date:"fA j(l) n(M) Y" }}' class="text"><p>{{ task.created_at|date:"wA j-n-y" }}</p></div>
+    <div class="info">
+
+      <div class="desc-xp">
+        <div class="desc"><p>Description:</p></div>
+        <div class="xp">
+          <div class="title chaotic-font-color" >XP</div>
+          <div class="amount">{{ task.xp }}</div>
+        </div>
       </div>
+
+      <div class="desc-container">
+        <div class="description">{{ task.description }}</div>
+      </div>
+
+      <div class="date">
+        <div class="the-date">
+          <div class="title"><p>Created:</p></div>
+          <div title='{{ task.created_at|date:"fA j(l) n(M) Y" }}' class="text"><p>{{ task.created_at|date:"wA j-n-y" }}</p></div>
+        </div>
+      </div>
+      <form method="post">
+        {% csrf_token %}
+        <div class="btn">
+          <button type='submit' class="delete">Delete</button>
+        </div>
+      </form>
     </div>
-    <form method="post">
-      {% csrf_token %}
-      <div class="btn">
-        <button type='submit' class="delete">Delete</button>
-      </div>
-    </form>
   </div>
-</div>
-
-
 {% endblock %}
 
 

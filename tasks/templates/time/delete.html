@@ -1,55 +1,79 @@
-<div class="container">
 
-      <div class="page-title">
-        <h2>Delete Time Task</h2>
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Delete Classic Task
+{% endblock %}
+
+
+{% block styles %}
+  <link rel="stylesheet" href="{% static '/style/tasks/classic/create.css' %}">
+  <link rel="stylesheet" href="{% static '/style/tasks/classic/delete.css' %}">
+  <link rel="stylesheet" href="{% static '/style/tasks/count/delete.css' %}">
+  <link rel="stylesheet" href="{% static '/style/tasks/time/delete.css' %}">
+{% endblock %}
+
+
+{% block body %}
+  <div class="container">
+
+    <div class="page-title">
+      <h2>Delete Time Task</h2>
+    </div>
+
+    <div class="outcome-name">
+      <h1>{{ task.outcome.name }}</h1>
+    </div>
+
+    <div class="info">
+
+      <div class="desc-xp">
+        <div class="desc"><p>Description:</p></div>
+        <div class="xp">
+          <div class="title chaotic-font-color" >XP</div>
+          <div class="amount">{{ task.xp }}</div>
+        </div>
       </div>
 
-      <div class="outcome-name">
-        <h1>Master Communication Skills</h1>
+      <div class="desc-container">
+        <div class="description">{{ task.description }}</div>
       </div>
 
-      <div class="info">
-
-        <div class="desc-xp">
-          <div class="desc"><p>Description:</p></div>
-          <div class="xp">
-            <div class="title chaotic-font-color" >XP</div>
-            <div class="amount">49</div>
-          </div>
+      <div class="date">
+        <div class="the-date">
+          <div class="title"><p>Created:</p></div>
+          <div title='{{ task.created_at|date:"fA j(l) n(M) Y" }}' class="text"><p>{{ task.created_at|date:"wA j-n-y" }}</p></div>
         </div>
 
-        <div class="desc-container">
-          <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, explicabo et! Aliquam sint distinctio adipisci doloribus iste voluptates ut perspiciatis non, ratione nobis libero, explicabo id ipsum tenetur nihil nulla.</div>
+        <div class="the-date">
+          <div class="title"><p>Last Submit:</p></div>
+          <div title='{{ task.last_submit|date:"fA j(l) n(M) Y" }}' class="text"><p>{{ task.last_submit|date:"wA j-n-y" }}</p></div>
         </div>
-
-        <div class="date">
-          <div class="the-date">
-            <div class="title"><p>Created:</p></div>
-            <div class="text"><p>2024/2/12 - 13:42</p></div>
-          </div>
-
-          <div class="the-date">
-            <div class="title"><p>Last Submit:</p></div>
-            <div class="text"><p>2024/2/12 - 13:42</p></div>
-          </div>
-
-        </div>
-
-        <div class="total-count">
-          <div class="div">
-            <div class="title">Total Count:</div>
-            <div class="amount chaotic-font-color">32</div>
-          </div>
-
-          <div class="div">
-            <div class="title">Total Count:</div>
-            <div class="amount chaotic-font-color">32</div>
-          </div>
-        </div>
-
-        <div class="btn">
-          <button class="delete">Delete</button>
-        </div>
-
       </div>
 
+      <div class="total-count">
+        <div class="div">
+          <div class="title">Total Time:</div>
+          <div class="amount chaotic-font-color">{{ task.total_time }}</div>
+        </div>
+
+        <div class="div">
+          <div class="title">Longest Time:</div>
+          <div class="amount chaotic-font-color">{{ task.longest_time }}</div>
+        </div>
+      </div>
+
+      <div class="btn">
+        <button class="delete">Delete</button>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+{% endblock %}

@@ -1,88 +1,73 @@
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create a Time Task</title>
+{% extends 'base.html' %}
+{% load static %}
 
-    <link rel="stylesheet" href="/style/tasks/time/create.css">
-    <link rel="stylesheet" href="/style/navbar.css">
-    <link rel="stylesheet" href="/style/base.css">
-    <link rel="stylesheet" href="/style/tasks/classic/create.css">
-  </head>
-  <body>
-    <!-- Nav Bar -->
-    <div class="js-navbar-button navbar-button"></div>
-    <a href="">
-      <div class="js-navbar-tasks navbar-tasks">
-        <p class="navbar-text">Tasks</p>
-      </div>
-    </a>
-    <a href="">
-      <div class="js-navbar-profile navbar-profile">
-        <p class="navbar-text">Profile</p>
-      </div>
-    </a>
-    <a href="">
-      <div class="js-navbar-outcomes navbar-outcomes">
-        <p class="navbar-text">Outcomes</p>
-      </div>
-    </a>
+{% block title %}
+  Create a Time Task
+{% endblock %}
 
-    <!-- Body Content -->
-    <div class="more-info-container more-info-container-js">
-      <p>1 Hour = amount of xp you specify.</p>
+
+{% block styles %}
+  <link rel="stylesheet" href="{% static '/style/tasks/time/create.css' %}">
+  <link rel="stylesheet" href="{% static '/style/navbar.css' %}">
+  <link rel="stylesheet" href="{% static '/style/base.css' %}">
+  <link rel="stylesheet" href="{% static '/style/tasks/classic/create.css' %}">
+{% endblock %}
+
+
+{% block body %}
+  <div class="more-info-container more-info-container-js">
+    <p>1 Hour = amount of xp you specify.</p>
+  </div>
+
+
+  <div class="container">
+
+    <div class="page-title">
+      <h2>Create a Time Task</h2>
     </div>
 
-
-    <div class="container">
-      
-      <div class="page-title">
-        <h2>Create a Time Task</h2>
-      </div>
-
-      <div class="outcome-name">
-        <h1>Master Communication Skills</h1>
-      </div>
-
-      <div class="form">
-
-        <form action="#">
-
-          <div class="desc">
-            <div class="desc-label">
-              <div class="desc-label-text">
-                <p>What must be done? Describe it.</p>
-              </div>
-              <div class="more-info more-info-js">
-                <p>?</p>
-              </div>
-            </div>
-
-            <div class="desc-container">
-              <textarea class=desc-input placeholder="Describe Your Task.."></textarea>
-            </div>
-          </div>
-
-          <div class="xp">
-            <div class="xp-label">
-              <p class="chaotic-font-color" style="transition: ease-in-out 2s;">XP</p>
-            </div>
-            <div class="xp-input">
-              <input type="text" class="xp-input-elem">
-            </div>
-          </div>
-
-          <div class="create">
-            <button type="submit" class="create-btn">Create</button>
-          </div>
-
-        </form>
-
+    <div class="outcome-name">
+      <h1>{{ outcome.name }}</h1>
     </div>
-    
 
-    <script src="/script/navbar.js"></script>
-    <script src="/script/general.js"></script>
-    <script src="/script/tasks/time/create.js"></script>
-  </body>
-</html>
+    <div class="form">
+
+      <form method="post">
+      {% csrf_token %}
+        <div class="desc">
+          <div class="desc-label">
+            <div class="desc-label-text">
+              <p>What must be done? Describe it.</p>
+            </div>
+            <div class="more-info more-info-js">
+              <p>?</p>
+            </div>
+          </div>
+
+          <div class="desc-container">
+            {{ form.description }}
+          </div>
+        </div>
+
+        <div class="xp">
+          <div class="xp-label">
+            <p class="chaotic-font-color" style="transition: ease-in-out 2s;">XP</p>
+          </div>
+          <div class="xp-input">
+            {{ form.xp }}
+          </div>
+        </div>
+
+        <div class="create">
+          <button type="submit" class="create-btn">Create</button>
+        </div>
+
+      </form>
+
+  </div>
+{% endblock %}
+
+
+{% block scripts %}
+  <script src="{% static '/script/tasks/time/create.js' %}"></script>
+{% endblock %}

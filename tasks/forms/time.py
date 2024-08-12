@@ -20,4 +20,8 @@ class TimeCreateForm(forms.ModelForm):
 
 
 class TimeUpdateForm(forms.Form):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['time'].widget.attrs['class'] = 'xp-input-elem'
+
     time = forms.CharField(label='time', max_length=5)

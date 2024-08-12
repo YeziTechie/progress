@@ -13,6 +13,7 @@ class CountCreateForm(forms.ModelForm):
         self.fields['description'].widget.attrs['rows'] = '0'
 
         self.fields['xp'].widget.attrs['class'] = 'xp-input-elem'
+
     class Meta:
         model = Count
         fields = ['outcome', 'description', 'xp']
@@ -20,3 +21,9 @@ class CountCreateForm(forms.ModelForm):
 
 class CountUpdateForm(forms.Form):
     count = forms.CharField(label='count', max_length=5)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.fields['count'].widget.attrs['class'] = 'xp-input-elem'
+
