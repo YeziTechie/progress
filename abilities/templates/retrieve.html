@@ -292,6 +292,9 @@
 
     <!-- time task -->
     <div class="time-task-container time-container-js">
+      <div class="create-task">
+        <button class="create-btn">Create New Task</button>
+      </div>
       {% for time in times %}
         <div class="task">
           <div class="header">
@@ -330,6 +333,9 @@
 
     <!-- count task -->
     <div class="count-task-container count-container-js">
+      <div class="create-task">
+        <button class="create-btn">Create New Task</button>
+      </div>
       {% for count in counts %}
         <div class="task">
           <div class="header">
@@ -368,6 +374,9 @@
 
     <!-- classic task -->
     <div class="classic-task-container classic-container-js">
+      <div class="create-task">
+        <button class="create-btn">Create New Task</button>
+      </div>
       {% for classic in classics %}
         {% if classic.is_done == False %}
           <div class="task">
@@ -428,7 +437,9 @@
 
     <!--  deadline task -->
     <div class="deadline-task-container deadline-container-js">
-
+      <div class="create-task">
+        <button class="create-btn">Create New Task</button>
+      </div>
       {% for deadline in deadlines %}
         {% if deadline.is_done == False %}
           <div class="task">
