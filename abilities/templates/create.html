@@ -2,51 +2,43 @@
 {% load static %}
 
 {% block title %}
-Create New Outcome
+  Create New Outcome
 {% endblock %}
 
 
 {% block styles %}
-  <link rel="stylesheet" href="/style/tasks/classic/create.css">
-  <link rel="stylesheet" href="/style/outcome/create.css">
+  <link rel="stylesheet" href="{% static '/style/tasks/classic/create.css' %}">
+  <link rel="stylesheet" href="{% static '/style/outcome/create.css' %}">
 {% endblock %}
 
 
 {% block body %} 
-<div class="container">
+  <div class="container">
 
-  <div class="page-title">
-    <h2>Create New Outcome</h2>
-  </div>
+    <div class="page-title">
+      <h2>Create New Outcome</h2>
+    </div>
 
-  <div class="outcome-name">
-    <h1>Choose its name in positive: What do you want?</h1>
-  </div>
+    <div class="outcome-name">
+      <h1>Choose its name in positive: What do you want?</h1>
+    </div>
 
-  <div class="form">
-    <form action="#">
-      <div class="desc">
-        <div class="desc-label">
+    <div class="form">
+      <form method="post">
+        {% csrf_token %}
+        <div class="desc">
+          <div class="desc-label">
+          </div>
+          <div class="desc-container">
+            {{ form.name }}
         </div>
-        <div class="desc-container">
-          <input type='text' class=desc-input placeholder="e.g. Master Thyself, Learn astral travel, survival skills..">
-      </div>
 
-      <div class="xp">
-        <div class="xp-label">
-          <p style="color: var(--text-color);">Current </p><p class="chaotic-font-color">XP</p>
+        <div class="create">
+          <button type="submit" class="create-btn">Create</button>
         </div>
-        <div class="xp-input">
-          <input type="text" class="xp-input-elem">
-        </div>
-      </div>
-
-      <div class="create">
-        <button type="submit" class="create-btn">Create</button>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
-</div>
 {% endblock %}
 
 

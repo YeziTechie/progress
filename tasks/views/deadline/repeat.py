@@ -1,5 +1,6 @@
 from django.views.generic import FormView
 from django.shortcuts import get_object_or_404, redirect
+from django.urls import reverse
 
 from tasks.models.deadline import Deadline
 from tasks.forms.deadline import DeadlineRepeatForm
@@ -8,7 +9,6 @@ from tasks.forms.deadline import DeadlineRepeatForm
 class DeadlineRepeatView(FormView):
     template_name = 'deadline/repeat.html'
     form_class = DeadlineRepeatForm
-    success_url = '/'
 
     def form_valid(self, form):
         obj = get_object_or_404(Deadline, pk=self.kwargs['pk'])
@@ -17,7 +17,7 @@ class DeadlineRepeatView(FormView):
             obj.deadline_date = date
             obj.penalty_xp += obj.xp * obj.penalty
             obj.save()
-            return redirect(self.success_url)
+            return reverse('outcome_detail', kwargs={'pk': obj.outcome.pk})
         else:
             raise Exception('The duration of this task is not over yet. You still have time.'.title())
 

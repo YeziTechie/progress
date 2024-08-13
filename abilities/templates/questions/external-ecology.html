@@ -7,108 +7,96 @@
 
 
 {% block styles %}
-  <link rel="stylesheet" href="/style/tasks/time/create.css">
-  <link rel="stylesheet" href="/style/tasks/classic/create.css">
-  <link rel="stylesheet" href="/style/tasks/classic/update.css">
-  <link rel="stylesheet" href="/style/questions/main.css">
+  <link rel="stylesheet" href="{% static '/style/tasks/time/create.css' %}">
+  <link rel="stylesheet" href="{% static '/style/tasks/classic/create.css' %}">
+  <link rel="stylesheet" href="{% static '/style/tasks/classic/update.css' %}">
+  <link rel="stylesheet" href="{% static '/style/questions/main.css' %}">
 {% endblock %}
 
 
-{% block body %} 
-  
-<div class="more-info-container more-info-container-js-0" onmouseenter="hideHelpText(0)">
-  <p>asdf</p>
-</div>
-
-<div class="more-info-container more-info-container-js-1" onmouseenter="hideHelpText(1)">
-  <p>zcv</p>
-</div>
-
-<div class="more-info-container more-info-container-js-2" onmouseenter="hideHelpText(2)">
-  <p>vnbm.</p>
-</div>
-
-
-<div class="container">
-  <form action="">
-    <div class="header">
-      <div class="page-title">
-        <div class="title">
-          <h2>External Ecology Questions</h2>
-        </div>
-        
-        <div class="btn">
-          <button class="create-btn">Update</button>
-        </div>
-      </div>
-
-      <div class="outcome-name">
-        <h1>Master Communication Skills</h1>
-      </div>
-    </div>
-
-    <div class="note">
-      <h1>Pay Attention:</h1>
-      <p>Internal Ecology shades into external ecology because we are all part of a wider system of relationships. Internal and external ecology are two different perspectives on the same system. An external ecology check examines how your outcome will affect other significant people in your life.<br><br><b>Make a leap of imagination and beocme them:</b> </p>
-    </div><br><br>
-
-    <div class="questions">
-
-      <div class="question">
-        <div class="text">
+{% block body %}
+  <div class="container">
+    <form method="post">
+      {% csrf_token %}
+      <div class="header">
+        <div class="page-title">
           <div class="title">
-            <p>1. How will your change affect them?</p>
+            <h2>External Ecology Questions</h2>
           </div>
 
-        </div>
-        <div class="answer">
-          <textarea class="desc-input" name="" id=""></textarea>
-        </div>
-      </div>
-
-      <div class="question">
-        <div class="text">
-          <div class="title">
-            <p>2. Does it goes against any of their values? </p>
+          <div class="btn">
+            <button class="create-btn" type="submit">Update</button>
           </div>
-
         </div>
-        <div class="answer">
-          <textarea class="desc-input" name="" id=""></textarea>
+
+        <div class="outcome-name">
+          <h1>{{ outcome.name }}</h1>
+          {{ form.errors }}
         </div>
       </div>
 
-      <div class="question">
-        <div class="text">
-          <div class="title">
-            <p>3. Does this matter? </p>
+      <div class="note">
+        <h1>Pay Attention:</h1>
+        <p>Internal Ecology shades into external ecology because we are all part of a wider system of relationships. Internal and external ecology are two different perspectives on the same system. An external ecology check examines how your outcome will affect other significant people in your life.<br><br><b>Make a leap of imagination and beocme them:</b> </p>
+      </div><br><br>
+
+      <div class="questions">
+
+        <div class="question">
+          <div class="text">
+            <div class="title">
+              <p>1. How will your change affect them?</p>
+            </div>
+
           </div>
-
-        </div>
-        <div class="answer">
-          <textarea class="desc-input" name="" id=""></textarea>
-        </div>
-      </div>
-
-      <div class="question">
-        <div class="text">
-          <div class="title">
-            <p>4. How will they react?</p>
+          <div class="answer">
+            {{ form.q1 }}
           </div>
+        </div>
 
+        <div class="question">
+          <div class="text">
+            <div class="title">
+              <p>2. Does it goes against any of their values? </p>
+            </div>
+
+          </div>
+          <div class="answer">
+            {{ form.q2 }}
+          </div>
         </div>
-        <div class="answer">
-          <textarea class="desc-input" name="" id=""></textarea>
+
+        <div class="question">
+          <div class="text">
+            <div class="title">
+              <p>3. Does this matter? </p>
+            </div>
+
+          </div>
+          <div class="answer">
+            {{ form.q3 }}
+          </div>
         </div>
+
+        <div class="question">
+          <div class="text">
+            <div class="title">
+              <p>4. How will they react?</p>
+            </div>
+
+          </div>
+          <div class="answer">
+            {{ form.q4 }}
+          </div>
+        </div>
+
       </div>
-
-    </div>
-  </form>
-</div>
+    </form>
+  </div>
 
 {% endblock %}
 
 
 {% block scripts %}
-<script src="/script/questions/ecology.js"></script>
+
 {% endblock %}

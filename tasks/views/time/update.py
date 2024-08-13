@@ -1,5 +1,6 @@
 from django.views.generic import FormView
 from django.shortcuts import redirect, get_object_or_404
+from django.urls import reverse
 
 from tasks.models.time import Time
 from tasks.forms.time import TimeUpdateForm
@@ -15,8 +16,7 @@ class TimeUpdateView(FormView):
             task = get_object_or_404(Time, pk=self.kwargs['pk'])
             task.total_time += time
             task.save()
-
-        return redirect('/')
+            return reverse('outcome_detail', kwargs={'pk': self.object.outcome.pk})
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

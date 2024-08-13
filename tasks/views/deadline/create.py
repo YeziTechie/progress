@@ -1,4 +1,5 @@
 from django.views.generic.edit import CreateView
+from django.urls import reverse
 
 from tasks.models.deadline import Deadline
 from tasks.forms.deadline import DeadlineCreateForm
@@ -10,7 +11,9 @@ class DeadlineCreateView(CreateView):
     model = Deadline
     form_class = DeadlineCreateForm
     template_name = 'deadline/create.html'
-    success_url = '/'
+
+    def get_success_url(self):
+        return reverse('outcome_detail', kwargs={'pk': self.object.outcome.pk})
 
     def form_valid(self, form):
         form.instance.outcome = Outcome.objects.get(pk=self.kwargs['outcome_pk'])
