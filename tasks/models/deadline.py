@@ -14,10 +14,10 @@ class Deadline(models.Model):
 
     outcome = models.ForeignKey(
         'abilities.Outcome',
-        models.SET_NULL,
+        models.CASCADE,
         related_name='deadline_tasks',
-        null=True,
-        blank=True
+        null=False,
+        blank=False
     )
 
     description = models.CharField(max_length=512)

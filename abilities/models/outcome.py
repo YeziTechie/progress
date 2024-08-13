@@ -1,43 +1,28 @@
 from django.db import models
 
-from .questions import OutcomeQuestions
-from .ecology import ExternalEcology, InternalEcology
-
 from user.helpers.status import outcome_active_tasks
+
+from .ecology import ExternalEcology, InternalEcology
+from .questions import OutcomeQuestions
 
 
 class Outcome(models.Model):
-    o_questions = models.OneToOneField(
-        OutcomeQuestions,
-        on_delete=models.CASCADE,
-        default='Not answered at all',
-        related_name='o_questions',
-        null=False,
-        blank=False
-    )
-    ie_questions = models.OneToOneField(
-        InternalEcology,
-        on_delete=models.CASCADE,
-        default='Not answered at all',
-        related_name='ie_questions',
-        null=False,
-        blank=False
-    )
-    ee_questions = models.OneToOneField(
-        ExternalEcology,
-        on_delete=models.CASCADE,
-        default='Not answered at all',
-        related_name='ee_questions',
-        null=False,
-        blank=False
-    )
-
     name = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     last_task_done_at = models.DateTimeField(null=True, blank=True)
     is_achieved = models.BooleanField(default=False)
-    achieved_at = models.DateTimeField(default=None, null=True)
+    achieved_at = models.DateTimeField(default=None, null=True, blank=True)
     is_hided = models.BooleanField(default=False)
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
+        if not hasattr(self, 'internal_ecology'):
+            InternalEcology.objects.create(outcome=self)
+        if not hasattr(self, 'outcome_questions'):
+            OutcomeQuestions.objects.create(outcome=self)
+        if not hasattr(self, 'external_ecology'):
+            ExternalEcology.objects.create(outcome=self)
 
     def __str__(self):
         return f'{self.name} | XP:'

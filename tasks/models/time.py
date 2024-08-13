@@ -6,10 +6,10 @@ from django.db import models
 class Time(models.Model):
     outcome = models.ForeignKey(
         'abilities.Outcome',
-        models.SET_NULL,
+        models.CASCADE,
         related_name='time_tasks',
-        null=True,
-        blank=True,
+        null=False,
+        blank=False,
     )
 
     description = models.CharField(max_length=256)

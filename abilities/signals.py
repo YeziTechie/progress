@@ -14,7 +14,7 @@ def create_related_models(sender, instance, created, **kwargs):
         ExternalEcology.objects.create(outcome=instance)
     else:
         if not hasattr(instance, 'related_model_1'):
-            Questions.objects.create(outcome=instance)
+            OutcomeQuestions.objects.create(outcome=instance)
         if not hasattr(instance, 'related_model_2'):
             InternalEcology.objects.create(outcome=instance)
         if not hasattr(instance, 'related_model_3'):

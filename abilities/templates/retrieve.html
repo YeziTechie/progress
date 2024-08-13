@@ -34,15 +34,11 @@
             <div class="dates">
               <div class="created" title='{{ outcome.created_at|date:"fA j(l) n(M) Y" }}'>Created: {{ outcome.created_at|date:"wA j-n-y" }}</div>
               <div class="achieved" title='{{ outcome.achieved_at|date:"fA j(l) n(M) Y" }}'>Achieved: {{ outcome.achieved_at|date:"wA j-n-y" }}</div>
-<div title='{{ task.created_at|date:"fA j(l) n(M) Y" }}' class="text"><p>{{ task.created_at|date:"wA j-n-y" }}</p></div>
-
-
               <div class="xp-bar">
                 <div class="xp-bar-filled" style="width: {{ per1 }}%;"></div>
                 <div class="xp-number">{{ current_xp }} / {{ required_xp }}</div>
                 <div class="xp-bar-remaining" style="width: {{ per2 }}%"></div>
               </div>
-
             </div>
           </div>
         </div>
@@ -60,6 +56,7 @@
         <div class="text">{{ outcome.name }}</div>
       </div>
     </div>
+
     <!-- questions -->
     <div class="question-buttons">
       <div class="btn-1 btn-1-js">Internal Ecology</div>
@@ -67,8 +64,7 @@
       <div class="btn-3 btn-3-js">External Ecology</div>
     </div>
 
-
-    <!-- Internal ecoology questions  -->
+    <!-- Internal ecology questions  -->
     <div class="questions js-1">
       <div class="header">
         <div class="title"><h2>Internal Ecology Questions</h2></div>
@@ -296,216 +292,236 @@
 
     <!-- time task -->
     <div class="time-task-container time-container-js">
+      {% for time in times %}
+        <div class="task">
+          <div class="header">
+            <div class="date" title='{{ time.created_at|date:"fA j(l) n(M) Y" }}'>
+              {{ time.created_at|date:"wA j-n-y" }}
+            </div>
+            <div class="xp">
+              <span class="num">{{ time.xp }}</span><span class="text chaotic-font-color"> XP</span>
+            </div>
+          </div>
+          <div class="desc">
+            <p>
+              {{ time.description }}
+            </p>
+          </div>
 
-      <div class="task">
-        <div class="header">
-          <div class="date">
-            2232/23/12 - 12:22:02
+          <div class="status">
+            <div class="left">
+              <div class="total"><p>Total:</p></div>
+              <div class="longest"><p>Longest:</p></div>
+              <div class="last-submit"><p>Last Submit:</p></div>
+            </div>
+            <div class="right">
+              <div class="total-data" title='{{ time.total_time|date:"fA j(l) n(M) Y" }}'><p>{{ time.total_time }}</p></div>
+              <div class="longest-data" title='{{ time.longest_time|date:"fA j(l) n(M) Y" }}'><p>{{ time.longest_time }}</p></div>
+              <div class="last-submit-data" title='{{ time.last_submit|date:"fA j(l) n(M) Y" }}'><p>{{ time.last_submit|date:"wA j-n-y" }}</p></div>
+            </div>
           </div>
-          <div class="xp">
-            <span class="num">34</span><span class="text chaotic-font-color"> XP</span>
-          </div>
-        </div>
-        <div class="desc">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora vitae odio molestiae nulla hic.
-          </p>
-        </div>
-
-        <div class="status">
-          <div class="left">
-            <div class="total"><p>Total:</p></div>
-            <div class="longest"><p>Longest:</p></div>
-            <div class="last-submit"><p>Last Submit:</p></div>
-          </div>
-          <div class="right">
-            <div class="total-data"><p>245m</p></div>
-            <div class="longest-data"><p>22m</p></div>
-            <div class="last-submit-data"><p>2232/23/12 - 12:22:02</p></div>
+          <div class="buttons">
+            <div class="delete">Delete</div>
+            <div class="create-btn delete">Submit</div>
           </div>
         </div>
-        <div class="buttons">
-          <div class="delete">Delete</div>
-          <div class="create-btn delete">Submit</div>
-        </div>
-      </div>
+      {% endfor %}
     </div>
 
     <!-- count task -->
     <div class="count-task-container count-container-js">
+      {% for count in counts %}
+        <div class="task">
+          <div class="header">
+            <div class="date" title='{{ count.created_at|date:"fA j(l) n(M) Y" }}'>
+              {{ count.created_at|date:"wA j-n-y" }}
+            </div>
+            <div class="xp">
+              <span class="num">{{ count.xp }}</span>
+              <span class="text"> XP</span>
+            </div>
+          </div>
+          <div class="desc">
+            <p>
+              {{ count.description }}
+            </p>
+          </div>
 
-      <div class="task">
-        <div class="header">
-          <div class="date">2232/23/12 - 12:22:02</div>
-          <div class="xp">
-            <span class="num">34</span>
-            <span class="text">xpph</span>
+          <div class="status">
+            <div class="left">
+              <div class="longest"><p>Longest:</p></div>
+              <div class="last-submit"><p>Last Submit:</p></div>
+            </div>
+            <div class="right">
+              <div class="longest-data" title='{{ count.longest_time|date:"fA j(l) n(M) Y" }}'><p>{{ count.longest_time }}</p></div>
+              <div class="last-submit-data" title='{{ count.last_submit|date:"fA j(l) n(M) Y" }}'><p>{{ count.last_submit|date:"wA j-n-y" }}</p></div>
+            </div>
+          </div>
+
+          <div class="buttons">
+            <div class="delete">Delete</div>
+            <div class="create-btn delete">Submit</div>
           </div>
         </div>
-        <div class="desc">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora vitae odio molestiae nulla hic.
-          </p>
-        </div>
-
-        <div class="status">
-          <div class="left">
-            <div class="longest"><p>Longest:</p></div>
-            <div class="last-submit"><p>Last Submit:</p></div>
-          </div>
-          <div class="right">
-            <div class="total-data"><p>245m</p></div>
-            <div class="last-submit-data"><p>2232/23/12 - 12:22:02</p></div>
-          </div>
-        </div>
-
-        <div class="buttons">
-          <div class="delete">Delete</div>
-          <div class="create-btn delete">Submit</div>
-        </div>
-      </div>
-
+      {% endfor %}
     </div>
 
     <!-- classic task -->
     <div class="classic-task-container classic-container-js">
-      <div class="task">
-        <div class="header">
-          <div class="date">2232/23/12 - 12:22:02</div>
-          <div class="done-or-undone">
-            <p>Not Done Yet</p>
+      {% for classic in classics %}
+        {% if classic.is_done == False %}
+          <div class="task">
+            <div class="header">
+              <div class="date" title='{{ classic.created_at|date:"fA j(l) n(M) Y" }}'>
+                {{ classic.created_at|date:"wA j-n-y" }}
+              </div>
+              <div class="done-or-undone">
+                <p>Not Done Yet</p>
+              </div>
+            </div>
+            <div class="desc">
+              <p>
+                {{ classic.description }}
+              </p>
+            </div>
+
+            <div class="xp">
+              <span class="num">{{ classic.xp }}</span>
+              <span class="text chaotic-font-color"> XP</span>
+            </div>
+
+            <div class="buttons">
+              <div class="delete">Delete</div>
+              <div class="create-btn delete">Submit</div>
+            </div>
           </div>
-        </div>
-        <div class="desc">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora vitae odio molestiae nulla hic.
-          </p>
-        </div>
+        {% else %}
+          <div class="task">
+            <div class="header">
+              <div class="date" title='{{ classic.created_at|date:"fA j(l) n(M) Y" }}'>
+                {{ classic.created_at|date:"wA j-n-y" }}
+              </div>
+              <div class="done-or-undone" title='{{ classic.done_at|date:"fA j(l) n(M) Y" }}'>
+                {{ classic.done_at|date:"wA j-n-y" }}
+              </div>
+            </div>
+            <div class="desc">
+              <p>
+                {{ classic.description }}
+              </p>
+            </div>
 
-        <div class="xp">
-          <span class="num">34</span>
-          <span class="text chaotic-font-color">XP</span>
-        </div>
+            <div class="xp">
+              <span class="num">{{ classic.xp }}</span>
+              <span class="text chaotic-font-color"> XP</span>
+            </div>
 
-        <div class="buttons">
-          <div class="delete">Delete</div>
-          <div class="create-btn delete">Submit</div>
-        </div>
-      </div>
-
-      <div class="task">
-        <div class="header">
-          <div class="date">2232/23/12 - 12:22:02</div>
-          <div class="done-or-undone">
-            <p>2232/23/12 - 12:22:02</p>
+            <div class="report desc">
+              <p>
+                {{ classic.report }}
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="desc">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora vitae odio molestiae nulla hic.
-          </p>
-        </div>
-
-        <div class="xp">
-          <span class="num">34</span>
-          <span class="text chaotic-font-color">XP</span>
-        </div>
-
-        <div class="report desc">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora vitae odio molestiae nulla hic.
-          </p>
-        </div>
-      </div>
+        {% endif %}
+      {% endfor %}
     </div>
 
     <!--  deadline task -->
     <div class="deadline-task-container deadline-container-js">
 
-      <div class="task">
-        <div class="header">
-          <div class="date">2232/23/12 - 12:22:02</div>
-          <div class="failed">
-            <p>Failed: 2</p>
+      {% for deadline in deadlines %}
+        {% if deadline.is_done == False %}
+          <div class="task">
+            <div class="header">
+              <div class="date" title='{{ deadline.created_at|date:"fA j(l) n(M) Y" }}'>
+                {{ deadline.created_at|date:"wA j-n-y" }}
+              </div>
+              <div class="failed">
+                <p>Failed: {{ deadline.failed }}</p>
+              </div>
+            </div>
+            <div class="desc">
+              <p>
+                {{ deadline.description }}
+              </p>
+            </div>
+
+            <div class="date">
+              <div class="title">Deadline:</div>
+              <div class="date" title='{{ deadline.deadline_date|date:"fA j(l) n(M) Y" }}'>
+                {{ deadline.deadline_date|date:"wA j-n-y" }}
+              </div>
+            </div>
+
+            <div class="count-down">
+              <div class="days"><p>02</p></div>
+              <div class="hours"><p>02</p></div>
+              <div class="minutes"><p>02</p></div>
+            </div>
+
+            <div class="status">
+              <div class="left">
+                <div class="title"><p>Success XP:</p></div>
+                <div class="title"><p>Failure Penalty:</p></div>
+                <div class="title"><p>Current Penalty:</p></div>
+              </div>
+              <div class="right">
+                <div class="xp-gained"><p>{{ deadline.xp }}XP</p></div>
+                <div class="xp-lost"><p>-{{ deadline.penalty }}XP</p></div>
+                <div class="xp-lost"><p>-{{ deadline.penalty_xp }}XP</p></div>
+              </div>
+            </div>
+
+            <div class="buttons">
+              <div class="delete">Abort</div>
+              <div class="create-btn delete">Update</div>
+            </div>
           </div>
-        </div>
-        <div class="desc">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora vitae odio molestiae nulla hic.
-          </p>
-        </div>
 
-        <div class="date">
-          <div class="title">Deadline:</div>
-          <div class="data">3031/22/12 - 12:43</div>
-        </div>
+        {% else %}
+          <div class="task">
+            <div class="header">
+              <div class="date" title='{{ deadline.created_at|date:"fA j(l) n(M) Y" }}'>
+                {{ deadline.created_at|date:"wA j-n-y" }}
+              </div>
+              <div class="failed">
+                <p>Failed: {{ deadline.failed }}</p>
+              </div>
+            </div>
+            <div class="desc">
+              <p>
+                {{ deadline.description }}
+              </p>
+            </div>
 
-        <div class="count-down">
-          <div class="days"><p>02</p></div>
-          <div class="hours"><p>02</p></div>
-          <div class="minutes"><p>02</p></div>
-        </div>
+            <div class="date">
+              <div class="title">Done At:</div>
+              <div class="date" title='{{ deadline.deadline_date|date:"fA j(l) n(M) Y" }}'>
+                {{ deadline.deadline_date|date:"wA j-n-y" }}
+              </div>
+            </div>
 
-        <div class="status">
-          <div class="left">
-            <div class="title"><p>Success XP:</p></div>
-            <div class="title"><p>Failure Penalty:</p></div>
-            <div class="title"><p>Current Penalty:</p></div>
+            <div class="status">
+              <div class="left">
+                <div class="title"><p>XP Gained:</p></div>
+                <div class="title"><p>XP Lost:</p></div>
+              </div>
+              <div class="right">
+                <div class="xp-gained"><p>{{ deadline.xp }}<span class="chaotic-font-color" style="transition: ease-in-out 2s;">XP</span></p></div>
+                <div class="xp-lost"><p>-{{ deadline.penalty_xp }}<span class="chaotic-font-color" style="transition: ease-in-out 2s;">XP</span></p></div>
+              </div>
+            </div>
+
+            <div class="report desc">
+              <p>
+                {{ deadline.report }}
+              </p>
+            </div>
           </div>
-          <div class="right">
-            <div class="xp-gained"><p>20xp</p></div>
-            <div class="xp-lost"><p>-40xp</p></div>
-            <div class="xp-lost"><p>-40xp</p></div>
-          </div>
-        </div>
+        {% endif %}
+      {% endfor %}
 
-        <div class="report desc">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora vitae odio molestiae nulla hic.
-          </p>
-        </div>
 
-        <div class="buttons">
-          <div class="delete">Abort</div>
-          <div class="create-btn delete">Update</div>
-        </div>
-      </div>
-
-      <div class="task">
-        <div class="header">
-          <div class="date">2232/23/12 - 12:22:02</div>
-          <div class="done-or-undone">
-            <p>Failed: 2</p>
-          </div>
-        </div>
-        <div class="desc">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur provident beatae numquam voluptatem deleniti iusto ipsum ut ab laudantium sit, atque animi quo dolor officiis sequi nesciunt, est unde, in recusandae dicta velit maxime expedita id. Sapiente voluptate culpa, deleniti odit reprehenderit quod voluptatum fugiat iste, nemo labore quibusdam quasi.
-          </p>
-        </div>
-
-        <div class="date">
-          <div class="title">Done At:</div>
-          <div class="data">3031/22/12 - 12:43</div>
-        </div>
-
-        <div class="status">
-          <div class="left">
-            <div class="title"><p>XP Gained:</p></div>
-            <div class="title"><p>XP Lost:</p></div>
-          </div>
-          <div class="right">
-            <div class="xp-gained"><p>20<span class="chaotic-font-color" style="transition: ease-in-out 2s;">XP</span></p></div>
-            <div class="xp-lost"><p>-40<span class="chaotic-font-color" style="transition: ease-in-out 2s;">XP</span></p></div>
-          </div>
-        </div>
-
-        <div class="report desc">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora vitae odio molestiae nulla hic.
-          </p>
-        </div>
-      </div>
     </div>
   </div>
 

@@ -16,10 +16,14 @@ class OutcomeDetailView(DetailView):
         outcome = context['outcome']
 
         # task objects
-        classics = outcome.classic_tasks
-        times = outcome.time_tasks
-        counts = outcome.count_tasks
-        deadlines = outcome.deadline_tasks
+        classics = outcome.classic_tasks.all()
+        times = outcome.time_tasks.all()
+        counts = outcome.count_tasks.all()
+        deadlines = outcome.deadline_tasks.all()
+
+        for i in deadlines:
+            i.penalty = round(i.penalty * i.xp)
+            i.failed = round(i.penalty_xp / i.xp)
 
         # question objects
         internal_ecology = outcome.internal_ecology

@@ -6,14 +6,14 @@ class Classic(models.Model):
 
     outcome = models.ForeignKey(
         'abilities.Outcome',
-        models.SET_NULL,
+        models.CASCADE,
         related_name='classic_tasks',
-        null=True,
-        blank=True
+        null=False,
+        blank=False
     )
 
     description = models.TextField(null=False, blank=False)
-    report = models.CharField(max_length=1024, null=True)
+    report = models.CharField(max_length=1024, null=True, blank=True)
     xp = models.IntegerField(default=0)
     is_done = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
