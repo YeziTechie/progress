@@ -13,21 +13,21 @@
     <body>
         <!-- Nav Bar -->
         <div class="js-navbar-button navbar-button"></div>
-        <a href="">
-          <div class="js-navbar-tasks navbar-tasks">
-            <p class="navbar-text">Tasks</p>
-          </div>
-        </a>
-        <a href="">
+<!--        <a href="">-->
+<!--          <div class="js-navbar-tasks navbar-tasks">-->
+<!--            <p class="navbar-text">Tasks</p>-->
+<!--          </div>-->
+<!--        </a>-->
+        <a href="{% url 'profile' %}">
           <div class="js-navbar-profile navbar-profile">
             <p class="navbar-text">Profile</p>
           </div>
         </a>
-        <a href="">
-          <div class="js-navbar-outcomes navbar-outcomes">
-            <p class="navbar-text">Outcomes</p>
-          </div>
-        </a>
+<!--        <a href="">-->
+<!--          <div class="js-navbar-outcomes navbar-outcomes">-->
+<!--            <p class="navbar-text">Outcomes</p>-->
+<!--          </div>-->
+<!--        </a>-->
 
         <!-- Body content-->
         {% block body %} {% endblock %}

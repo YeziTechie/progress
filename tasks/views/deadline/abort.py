@@ -1,5 +1,5 @@
 from django.views import View
-from django.shortcuts import redirect, get_object_or_404, render
+from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 
 from tasks.models.deadline import Deadline

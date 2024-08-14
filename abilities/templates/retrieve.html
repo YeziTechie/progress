@@ -23,8 +23,12 @@
         <div class="first-row">
           <div class="first-column">
             <div class="buttons">
-              <div class="update">Hide</div>
-              <div class="delete">Delete</div>
+              {% if outcome.is_hided is True %}
+                <div class="update" onclick="window.location.href = '{% url 'outcome_hide' pk=outcome.pk %}'">Unhide</div>
+              {% else %}
+                <div class="update" onclick="window.location.href = '{% url 'outcome_hide' pk=outcome.pk %}'">Hide</div>
+              {% endif %}
+              <div class="delete" onclick="window.location.href = '{% url 'outcome_delete' pk=outcome.pk %}'">Delete</div>
             </div>
             <div class="level">{{ level }}</div>
           </div>

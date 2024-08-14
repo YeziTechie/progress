@@ -1,5 +1,5 @@
 from django.views.generic import FormView
-from django.shortcuts import , get_object_or_404
+from django.shortcuts import get_object_or_404
 from django.urls import reverse
 
 from tasks.models.deadline import Deadline
