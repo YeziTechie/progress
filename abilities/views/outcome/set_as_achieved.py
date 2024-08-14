@@ -1,4 +1,5 @@
 from django.views import View
+from django.utils import timezone
 from django.urls import reverse
 from django.shortcuts import get_object_or_404, render, redirect
 
@@ -12,6 +13,7 @@ class SetAsAchieved(View):
         outcome = get_object_or_404(Outcome, pk=pk)
         if outcome.is_achieved is False:
             outcome.is_achieved = True
+            outcome.achieved_at = timezone.now()
         else:
             outcome.is_achieved = False
         outcome.save()

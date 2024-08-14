@@ -9,7 +9,6 @@ from abilities.models.outcome import Outcome
 
 
 class UserProfileView(View):
-
     def get(self, request, *args, **kwargs):
 
         # xp and level, next level and current xp and stuff
@@ -20,10 +19,9 @@ class UserProfileView(View):
         next_level_xp = next_level_xp - calculate_xp_for_level(level)
 
         # Percentage for width of the design of xp bar element in front-end
-        num1 = xp
-        num2 = next_level_xp - xp
-        per1 = round((num1 / next_level_xp) * 100)
-        per2 = round((num2 / next_level_xp) * 100)
+
+        per1 = f'{round((xp / next_level_xp) * 100)}%'
+        per2 = f'{round(((next_level_xp - xp) / next_level_xp) * 100)}%'
 
         # highest xp
         try:
@@ -50,18 +48,8 @@ class UserProfileView(View):
         except:
             last_task_done = 'None'
 
+        # outcomes
         outcomes = Outcome.objects.all()
-        res = []
-
-        # outcome information
-        for outcome in outcomes:
-            output = {
-                "pk": outcome.pk,
-                "name": outcome.name,
-                "active_tasks": outcome_active_tasks(outcome.pk),
-            }
-
-            res.append(output)
 
         # tasks
         deadlines = Deadline.objects.filter(is_done=False)
@@ -96,10 +84,10 @@ class UserProfileView(View):
             'count_scored': count_scored(),
             'time_spent': time_spent(),
 
-            'outcomes': res,
+            'outcomes': outcomes,
             'total_outcomes': len(Outcome.objects.all()),
             'last_outcome_created': Outcome.objects.order_by('-created_at').first(),
-            'last_outcome_achieved': Outcome.objects.order_by('-achieved_at', 'is_achieved').first(),
+            'last_outcome_achieved': Outcome.objects.order_by('-achieved_at').first(),
 
             'highest_xp_by_single_task': highest_xp,
             'last_task_done': last_task_done,

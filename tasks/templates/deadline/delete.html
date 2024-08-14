@@ -42,12 +42,12 @@ Delete Deadline Task
     <div class="date">
       <div class="the-date">
         <div class="title"><p>Created:</p></div>
-        <div title='{{ task.created_at|date:"fA j(l) n(M) Y" }}' class="text"><p>{{ task.created_at|date:"wA j-n-y" }}</p></div>
+        <div title='{{ task.created_at|date:"fA j(l) n(M) Y" }}' class="text"><p>{{ task.created_at|date:"fA j-n-y" }}</p></div>
       </div>
 
       <div class="the-date">
         <div class="title"><p>Deadline:</p></div>
-        <div title='{{ task.deadline_date|date:"fA j(l) n(M) Y" }}' class="text"><p>{{ task.deadline_date|date:"wA j-n-y" }}</p></div>
+        <div title='{{ task.deadline_date|date:"fA j(l) n(M) Y" }}' class="text"><p>{{ task.deadline_date|date:"fA j-n-y" }}</p></div>
     </div>
 
     </div>
@@ -61,7 +61,7 @@ Delete Deadline Task
     <form method="post">
       {% csrf_token %}
       <div class="btn">
-        <button class="delete">Delete</button>
+        <button class="delete" type="submit">Delete</button>
       </div>
     </form>
 

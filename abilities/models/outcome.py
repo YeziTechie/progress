@@ -1,10 +1,9 @@
 from django.db import models
 
-from user.helpers.status import outcome_active_tasks
-
 from .ecology import ExternalEcology, InternalEcology
 from .questions import OutcomeQuestions
 
+from user.helpers.generate_level import calculate_level
 
 class Outcome(models.Model):
     name = models.CharField(max_length=100)
@@ -27,9 +26,6 @@ class Outcome(models.Model):
     def __str__(self):
         return f'{self.name} | XP:'
 
-    def active_tasks(self):
-        return outcome_active_tasks(self.pk)
-
     def total_xp(self):
         level = 0
         for i in self.classic_tasks.filter(is_done=True):
@@ -50,4 +46,28 @@ class Outcome(models.Model):
             level += round(xp)
 
         return level
+
+    def level(self):
+        return calculate_level(self.total_xp())
+
+    def active_tasks(self):
+
+        classics = self.classic_tasks.filter(outcome=self)
+        deadlines = self.deadline_tasks.filter(outcome=self)
+        counts = self.count_tasks.filter(outcome=self)
+        times = self.time_tasks.filter(outcome=self)
+
+        result = 0
+        result += len(times) + len(counts)
+
+        for classic in classics:
+            if classic.is_done is False:
+                result += 1
+
+        for deadline in deadlines:
+            if deadline.is_done is False:
+                result += 1
+
+        return result
+
 

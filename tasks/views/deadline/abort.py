@@ -1,5 +1,5 @@
 from django.views import View
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.urls import reverse
 
 from tasks.models.deadline import Deadline
@@ -12,7 +12,7 @@ class DeadlineAbortView(View):
             deadline.is_aborted = True
             deadline.penalty_xp += deadline.xp * deadline.penalty
             deadline.save()
-            return reverse('outcome_detail', kwargs={'pk': self.object.outcome.pk})
+            return redirect(reverse('outcome_detail', kwargs={'pk': deadline.outcome.pk}))
         else:
             raise Exception("this task is already aborted".title())
 

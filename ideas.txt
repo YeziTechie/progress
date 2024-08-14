@@ -46,3 +46,4 @@ v2:
     outcome list page
     make unhide and unachieved logical
     make those border chaotic
+    ability to change the theme color by entering hex value

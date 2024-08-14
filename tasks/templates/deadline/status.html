@@ -44,12 +44,12 @@ Deadline Task Status
       <div class="date">
         <div class="the-date">
           <div class="title"><p>Created:</p></div>
-          <div title='{{ task.created_at|date:"fA j(l) n(M) Y" }}' class="text"><p>{{ task.created_at|date:"wA j-n-y" }}</p></div>
+          <div title='{{ task.created_at|date:"fA j(l) n(M) Y" }}' class="text"><p>{{ task.created_at|date:"fA j-n-y" }}</p></div>
         </div>
 
         <div class="the-date">
           <div class="title"><p>Deadline:</p></div>
-          <div title='{{ task.deadline_date|date:"fA j(l) n(M) Y" }}' class="text"><p>{{ task.deadline_date|date:"wA j-n-y" }}</p></div>
+          <div title='{{ task.deadline_date|date:"fA j(l) n(M) Y" }}' class="text"><p>{{ task.deadline_date|date:"fA j-n-y" }}</p></div>
         </div>
       </div>
 
@@ -65,9 +65,9 @@ Deadline Task Status
       </div>
 
       <div class="btn">
-        <button class="update">Update</button>
-        <button class="delete">Abort</button>
-        <button class="create-btn">Repeat</button>
+        <button class="update" onclick="window.location.href = '{% url 'deadline_update' pk=task.pk %}'">Update</button>
+        <button class="delete" onclick="window.location.href = '{% url 'deadline_abort' pk=task.pk %}'">Abort</button>
+        <button class="create-btn" onclick="window.location.href = '{% url 'deadline_repeat' pk=task.pk %}'">Repeat</button>
       </div>
 
     </div>

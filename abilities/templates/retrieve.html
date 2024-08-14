@@ -30,14 +30,14 @@
               {% endif %}
               <div class="delete" onclick="window.location.href = '{% url 'outcome_delete' pk=outcome.pk %}'">Delete</div>
             </div>
-            <div class="level">{{ level }}</div>
+            <div class="level">{{ outcome.level }}</div>
           </div>
 
 
           <div class="second-column">
             <div class="dates">
-              <div class="created" title='{{ outcome.created_at|date:"fA j(l) n(M) Y" }}'>Created: {{ outcome.created_at|date:"wA j-n-y" }}</div>
-              <div class="achieved" title='{{ outcome.achieved_at|date:"fA j(l) n(M) Y" }}'>Achieved: {{ outcome.achieved_at|date:"wA j-n-y" }}</div>
+              <div class="created" title='{{ outcome.created_at|date:"fA j(l) n(M) Y" }}'>Created: {{ outcome.created_at|date:"fA j-n-y" }}</div>
+              <div class="achieved" title='{{ outcome.achieved_at|date:"fA j(l) n(M) Y" }}'>Achieved: {{ outcome.achieved_at|date:"fA j-n-y" }}</div>
               <div class="xp-bar">
                 <div class="xp-bar-filled" style="width: {{ per1 }}%;"></div>
                 <div class="xp-number">{{ current_xp }} / {{ required_xp }}</div>
@@ -49,7 +49,7 @@
 
         <div class="second-row">
           <div>Tasks Done: {{ done_tasks }}</div>
-          <div>Active Tasks: {{ active_tasks }}</div>
+          <div>Active Tasks: {{ outcome.active_tasks }}</div>
         </div>
       </div>
 
@@ -314,7 +314,7 @@
         <div class="task">
           <div class="header">
             <div class="date" title='{{ time.created_at|date:"fA j(l) n(M) Y" }}'>
-              {{ time.created_at|date:"wA j-n-y" }}
+              {{ time.created_at|date:"fA j-n-y" }}
             </div>
             <div class="xp">
               <span class="num">{{ time.xp }}</span><span class="text chaotic-font-color"> XP</span>
@@ -335,7 +335,7 @@
             <div class="right">
               <div class="total-data" title='{{ time.total_time|date:"fA j(l) n(M) Y" }}'><p>{{ time.total_time }}</p></div>
               <div class="longest-data" title='{{ time.longest_time|date:"fA j(l) n(M) Y" }}'><p>{{ time.longest_time }}</p></div>
-              <div class="last-submit-data" title='{{ time.last_submit|date:"fA j(l) n(M) Y" }}'><p>{{ time.last_submit|date:"wA j-n-y" }}</p></div>
+              <div class="last-submit-data" title='{{ time.last_submit|date:"fA j(l) n(M) Y" }}'><p>{{ time.last_submit|date:"fA j-n-y" }}</p></div>
             </div>
           </div>
           <div class="buttons">
@@ -355,7 +355,7 @@
         <div class="task">
           <div class="header">
             <div class="date" title='{{ count.created_at|date:"fA j(l) n(M) Y" }}'>
-              {{ count.created_at|date:"wA j-n-y" }}
+              {{ count.created_at|date:"fA j-n-y" }}
             </div>
             <div class="xp">
               <span class="num">{{ count.xp }}</span>
@@ -375,7 +375,7 @@
             </div>
             <div class="right">
               <div class="longest-data" title='{{ count.longest_time|date:"fA j(l) n(M) Y" }}'><p>{{ count.total_count }}</p></div>
-              <div class="last-submit-data" title='{{ count.last_submit|date:"fA j(l) n(M) Y" }}'><p>{{ count.last_submit|date:"wA j-n-y" }}</p></div>
+              <div class="last-submit-data" title='{{ count.last_submit|date:"fA j(l) n(M) Y" }}'><p>{{ count.last_submit|date:"fA j-n-y" }}</p></div>
             </div>
           </div>
 
@@ -397,7 +397,7 @@
           <div class="task">
             <div class="header">
               <div class="date" title='{{ classic.created_at|date:"fA j(l) n(M) Y" }}'>
-                {{ classic.created_at|date:"wA j-n-y" }}
+                {{ classic.created_at|date:"fA j-n-y" }}
               </div>
               <div class="done-or-undone">
                 <p>Not Done Yet</p>
@@ -423,10 +423,10 @@
           <div class="task">
             <div class="header">
               <div class="date" title='{{ classic.created_at|date:"fA j(l) n(M) Y" }}'>
-                {{ classic.created_at|date:"wA j-n-y" }}
+                {{ classic.created_at|date:"fA j-n-y" }}
               </div>
               <div class="done-or-undone" title='{{ classic.done_at|date:"fA j(l) n(M) Y" }}'>
-                {{ classic.done_at|date:"wA j-n-y" }}
+                {{ classic.done_at|date:"fA j-n-y" }}
               </div>
             </div>
             <div class="desc">
@@ -460,7 +460,7 @@
           <div class="task">
             <div class="header">
               <div class="date" title='{{ deadline.created_at|date:"fA j(l) n(M) Y" }}'>
-                {{ deadline.created_at|date:"wA j-n-y" }}
+                {{ deadline.created_at|date:"fA j-n-y" }}
               </div>
               <div class="failed">
                 <p>Failed: {{ deadline.failed }}</p>
@@ -475,7 +475,7 @@
             <div class="date">
               <div class="title">Deadline:</div>
               <div class="date" title='{{ deadline.deadline_date|date:"fA j(l) n(M) Y" }}'>
-                {{ deadline.deadline_date|date:"wA j-n-y" }}
+                {{ deadline.deadline_date|date:"fA j-n-y" }}
               </div>
             </div>
 
@@ -508,7 +508,7 @@
           <div class="task">
             <div class="header">
               <div class="date" title='{{ deadline.created_at|date:"fA j(l) n(M) Y" }}'>
-                {{ deadline.created_at|date:"wA j-n-y" }}
+                {{ deadline.created_at|date:"fA j-n-y" }}
               </div>
               <div class="failed">
                 <p>Failed: {{ deadline.failed }}</p>
@@ -523,7 +523,7 @@
             <div class="date">
               <div class="title">Done At:</div>
               <div class="date" title='{{ deadline.deadline_date|date:"fA j(l) n(M) Y" }}'>
-                {{ deadline.deadline_date|date:"wA j-n-y" }}
+                {{ deadline.deadline_date|date:"fA j-n-y" }}
               </div>
             </div>
 
@@ -546,8 +546,6 @@
           </div>
         {% endif %}
       {% endfor %}
-
-
     </div>
   </div>
 

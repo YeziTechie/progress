@@ -1,5 +1,5 @@
 from django.views.generic import FormView
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse
 
 from tasks.models.count import Count
@@ -16,7 +16,7 @@ class CountUpdateView(FormView):
             task = get_object_or_404(Count, pk=self.kwargs['pk'])
             task.total_count += count
             task.save()
-            return reverse('outcome_detail', kwargs={'pk': task.outcome.pk})
+            return super().form_valid(form)
 
     def get_success_url(self):
         return reverse('outcome_detail', kwargs={'pk': self.object.outcome.pk})

@@ -4,7 +4,6 @@ from django.views.generic import DetailView
 from abilities.models.outcome import Outcome
 
 from user.helpers.generate_level import *
-from user.helpers.status import outcome_active_tasks
 
 
 class OutcomeDetailView(DetailView):
@@ -54,14 +53,10 @@ class OutcomeDetailView(DetailView):
         per2 = 100 - per1
 
         return {
-            'level': level,
             'current_xp': current_xp,
             'required_xp': required_xp,
             'per1': per1,
             'per2': per2,
-
-            'active_tasks': outcome_active_tasks(outcome.pk),
-            'done_tasks': len(classics.filter(is_done=True)) + len(deadlines.filter(is_done=True)),
 
             'outcome': outcome,
 
@@ -73,4 +68,5 @@ class OutcomeDetailView(DetailView):
             'times': times,
             'counts': counts,
             'deadlines': deadlines,
+            'done_tasks': len(classics.filter(is_done=True)) + len(deadlines.filter(is_done=True)),
         }

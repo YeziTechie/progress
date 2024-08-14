@@ -1,5 +1,5 @@
 from django.views.generic import FormView
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse
 
 from tasks.models.deadline import Deadline
@@ -15,7 +15,7 @@ class DeadlineUpdateView(FormView):
         deadline.is_done = True
         deadline.report = form.cleaned_data['report']
         deadline.save()
-        return reverse('outcome_detail', kwargs={'pk': self.object.outcome.pk})
+        return redirect(reverse('outcome_detail', kwargs={'pk': deadline.outcome.pk}))
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

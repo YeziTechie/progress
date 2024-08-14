@@ -36,9 +36,9 @@ Targoon's Profile
         <span class="level-number">{{ level }}</span>
       </div>
       <div class="xp-bar">
-        <div class="xp-bar-filled chaotic-bg-color"></div>
+        <div class="xp-bar-filled chaotic-bg-color" style="width:{{ filled }};"></div>
         <span class="xp-number">{{ total_xp }} / {{ next_level_xp }}</span>
-        <div class="xp-bar-remaining" style="width: 80%;"></div>
+        <div class="xp-bar-remaining" style="width:{{ remaining }};"></div>
       </div>
       <div class="create-button">
       <div class="btn" onclick="window.location.href='{% url 'outcome_create' %}';">New outcome</div>
@@ -100,18 +100,31 @@ Targoon's Profile
       </div>
     {% endfor %}
 
-    <p style="display:none;" class="js-help-1">{{ filled }}</p>
-    <p style="display:none;" class="js-help-2">{{ remaining }}</p>
+<!--    <p style="display:none;" class="js-help-1">{{ filled }}</p>-->
+<!--    <p style="display:none;" class="js-help-2">{{ remaining }}</p>-->
 
   </div>
 
   <div class="outcomes">
 
     {% for outcome in outcomes %}
-    <div class="outcome" onclick="window.location.href = '{% url 'outcome_detail' pk=outcome.pk%}'">
-      <div class="tasks-undone chaotic-font-color chaotic-bg-color">{{ outcome.active_tasks }}</div>
-      <div class="outcome-name">{{ outcome.name }}</div>
-    </div>
+      {% if outcome.is_hided == True %}
+        <div class="outcome" style="opacity:10%;" onclick="window.location.href = '{% url 'outcome_detail' pk=outcome.pk%}'">
+          <div class="tasks-undone chaotic-font-color chaotic-bg-color">{{ outcome.active_tasks }}</div>
+          <div class="outcome-name">{{ outcome.name }}</div>
+        </div>
+      {% elif outcome.is_achieved == True %}
+        <div class="outcome" onclick="window.location.href = '{% url 'outcome_detail' pk=outcome.pk%}'">
+          <div class="tasks-undone" style="color:var(--text); background-color:var(--bg-color);">{{ outcome.level }}</div>
+          <div class="outcome-name">{{ outcome.name }}</div>
+        </div>
+      {% else %}
+        <div class="outcome" onclick="window.location.href = '{% url 'outcome_detail' pk=outcome.pk%}'">
+          <div class="tasks-undone chaotic-bg-color chaotic-font-color" >{{ outcome.active_tasks }}</div>
+          <div class="outcome-name">{{ outcome.name }}</div>
+        </div>
+      {% endif %}
+
     {% endfor %}
 
   </div>
@@ -121,15 +134,15 @@ Targoon's Profile
 
 {% block scripts %}
 <script src="{% static '/script/profile/general.js' %}"></script>
-<script>
-  const filled = document.querySelector('.xp-bar-filled');
-  const remaining = document.querySelector('.xp-bar-remaining');
+<!--<script>-->
+<!--  const filled = document.querySelector('.xp-bar-filled');-->
+<!--  const remaining = document.querySelector('.xp-bar-remaining');-->
 
-  const help1 = document.querySelector('.js-help-1');
-  const help2 = document.querySelector('.js-help-2');
+<!--  const help1 = document.querySelector('.js-help-1');-->
+<!--  const help2 = document.querySelector('.js-help-2');-->
 
-  filled.style.width = `${help1.innerHTML}%`;
-  remaining.style.width = `${help2.innerHTML}%`;
+<!--  filled.style.width = `${help1.innerHTML}%`;-->
+<!--  remaining.style.width = `${help2.innerHTML}%`;-->
 
-</script>
+<!--</script>-->
 {% endblock %}
