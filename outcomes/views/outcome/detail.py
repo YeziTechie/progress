@@ -1,7 +1,7 @@
 from django.utils import timezone
 from django.views.generic import DetailView
 
-from abilities.models.outcome import Outcome
+from outcomes.models.outcome import Outcome
 
 from user.helpers.generate_level import *
 

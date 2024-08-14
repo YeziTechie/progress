@@ -1,15 +1,15 @@
 from django.urls import path
 
-from abilities.views.outcome.create import OutcomeCreateView
-from abilities.views.outcome.delete import OutcomeDeleteView
-from abilities.views.outcome.detail import OutcomeDetailView
+from outcomes.views.outcome.create import OutcomeCreateView
+from outcomes.views.outcome.delete import OutcomeDeleteView
+from outcomes.views.outcome.detail import OutcomeDetailView
 
-from abilities.views.outcome.hide_unhide import HideOutcome
-from abilities.views.outcome.set_as_achieved import SetAsAchieved
+from outcomes.views.outcome.hide_unhide import HideOutcome
+from outcomes.views.outcome.set_as_achieved import SetAsAchieved
 
-from abilities.views.questions.update_external_ecology import ExternalEcologyUpdateView
-from abilities.views.questions.update_internal_ecology import InternalEcologyUpdateView
-from abilities.views.questions.update_outcome_questions import OutcomeQuestionsUpdateView
+from outcomes.views.questions.update_external_ecology import ExternalEcologyUpdateView
+from outcomes.views.questions.update_internal_ecology import InternalEcologyUpdateView
+from outcomes.views.questions.update_outcome_questions import OutcomeQuestionsUpdateView
 
 urlpatterns = [
     path('create/', OutcomeCreateView.as_view(), name='outcome_create'),

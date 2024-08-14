@@ -5,7 +5,7 @@ from django.urls import reverse
 from tasks.models.classic import Classic
 from tasks.forms.classic import ClassicCreateForm
 
-from abilities.models.outcome import Outcome
+from outcomes.models.outcome import Outcome
 
 
 class ClassicCreateView(CreateView):

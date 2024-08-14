@@ -1,7 +1,7 @@
 from django.views.generic.edit import CreateView
 from django.urls import reverse
 
-from abilities.models.outcome import Outcome
+from outcomes.models.outcome import Outcome
 
 from tasks.models.count import Count
 from tasks.forms.count import CountCreateForm

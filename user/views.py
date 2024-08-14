@@ -5,7 +5,7 @@ from django.views import View
 from .helpers.status import *
 from .helpers.generate_level import calculate_level, calculate_xp_for_level
 
-from abilities.models.outcome import Outcome
+from outcomes.models.outcome import Outcome
 
 
 class UserProfileView(View):

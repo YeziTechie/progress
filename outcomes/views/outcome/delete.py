@@ -1,7 +1,7 @@
 from django.urls import reverse
 from django.views.generic import DeleteView
 
-from abilities.models.outcome import Outcome
+from outcomes.models.outcome import Outcome
 
 
 class OutcomeDeleteView(DeleteView):

@@ -5,7 +5,7 @@ from django.urls import reverse
 from tasks.models.deadline import Deadline
 from tasks.forms.deadline import DeadlineCreateForm
 
-from abilities.models.outcome import Outcome
+from outcomes.models.outcome import Outcome
 
 
 class DeadlineCreateView(CreateView):

@@ -13,7 +13,7 @@ class Deadline(models.Model):
     ]
 
     outcome = models.ForeignKey(
-        'abilities.Outcome',
+        'outcomes.Outcome',
         models.CASCADE,
         related_name='deadline_tasks',
         null=False,

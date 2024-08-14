@@ -2,26 +2,24 @@ from django.views.generic import UpdateView
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse
 
-from abilities.models.outcome import Outcome
+from outcomes.models.outcome import Outcome
 
-from abilities.models.questions import OutcomeQuestions
-from abilities.forms.questions import OutcomeQuestionsUpdateForm
+from outcomes.models.ecology import ExternalEcology
+from outcomes.forms.questions import ExternalEcologyUpdateForm
 
 
-class OutcomeQuestionsUpdateView(UpdateView):
-    model = OutcomeQuestions
-    template_name = 'questions/outcome-questions.html'
+class ExternalEcologyUpdateView(UpdateView):
+    model = ExternalEcology
+    template_name = 'questions/external-ecology.html'
     context_object_name = 'outcome'
-    form_class = OutcomeQuestionsUpdateForm
-
+    form_class = ExternalEcologyUpdateForm
 
     def get_success_url(self):
-        print(self.object.outcome.name)
         return reverse('outcome_detail', kwargs={'pk': self.object.outcome.pk})
 
     def get_object(self, queryset=None):
         outcome = get_object_or_404(Outcome, pk=self.kwargs['pk'])
-        return get_object_or_404(OutcomeQuestions, outcome=outcome)
+        return get_object_or_404(ExternalEcology, outcome=outcome)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

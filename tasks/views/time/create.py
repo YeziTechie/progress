@@ -4,7 +4,7 @@ from django.urls import reverse
 from tasks.models.time import Time
 from tasks.forms.time import TimeCreateForm
 
-from abilities.models.outcome import Outcome
+from outcomes.models.outcome import Outcome
 
 
 class TimeCreateView(CreateView):

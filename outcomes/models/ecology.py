@@ -3,7 +3,7 @@ from django.db import models
 
 class InternalEcology(models.Model):
     outcome = models.OneToOneField(
-        'abilities.Outcome',
+        'outcomes.Outcome',
         models.CASCADE,
         related_name='internal_ecology',
         null=False,
@@ -20,7 +20,7 @@ class InternalEcology(models.Model):
 
 class ExternalEcology(models.Model):
     outcome = models.OneToOneField(
-        'abilities.Outcome',
+        'outcomes.Outcome',
         models.CASCADE,
         related_name='external_ecology',
         null=False,

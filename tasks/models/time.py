@@ -5,7 +5,7 @@ from django.db import models
 
 class Time(models.Model):
     outcome = models.ForeignKey(
-        'abilities.Outcome',
+        'outcomes.Outcome',
         models.CASCADE,
         related_name='time_tasks',
         null=False,

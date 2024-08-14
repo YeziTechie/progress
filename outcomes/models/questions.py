@@ -4,7 +4,7 @@ from django.db import models
 class OutcomeQuestions(models.Model):
     outcome = models.OneToOneField(
         on_delete=models.CASCADE,
-        to='abilities.Outcome',
+        to='outcomes.Outcome',
         null=False,
         related_name='outcome_questions',
     )

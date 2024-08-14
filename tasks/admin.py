@@ -7,7 +7,7 @@ from .models.count import Count
 from .models.time import Time
 from .models.deadline import Deadline
 
-from abilities.models.outcome import Outcome
+from outcomes.models.outcome import Outcome
 
 
 class ClassicAdmin(admin.ModelAdmin):

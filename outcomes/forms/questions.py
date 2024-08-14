@@ -1,7 +1,7 @@
 from django import forms
 
-from abilities.models.ecology import InternalEcology,  ExternalEcology
-from abilities.models.questions import OutcomeQuestions
+from outcomes.models.ecology import InternalEcology,  ExternalEcology
+from outcomes.models.questions import OutcomeQuestions
 
 
 class ExternalEcologyUpdateForm(forms.ModelForm):

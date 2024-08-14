@@ -1,8 +1,8 @@
 from django.views.generic.edit import CreateView
 from django.urls import reverse
 
-from abilities.models.outcome import Outcome
-from abilities.forms.create_outcome import OutcomeCreateForm
+from outcomes.models.outcome import Outcome
+from outcomes.forms.create_outcome import OutcomeCreateForm
 
 
 class OutcomeCreateView(CreateView):

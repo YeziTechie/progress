@@ -5,7 +5,7 @@ import datetime
 class Classic(models.Model):
 
     outcome = models.ForeignKey(
-        'abilities.Outcome',
+        'outcomes.Outcome',
         models.CASCADE,
         related_name='classic_tasks',
         null=False,

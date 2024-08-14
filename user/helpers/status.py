@@ -4,7 +4,7 @@ from tasks.models.time import Time
 from tasks.models.count import Count
 
 def total_xp():
-    from abilities.models.outcome import Outcome
+    from outcomes.models.outcome import Outcome
     level = 0
     for i in Outcome.objects.all():
         level += i.total_xp()

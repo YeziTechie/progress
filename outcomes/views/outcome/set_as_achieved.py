@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.shortcuts import get_object_or_404, render, redirect
 
 
-from abilities.models.outcome import Outcome
+from outcomes.models.outcome import Outcome
 
 
 class SetAsAchieved(View):
