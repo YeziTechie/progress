@@ -46,7 +46,11 @@ class OutcomeDetailView(DetailView):
         level = calculate_level(outcome.total_xp())
 
         total_xp = outcome.total_xp()
-        current_xp = total_xp - calculate_xp_for_level(level)
+        if total_xp < 1:
+            current_xp = 0
+        else:
+            current_xp = total_xp - calculate_xp_for_level(level)
+
         required_xp = calculate_xp_for_level(level + 1) - calculate_xp_for_level(level)
 
         per1 = round((current_xp / required_xp) * 100) if required_xp != 0 else 0

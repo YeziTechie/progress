@@ -15,8 +15,12 @@ class UserProfileView(View):
         xp = total_xp()
         level = calculate_level(xp=xp)
         next_level_xp = calculate_xp_for_level(level + 1)
-        xp = xp - calculate_xp_for_level(level)
+        if xp < 1:
+            xp = 0
+        else:
+            xp = xp - calculate_xp_for_level(level)
         next_level_xp = next_level_xp - calculate_xp_for_level(level)
+
 
         # Percentage for width of the design of xp bar element in front-end
 
