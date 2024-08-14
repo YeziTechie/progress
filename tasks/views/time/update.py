@@ -16,7 +16,7 @@ class TimeUpdateView(FormView):
             task = get_object_or_404(Time, pk=self.kwargs['pk'])
             task.total_time += time
             task.save()
-            return reverse('outcome_detail', kwargs={'pk': self.object.outcome.pk})
+            return redirect(reverse('outcome_detail', kwargs={'pk': self.object.outcome.pk}))
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

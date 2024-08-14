@@ -2,14 +2,13 @@
 {% load static %}
 
 {% block title %}
-  Hide Outcome
+  Set This Outcome As Achieved
 {% endblock %}
 
 
 {% block styles %}
   <link rel="stylesheet" href="{% static '/style/tasks/classic/create.css' %}">
   <link rel="stylesheet" href="{% static '/style/tasks/classic/delete.css' %}">
-  <link rel="stylesheet" href="{% static '/style/tasks/classic/update.css' %}">
 {% endblock %}
 
 
@@ -22,18 +21,20 @@
     <div class="info">
 
       <div class="desc-xp">
-        <div class="desc"><p>Hide this Outcome</p></div>
+        <div class="desc"><p>Set This Outcome as <b>Achieved</b></p></div>
         <div class="xp">
           <div class="title chaotic-font-color">XP</div>
           <div class="amount">{{ outcome.total_xp }}</div>
         </div>
       </div>
 
-      <h3>Are you sure you want to hide this Outcome? </h3>
+      <h3>Truthfully, if you have achieved this, you owe it to the power lent to you. If achieving this neglected some
+        other persons right and undervalued justice, it is of no value. but otherwise, Congratulation! but don't think
+        it is the end. It's just the beginning. Keep Moving Forward.</h3>
       <form method="post">
         {% csrf_token %}
         <div class="btn">
-          <button class="update" type="submit">Hide</button>
+          <button class="create-btn" type="submit">Set As Achieved</button>
         </div>
       </form>
     </div>

@@ -14,6 +14,8 @@ class TimeCreateForm(forms.ModelForm):
 
         self.fields['xp'].widget.attrs['class'] = 'xp-input-elem'
 
+        self.fields['outcome'].required = False
+
     class Meta:
         model = Time
         fields = ['outcome', 'description', 'xp']

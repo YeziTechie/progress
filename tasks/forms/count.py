@@ -14,6 +14,8 @@ class CountCreateForm(forms.ModelForm):
 
         self.fields['xp'].widget.attrs['class'] = 'xp-input-elem'
 
+        self.fields['outcome'].required = False
+
     class Meta:
         model = Count
         fields = ['outcome', 'description', 'xp']

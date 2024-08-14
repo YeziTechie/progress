@@ -38,16 +38,17 @@ class UserProfileView(View):
             highest_xp = 0
 
         # last task done
-            try:
-                classic_done = Classic.objects.filter(is_done=True).order_by('-done_at').first()
-                deadline_done = Deadline.objects.filter(is_done=True).order_by('-deadline_date').first()
+        last_task_done = 'None'
+        try:
+            classic_done = Classic.objects.filter(is_done=True).order_by('-done_at').first()
+            deadline_done = Deadline.objects.filter(is_done=True).order_by('-deadline_date').first()
 
-                if deadline_done.deadline_date < classic_done.done_at:
-                    last_task_done = deadline_done.deadline_date
-                else:
-                    last_task_done = classic_done.done_at
-            except:
-                last_task_done = 'None'
+            if deadline_done.deadline_date < classic_done.done_at:
+                last_task_done = deadline_done.deadline_date
+            else:
+                last_task_done = classic_done.done_at
+        except:
+            last_task_done = 'None'
 
         outcomes = Outcome.objects.all()
         res = []

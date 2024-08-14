@@ -53,12 +53,17 @@
         </div>
       </div>
 
-      <div class="outcome-name">
-        <div class="create-btn">
-          Set As Achieved
-        </div>
-        <div class="text">{{ outcome.name }}</div>
-      </div>
+        {% if outcome.is_achieved is True %}
+          <div class="outcome-name" style="background-color: var(--green);">
+            <div class="create-btn" onclick="window.location.href = '{% url 'outcome_achieve' pk=outcome.pk %}'">Set as Not Achieved</div>
+            <div class="text" style="color:black">{{ outcome.name }}</div>
+          </div>
+        {% else %}
+          <div class="outcome-name">
+            <div class="create-btn" onclick="window.location.href = '{% url 'outcome_achieve' pk=outcome.pk %}'">Set as Achieved</div>
+            <div class="text">{{ outcome.name }}</div>
+          </div>
+        {% endif %}
     </div>
 
     <!-- questions -->
@@ -297,7 +302,7 @@
     <!-- time task -->
     <div class="time-task-container time-container-js">
       <div class="create-task">
-        <button class="create-btn">Create New Task</button>
+        <button class="create-btn" onclick="window.location.href = '{% url 'time_create' pk=outcome.pk %}'">Create New Task</button>
       </div>
       {% for time in times %}
         <div class="task">
@@ -338,7 +343,7 @@
     <!-- count task -->
     <div class="count-task-container count-container-js">
       <div class="create-task">
-        <button class="create-btn">Create New Task</button>
+        <button class="create-btn" onclick="window.location.href = '{% url 'count_create' pk=outcome.pk %}'">Create New Task</button>
       </div>
       {% for count in counts %}
         <div class="task">
@@ -379,7 +384,7 @@
     <!-- classic task -->
     <div class="classic-task-container classic-container-js">
       <div class="create-task">
-        <button class="create-btn">Create New Task</button>
+        <button class="create-btn" onclick="window.location.href = '{% url 'classic_create' pk=outcome.pk %}'">Create New Task</button>
       </div>
       {% for classic in classics %}
         {% if classic.is_done == False %}
@@ -442,7 +447,7 @@
     <!--  deadline task -->
     <div class="deadline-task-container deadline-container-js">
       <div class="create-task">
-        <button class="create-btn">Create New Task</button>
+        <button class="create-btn" onclick="window.location.href = '{% url 'deadline_create' pk=outcome.pk %}'">Create New Task</button>
       </div>
       {% for deadline in deadlines %}
         {% if deadline.is_done == False %}
@@ -469,9 +474,9 @@
             </div>
 
             <div class="count-down">
-              <div class="days"><p>02</p></div>
-              <div class="hours"><p>02</p></div>
-              <div class="minutes"><p>02</p></div>
+              <div class="days"><p>{{ deadline.days }}</p></div>
+              <div class="hours"><p>{{ deadline.hours }}</p></div>
+              <div class="minutes"><p>{{ deadline.minutes }}</p></div>
             </div>
 
             <div class="status">
@@ -488,8 +493,8 @@
             </div>
 
             <div class="buttons">
-              <div class="delete">Abort</div>
-              <div class="create-btn delete">Update</div>
+              <div class="delete" onclick="window.location.href = '{% url 'deadline_abort' pk=deadline.pk %}'">Abort</div>
+              <div class="update delete" onclick="window.location.href = '{% url 'deadline_status' pk=deadline.pk %}'">Status</div>
             </div>
           </div>
 

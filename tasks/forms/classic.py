@@ -14,6 +14,8 @@ class ClassicCreateForm(forms.ModelForm):
 
         self.fields['xp'].widget.attrs['class'] = 'xp-input-elem'
 
+        self.fields['outcome'].required = False
+
     class Meta:
         model = Classic
         fields = ['description', 'xp', 'outcome']

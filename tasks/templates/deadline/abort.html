@@ -63,6 +63,7 @@ Abort Deadline Task
       </div>
 
       <form method="post">
+        {% csrf_token %}
         <div class="btn">
           <button class="delete">Abort</button>
         </div>

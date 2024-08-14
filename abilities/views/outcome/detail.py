@@ -1,3 +1,4 @@
+from django.utils import timezone
 from django.views.generic import DetailView
 
 from abilities.models.outcome import Outcome
@@ -24,6 +25,18 @@ class OutcomeDetailView(DetailView):
         for i in deadlines:
             i.penalty = round(i.penalty * i.xp)
             i.failed = round(i.penalty_xp / i.xp)
+
+            now = timezone.now()
+            time_diff = i.deadline_date - now
+
+            days = time_diff.days
+            hours, remainder = divmod(time_diff.seconds, 3600)
+            minutes, seconds = divmod(remainder, 60)
+
+            i.days = days
+            i.hours = hours
+            i.minutes = minutes
+
 
         # question objects
         internal_ecology = outcome.internal_ecology

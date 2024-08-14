@@ -1,5 +1,6 @@
 from django.urls import reverse
 from django.views.generic import DeleteView
+from django.shortcuts import redirect
 
 from tasks.models.classic import Classic
 
@@ -10,4 +11,4 @@ class ClassicDeleteView(DeleteView):
     template_name = 'classic/delete.html'
 
     def get_success_url(self):
-        return reverse('outcome_detail', kwargs={'pk': self.object.outcome.pk})
+        return redirect(reverse('outcome_detail', kwargs={'pk': self.object.outcome.pk}))

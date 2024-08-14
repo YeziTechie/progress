@@ -39,4 +39,10 @@ class Deadline(models.Model):
         return self.deadline_date < timezone.now()
 
     def penalty_text(self):
-        return self.penalty_choices[self.penalty][1]
+        p = self.penalty
+        if p == 4:
+            p = 3
+        elif p == 0.5:
+            p = 0
+
+        return self.penalty_choices[p][1]

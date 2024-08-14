@@ -40,4 +40,8 @@ like when a task has done for 42 days, we get an achievement and it we no more c
 
 v2:
     design messages for each event when redirection
+    design a place for errors
     gradient smooth transition chaotic.
+    cool set as achieved page design
+    outcome list page
+    make unhide and unachieved logical

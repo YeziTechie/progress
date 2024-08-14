@@ -17,14 +17,13 @@ class DeadlineRepeatView(FormView):
             obj.deadline_date = date
             obj.penalty_xp += obj.xp * obj.penalty
             obj.save()
-            return reverse('outcome_detail', kwargs={'pk': obj.outcome.pk})
+            return redirect(reverse('outcome_detail', kwargs={'pk': obj.outcome.pk}))
         else:
             raise Exception('The duration of this task is not over yet. You still have time.'.title())
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         task = get_object_or_404(Deadline, pk=self.kwargs['pk'])
-        task.penalty = task.penalty_choices[task.penalty][1]
 
         if not task.is_time_over():
             raise Exception('The duration of this task is not over yet. You still have time.'.title())

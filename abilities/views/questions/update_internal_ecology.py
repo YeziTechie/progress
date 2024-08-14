@@ -1,5 +1,5 @@
 from django.views.generic import UpdateView
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse
 
 from abilities.models.outcome import Outcome
@@ -15,7 +15,7 @@ class InternalEcologyUpdateView(UpdateView):
     form_class = InternalEcologyUpdateForm
 
     def get_success_url(self):
-        return reverse('outcome_detail', kwargs={'pk': self.object.pk})
+        return redirect(reverse('outcome_detail', kwargs={'pk': self.object.pk}))
 
     def get_object(self, queryset=None):
         outcome = get_object_or_404(Outcome, pk=self.kwargs['pk'])
