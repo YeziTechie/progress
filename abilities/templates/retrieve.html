@@ -77,7 +77,9 @@
     <div class="questions js-1">
       <div class="header">
         <div class="title"><h2>Internal Ecology Questions</h2></div>
-        <div class="btn"><button class='update'>Update</button></div>
+        <div class="btn">
+          <button class='update' onclick="window.location.href = '{% url 'internal_ecology_update' pk=outcome.pk %}'">Update</button>
+        </div>
       </div>
 
       <div class="content">
@@ -159,7 +161,9 @@
     <div class="questions js-2">
       <div class="header">
         <div class="title"><h2>Outcome Questions</h2></div>
-        <div class="btn"><button class='update'>Update</button></div>
+        <div class="btn">
+          <button class='update' onclick="window.location.href = '{% url 'outcome_questions_update' pk=outcome.pk %}'">Update</button>
+        </div>
       </div>
 
       <div class="content">
@@ -243,7 +247,9 @@
     <div class="questions js-3">
       <div class="header">
         <div class="title"><h2>External Ecology Questions</h2></div>
-        <div class="btn"><button class='update'>Update</button></div>
+        <div class="btn">
+          <button class='update' onclick="window.location.href = '{% url 'external_ecology_update' pk=outcome.pk %}'">Update</button>
+        </div>
       </div>
 
       <div class="content">
@@ -333,8 +339,8 @@
             </div>
           </div>
           <div class="buttons">
-            <div class="delete">Delete</div>
-            <div class="create-btn delete">Submit</div>
+            <div class="delete" onclick="window.location.href = '{% url 'time_delete' pk=time.pk %}'">Delete</div>
+            <div class="create-btn delete" onclick="window.location.href = '{% url 'time_update' pk=time.pk %}'">Submit</div>
           </div>
         </div>
       {% endfor %}
@@ -364,18 +370,18 @@
 
           <div class="status">
             <div class="left">
-              <div class="longest"><p>Longest:</p></div>
+              <div class="longest"><p>Total Count:</p></div>
               <div class="last-submit"><p>Last Submit:</p></div>
             </div>
             <div class="right">
-              <div class="longest-data" title='{{ count.longest_time|date:"fA j(l) n(M) Y" }}'><p>{{ count.longest_time }}</p></div>
+              <div class="longest-data" title='{{ count.longest_time|date:"fA j(l) n(M) Y" }}'><p>{{ count.total_count }}</p></div>
               <div class="last-submit-data" title='{{ count.last_submit|date:"fA j(l) n(M) Y" }}'><p>{{ count.last_submit|date:"wA j-n-y" }}</p></div>
             </div>
           </div>
 
           <div class="buttons">
-            <div class="delete">Delete</div>
-            <div class="create-btn delete">Submit</div>
+            <div class="delete" onclick="window.location.href = '{% url 'count_delete' pk=count.pk %}'">Delete</div>
+            <div class="create-btn delete" onclick="window.location.href = '{% url 'count_update' pk=count.pk %}'">Submit</div>
           </div>
         </div>
       {% endfor %}
@@ -409,8 +415,8 @@
             </div>
 
             <div class="buttons">
-              <div class="delete">Delete</div>
-              <div class="create-btn delete">Submit</div>
+            <div class="delete" onclick="window.location.href = '{% url 'classic_delete' pk=classic.pk %}'">Delete</div>
+            <div class="create-btn delete" onclick="window.location.href = '{% url 'classic_update' pk=classic.pk %}'">Update</div>
             </div>
           </div>
         {% else %}
@@ -493,7 +499,7 @@
             </div>
 
             <div class="buttons">
-              <div class="delete" onclick="window.location.href = '{% url 'deadline_abort' pk=deadline.pk %}'">Abort</div>
+              <div class="delete" onclick="window.location.href = '{% url 'deadline_delete' pk=deadline.pk %}'">Delete</div>
               <div class="update delete" onclick="window.location.href = '{% url 'deadline_status' pk=deadline.pk %}'">Status</div>
             </div>
           </div>

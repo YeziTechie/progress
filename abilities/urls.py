@@ -18,7 +18,7 @@ urlpatterns = [
     path('<int:pk>/hide/', HideOutcome.as_view(), name='outcome_hide'),
     path('<int:pk>/set-as-achieved/', SetAsAchieved.as_view(), name='outcome_achieve'),
 
-    path('<int:pk>/questions/external-ecology/update/', ExternalEcologyUpdateView.as_view(), name='external-ecology-update'),
-    path('<int:pk>/questions/internal-ecology/update/', InternalEcologyUpdateView.as_view(), name='internal-ecology-update'),
-    path('<int:pk>/questions/outcome/update/', OutcomeQuestionsUpdateView.as_view(), name='outcome-questions-update'),
+    path('<int:pk>/questions/external-ecology/update/', ExternalEcologyUpdateView.as_view(), name='external_ecology_update'),
+    path('<int:pk>/questions/internal-ecology/update/', InternalEcologyUpdateView.as_view(), name='internal_ecology_update'),
+    path('<int:pk>/questions/outcome/update/', OutcomeQuestionsUpdateView.as_view(), name='outcome_questions_update'),
 ]

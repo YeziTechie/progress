@@ -1,6 +1,5 @@
 from django.views.generic.edit import CreateView
 from django.urls import reverse
-from django.shortcuts import redirect
 
 from abilities.models.outcome import Outcome
 
@@ -14,7 +13,7 @@ class CountCreateView(CreateView):
     template_name = 'count/create.html'
 
     def get_success_url(self):
-        return redirect(reverse('outcome_detail', kwargs={'pk': self.object.outcome.pk}))
+        return reverse('outcome_detail', kwargs={'pk': self.object.outcome.pk})
 
     def form_valid(self, form):
         form.instance.outcome = Outcome.objects.get(pk=self.kwargs['pk'])

@@ -11,5 +11,5 @@ class CountDeleteView(generic.DeleteView):
     template_name = 'count/delete.html'
 
     def get_success_url(self):
-        return redirect(reverse('outcome_detail', kwargs={'pk': self.object.outcome.pk}))
+        return reverse('outcome_detail', kwargs={'pk': self.object.outcome.pk})
 

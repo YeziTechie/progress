@@ -14,8 +14,10 @@ class OutcomeQuestionsUpdateView(UpdateView):
     context_object_name = 'outcome'
     form_class = OutcomeQuestionsUpdateForm
 
+
     def get_success_url(self):
-        return redirect(reverse('outcome_detail', kwargs={'pk': self.object.pk}))
+        print(self.object.outcome.name)
+        return reverse('outcome_detail', kwargs={'pk': self.object.outcome.pk})
 
     def get_object(self, queryset=None):
         outcome = get_object_or_404(Outcome, pk=self.kwargs['pk'])

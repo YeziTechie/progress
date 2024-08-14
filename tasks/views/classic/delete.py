@@ -11,4 +11,4 @@ class ClassicDeleteView(DeleteView):
     template_name = 'classic/delete.html'
 
     def get_success_url(self):
-        return redirect(reverse('outcome_detail', kwargs={'pk': self.object.outcome.pk}))
+        return reverse('outcome_detail', kwargs={'pk': self.object.outcome.pk})

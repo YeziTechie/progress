@@ -1,6 +1,5 @@
 from django.views.generic.edit import CreateView
 from django.urls import reverse
-from django.shortcuts import redirect
 
 from tasks.models.time import Time
 from tasks.forms.time import TimeCreateForm
@@ -14,7 +13,7 @@ class TimeCreateView(CreateView):
     template_name = 'time/create.html'
 
     def get_success_url(self):
-        return redirect(reverse('outcome_detail', kwargs={'pk': self.object.outcome.pk}))
+        return reverse('outcome_detail', kwargs={'pk': self.object.outcome.pk})
 
     def form_valid(self, form):
         form.instance.outcome = Outcome.objects.get(pk=self.kwargs['pk'])

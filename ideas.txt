@@ -45,3 +45,4 @@ v2:
     cool set as achieved page design
     outcome list page
     make unhide and unachieved logical
+    make those border chaotic

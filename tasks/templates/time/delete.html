@@ -64,10 +64,13 @@
           <div class="amount chaotic-font-color">{{ task.longest_time }}</div>
         </div>
       </div>
+      <form method="post">
+        {% csrf_token %}
+        <div class="btn">
+          <button class="delete" type="submit">Delete</button>
+        </div>
+      </form>
 
-      <div class="btn">
-        <button class="delete">Delete</button>
-      </div>
     </div>
   </div>
 
