@@ -19,7 +19,7 @@ class CountUpdateView(FormView):
             return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse('outcome_detail', kwargs={'pk': self.object.outcome.pk})
+        return reverse('outcome_detail', kwargs={'pk': get_object_or_404(Count, pk=self.kwargs['pk']).outcome.pk})
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

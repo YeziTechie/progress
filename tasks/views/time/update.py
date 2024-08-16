@@ -15,6 +15,8 @@ class TimeUpdateView(FormView):
         if time > 0:
             task = get_object_or_404(Time, pk=self.kwargs['pk'])
             task.total_time += time
+            if time > task.longest_time:
+                task.longest_time = time
             task.save()
             return redirect(reverse('outcome_detail', kwargs={'pk': task.outcome.pk}))
 
