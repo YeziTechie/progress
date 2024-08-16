@@ -87,22 +87,24 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  border-radius: 25px;
+  border: solid 1px var(--theme-color);
 }
 
 .xp-bar-filled {
-  width:38%;
+  transition: ease-in-out width 2s, background-color 2s;
+  width:1%;
   height:50px;
   background-color: var(--theme-color);
   border-radius: 25px 0px 0px 25px;
-  transition: ease-in-out 2s;
+
 }
 .xp-bar-remaining {
-  width:62%;
+  transition: ease-in-out width 2s, background-color 2s;
+  width:99%;
   height:47px;
-  border: solid 1px var(--theme-color);
   border-left: none;
   border-radius: 0px 25px 25px 0px;
-  transition: ease-in-out 2s;
 }
 
 .xp-number {
@@ -121,7 +123,7 @@
   display: flex;
   width:300px;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .btn {

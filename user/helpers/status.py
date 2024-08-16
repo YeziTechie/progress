@@ -1,14 +1,14 @@
-from tasks.models.classic import Classic
 from tasks.models.deadline import Deadline
 from tasks.models.time import Time
 from tasks.models.count import Count
 
+
 def total_xp():
     from outcomes.models.outcome import Outcome
-    level = 0
+    xp = 0
     for i in Outcome.objects.all():
-        level += i.total_xp()
-    return level
+        xp += i.total_xp()
+    return xp
 
 
 def time_spent():

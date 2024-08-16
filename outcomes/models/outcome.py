@@ -5,6 +5,7 @@ from .questions import OutcomeQuestions
 
 from user.helpers.generate_level import calculate_level
 
+
 class Outcome(models.Model):
     name = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -32,9 +33,9 @@ class Outcome(models.Model):
             level += i.xp
 
         for i in self.deadline_tasks.all():
-            if i.is_aborted is True:
+            if i.is_aborted:
                 level -= i.penalty_xp
-            if i.is_done is True:
+            if i.is_done:
                 level += i.xp
 
         for i in self.count_tasks.all():

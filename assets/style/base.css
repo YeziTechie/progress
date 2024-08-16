@@ -1,5 +1,5 @@
-:root {
-  --theme-color: #b3b3ff;
+.theme-1 {
+  --theme-color: #009973;
   --bg-color: rgb(0, 0, 0);
   --body-bg-color: rgb(12, 12, 12);
   --text-color: #e6e6e6;
@@ -7,7 +7,29 @@
   --green: #39ac73;
   --red: #b30000;
   --help: #aa80ff ;
-  --: ;
+
+}
+
+.theme-2 {
+  --theme-color:  #80ff80;
+  --bg-color: #001a00;
+  --body-bg-color:  #003300;
+  --text-color: #ccffcc;
+  --light-text-color: ;
+  --green: #39ac73;
+  --red: #b30000;
+  --help: #aa80ff ;
+}
+
+:root {
+  --theme-color: #4d004d;
+  --bg-color:  #0d0d0d;
+  --body-bg-color: black;
+  --text-color: #e6e6e6;
+  --light-text-color: ;
+  --green: #39ac73;
+  --red: #b30000;
+  --help: #aa80ff ;
 }
 
 body {
