@@ -9,6 +9,7 @@ from outcomes.models.outcome import Outcome
 
 from tasks.models.classic import Classic
 
+
 class UserProfileView(View):
     def get(self, request, *args, **kwargs):
 
@@ -17,6 +18,7 @@ class UserProfileView(View):
         level = calculate_level(total_xp())
         next_level_xp = calculate_xp_for_level(level + 1) - calculate_xp_for_level(level)
         xp = total_xp() - calculate_xp_for_level(level)
+        print(calculate_xp_for_level(level))
 
         # Percentage for width of the design of xp bar element in front-end
 
