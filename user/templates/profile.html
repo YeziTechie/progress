@@ -110,7 +110,12 @@ Targoon's Profile
     {% for outcome in outcomes %}
       {% if outcome.is_hided == True %}
         <div class="outcome" style="opacity:10%;" onclick="window.location.href = '{% url 'outcome_detail' pk=outcome.pk%}'">
-          <div class="tasks-undone">{{ outcome.active_tasks }}</div>
+          <div class="tasks-undone">
+            <div class="i">{{ outcome.deadline_active }}</div>
+            <div class="i">{{ outcome.classic_active }}</div>
+            <div class="i">{{ outcome.count_active }}</div>
+            <div class="i">{{ outcome.time_active }}</div>
+          </div>
           <div class="outcome-name">{{ outcome.name }}</div>
         </div>
       {% elif outcome.is_achieved == True %}
@@ -120,7 +125,12 @@ Targoon's Profile
         </div>
       {% else %}
         <div class="outcome" onclick="window.location.href = '{% url 'outcome_detail' pk=outcome.pk%}'">
-          <div class="tasks-undone" >{{ outcome.active_tasks }}</div>
+          <div class="tasks-undone" >
+            <div class="i">{{ outcome.deadline_active }}</div>
+            <div class="i">{{ outcome.classic_active }}</div>
+            <div class="i">{{ outcome.count_active }}</div>
+            <div class="i">{{ outcome.time_active }}</div>
+          </div>
           <div class="outcome-name">{{ outcome.name }}</div>
         </div>
       {% endif %}
