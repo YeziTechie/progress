@@ -16,7 +16,7 @@ class OutcomeDetailView(DetailView):
         outcome = context['outcome']
 
         # task objects
-        classics = outcome.classic_tasks.all()
+        classics = outcome.classic_tasks.order_by('is_done')
         times = outcome.time_tasks.all()
         counts = outcome.count_tasks.all()
         deadlines = outcome.deadline_tasks.all()
