@@ -11,7 +11,15 @@
         {% block styles %} {% endblock %}
     </head>
     <body>
-        <!-- Nav Bar -->
+
+              <!-- Background video -->
+        <video class="bg-video" autoplay muted loop playsinline>
+          <source src="{% static '/media/fire.mp4' %}" type="video/mp4">
+        </video>
+
+        <!-- Your site content -->
+        <div class="page-content">
+ <!-- Nav Bar -->
         <div class="js-navbar-button navbar-button"></div>
 <!--        <a href="">-->
 <!--          <div class="js-navbar-tasks navbar-tasks">-->
@@ -31,6 +39,8 @@
 
         <!-- Body content-->
         {% block body %} {% endblock %}
+        </div>
+       
 
         <!-- Script file links -->
         <script src="{% static './script/navbar.js' %}"></script>

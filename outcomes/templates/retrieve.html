@@ -292,24 +292,14 @@
 
       </div>
     </div>
-
-
-    <!-- tasks -->
-    <div class="tasks">
-      <div class="title"><h1>Tasks</h1></div>
-      <div class="task-buttons">
-        <div class="classic classic-btn-js">Classic</div>
-        <div class="time time-btn-js">Time</div>
-        <div class="count count-btn-js">Count</div>
-        <div class="deadline deadline-btn-js">Deadline</div>
-      </div>
-    </div>
-
+  </div>
+  <div class="task-container">
+    
+    <br><br><br><br>
+    <h2>Time Tasks <span class="new-task" onclick="window.location.href = '{% url 'time_create' pk=outcome.pk %}'">New</span></h2>
+    
     <!-- time task -->
     <div class="time-task-container time-container-js">
-      <div class="create-task">
-        <button class="create-btn" onclick="window.location.href = '{% url 'time_create' pk=outcome.pk %}'">Create New Task</button>
-      </div>
       {% for time in times %}
         <div class="task">
           <div class="header">
@@ -346,11 +336,11 @@
       {% endfor %}
     </div>
 
+    <br><br><br><br>
+    <h2>Count Tasks <span class="new-task" onclick="window.location.href = '{% url 'count_create' pk=outcome.pk %}'">New</span></h2>
+    
     <!-- count task -->
     <div class="count-task-container count-container-js">
-      <div class="create-task">
-        <button class="create-btn" onclick="window.location.href = '{% url 'count_create' pk=outcome.pk %}'">Create New Task</button>
-      </div>
       {% for count in counts %}
         <div class="task">
           <div class="header">
@@ -387,11 +377,11 @@
       {% endfor %}
     </div>
 
+    <br><br><br><br>
+    <h2>Classic Tasks <span class="new-task" onclick="window.location.href = '{% url 'classic_create' pk=outcome.pk %}'">New</span></h2>
+    
     <!-- classic task -->
     <div class="classic-task-container classic-container-js">
-      <div class="create-task">
-        <button class="create-btn" onclick="window.location.href = '{% url 'classic_create' pk=outcome.pk %}'">Create New Task</button>
-      </div>
       {% for classic in classics %}
         {% if classic.is_done == False %}
           <div class="task">
@@ -450,11 +440,11 @@
       {% endfor %}
     </div>
 
+    <br><br><br><br>
+    <h2>Deadline Tasks <span class="new-task" onclick="window.location.href = '{% url 'deadline_create' pk=outcome.pk %}'">New</span></h2>
+    
     <!--  deadline task -->
     <div class="deadline-task-container deadline-container-js">
-      <div class="create-task">
-        <button class="create-btn" onclick="window.location.href = '{% url 'deadline_create' pk=outcome.pk %}'">Create New Task</button>
-      </div>
       {% for deadline in deadlines %}
         {% if deadline.is_done == False %}
           <div class="task">

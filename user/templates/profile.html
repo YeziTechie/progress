@@ -32,9 +32,15 @@ Targoon's Profile
     </div>
 
     <div class="middle-status">
-      <div class="level chaotic-box-shadow">
-        <span class="level-number">{{ level }}</span>
+      <div class="video-wrapper">
+        <video autoplay muted loop playsinline>
+          <source src="{% static 'media/fire.mp4' %}" type="video/mp4">
+        </video>
+        <div class="level-content">
+          <span class="level-number">{{ level }}</span>
+        </div>
       </div>
+
       <div class="xp-bar">
         <div class="xp-bar-filled" style="width:{{ filled }};"></div>
         <span class="xp-number">{{ total_xp }} / {{ next_level_xp }}</span>
