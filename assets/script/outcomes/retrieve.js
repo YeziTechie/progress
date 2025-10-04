@@ -49,6 +49,26 @@ function openQuestion (element) {
 
 }
 
+function borderSkirmish(direction, element) {
+
+  function returnColor() {
+    const color = '#' + Math.floor(Math.random()*16777215).toString(16);
+    return color;
+  }
+  function changeBorder() {
+    if (direction === 'top') {
+      element.style.borderTop = `solid 1px ${returnColor()}`
+    } else if (direction === 'bottom') {
+      element.style.borderBottom === `solid 1px ${returnColor()}`
+    } else if (direction === 'left') {
+      element.style.borderLeft === `solid 1px ${returnColor()}`
+    } else if (direction === 'right') {
+      element.style.borderRight === `solid 1px ${returnColor()}`
+    }
+  }
+  return setInterval(changeBorder, 2000);
+}
+
 const btn1 = document.querySelector('.btn-1-js');
 const btn2 = document.querySelector('.btn-2-js');
 const btn3 = document.querySelector('.btn-3-js');
@@ -67,10 +87,14 @@ btn1.addEventListener('click', () => selectQuestions(1));
 btn2.addEventListener('click', () => selectQuestions(2));
 btn3.addEventListener('click', () => selectQuestions(3));
 
-classicTaskBtn.addEventListener('click', () => selectTasks('classic'));
-timeTaskBtn.addEventListener('click', () => selectTasks('time'));
-countTaskBtn.addEventListener('click', () => selectTasks('count'));
-deadlineTaskBtn.addEventListener('click', () => selectTasks('deadline'));
+// classicTaskBtn.addEventListener('click', () => selectTasks('classic'));
+// timeTaskBtn.addEventListener('click', () => selectTasks('time'));
+// countTaskBtn.addEventListener('click', () => selectTasks('count'));
+// deadlineTaskBtn.addEventListener('click', () => selectTasks('deadline'));
+
+borderSkirmish('bottom', document.querySelector('.tasks'));
+
+
 
 
 

@@ -8,42 +8,32 @@
 }
 
 .btn-1, .btn-2, .btn-3 {
-  background-color: var(--theme-color);
+  background-color: rgba(255, 255, 255, 0.027);
+  backdrop-filter: blur(40px);
   text-align: center;
-  color: black;
   padding:10px;
-  border-radius: 16px;
+  border: 1px solid transparent;
+  border-radius: 6px;
   cursor: pointer;
-  transition: ease-in-out background-color 0.6s, box-shadow 1.2s;
+  transition: ease-in-out 0.5s;
 }
 
 
 .btn-1:hover, .btn-2:hover, .btn-3:hover {
-  transition: ease-in-out background-color 0.2s, box-shadow 0.4s;
-  background-color: var(--body-bg-color);
-  box-shadow: 
-    0px 0px 10px var(--theme-color),
-    0px 0px 15px var(--theme-color),
-    0px 0px 20px var(--theme-color),
-    0px 0px 30px var(--theme-color),
-    0px 0px 40px var(--theme-color),
-    0px 0px 60px var(--theme-color);
+  box-shadow: 0px 0px 30px black;
 }
-
 
 
 .question-selected {
   transition: ease-in-out 0.5s;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  border: 1px solid var(--theme-color);
-  box-shadow: 0px 0px 20px var(--theme-color);
+  opacity: 0.4;
 }
 
 .questions {
   width: 90%;
   margin: 0 auto;
-  background-color: var(--bg-color);
+  backdrop-filter: blur(40px);
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -57,7 +47,7 @@
 }
 
 .questions .header .title {
-  border-left: 5px solid var(--theme-color);
+  border-left: 5px solid black;
   padding-left: 10px;
   margin-bottom: 20px;
 }
@@ -69,30 +59,35 @@
 }
 
 .question {
-  border: solid 1px var(--theme-color);
+  border: solid 1px black;
+  border-radius: 15px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.041);
   padding: 10px;
   
 }
 
 
 .question-text {
-  font-weight: bold;
+  /* font-weight: bold; */
   font-size: 18px;
   text-align: center;
 }
 
 .line {
-  transition: ease-in-out 3s;
+  transition: ease-in-out 1s;
   height: 3px;
+  box-shadow: 0px 0px 20px black;
   width: 3px;
   margin: 4px auto;
   background-color: var(--theme-color);
 }
 
 .answer {
-  transition: ease-in-out 3s;
+  transition: ease-in-out 1s;
   background-color: var(--body-bg-color);
   padding: 5px;  
+  border-radius: 8px;
   font-size: 1px;
 }
 
