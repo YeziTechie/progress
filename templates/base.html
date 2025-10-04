@@ -7,42 +7,40 @@
         <title>{% block title %}{% endblock %}</title>
         <link rel="stylesheet" href="{% static '/style/navbar.css' %}">
         <link rel="stylesheet" href="{% static '/style/base.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
         <!-- CSS file links -->
         {% block styles %} {% endblock %}
     </head>
     <body>
+      <video class="bg-video" autoplay muted loop playsinline>
+        <source src="{% static '/media/zap.mp4' %}" type="video/mp4">
+      </video>
 
-              <!-- Background video -->
-        <video class="bg-video" autoplay muted loop playsinline>
-          <source src="{% static '/media/fire.mp4' %}" type="video/mp4">
-        </video>
+      <div class="page-content">
 
-        <!-- Your site content -->
-        <div class="page-content">
- <!-- Nav Bar -->
-        <div class="js-navbar-button navbar-button"></div>
-<!--        <a href="">-->
-<!--          <div class="js-navbar-tasks navbar-tasks">-->
-<!--            <p class="navbar-text">Tasks</p>-->
-<!--          </div>-->
-<!--        </a>-->
-        <a href="{% url 'profile' %}">
-          <div class="js-navbar-profile navbar-profile">
-            <p class="navbar-text">Profile</p>
+      <div class="js-navbar-button navbar-button"></div>
+         <a href="{% url 'outcome_create' %}">
+           <div class="js-navbar-tasks navbar-tasks">
+             <p class="navbar-text">&nbsp;-0:</p>
           </div>
         </a>
+          <a href="{% url 'profile' %}">
+            <div class="js-navbar-profile navbar-profile">
+             <p class="navbar-text">&nbsp;&nbsp;Ego</p>
+           </div>
+         </a>
 <!--        <a href="">-->
 <!--          <div class="js-navbar-outcomes navbar-outcomes">-->
 <!--            <p class="navbar-text">Outcomes</p>-->
 <!--          </div>-->
 <!--        </a>-->
 
-        <!-- Body content-->
         {% block body %} {% endblock %}
+        
         </div>
        
-
-        <!-- Script file links -->
         <script src="{% static './script/navbar.js' %}"></script>
         <script src="{% static './script/general.js' %}"></script>
         {% block scripts %} {% endblock %}

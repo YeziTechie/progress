@@ -5,8 +5,8 @@
   max-width: 700px;
   padding: 10px;
   margin: 0 auto;
-  filter:blur(0px);
   transition:ease-in-out filter 1s;
+  background-color: transparent;
 
 }
 
@@ -43,15 +43,11 @@
   font-size: 14px;
   color: var(--light-text-color);
   padding: 10px;
-  background-color: var(--body-bg-color);
-  border: solid 1px var(--theme-color);
-  transition:ease-in-out padding 3s, box-shadow 2s;
+  border: solid 1px black;
+  transition: ease-in-out padding 3s, box-shadow 2s;
 }
 
 .desc-input:focus {
-  padding:10px 20px;
-  margin:1px 1px;
-  border:none;
   box-shadow: 0px 0px 2px var(--theme-color);
   outline: none;
   transition:ease-in-out padding 0.6s, box-shadow 2s;

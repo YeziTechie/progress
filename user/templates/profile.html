@@ -34,7 +34,7 @@ Targoon's Profile
     <div class="middle-status">
       <div class="video-wrapper">
         <video autoplay muted loop playsinline>
-          <source src="{% static 'media/fire.mp4' %}" type="video/mp4">
+          <source src="{% static 'media/gooy.mp4' %}" type="video/mp4">
         </video>
         <div class="level-content">
           <span class="level-number">{{ level }}</span>
@@ -43,12 +43,11 @@ Targoon's Profile
 
       <div class="xp-bar">
         <div class="xp-bar-filled" style="width:{{ filled }};"></div>
-        <span class="xp-number">{{ total_xp }} / {{ next_level_xp }}</span>
         <div class="xp-bar-remaining" style="width:{{ remaining }};"></div>
       </div>
-      <div class="create-button">
-      <div class="btn" onclick="window.location.href='{% url 'outcome_create' %}';">New outcome</div>
-      </div>
+
+      <span class="xp-number">{{ total_xp }} / {{ next_level_xp }}</span>
+    </div>
     </div>
 
     <div class="side-status">
