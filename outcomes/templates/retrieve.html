@@ -47,7 +47,7 @@
           </div>
         </div>
 
-        <div class="second-row">
+        <div class="second-row second-row-pc">
           <div>Tasks Done: {{ done_tasks }}</div>
           <div>Active Tasks: {{ outcome.active_tasks }}</div>
         </div>
@@ -64,6 +64,13 @@
             <div class="text">{{ outcome.name }}</div>
           </div>
         {% endif %}
+    </div>
+
+    <div class="task-status">
+        <div class="second-row">
+          <div>Tasks Done: {{ done_tasks }}</div>
+          <div>Active Tasks: {{ outcome.active_tasks }}</div>
+        </div>
     </div>
 
     <!-- questions -->
@@ -295,9 +302,14 @@
   </div>
   <div class="task-container">
     
-    <br><br><br><br>
-    <h2>Time Tasks <span class="new-task" onclick="window.location.href = '{% url 'time_create' pk=outcome.pk %}'">New</span></h2>
-    
+    <div class="task-header">
+      <div class="title">
+        <h2>Time Task</h2>
+      </div>
+      <div class="new-task-div">
+        <span class="new-task" onclick="window.location.href = '{% url 'time_create' pk=outcome.pk %}'">New</span>
+      </div>
+    </div>    
     <!-- time task -->
     <div class="time-task-container time-container-js">
       {% for time in times %}
@@ -336,9 +348,14 @@
       {% endfor %}
     </div>
 
-    <br><br><br><br>
-    <h2>Count Tasks <span class="new-task" onclick="window.location.href = '{% url 'count_create' pk=outcome.pk %}'">New</span></h2>
-    
+    <div class="task-header">
+      <div class="title">
+        <h2>Count Task</h2>
+      </div>
+      <div class="new-task-div">
+        <span class="new-task" onclick="window.location.href = '{% url 'count_create' pk=outcome.pk %}'">New</span>
+      </div>
+    </div>    
     <!-- count task -->
     <div class="count-task-container count-container-js">
       {% for count in counts %}
@@ -377,9 +394,14 @@
       {% endfor %}
     </div>
 
-    <br><br><br><br>
-    <h2>Classic Tasks <span class="new-task" onclick="window.location.href = '{% url 'classic_create' pk=outcome.pk %}'">New</span></h2>
-    
+    <div class="task-header">
+      <div class="title">
+        <h2>Classic Task</h2>
+      </div>
+      <div class="new-task-div">
+        <span class="new-task" onclick="window.location.href = '{% url 'classic_create' pk=outcome.pk %}'">New</span>
+      </div>
+    </div>    
     <!-- classic task -->
     <div class="classic-task-container classic-container-js">
       {% for classic in classics %}
@@ -440,9 +462,14 @@
       {% endfor %}
     </div>
 
-    <br><br><br><br>
-    <h2>Deadline Tasks <span class="new-task" onclick="window.location.href = '{% url 'deadline_create' pk=outcome.pk %}'">New</span></h2>
-    
+    <div class="task-header">
+      <div class="title">
+        <h2>Deadline Task</h2>
+      </div>
+      <div class="new-task-div">
+        <span class="new-task" onclick="window.location.href = '{% url 'deadline_create' pk=outcome.pk %}'">New</span>
+      </div>
+    </div>    
     <!--  deadline task -->
     <div class="deadline-task-container deadline-container-js">
       {% for deadline in deadlines %}

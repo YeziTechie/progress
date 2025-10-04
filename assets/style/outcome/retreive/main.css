@@ -5,6 +5,34 @@
   max-width: 700px;
   padding: 10px;
   margin: 0 auto;
-  filter:blur(0px);
   transition:ease-in-out filter 1s;
+}
+
+.task-container {
+  margin: 50px 0px;
+  min-width:700px;
+  width: 90%;
+  padding: 10px;
+  margin: 0 auto;
+  transition:ease-in-out filter 1s;
+}
+
+@media only screen and (max-width: 480px) {
+.container {
+  margin: 50px 0px;
+  width: 90%;
+  min-width: 300px;
+  padding: 10px;
+  margin: 0 auto;
+  transition:ease-in-out filter 1s;
+}
+
+.task-container {
+  margin: 50px 0px;
+  width: 90%;
+  min-width: 300px;
+  padding: 10px;
+  margin: 0 auto;
+  transition:ease-in-out filter 1s;
+}
 }

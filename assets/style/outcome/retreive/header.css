@@ -147,3 +147,154 @@
   font-size: 22px;
   text-align: center;
 }
+
+@media only screen and (max-width: 480px) {
+
+.header {
+  display: flex;
+  flex-direction: column-reverse;
+  row-gap: 10px;
+  width: 100%;
+  justify-content: center;
+}
+
+.outcome-detail {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.first-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.first-column {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  row-gap: 10px;
+  width: 100%;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  column-gap: 5px;
+}
+
+.buttons .update, .delete {
+  padding: 4px;
+  width: 40px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.second-column {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.second-column .dates {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 10px;
+  align-items: center;
+}
+
+.second-column .dates .created, .achieved {
+  background-color: transparent;
+  backdrop-filter: blur(60px);
+  font-size: 12px;
+  padding: 10px;
+  width:200px;
+  text-align: center;
+  border-radius: 10px;
+
+}
+
+.xp-bar {
+  width:180px;
+  height:2px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 35px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  box-shadow: 0px 0px 20px black;
+  background: linear-gradient(to right, rgba(92, 5, 123, 0.445), rgba(13, 155, 187, 0.188));
+  backdrop-filter: blur(10px);
+}
+
+.xp-bar-filled {
+  width:0%;
+  height:2px;
+  background-color: var(--theme-color);
+  border-radius: 25px 0px 0px 25px;
+  transition: ease-in-out 1s;
+}
+.xp-bar-remaining {
+  width:100%;
+  height:28px;
+  border-radius: 0px 25px 25px 0px;
+  transition: ease-in-out 1s;
+}
+
+.xp-number {
+  position: absolute;
+  color: var(--color);
+  font-size: 20px;
+  margin-top: -50px;
+}
+
+.level {
+  display: flex;
+  width:100px;
+  height:100px;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(40px);
+  font-size: 40px;
+  border-radius: 50px;
+  border: 1px solid black;
+  transition: ease-in-out 2s ;
+}
+
+.second-row-pc {
+  display: none;
+}
+
+.second-row div {
+  background-color: transparent;
+  backdrop-filter: blur(40px);
+  padding: 10px;
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.outcome-name {
+  background-color: transparent;
+  backdrop-filter: blur(40px);
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 50px;
+}
+
+.outcome-name .create-btn {
+  margin: 20px 0px;
+}
+
+.outcome-name .text {
+  font-size: 22px;
+  text-align: center;
+}
+}

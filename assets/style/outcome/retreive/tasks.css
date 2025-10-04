@@ -5,6 +5,18 @@
   align-items: center;
 }
 
+.task-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-header .title h2 {
+  font-weight: 300;
+  font-size: 18px;
+}
+
 .task-buttons {
   display: flex;
   flex-direction: row;
@@ -32,7 +44,8 @@
 }
 
 .task-container {
-  backdrop-filter: blur(50px);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--theme-color)
 }
 
 .time-task-container, .count-task-container, .deadline-task-container, .classic-task-container {
@@ -62,9 +75,9 @@
   min-width: 300px;
   width: fit-content;
   max-width: 500px;
+  background-color: rgba(0, 0, 0, 0.418);
   padding: 5px 10px;
   border-radius: 8px;
-  border: 3px solid black;
 }
 
 .task .header {
@@ -182,3 +195,4 @@
   color: var(--theme-color);
   cursor: pointer;
 }
+
