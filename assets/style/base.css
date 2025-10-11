@@ -12,6 +12,7 @@
 body {
   color: var(--text-color);
   font-family: "Outfit", sans-serif;
+  background-color: black;
   font-optical-sizing: auto;
   font-weight: 200;
   font-style: normal;
