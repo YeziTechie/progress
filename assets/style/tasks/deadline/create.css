@@ -116,3 +116,14 @@
 .desc-container {
   width:80%;
 }
+
+@media only screen and (max-width: 480px) {
+  .xp-and-penalty {
+    margin: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    }
+
+}
