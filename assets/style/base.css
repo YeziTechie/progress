@@ -1,45 +1,57 @@
-.theme-1 {
-  --theme-color: #009973;
-  --bg-color: rgb(0, 0, 0);
-  --body-bg-color: rgb(12, 12, 12);
+:root {
+  --theme-color: #6a85b6;
+  --bg-color: rgb(29, 29, 29);
+  --body-bg-color: rgb(44, 44, 44);
   --text-color: #e6e6e6;
   --light-text-color: #999999;
   --green: #39ac73;
-  --red: #b30000;
-  --help: #aa80ff ;
-
-}
-
-.theme-2 {
-  --theme-color:  #80ff80;
-  --bg-color: #001a00;
-  --body-bg-color:  #003300;
-  --text-color: #ccffcc;
-  --light-text-color: ;
-  --green: #39ac73;
-  --red: #b30000;
-  --help: #aa80ff ;
-}
-
-:root {
-  --theme-color: #4d004d;
-  --bg-color:  #0d0d0d;
-  --body-bg-color: black;
-  --text-color: #e6e6e6;
-  --light-text-color: ;
-  --green: #39ac73;
-  --red: #b30000;
-  --help: #aa80ff ;
+  --red: #d35050;
+  --help: #8de6dd ;
 }
 
 body {
-  background-color: var(--body-bg-color);
   color: var(--text-color);
-  font-family: monospace;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
   font-size: 16px;
   padding-bottom: 300px;
 }
 
+/* Fullscreen video background */
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;    /* Fill screen without distortion */
+  z-index: -1;          /* Keep it behind all content */
+  filter: brightness(0.4); /* Darken for better text visibility */
+}
+
+/* Content styling */
+.page-content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: center;
+  padding-top: 30vh;    /* Vertically center content */
+}
+
+
 p {
   margin:0;
 }
+
+@media only screen and (max-width: 480px) {
+  .page-content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    padding-top: 10vh;    /* Vertically center content */
+  }
+}
+

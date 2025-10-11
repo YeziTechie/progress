@@ -25,7 +25,7 @@ function showNavText (px, opa) {
   const navTexts = document.querySelectorAll('.navbar-text')
   navTexts.forEach(text => {
     text.style.fontSize = px;
-    // text.style.opacity = opa;
+    text.style.opacity = opa;
   });
 };
 

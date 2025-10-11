@@ -5,6 +5,18 @@
   align-items: center;
 }
 
+.task-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-header .title h2 {
+  font-weight: 300;
+  font-size: 18px;
+}
+
 .task-buttons {
   display: flex;
   flex-direction: row;
@@ -14,56 +26,58 @@
 }
 
 .classic, .time, .count, .deadline {
-  background-color: var(--theme-color);
-  font-weight: bold;
   width: 100px;
   text-align: center;
-  color: black;
+  border: 1px solid transparent;
   padding:10px;
-  border-radius: 16px;
+  border-radius: 4px;
   cursor: pointer;
-  transition: ease-in-out background-color 0.6s, box-shadow 1.2s;
+  transition: ease-in-out 0.3s;
 }
 
 .selected {
-  background-color: var(--bg-color);
-  color: var(--color);
+  opacity: 0.4;
 }
 
 .classic:hover, .time:hover, .count:hover, .deadline:hover {
-
-  transition: ease-in-out background-color 0.2s, box-shadow 0.4s;
-  background-color: var(--body-bg-color);
-  box-shadow: 
-    0px 0px 10px var(--theme-color),
-    0px 0px 15px var(--theme-color),
-    0px 0px 20px var(--theme-color),
-    0px 0px 30px var(--theme-color),
-    0px 0px 40px var(--theme-color),
-    0px 0px 60px var(--theme-color);
+  border: 1px solid var(--theme-color);
 }
 
+.task-container {
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--theme-color)
+}
 
 .time-task-container, .count-task-container, .deadline-task-container, .classic-task-container {
-  border: solid 1px var(--theme-color);
-  border-left: none;
-  border-right: none;
-  background-color: var(--bg-color);
   padding: 10px;
-  display: none;
+  display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  column-gap: 10px;
   flex-wrap: wrap;
+  row-gap: 20px;
+  border-radius: 15px;
+  /* backdrop-filter: blur(50px); */
+  /* background: url('your-bg.jpg') center/cover no-repeat; or a solid color */
+  background-color: transparent;
 }
 
+.create-task {
+  width: 100%;
+  display: flex;
+  justify-content: first;
+  align-items: center;
+  margin: 10px;
+}
 .task {
-  width: 46%;
   display: flex;
   flex-direction: column;
-  box-shadow: 0px 2px 1px var(--theme-color);
+  min-width: 300px;
+  width: fit-content;
+  max-width: 500px;
+  background-color: rgba(0, 0, 0, 0.418);
   padding: 5px 10px;
-  background-color: var(--body-bg-color);
-
+  border-radius: 8px;
 }
 
 .task .header {
@@ -89,9 +103,7 @@
   font-size: 12px;
   margin: 10px 0px;
   padding: 5px;
-  border: solid 1px var(--theme-color);
-  border-top: none;
-  border-bottom: none;
+  border: 4px;
   background-color: var(--bg-color);
 }
 
@@ -132,7 +144,7 @@
   margin-bottom: 10px;
 }
 
-.classic-task-container, .deadline-task-container .report {
+.classic-task-container .report, .deadline-task-container .report {
   border: 1px solid var(--theme-color);
 }
 
@@ -176,9 +188,11 @@
 }
 
 .task-selected {
-  transition: ease-in-out 0.5s;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  border: 1px solid var(--theme-color);
-  box-shadow: 0px 0px 20px var(--theme-color);
+  opacity: 0.4;
 }
+
+.new-task{
+  color: var(--theme-color);
+  cursor: pointer;
+}
+

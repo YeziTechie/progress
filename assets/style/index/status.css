@@ -1,7 +1,7 @@
-
 .status {
   display: flex;
   flex-direction: row;
+  border-radius:14px;
   padding:10px;
 }
 
@@ -10,38 +10,45 @@
   flex-direction: column;
   align-items: center;
   padding:20px;
+  display: none;
 }
 
 .side-status .first-row {
   display: flex;
   flex-direction: row;
+  border-radius:14px;
   justify-content: space-between;
   width:100%;
 }
 
 .side-status .first-row .infograph {
-  border-top: solid 1px var(--theme-color);
+  /* border-top: solid 1px var(--theme-color); */
+  border-radius:14px;
 }
 
 .side-status .first-row .infograph:first-child{
   background-color: var(--bg-color);
   padding:13px 10px;
+  border-radius:14px;
 }
 .side-status .first-row .infograph:last-child{
   background-color: var(--bg-color);
+  border-radius:14px;
   padding:13px 10px;
 }
 
 
 .side-status:first-child .other-row {
   background-color: var(--bg-color);
-  border-left: solid 1px var(--theme-color);
+  /* border-left: solid 1px var(--theme-color); */
+  border-radius:14px;
   width: 100%;
   margin-top:20px;
 }
 .side-status:last-child .other-row {
   background-color: var(--bg-color);
-  border-right: solid 1px var(--theme-color);
+  /* border-right: solid 1px var(--theme-color); */
+  border-radius:14px;
   width: 100%;
   margin-top:20px;
 }
@@ -59,56 +66,96 @@
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  flex:1;
+  flex: 1;
 }
 
-.level {
-  background-color: var(--bg-color);
-  width:160px;
+.video-wrapper {
+  position: relative;
+  width: 160px;
   height: 160px;
-  border-radius: 80px;
-  margin:10px 0px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 50px black;
+  overflow: hidden; /* ensures video stays circular */
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: ease box-shadow 1s;
+  transition: 1s ease-in-out;
 }
 
 .level-number {
-  font-size: 64px;
+  transition: 1s ease-in-out;
+}
+
+.video-wrapper:hover .level-content, .video-wrapper:hover .level-number {
+  transform: scale(1.5, 1.5);
+  text-shadow: 0px 0px 50px black;
+  transition: 1s ease-in-out;
+}
+
+
+.video-wrapper video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  filter: blur(15px);
+  transform: translate(-50%, -50%);
+  object-fit:contain; /* fills the circle like a background */
+  z-index: -1;       /* put behind the text */
+  transition: 1s ease-in-out;
+
+}
+
+.level-content {
+  position: relative;
+  z-index: 1;
+  transition: 1s ease-in-out;
+}
+
+.video-wrapper:hover .page-content {
+  opacity: 20%;
+}
+
+.level-content .level-number {
+  color: rgba(255, 255, 255, 0.217);
+  font-size: 100px;
+  text-align: center;
+  transition: 1s ease-in-out;
+
 }
 
 .xp-bar {
   width:300px;
-  height:50px;
+  height:10px;
+  border-radius: 5px;
   margin-top: 10px;
   margin-bottom: 20px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  border-radius: 25px;
-  border: solid 1px var(--theme-color);
+  background-color: black;
+  /* border: solid 1px var(--theme-color); */
 }
 
 .xp-bar-filled {
   transition: ease-in-out width 2s, background-color 2s;
   width:1%;
-  height:50px;
-  background-color: var(--theme-color);
-  border-radius: 25px 0px 0px 25px;
-
+  height:10px;
+  border-radius: 5px;
+  background: linear-gradient(to right, black , rgba(39, 111, 170, 0.656) );
+  backdrop-filter: blur(40px);
 }
 .xp-bar-remaining {
   transition: ease-in-out width 2s, background-color 2s;
   width:99%;
-  height:47px;
+  border-radius: 5px;
+  height:7px;
   border-left: none;
-  border-radius: 0px 25px 25px 0px;
 }
 
 .xp-number {
-  position: absolute;
   color: var(--text-color);
   text-shadow: 
   0px 2px 8px var(--bg-color),
@@ -116,7 +163,9 @@
   0px 2px 8px var(--bg-color),
   0px 2px 8px var(--bg-color),
   0px 2px 8px var(--bg-color);
-  font-size: 26px;
+  font-size: 20px;
+  margin-top: -15px;
+  margin-bottom: 5px;
 }
 
 .create-button {
@@ -141,4 +190,115 @@
   0px 0px 20px var(--theme-color),
   0px 0px 40px var(--theme-color),
   0px 0px 50px var(--theme-color);
+}
+
+
+@media only screen and (max-width: 480px) {
+
+  .middle-status {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    flex: 1;
+  }
+
+  .video-wrapper {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 50px black;
+    overflow: hidden; /* ensures video stays circular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s ease-in-out;
+  }
+
+  .level-number {
+    transition: 1s ease-in-out;
+  }
+
+  .video-wrapper:hover .level-content, .video-wrapper:hover .level-number {
+    transform: scale(1.5, 1.5);
+    text-shadow: 0px 0px 50px black;
+    transition: 1s ease-in-out;
+  }
+
+
+  .video-wrapper video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    filter: blur(15px);
+    transform: translate(-50%, -50%);
+    object-fit:contain; /* fills the circle like a background */
+    z-index: -1;       /* put behind the text */
+    transition: 1s ease-in-out;
+
+  }
+
+  .level-content {
+    position: relative;
+    z-index: 1;
+    transition: 1s ease-in-out;
+  }
+
+  .video-wrapper:hover .page-content {
+    opacity: 20%;
+  }
+
+  .level-content .level-number {
+    color: rgba(255, 255, 255, 0.217);
+    font-size: 70px;
+    text-align: center;
+    transition: 1s ease-in-out;
+
+  }
+
+  .xp-bar {
+    width:200px;
+    height:10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    /* border: solid 1px var(--theme-color); */
+  }
+
+  .xp-bar-filled {
+    transition: ease-in-out width 2s, background-color 2s;
+    width:1%;
+    height:10px;
+    border-radius: 5px;
+    background: linear-gradient(to right, black , rgba(39, 111, 170, 0.656) );
+    backdrop-filter: blur(40px);
+  }
+  .xp-bar-remaining {
+    transition: ease-in-out width 2s, background-color 2s;
+    width:99%;
+    border-radius: 5px;
+    height:7px;
+    border-left: none;
+  }
+
+  .xp-number {
+    color: var(--text-color);
+    text-shadow: 
+    0px 2px 8px var(--bg-color),
+    0px 2px 8px var(--bg-color),
+    0px 2px 8px var(--bg-color),
+    0px 2px 8px var(--bg-color),
+    0px 2px 8px var(--bg-color);
+    font-size: 20px;
+    margin-top: -15px;
+    margin-bottom: 5px;
+  }
 }
