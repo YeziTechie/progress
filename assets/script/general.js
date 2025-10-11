@@ -58,8 +58,6 @@ function bgColorSkirmish() {
 
 function borderSkirmish(direction, element) {
 
-  console.log('asdf')
-
   function returnColor() {
     const color = '#' + Math.floor(Math.random()*16777215).toString(16);
     return color;
@@ -80,4 +78,3 @@ function borderSkirmish(direction, element) {
 
 bgColorSkirmish();
 fontColorSkirmish();
-borderSkirmish('bottom', document.querySelector('.tasks'));
