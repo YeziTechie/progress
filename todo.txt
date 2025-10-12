@@ -1,3 +1,8 @@
-mobile design. 
-easy click to score
-better nav bar and navigation
+[x] mobile design
+[ ] easy click to score
+[ ] better nav bar and navigation
+[ ] hint fix
+[ ] user register and login, logout and its relative design
+[ ] 
+[ ] 
+[ ] 
