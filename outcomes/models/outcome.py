@@ -1,4 +1,5 @@
 from django.db import models
+from _base import settings
 
 from .ecology import ExternalEcology, InternalEcology
 from .questions import OutcomeQuestions
@@ -7,6 +8,7 @@ from user.helpers.generate_level import calculate_level
 
 
 class Outcome(models.Model):
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='outcomes', on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     last_task_done_at = models.DateTimeField(null=True, blank=True)

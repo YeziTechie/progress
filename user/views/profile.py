@@ -2,8 +2,8 @@ from django.utils import timezone
 from django.shortcuts import render, get_object_or_404
 from django.views import View
 
-from .helpers.status import *
-from .helpers.generate_level import calculate_level, calculate_xp_for_level
+from user.helpers.status import *
+from user.helpers.generate_level import calculate_level, calculate_xp_for_level
 
 from outcomes.models.outcome import Outcome
 
