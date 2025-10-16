@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Create a Classic Task
+{% endblock %}
+
+
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'style/tasks/classic/create.css' %}"> 
+  <link rel="stylesheet" href="{% static 'style/user/sign-up.css' %}"> 
+  {% endblock %}
+
+
+{% block body %} 
+<div class="container">
+      
+  <div class="page-title">
+    <h2>Welcome, Creature of the Earth...</h2>
+  </div>
+
+  <div class="outcome-name">
+    <h1>Begin your journey by filling the form.</h1>
+  </div>
+
+ <div class="form" id="signup-form">
+  <div class="overlay"></div>
+  <form method="post" enctype="multipart/form-data">
+
+    {% csrf_token %}
+    <div class="desc" id="info-fields">
+      <!-- your existing fields -->
+      <div class="desc-label"><p>Enter Username (Letters, Numbers, Underlines, Hyphens)</p></div>
+      <div class="desc-container">{{ form.username }} 
+         {% for error in form.username.errors %}
+          <p class="error-msg">{{ error }}</p>
+        {% endfor %}
+      </div>
+      <div class="desc-label"><p>Profile Picture</p></div>
+      <div class="desc-container">{{ form.profile_picture }}</div>
+      <div class="desc-label"><p>Choose an Element</p></div>
+      <div class="desc-container">{{ form.element }}</div>
+      <div class="desc-label"><p>Choose an Animal</p></div>
+      <div class="desc-container">{{ form.animal }}</div>
+    </div>
+
+    <div class="create">
+      <button class="create-btn" id="next-btn">Next</button>
+    </div>
+
+    <div class="passwords" id="passwords">
+      <div class="desc">
+        <div class="desc-label"><p>Enter Password</p></div>
+        <div class="desc-container">{{ form.password1 }}
+          {% for error in form.password.errors %}
+            <p class="error-msg">{{ error }}</p>
+          {% endfor %}
+        </div>
+        <div class="desc-label"><p>Confirm Password</p></div>
+        <div class="desc-container">{{ form.password2 }}
+          {% for error in form.password2.errors %}
+            <p class="error-msg">{{ error }}</p>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="create">
+        <button type="button" class="create-btn back-btn">Back</button>
+        <button type="submit" class="create-btn">Create Account</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+  <script src="{% static 'script/user/sign-up.js' %}"></script>
+{% endblock %}
