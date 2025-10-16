@@ -1,8 +1,11 @@
 [x] mobile design
-[ ] easy click to score
+[x] user register and login, logout and its relative design
 [ ] better nav bar and navigation
+[ ] easy click to score
+[ ] user logout 
 [ ] hint fix
-[ ] user register and login, logout and its relative design
-[ ] 
-[ ] 
-[ ] 
+[ ] home page, introduction
+[ ] toturial wizard
+[ ] think of the design of animal and fire
+[ ] filter of tasks and outcomes in profile page
+[ ] login and register at login and register pages
