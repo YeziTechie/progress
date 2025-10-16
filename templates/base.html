@@ -20,22 +20,28 @@
 
       <div class="page-content">
 
-      <div class="js-navbar-button navbar-button"></div>
-         <a href="{% url 'outcome_create' %}">
-           <div class="js-navbar-tasks navbar-tasks">
-             <p class="navbar-text">&nbsp;-0:</p>
-          </div>
-        </a>
-          <a href="{% url 'profile' %}">
-            <div class="js-navbar-profile navbar-profile">
-             <p class="navbar-text">&nbsp;&nbsp;Ego</p>
-           </div>
-         </a>
-<!--        <a href="">-->
-<!--          <div class="js-navbar-outcomes navbar-outcomes">-->
-<!--            <p class="navbar-text">Outcomes</p>-->
-<!--          </div>-->
-<!--        </a>-->
+<div class="top-nav">
+  <div class="brand-name"><h1>Progress</h1></div>
+  <div class="toggle-btn" id="toggle-btn"></div>
+</div>
+
+<div class="navbar" id="navbar">
+  <div class="profile">
+    <div class="picture">
+      <img class="profile-picture" src="{% static '/media/zap.mp4' %}" alt="">
+    </div>
+    <div class="username"><p>username</p></div>
+  </div>
+
+  <div class="links">
+    <div class="link">Profile</div>
+    <div class="link">Create Outcome</div>
+  </div>
+
+  <div class="logout">
+    <div class="logout-btn">Log out</div>
+  </div>
+</div>
 
         {% block body %} {% endblock %}
         
