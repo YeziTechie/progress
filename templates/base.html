@@ -56,8 +56,8 @@
     </div>
   </div>
   <div class="links">
-    <div class="link">Profile</div>
-    <div class="link">Create Outcome</div>
+    <div class="link" class="logout-btn" onclick="window.location.href = '{% url 'profile' %}'">Profile</div>
+    <div class="link" class="logout-btn" onclick="window.location.href = '{% url 'outcome_create' %}'">Create Outcome</div>
   </div>
 
   <div class="logout">

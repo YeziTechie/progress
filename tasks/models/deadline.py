@@ -2,6 +2,8 @@ from django.utils import timezone
 
 from django.db import models
 
+from _base import settings
+
 
 class Deadline(models.Model):
 
@@ -12,6 +14,7 @@ class Deadline(models.Model):
         (4, 'Four fold XP loose'),
     ]
 
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='deadline_tasks', on_delete=models.CASCADE)
     outcome = models.ForeignKey(
         'outcomes.Outcome',
         models.CASCADE,

@@ -3,10 +3,10 @@ from tasks.models.time import Time
 from tasks.models.count import Count
 
 
-def total_xp():
+def total_xp(user):
     from outcomes.models.outcome import Outcome
     xp = 0
-    for i in Outcome.objects.all():
+    for i in Outcome.objects.filter(user=user):
         xp += i.total_xp()
     return xp
 

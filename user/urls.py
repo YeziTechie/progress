@@ -7,7 +7,7 @@ from user.views.logout import logout_view
 
 
 urlpatterns = [
-    path('', UserProfileView.as_view(), name='profile'),
+    path('', UserProfileView, name='profile'),
     path('sign-up/', signup_view, name='signup'),
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),

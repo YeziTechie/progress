@@ -2,8 +2,12 @@ import datetime
 
 from django.db import models
 
+from _base import settings
+
 
 class Count(models.Model):
+   
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='count_tasks', on_delete=models.CASCADE)
     outcome = models.ForeignKey(
         'outcomes.Outcome',
         models.CASCADE,

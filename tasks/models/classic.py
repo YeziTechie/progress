@@ -1,9 +1,13 @@
-from django.db import models
 import datetime
+
+from django.db import models
+
+from _base import settings
 
 
 class Classic(models.Model):
-
+   
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='classic_tasks', on_delete=models.CASCADE)
     outcome = models.ForeignKey(
         'outcomes.Outcome',
         models.CASCADE,
