@@ -20,6 +20,7 @@ ALLOWED_HOSTS = ['127.0.0.1', 'progressineternity.pythonanywhere.com']
 
 AUTH_USER_MODEL = 'user.User'
 
+
 # Application definition
 
 INSTALLED_APPS = [
