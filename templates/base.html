@@ -46,19 +46,22 @@
 
 <div class="navbar" id="navbar">
   <div class="profile">
-    <div class="picture">
-      <img class="profile-picture" src="{% static '/media/zap.mp4' %}" alt="">
+    {% if request.user.profile_picture %}
+      <img class="picture" src="{{ request.user.profile_picture.url }}" alt="{{ request.user.username }}">
+    {% else %}
+      <img class="picture" src="{% static 'images/default-avatar.png' %}" alt="Default avatar">
+    {% endif %}
+    <div class="username">
+      <p>{{ request.user.username }}</p>
     </div>
-    <div class="username"><p>username</p></div>
   </div>
-
   <div class="links">
     <div class="link">Profile</div>
     <div class="link">Create Outcome</div>
   </div>
 
   <div class="logout">
-    <div class="logout-btn">Log out</div>
+    <div class="logout-btn" onclick="window.location.href = '{% url 'logout' %}'">Log out</div>
   </div>
 </div>
 

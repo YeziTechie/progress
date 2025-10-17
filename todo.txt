@@ -1,6 +1,6 @@
 [x] mobile design
 [x] user register and login, logout and its relative design
-[ ] better nav bar and navigation
+[x] better nav bar and navigation
 [ ] easy click to score
 [x] user logout 
 [ ] hint fix

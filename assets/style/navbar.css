@@ -44,12 +44,21 @@
   transform: translateX(0);
 }
 
-/* profile picture stays visible */
+.profile {
+  width: 100px;
+  height: auto;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Circle profile image */
 .profile .picture {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background-color: blue;
+  object-fit: cover;
+  object-position: center;
+  display: block;
   margin: 0 auto;
 }
 
