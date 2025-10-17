@@ -1,0 +1,56 @@
+.form {
+  z-index: 100;
+}
+
+.create {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+}
+
+.desc-label {
+  text-align: left;
+}
+
+.desc-input {
+  width: 90%;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid white;
+  transition: border-color 0.3s ease, border-bottom-color 0.3s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+.error-msg {
+  padding: 5px 0px;
+}
+
+/* Center passwords popup */
+.passwords {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 300px;
+  border: 1px solid transparent;
+  backdrop-filter: blur(50px);
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  z-index: 110;
+  opacity: 0;
+  transition: all ease-out 1s;
+}
+
+/* Dark overlay behind popup */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  transition: all ease-out 1s;
+}

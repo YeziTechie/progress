@@ -2,7 +2,7 @@
 [x] user register and login, logout and its relative design
 [ ] better nav bar and navigation
 [ ] easy click to score
-[ ] user logout 
+[x] user logout 
 [ ] hint fix
 [ ] home page, introduction
 [ ] toturial wizard
