@@ -14,7 +14,7 @@ class OutcomeDetailView(LoginRequiredMixin, DetailView):
 
     def get_object(self, queryset=None):
         # Ensure only the owner can access this outcome
-        return get_object_or_404(Outcome, pk=self.kwargs['pk'], user=self.request.user)
+        return get_object_or_404(Outcome, pk=self.kwargs['pk'], owner=self.request.user)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

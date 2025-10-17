@@ -1,5 +1,30 @@
 [flake8]
-extend-ignore = E203
-exclude = .git,__pycache__,docs/source/conf.py,old,build,dist,venv,migrations
+# Maximum allowed complexity per function/method
 max-complexity = 10
+
+# Maximum line length
 max-line-length = 120
+
+# Exclude unnecessary folders
+exclude = .git,__pycache__,docs/source/conf.py,old,build,dist,venv,migrations
+
+# Ignore whitespace before ':' (common with black formatting)
+extend-ignore = E203
+
+# Enforce unused imports, variables, redefinitions, etc.
+select = E,F,W,F401,F403,F811,F841
+
+# E: all pycodestyle errors (spacing, blank lines, indentation)
+# F: pyflakes errors (undefined names, etc.)
+# W: warnings (line breaks, indentation, etc.)
+# F401: module imported but unused
+# F403: 'from module import *' used; unable to detect undefined names
+# F811: redefinition of unused name from outer scope
+# F841: local variable assigned but never used
+
+# Enforce trailing newlines and remove trailing whitespace
+extend-select = E2,W2
+
+# Integrate with isort for import order checking (if using isort)
+# You can run: isort --check-only --diff . 
+# and flake8 will catch issues if you have flake8-isort installed

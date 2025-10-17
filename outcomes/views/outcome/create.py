@@ -13,8 +13,8 @@ class OutcomeCreateView(LoginRequiredMixin, CreateView):
     login_url = 'login'  # redirect if not logged in
 
     def form_valid(self, form):
-        # Attach the logged-in user before saving
-        form.instance.user = self.request.user
+        # Attach the logged-in user to the 'owner' field before saving
+        form.instance.owner = self.request.user
         return super().form_valid(form)
 
     def get_success_url(self):

@@ -23,8 +23,8 @@ def UserProfileView(request):
     per2 = f'{round(((next_level_xp - xp) / next_level_xp) * 100)}%' if next_level_xp != 0 else '100%'
 
     # --- Highest XP task ---
-    classic_high = Classic.objects.filter(user=user, is_done=True).order_by('-xp').first()
-    deadline_high = Deadline.objects.filter(user=user, is_done=True).order_by('-xp').first()
+    classic_high = Classic.objects.filter(owner=user, is_done=True).order_by('-xp').first()
+    deadline_high = Deadline.objects.filter(owner=user, is_done=True).order_by('-xp').first()
 
     highest_xp = max(
         [t.xp for t in [classic_high, deadline_high] if t is not None],
@@ -32,8 +32,8 @@ def UserProfileView(request):
     )
 
     # --- Last task done ---
-    classic_done = Classic.objects.filter(user=user, is_done=True).order_by('-done_at').first()
-    deadline_done = Deadline.objects.filter(user=user, is_done=True).order_by('-deadline_date').first()
+    classic_done = Classic.objects.filter(owner=user, is_done=True).order_by('-done_at').first()
+    deadline_done = Deadline.objects.filter(owner=user, is_done=True).order_by('-deadline_date').first()
 
     last_task_done = None
     if classic_done and deadline_done:
@@ -46,9 +46,9 @@ def UserProfileView(request):
         last_task_done = 'None'
 
     # --- User-specific outcomes and tasks ---
-    outcomes = Outcome.objects.filter(user=user)
-    deadlines = Deadline.objects.filter(user=user, is_done=False)
-    classics = Classic.objects.filter(user=user, is_done=False)
+    outcomes = Outcome.objects.filter(owner=user)
+    deadlines = Deadline.objects.filter(owner=user, is_done=False)
+    classics = Classic.objects.filter(owner=user, is_done=False)
 
     now = timezone.now().date()
 
@@ -71,8 +71,8 @@ def UserProfileView(request):
         'remaining': per2,
         'deadlines': deadlines,
         'classics': classics,
-        'classic_done': Classic.objects.filter(user=user, is_done=True).count(),
-        'deadline_done': Deadline.objects.filter(user=user, is_done=True).count(),
+        'classic_done': Classic.objects.filter(owner=user, is_done=True).count(),
+        'deadline_done': Deadline.objects.filter(owner=user, is_done=True).count(),
         'count_scored': count_scored(user),  # update helper functions to accept user
         'time_spent': time_spent(user),      # update helper functions to accept user
         'outcomes': outcomes,

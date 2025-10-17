@@ -1,26 +1,34 @@
-from django.views.generic.edit import CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse
-
+from django.shortcuts import get_object_or_404, redirect
 
 from tasks.models.classic import Classic
-from tasks.forms.classic import ClassicCreateForm
-
+from tasks.forms.classic import ClassicCreateForm, ClassicUpdateForm
 from outcomes.models.outcome import Outcome
 
 
-class ClassicCreateView(CreateView):
+class ClassicCreateView(LoginRequiredMixin, CreateView):
     model = Classic
     form_class = ClassicCreateForm
     template_name = 'classic/create.html'
 
-    def get_success_url(self):
-        return reverse('outcome_detail', kwargs={'pk': self.object.outcome.pk})
+    def dispatch(self, request, *args, **kwargs):
+        # Ensure the user owns the outcome
+        self.outcome = get_object_or_404(Outcome, pk=self.kwargs['pk'], owner=request.user)
+        return super().dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
-        form.instance.outcome = Outcome.objects.get(pk=self.kwargs['pk'])
+        # Link task to the outcome
+        form.instance.outcome = self.outcome
+        # Assign logged-in user as owner of the task
+        form.instance.owner = self.request.user
         return super().form_valid(form)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['outcome'] = Outcome.objects.get(pk=self.kwargs['pk'])
+        context['outcome'] = self.outcome
         return context
+
+    def get_success_url(self):
+        return reverse('outcome_detail', kwargs={'pk': self.outcome.pk})

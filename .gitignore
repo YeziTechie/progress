@@ -29,6 +29,7 @@ pip-wheel-metadata/
 .installed.cfg
 *.egg
 MANIFEST
+*/profiles/*
 
 # PyInstaller
 #  Usually these files are written by a python script from a template

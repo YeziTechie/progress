@@ -1,20 +1,22 @@
-from django.utils import timezone
-from django.views.generic import TemplateView
-from django.shortcuts import get_object_or_404
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import FormView, TemplateView
+from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse
+from django.utils import timezone
 
 from tasks.models.deadline import Deadline
+from tasks.forms.deadline import DeadlineRepeatForm, DeadlineUpdateForm
 
 
-class DeadlineStatus(TemplateView):
+class DeadlineStatus(LoginRequiredMixin, TemplateView):
     template_name = 'deadline/status.html'
 
-    def get_success_url(self):
-        return reverse('outcome_detail', kwargs={'pk': self.object.outcome.pk})
+    def get_deadline(self):
+        return get_object_or_404(Deadline, pk=self.kwargs['pk'], outcome__owner=self.request.user)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        task = get_object_or_404(Deadline, pk=self.kwargs['pk'])
+        task = self.get_deadline()
 
         now = timezone.now()
         time_diff = task.deadline_date - now
@@ -28,5 +30,4 @@ class DeadlineStatus(TemplateView):
         task.minutes = minutes
 
         context['task'] = task
-
         return context

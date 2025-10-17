@@ -1,11 +1,16 @@
 [x] mobile design
 [x] user register and login, logout and its relative design
 [x] better nav bar and navigation
-[ ] easy click to score
 [x] user logout 
+[ ] easy click to score
 [ ] hint fix
 [ ] home page, introduction
 [ ] toturial wizard
 [ ] think of the design of animal and fire
 [ ] filter of tasks and outcomes in profile page
+[ ] do right when task is already aborted
 [ ] login and register at login and register pages
+[ ] do right when task duration is not over and repeat is clicked on
+[ ] make all question views login required
+[ ] navbar and top bar when user is not logged in
+[ ] error and success messages after login, logout, errors, etc.. .
