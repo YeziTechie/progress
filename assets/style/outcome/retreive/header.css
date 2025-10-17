@@ -118,6 +118,10 @@
   column-gap: 6px;
 }
 
+.second-row-phone {
+  display: none;
+}
+
 .second-row div {
   background-color: transparent;
   backdrop-filter: blur(40px);
@@ -265,6 +269,10 @@
 
 .second-row-pc {
   display: none;
+}
+
+.second-row-phone {
+  display: flex;
 }
 
 .second-row div {

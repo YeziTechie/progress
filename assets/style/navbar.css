@@ -236,3 +236,11 @@
 .v-l-1, .h-l-1, .h-l-2, .c-1, .l-l, .square, .r-l, .c-2, .second-v-l-1, .second-v-l-2, .second-v-l-3, .second-h-l-1 {
   transition: all ease 2s;
 }
+
+.navbar-text {
+  text-align: left;
+  display: block;
+  min-width: 200px;
+  overflow-x: hidden; 
+  flex-wrap: wrap;
+}

@@ -43,8 +43,13 @@ Login
       <div class="desc-label"><p>Enter Password</p></div>
       <div class="desc-container">{{ form.password }}</div>
 
-      <br><br><button type="submit" class="create-btn">Login</button>
+      <div class="create">
+        <button type="submit" class="create-btn">Login</button>
       </div>
+      </div>
+
+      <p class="log-or-sign" onclick="window.location.href = '{% url 'signup' %}'">New here? <span><b>Click to create account.</b></span>
+    </p>
     </div>
 
   </form>
