@@ -15,7 +15,7 @@ Targoon's Profile
 {% block body %} 
   <div class="status">
 
-    <div class="side-status">
+    <!-- <div class="side-status">
       <div class="first-row">
         <span class="infograph" style="margin-right:20px;">Deadline Done: {{ deadline_done }}</span>
         <span class="infograph" >Classic Done: {{ classic_done }}</span>
@@ -29,7 +29,7 @@ Targoon's Profile
       <div class="other-row" title='{{ last_outcome_achieved.achieved_at|date:"fA j(l) n(M) Y" }}'>
         <p>Last Outcome Achieved: {{ last_outcome_achieved.achieved_at|date:"j-n-y" }}</p>
       </div>
-    </div>
+    </div> -->
 
     <div class="middle-status">
       <div class="video-wrapper">
@@ -53,9 +53,9 @@ Targoon's Profile
 
       <span class="xp-number">{{ total_xp }} / {{ next_level_xp }}</span>
     </div>
-    </div>
+    
 
-    <div class="side-status">
+    <!-- <div class="side-status">
       <div class="first-row">
         <span class="infograph" style="margin-right:20px;">Count Scored: {{ count_scored }}</span>
         <span class="infograph">Time Spent: {{ time_spent }}</span>
@@ -69,7 +69,7 @@ Targoon's Profile
       <div class="other-row">
         <p>Total XP Lost: {{ total_xp_lost }}</p>
       </div>
-    </div>
+    </div> -->
 
   </div>
 

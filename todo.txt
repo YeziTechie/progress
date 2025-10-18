@@ -4,13 +4,22 @@
 [x] user logout 
 [x] login and register at login and register pages
 [X] navbar and top bar when user is not logged in
-[ ] easy click to score
 [ ] hint fix
 [ ] home page, introduction
-[ ] toturial wizard
-[ ] think of the design of animal and fire
-[ ] filter of tasks and outcomes in profile page
 [ ] do right when task is already aborted
 [ ] do right when task duration is not over and repeat is clicked on
 [ ] make all question views login required
 [ ] error and success messages after login, logout, errors, etc.. .
+
+
+Ideas:
+  tags for outcomes
+  perks at level up, combination of elements creating more
+  using elements for design stuff, backgrounds, etc
+  using elements for level up machanics, xp gaining, etc
+  filter of tasks and outcomes in profile page
+  using animals as pet, with animation, and design stuff
+  Toturial wizard
+  easy click to score
+  addding friends, seeing each others levels and status, wiht settings for privacy and stuff
+  edit profile

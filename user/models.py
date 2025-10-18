@@ -18,8 +18,12 @@ class User(AbstractUser):
 
     ELEMENT_CHOICES = [
         ('Fire','Fire'),
-        ('Water','Water'),
+        ('Void','Void'),
+        ('Tornado','Tornado'),
+        ('Lightning','Lightning'),
+        ('Volcano','Volcano'),
         ('Earth','Earth'),
+        ('Water','Water'),
         ('Air','Air'),
     ]
     ANIMAL_CHOICES = [
