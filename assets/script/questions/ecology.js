@@ -1,28 +1,31 @@
 function showHelpText(i) {
   const moreInfoContainer = document.querySelector(`.more-info-container-js-${i}`);
   const container = document.querySelector('.container');
-  container.style.filter = 'blur(6px)';
-  moreInfoContainer.style.opacity = "100%";
-  moreInfoContainer.style.top = '10%';
-};
+
+  // blur background
+  container.style.filter = 'blur(10px)';
+
+  // show and center the info container
+  moreInfoContainer.style.opacity = '1';
+  moreInfoContainer.style.visibility = 'visible';
+  moreInfoContainer.style.position = 'fixed';
+  moreInfoContainer.style.top = '50%';
+  moreInfoContainer.style.left = '50%';
+  moreInfoContainer.style.width = '80%';
+  moreInfoContainer.style.transform = 'translate(-50%, -50%)';
+  moreInfoContainer.style.transition = 'all 2s ease';
+}
 
 function hideHelpText(i) {
   const moreInfoContainer = document.querySelector(`.more-info-container-js-${i}`);
   const container = document.querySelector('.container');
+
+  // remove blur
   container.style.filter = 'blur(0px)';
-  moreInfoContainer.style.opacity = "0%";
-  moreInfoContainer.style.top = "-1000px";
-  
-};
 
+  // hide the info container
+  moreInfoContainer.style.opacity = '0';
+  moreInfoContainer.style.visibility = 'hidden';
+  moreInfoContainer.style.top = '-1000px';
+}
 
-for (var i = 0; i < 20; i++ ) {
-
-  console.log(`more-info-container-js-${i}`)
-  const moreInfoContainer = document.querySelector(`.more-info-container-js-${i}`);
-  const moreInfo = document.querySelector(`.more-info-js-${i}`);
-
-
-  // moreInfoContainer.addEventListener('click', hideHelpText(i=i));
-  // moreInfo.addEventListener('click', showHelpText(i=i));
-};

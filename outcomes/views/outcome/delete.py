@@ -13,7 +13,7 @@ class OutcomeDeleteView(LoginRequiredMixin, DeleteView):
 
     def get_object(self, queryset=None):
         # Only allow deleting outcomes that belong to the current user
-        return get_object_or_404(Outcome, pk=self.kwargs['pk'], user=self.request.user)
+        return get_object_or_404(Outcome, pk=self.kwargs['pk'], owner=self.request.user)
 
     def get_success_url(self):
         return reverse('profile')

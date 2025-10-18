@@ -1,15 +1,15 @@
-[x] mobile design
-[x] user register and login, logout and its relative design
-[x] better nav bar and navigation
-[x] user logout 
-[x] login and register at login and register pages
+[X] mobile design
+[X] user register and login, logout and its relative design
+[X] better nav bar and navigation
+[X] user logout 
+[X] login and register at login and register pages
 [X] navbar and top bar when user is not logged in
-[ ] hint fix
+[X] hint fix
 [ ] home page, introduction
 [ ] do right when task is already aborted
 [ ] do right when task duration is not over and repeat is clicked on
 [ ] make all question views login required
-[ ] error and success messages after login, logout, errors, etc.. .
+[X] error and success messages after login, logout, errors, etc.. .
 
 
 Ideas:

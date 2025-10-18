@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'style/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'style/pop-up.css' %}">
     <link rel="stylesheet" href="{% static 'style/base.css' %}">
     <link rel="stylesheet" href="{% static 'style/bg.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,6 +15,7 @@
     {% block styles %} {% endblock %}
   </head>
   <body>
+
     <!-- background video (comment out if heavy) -->
     <!-- <video class="bg-video" autoplay muted loop playsinline style="opacity: 0; transition:all 5s ease;" onclick="this.style.opacity = '0.8';">
       <source src="{% static 'media/zap.mp4' %}" type="video/mp4">
@@ -37,6 +39,7 @@
 
     <!-- MAIN CONTENT -->
     <div class="page-content">
+
       <!-- top nav -->
       <div class="top-nav">
         <div class="brand-name"><h1>Progress</h1></div>
@@ -61,6 +64,7 @@
           </div>
         </div>
       </div>
+
 
       <!-- navbar -->
       <div class="navbar" id="navbar">
@@ -94,12 +98,21 @@
           <h3 class="navbar-text">Fall seven times, rise burning the eighth.</h3>
         {% endif %}
       </div>
+
+      <!-- message -->
+      {% if messages %}
+        {% for message in messages %}
+          <div class="pop-up-1 pop-up-1-hidden js-django-message msg-{{ message.tags }} "  data-message="{{ message }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+
       <!-- body content -->
       {% block body %} {% endblock %}
     </div>
 
     <script src="{% static 'script/navbar.js' %}"></script>
     <script src="{% static 'script/general.js' %}"></script>
+    <script src="{% static 'script/pop-up.js' %}"></script>
     {% block scripts %} {% endblock %}
   </body>
 </html>

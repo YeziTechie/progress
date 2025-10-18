@@ -253,7 +253,7 @@
     min-height: 100%;
     /* filter: blur(3px); */
     transform: translate(-50%, -50%);
-    object-fit:contain; /* fills the circle like a background */
+    object-fit: contain; /* fills the circle like a background */
     z-index: -1;       /* put behind the text */
     transition: 1s ease-in-out;
 

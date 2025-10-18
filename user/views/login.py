@@ -15,6 +15,8 @@ def login_view(request):
             )
             if user is not None:
                 login(request, user)
+                messages.info(request, "Welcome. The path awaits you...")
+
                 return redirect('profile')
             else:
                 messages.error(request, 'Invalid username or password.')

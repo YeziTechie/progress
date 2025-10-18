@@ -1,5 +1,5 @@
 
-.box {
+z.box {
   width: 70%;
   min-width: 300px;
   margin: 0 auto;
@@ -34,18 +34,16 @@
 
 .text {
   display: flex;
+
   flex-direction: row;
   justify-content: space-between;
 }
 
 .question .text .title {
-  font-size: 20px;
+  font-size: 16px;
+  text-align: left;
 }
 
-.answer {
-  width: 80%;
-  margin: 10px auto;
-}
 
 .note p {
   border-left: solid 10px var(--theme-color);
@@ -54,5 +52,30 @@
 
 .more-info-container {
   top: -1000px;
+  text-align: left;
   backdrop-filter: blur(40px);
+}
+
+.desc-input {
+  margin: 0;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid black;
+  box-shadow: none;
+  border-radius: 0%;
+}
+
+
+.desc-input {
+  width: 90%;
+  min-height: 16px;
+  height: 16px;
+  max-height: 400px; /* optional */
+  margin: 10px 0;
+  padding: 6px 8px;
+  font-size: 15px;
+  resize: none; /* disable manual resizing */
+  overflow-y: hidden;
+  overflow-x: hidden;
+  transition: height 0.2s ease;
 }

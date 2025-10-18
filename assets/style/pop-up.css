@@ -1,0 +1,55 @@
+:root {
+  --pop-up-1: var(--theme-color);
+}
+
+.pop-up-1 {
+  border-bottom: 3px solid var(--pop-up-1);
+  z-index: 10000;
+  position: fixed;
+  top: 10px;
+  font-size: 16px;
+  padding: 20px;
+  left: 20px;
+  height: max-content;
+  width: max-content;
+  /* background-color: var(--pop-up-1); */
+  transition: 2s ease-in-out, background-color 8s, color 8s;
+  box-shadow: 0px 0px 40px black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  backdrop-filter: blur(50px);
+}
+
+@media (max-width:480px) {
+  .pop-up-1 {
+    max-width: 300px;
+    flex-wrap: wrap;
+  }
+  
+}
+
+.msg-success {
+  border-bottom: 3px solid green;
+}
+.msg-error {
+  border-bottom: 3px solid red;
+}
+.msg-warning {
+  border-bottom: 3px solid yellow;
+}
+.msg-info {
+  border-bottom: 3px solid purple;
+}
+
+
+.pop-up-1-hidden  {
+  opacity: 0;
+  left: -400px;
+  color: white;
+  transition: 2s ease-in-out;
+  box-shadow: 200px 0px 200px var(--pop-up-1);
+  background-color: (0, 0, 0, 0.452);
+}
+  

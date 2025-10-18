@@ -1,6 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils import timezone
 from django.views.generic import DetailView
+from django.contrib import messages
 from django.shortcuts import get_object_or_404
 
 from outcomes.models.outcome import Outcome
@@ -71,5 +72,7 @@ class OutcomeDetailView(LoginRequiredMixin, DetailView):
             'deadlines': deadlines,
             'done_tasks': len(classics.filter(is_done=True)) + len(deadlines.filter(is_done=True)),
         })
+
+        messages.info(self.request, 'Everything is possible. Act..!')
 
         return context
