@@ -26,7 +26,7 @@ Targoon's Profile
       <div class="other-row">
         <p>Total Outcomes: {{ total_outcomes }}</p>
       </div>
-      <div class="other-row" title='{{ last_outcome_achieved.achieved_at|date:"fA j(l) n(M) Y" }}' style="">
+      <div class="other-row" title='{{ last_outcome_achieved.achieved_at|date:"fA j(l) n(M) Y" }}'>
         <p>Last Outcome Achieved: {{ last_outcome_achieved.achieved_at|date:"j-n-y" }}</p>
       </div>
     </div>
@@ -39,6 +39,11 @@ Targoon's Profile
         <div class="level-content">
           <span class="level-number">{{ level }}</span>
         </div>
+      </div>
+
+      <div class="animal">
+        <div class="label"><p>{{ request.user.element}}&nbsp&nbsp/&nbsp&nbsp</p></div>
+        <div class="data"><p>{{ request.user.animal}}</p></div>
       </div>
 
       <div class="xp-bar">

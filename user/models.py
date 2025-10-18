@@ -17,22 +17,22 @@ class User(AbstractUser):
     profile_picture = models.ImageField(upload_to='profiles/', blank=True, null=True)
 
     ELEMENT_CHOICES = [
-        ('fire','Fire'),
-        ('water','Water'),
-        ('earth','Earth'),
-        ('air','Air'),
+        ('Fire','Fire'),
+        ('Water','Water'),
+        ('Earth','Earth'),
+        ('Air','Air'),
     ]
     ANIMAL_CHOICES = [
-        ('owl','Owl'),
-        ('centipede','Centipede'),
-        ('dragon','Dragon'),
-        ('wolf','Wolf'),
-        ('lion','Lion'),
-        ('eagle','Eagle'),
-        ('butterfly','Butterfly'),
-        ('shark','Shark'),
-        ('jaguar','Jaguar'),
-        ('ant','Ant'),
+        ('Owl','Owl'),
+        ('Centipede','Centipede'),
+        ('Dragon','Dragon'),
+        ('Wolf','Wolf'),
+        ('Lion','Lion'),
+        ('Eagle','Eagle'),
+        ('Butterfly','Butterfly'),
+        ('Shark','Shark'),
+        ('Jaguar','Jaguar'),
+        ('Ant','Ant'),
     ]
 
     element = models.CharField(max_length=10, choices=ELEMENT_CHOICES, blank=True, null=True)
