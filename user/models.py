@@ -1,6 +1,8 @@
+from django.db.models.functions import Lower
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import RegexValidator
 from django.db import models
+from django.core.exceptions import ValidationError
 
 class User(AbstractUser):
     username_validator = RegexValidator(
@@ -41,3 +43,18 @@ class User(AbstractUser):
 
     element = models.CharField(max_length=10, choices=ELEMENT_CHOICES, blank=True, null=True)
     animal = models.CharField(max_length=10, choices=ANIMAL_CHOICES, blank=True, null=True)
+
+    def clean(self):
+        super().clean()
+        if User.objects.exclude(pk=self.pk).filter(username__iexact=self.username).exists():
+            raise ValidationError({'username': 'A user with that username already exists (case-insensitive).'})
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                Lower('username'),
+                name='unique_username_case_insensitive'
+            )
+        ]
+
+

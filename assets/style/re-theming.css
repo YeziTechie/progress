@@ -1,0 +1,28 @@
+.styled-btn {
+  backdrop-filter: 50px;
+  border-radius: 0px;
+  background-color: rgba(0, 0, 0, 0.212);
+  font-weight: 100;
+  border: 2px solid transparent;
+  transition: all 0.5s ease;
+  box-shadow: none;
+  color: white;
+  border: none;
+}
+
+.styled-btn:hover {
+  background-color: black;
+  box-shadow: none;
+}
+
+.styled-btn.green {
+  border-bottom: 1px solid var(--green);
+}
+
+.styled-btn.red {
+  border-bottom: 1px solid var(--red);
+}
+
+.styled-btn.help {
+  border-bottom: 1px solid var(--help);
+}

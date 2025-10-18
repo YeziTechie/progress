@@ -44,8 +44,8 @@
 }
 
 .task-container {
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--theme-color)
+  backdrop-filter: blur(200px);
+  border: 1px solid black;
 }
 
 .time-task-container, .count-task-container, .deadline-task-container, .classic-task-container {
@@ -69,6 +69,7 @@
   align-items: center;
   margin: 10px;
 }
+
 .task {
   display: flex;
   flex-direction: column;

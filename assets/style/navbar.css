@@ -96,12 +96,12 @@
   right: 0;
   left: 0;
   height: 60px;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(100px);
   border-bottom: 1px solid black;
 }
 
 .toggle-btn {
-  background-color: blue;
+  background-color: black;
   width: 40px;
   height: 40px;
 }
@@ -115,6 +115,7 @@
 
 .symbol {
   background: transparent;
+  border-radius: 50%;
   width: 50px;
   padding: 5px;
   height: 50px;
@@ -244,3 +245,4 @@
   overflow-x: hidden; 
   flex-wrap: wrap;
 }
+

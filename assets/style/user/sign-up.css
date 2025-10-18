@@ -1,5 +1,6 @@
 .form {
   z-index: 100;
+  backdrop-filter: blur(100px);
 }
 
 .create {

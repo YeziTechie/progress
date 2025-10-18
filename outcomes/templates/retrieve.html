@@ -24,11 +24,11 @@
           <div class="first-column">
             <div class="buttons">
               {% if outcome.is_hided is True %}
-                <div class="update" onclick="window.location.href = '{% url 'outcome_hide' pk=outcome.pk %}'">Unhide</div>
+                <div class="update styled-btn help" onclick="window.location.href = '{% url 'outcome_hide' pk=outcome.pk %}'">Unhide</div>
               {% else %}
-                <div class="update" onclick="window.location.href = '{% url 'outcome_hide' pk=outcome.pk %}'">Hide</div>
+                <div class="update styled-btn help" onclick="window.location.href = '{% url 'outcome_hide' pk=outcome.pk %}'">Hide</div>
               {% endif %}
-              <div class="delete" onclick="window.location.href = '{% url 'outcome_delete' pk=outcome.pk %}'">Delete</div>
+              <div class="delete styled-btn red" onclick="window.location.href = '{% url 'outcome_delete' pk=outcome.pk %}'">Delete</div>
             </div>
             <div class="level">{{ outcome.level }}</div>
           </div>
@@ -85,7 +85,7 @@
       <div class="header">
         <div class="title"><h2>Internal Ecology Questions</h2></div>
         <div class="btn">
-          <button class='update' onclick="window.location.href = '{% url 'internal_ecology_update' pk=outcome.pk %}'">Update</button>
+          <button class='update styled-btn green' onclick="window.location.href = '{% url 'internal_ecology_update' pk=outcome.pk %}'">Update</button>
         </div>
       </div>
 
@@ -169,7 +169,7 @@
       <div class="header">
         <div class="title"><h2>Outcome Questions</h2></div>
         <div class="btn">
-          <button class='update' onclick="window.location.href = '{% url 'outcome_questions_update' pk=outcome.pk %}'">Update</button>
+          <button class='update styled-btn green' onclick="window.location.href = '{% url 'outcome_questions_update' pk=outcome.pk %}'">Update</button>
         </div>
       </div>
 
@@ -255,7 +255,7 @@
       <div class="header">
         <div class="title"><h2>External Ecology Questions</h2></div>
         <div class="btn">
-          <button class='update' onclick="window.location.href = '{% url 'external_ecology_update' pk=outcome.pk %}'">Update</button>
+          <button class='update styled-btn green' onclick="window.location.href = '{% url 'external_ecology_update' pk=outcome.pk %}'">Update</button>
         </div>
       </div>
 
@@ -341,8 +341,8 @@
             </div>
           </div>
           <div class="buttons">
-            <div class="delete" onclick="window.location.href = '{% url 'time_delete' pk=time.pk %}'">Delete</div>
-            <div class="create-btn delete" onclick="window.location.href = '{% url 'time_update' pk=time.pk %}'">Submit</div>
+            <div class="delete styled-btn red" onclick="window.location.href = '{% url 'time_delete' pk=time.pk %}'">Delete</div>
+            <div class="create-btn delete styled-btn green" onclick="window.location.href = '{% url 'time_update' pk=time.pk %}'">Submit</div>
           </div>
         </div>
       {% endfor %}
@@ -387,8 +387,8 @@
           </div>
 
           <div class="buttons">
-            <div class="delete" onclick="window.location.href = '{% url 'count_delete' pk=count.pk %}'">Delete</div>
-            <div class="create-btn delete" onclick="window.location.href = '{% url 'count_update' pk=count.pk %}'">Submit</div>
+            <div class="delete styled-btn red" onclick="window.location.href = '{% url 'count_delete' pk=count.pk %}'">Delete</div>
+            <div class="create-btn delete styled-btn green" onclick="window.location.href = '{% url 'count_update' pk=count.pk %}'">Submit</div>
           </div>
         </div>
       {% endfor %}
@@ -427,8 +427,8 @@
             </div>
 
             <div class="buttons">
-            <div class="delete" onclick="window.location.href = '{% url 'classic_delete' pk=classic.pk %}'">Delete</div>
-            <div class="create-btn delete" onclick="window.location.href = '{% url 'classic_update' pk=classic.pk %}'">Update</div>
+            <div class="delete styled-btn red" onclick="window.location.href = '{% url 'classic_delete' pk=classic.pk %}'">Delete</div>
+            <div class="create-btn delete styled-btn green" onclick="window.location.href = '{% url 'classic_update' pk=classic.pk %}'">Update</div>
             </div>
           </div>
         {% else %}
@@ -516,8 +516,8 @@
             </div>
 
             <div class="buttons">
-              <div class="delete" onclick="window.location.href = '{% url 'deadline_delete' pk=deadline.pk %}'">Delete</div>
-              <div class="update delete" onclick="window.location.href = '{% url 'deadline_status' pk=deadline.pk %}'">Status</div>
+              <div class="delete styled-btn red" onclick="window.location.href = '{% url 'deadline_delete' pk=deadline.pk %}'">Delete</div>
+              <div class="update delete styled-btn help" onclick="window.location.href = '{% url 'deadline_status' pk=deadline.pk %}'">Status</div>
             </div>
           </div>
 
