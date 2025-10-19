@@ -30,14 +30,14 @@
               {% endif %}
               <div class="delete styled-btn red" onclick="window.location.href = '{% url 'outcome_delete' pk=outcome.pk %}'">Delete</div>
             </div>
-            <div class="level">{{ outcome.level }}</div>
+            <div class="level tw-bg">{{ outcome.level }}</div>
           </div>
 
 
           <div class="second-column">
             <div class="dates">
-              <div class="created" title='{{ outcome.created_at|date:"fA j(l) n(M) Y" }}'>Created: {{ outcome.created_at|date:"fA j-n-y" }}</div>
-              <div class="achieved" title='{{ outcome.achieved_at|date:"fA j(l) n(M) Y" }}'>Achieved: {{ outcome.achieved_at|date:"fA j-n-y" }}</div>
+              <div class="achieved tw-bg" title='Created: {{ outcome.created_at|date:"fA j(l) n(M) Y" }}'>Created: {{ outcome.created_at|date:"fA j-n-y" }}</div>
+              <div class="achieved tw-bg" title='Achieved: {{ outcome.achieved_at|date:"fA j(l) n(M) Y" }}'>Achieved: {{ outcome.achieved_at|date:"fA j-n-y" }}</div>
               <div class="xp-bar">
                 <div class="xp-bar-filled" style="width: {{ per1 }}%;"></div>
                 <div class="xp-number">{{ current_xp }} / {{ required_xp }}</div>
@@ -48,18 +48,18 @@
         </div>
 
         <div class="second-row second-row-pc">
-          <div>Tasks Done: {{ done_tasks }}</div>
-          <div>Active Tasks: {{ outcome.active_tasks }}</div>
+          <div class="tw-bg">Tasks Done: {{ done_tasks }}</div>
+          <div class="tw-bg">Active Tasks: {{ outcome.active_tasks }}</div>
         </div>
       </div>
 
         {% if outcome.is_achieved is True %}
-          <div class="outcome-name" style="background-color: var(--green);">
+          <div class="outcome-name tw-bg" style="background-color: var(--green);">
             <div class="create-btn" onclick="window.location.href = '{% url 'outcome_achieve' pk=outcome.pk %}'">Set as Not Achieved</div>
             <div class="text" style="color:black">{{ outcome.name }}</div>
           </div>
         {% else %}
-          <div class="outcome-name">
+          <div class="outcome-name tw-bg">
             <div class="create-btn" onclick="window.location.href = '{% url 'outcome_achieve' pk=outcome.pk %}'">Set as Achieved</div>
             <div class="text">{{ outcome.name }}</div>
           </div>
@@ -68,16 +68,16 @@
 
     <div class="task-status">
         <div class="second-row second-row-phone">
-          <div>Tasks Done: {{ done_tasks }}</div>
-          <div>Active Tasks: {{ outcome.active_tasks }}</div>
+          <div class="tw-bg" style="background-color:rgba(255, 255, 255, 0.048);">Tasks Done: {{ done_tasks }}</div>
+          <div class="tw-bg" style="background-color:rgba(255, 255, 255, 0.048);">Active Tasks: {{ outcome.active_tasks }}</div>
         </div>
     </div>
 
     <!-- questions -->
     <div class="question-buttons">
-      <div class="btn-1 btn-1-js">Internal Ecology</div>
-      <div class="btn-2 btn-2-js">Outcome Questions</div>
-      <div class="btn-3 btn-3-js">External Ecology</div>
+      <div class="btn-1 btn-1-js tw-bg">Internal Ecology</div>
+      <div class="btn-2 btn-2-js tw-bg">Outcome Questions</div>
+      <div class="btn-3 btn-3-js tw-bg">External Ecology</div>
     </div>
 
     <!-- Internal ecology questions  -->

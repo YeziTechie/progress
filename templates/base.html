@@ -14,14 +14,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
     {% block styles %} {% endblock %}
     <link rel="stylesheet" href="{% static 'style/re-theming.css' %}">
-
   </head>
   <body>
 
     <!-- background video (comment out if heavy) -->
-    <!-- <video class="bg-video" autoplay muted loop playsinline style="opacity: 0; transition:all 5s ease;" onclick="this.style.opacity = '0.8';">
-      <source src="{% static 'media/zap.mp4' %}" type="video/mp4">
-    </video> -->
+    <video class="bg-video" autoplay muted loop playsinline style="opacity: 0; transition:all 10s ease;" onloadeddata="this.style.opacity = '1';">
+      <source src="{% static 'media/desert.mp4' %}" type="video/mp4">
+    </video>
 
     <!-- decorative animated visuals -->
     <div class="bg-visuals" aria-hidden="true">

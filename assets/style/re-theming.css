@@ -26,3 +26,7 @@
 .styled-btn.help {
   border-bottom: 1px solid var(--help);
 }
+
+.tw-bg {
+  background-color: rgba(255, 255, 255, 0.048);
+}

@@ -41,25 +41,25 @@ html, body {
 .orb-1 {
   width: 420px; height: 420px;
   left: -8%; top: -10%;
-  background: var(--theme-color);
+  background: black;
   animation: orb-path-1 23s linear infinite;
 }
 .orb-2 {
   width: 360px; height: 360px;
   right: -6%; top: -8%;
-  background-color:rgb(0, 78, 65, 57);
+  background-color: gray;
   animation: orb-path-2 20s linear infinite;
 }
 .orb-3 {
   width: 320px; height: 320px;
   left: 6%; bottom: -8%;
-  background-color: #370057;
+  background-color: gray;
   animation: orb-path-3 23s linear infinite;
 }
 .orb-4 {
-  width: 220px; height: 220px;
+  width: 220px; height: 420px;
   right: 8%; bottom: 8%;
-  background: var(--theme-color);
+  background: black;
   animation: orb-path-4 20s linear infinite;
 }
 

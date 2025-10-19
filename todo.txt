@@ -5,11 +5,11 @@
 [X] login and register at login and register pages
 [X] navbar and top bar when user is not logged in
 [X] hint fix
+[X] error and success messages after login, logout, errors, etc.. .
 [ ] home page, introduction
 [ ] do right when task is already aborted
 [ ] do right when task duration is not over and repeat is clicked on
 [ ] make all question views login required
-[X] error and success messages after login, logout, errors, etc.. .
 
 
 Ideas:
