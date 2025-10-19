@@ -14,6 +14,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
     {% block styles %} {% endblock %}
     <link rel="stylesheet" href="{% static 'style/re-theming.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=2">
+
   </head>
   <body>
 
@@ -114,6 +116,7 @@
     <script src="{% static 'script/navbar.js' %}"></script>
     <script src="{% static 'script/general.js' %}"></script>
     <script src="{% static 'script/pop-up.js' %}"></script>
+    <script src="{% static 'js/app.js' %}?v=2"></script>
     {% block scripts %} {% endblock %}
   </body>
 </html>
