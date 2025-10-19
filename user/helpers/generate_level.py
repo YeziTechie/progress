@@ -6,8 +6,7 @@ def calculate_level(xp, base_xp=100, xp_multiplier=1.3):
 
 
 def calculate_xp_for_level(level, base_xp=100, xp_multiplier=1.3):
-    if level is 0:
+    if level == 0:
         return 0
     xp_required = base_xp * (xp_multiplier ** (level - 1))
     return round(xp_required)
-

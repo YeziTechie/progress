@@ -1,12 +1,9 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.edit import UpdateView
 from django.urls import reverse
-from django.shortcuts import get_object_or_404, redirect
 
 from tasks.models.classic import Classic
-from tasks.forms.classic import ClassicCreateForm, ClassicUpdateForm
-from outcomes.models.outcome import Outcome
-
+from tasks.forms.classic import ClassicUpdateForm
 
 
 class ClassicUpdateView(LoginRequiredMixin, UpdateView):
@@ -30,4 +27,3 @@ class ClassicUpdateView(LoginRequiredMixin, UpdateView):
 
     def get_success_url(self):
         return reverse('outcome_detail', kwargs={'pk': self.object.outcome.pk})
-

@@ -5,6 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 from user.models import User
 
+
 class SignUpForm(UserCreationForm):
     password1 = forms.CharField(
         label='Password',
@@ -41,6 +42,6 @@ class SignUpForm(UserCreationForm):
         if len(username) < 3:
             raise forms.ValidationError("Username must be at least 3 characters long.")
         if not re.match(r'^[A-Za-z0-9-_]+$', username):
-            raise forms.ValidationError("Username may contain only letters, numbers, hyphens, or underscores (no spaces).")
+            err = "Username may contain only letters, numbers, hyphens, or underscores (no spaces)."
+            raise forms.ValidationError(err)
         return username
-

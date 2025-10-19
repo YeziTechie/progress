@@ -1,10 +1,10 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.edit import CreateView
 from django.urls import reverse
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404
 
 from tasks.models.classic import Classic
-from tasks.forms.classic import ClassicCreateForm, ClassicUpdateForm
+from tasks.forms.classic import ClassicCreateForm
 from outcomes.models.outcome import Outcome
 
 

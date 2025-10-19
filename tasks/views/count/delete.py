@@ -1,11 +1,8 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic.edit import CreateView, DeleteView, FormView
-from django.shortcuts import get_object_or_404
+from django.views.generic.edit import DeleteView
 from django.urls import reverse
 
-from outcomes.models.outcome import Outcome
 from tasks.models.count import Count
-from tasks.forms.count import CountCreateForm, CountUpdateForm
 
 
 class CountDeleteView(LoginRequiredMixin, DeleteView):
@@ -21,4 +18,3 @@ class CountDeleteView(LoginRequiredMixin, DeleteView):
 
     def get_success_url(self):
         return reverse('outcome_detail', kwargs={'pk': self.object.outcome.pk})
-

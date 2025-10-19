@@ -1,6 +1,6 @@
 from django import forms
 
-from outcomes.models.ecology import InternalEcology,  ExternalEcology
+from outcomes.models.ecology import InternalEcology, ExternalEcology
 from outcomes.models.questions import OutcomeQuestions
 
 

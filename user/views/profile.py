@@ -2,12 +2,14 @@ from django.utils import timezone
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 
-from user.helpers.status import *
+from user.helpers.status import total_xp_lost, time_spent, count_scored, total_xp
+
 from user.helpers.generate_level import calculate_level, calculate_xp_for_level
 
 from outcomes.models.outcome import Outcome
 from tasks.models.classic import Classic
 from tasks.models.deadline import Deadline
+
 
 @login_required(login_url='login')
 def UserProfileView(request):

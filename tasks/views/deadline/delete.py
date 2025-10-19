@@ -1,12 +1,8 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views import View
-from django.views.generic.edit import CreateView, DeleteView
-from django.shortcuts import get_object_or_404, render, redirect
+from django.views.generic.edit import DeleteView
 from django.urls import reverse
 
-from outcomes.models.outcome import Outcome
 from tasks.models.deadline import Deadline
-from tasks.forms.deadline import DeadlineCreateForm
 
 
 class DeadlineDeleteView(LoginRequiredMixin, DeleteView):

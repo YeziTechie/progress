@@ -1,22 +1,21 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import UpdateView
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404
 from django.urls import reverse
 
 from outcomes.models.outcome import Outcome
-
 from outcomes.models.questions import OutcomeQuestions
 from outcomes.forms.questions import OutcomeQuestionsUpdateForm
 
 
-class OutcomeQuestionsUpdateView(UpdateView):
+class OutcomeQuestionsUpdateView(LoginRequiredMixin, UpdateView):
     model = OutcomeQuestions
     template_name = 'questions/outcome-questions.html'
     context_object_name = 'outcome'
     form_class = OutcomeQuestionsUpdateForm
-
+    login_url = 'login'
 
     def get_success_url(self):
-        print(self.object.outcome.name)
         return reverse('outcome_detail', kwargs={'pk': self.object.outcome.pk})
 
     def get_object(self, queryset=None):

@@ -28,4 +28,3 @@ class CountUpdateForm(forms.Form):
         super().__init__(*args, **kwargs)
 
         self.fields['count'].widget.attrs['class'] = 'xp-input-elem'
-

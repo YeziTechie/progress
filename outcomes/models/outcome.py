@@ -52,12 +52,12 @@ class Outcome(models.Model):
 
     def level(self):
         return calculate_level(self.total_xp())
-    
+
     def deadline_active(self):
         tasks = self.deadline_tasks.filter(outcome=self)
         result = 0
         for task in tasks:
-            if task.is_done == False:
+            if task.is_done is False:
                 result += 1
 
         return result
@@ -66,7 +66,7 @@ class Outcome(models.Model):
         tasks = self.classic_tasks.filter(outcome=self)
         result = 0
         for task in tasks:
-            if task.is_done == False:
+            if task.is_done is False:
                 result += 1
 
         return result
@@ -78,4 +78,3 @@ class Outcome(models.Model):
     def time_active(self):
         tasks = self.time_tasks.filter(outcome=self)
         return len(tasks)
-

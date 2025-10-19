@@ -1,11 +1,10 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic.edit import CreateView, DeleteView, FormView
+from django.views.generic.edit import FormView
 from django.shortcuts import get_object_or_404
 from django.urls import reverse
 
-from outcomes.models.outcome import Outcome
 from tasks.models.count import Count
-from tasks.forms.count import CountCreateForm, CountUpdateForm
+from tasks.forms.count import CountUpdateForm
 
 
 class CountUpdateView(LoginRequiredMixin, FormView):

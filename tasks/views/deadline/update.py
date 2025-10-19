@@ -1,11 +1,10 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import FormView, TemplateView
+from django.views.generic import FormView
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse
-from django.utils import timezone
 
 from tasks.models.deadline import Deadline
-from tasks.forms.deadline import DeadlineRepeatForm, DeadlineUpdateForm
+from tasks.forms.deadline import DeadlineUpdateForm
 
 
 class DeadlineUpdateView(LoginRequiredMixin, FormView):

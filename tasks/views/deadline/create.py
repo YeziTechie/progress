@@ -1,7 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views import View
-from django.views.generic.edit import CreateView, DeleteView
-from django.shortcuts import get_object_or_404, render, redirect
+from django.views.generic.edit import CreateView
+from django.shortcuts import get_object_or_404
 from django.urls import reverse
 
 from outcomes.models.outcome import Outcome
@@ -31,5 +30,3 @@ class DeadlineCreateView(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         return reverse('outcome_detail', kwargs={'pk': self.outcome.pk})
-
-

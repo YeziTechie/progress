@@ -1,6 +1,7 @@
 from django.contrib.auth.backends import ModelBackend
 from django.contrib.auth import get_user_model
 
+
 class CaseInsensitiveModelBackend(ModelBackend):
     """
     Custom authentication backend that makes username lookup case-insensitive,

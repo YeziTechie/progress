@@ -1,18 +1,19 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import UpdateView
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404
 from django.urls import reverse
 
 from outcomes.models.outcome import Outcome
-
 from outcomes.models.ecology import InternalEcology
 from outcomes.forms.questions import InternalEcologyUpdateForm
 
 
-class InternalEcologyUpdateView(UpdateView):
+class InternalEcologyUpdateView(LoginRequiredMixin, UpdateView):
     model = InternalEcology
     template_name = 'questions/internal-ecology.html'
     context_object_name = 'outcome'
     form_class = InternalEcologyUpdateForm
+    login_url = 'login'
 
     def get_success_url(self):
         return reverse('outcome_detail', kwargs={'pk': self.object.outcome.pk})
