@@ -12,7 +12,6 @@
 .task {
   cursor: pointer;
   max-width: 30% ;
-  border-radius: 15px;
   min-width:300px;
   display: flex;
   flex-direction: column;
@@ -25,7 +24,6 @@
 }
 
 .task:hover {
-  transform: scale(1.1, 1.1);
 }
 
 .task-header {

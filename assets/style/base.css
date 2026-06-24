@@ -1,7 +1,7 @@
 :root {
-  --theme-color: #6a85b6;
+  --theme-color: #750000;
   --bg-color: rgb(29, 29, 29);
-  --body-bg-color: #020403;
+  --body-bg-color: #0a0a0a;
   --text-color: #e6e6e6;
   --light-text-color: #999999;
   --green: #39ac73;
@@ -45,8 +45,7 @@ body {
   z-index: 1;
   color: white;
   text-align: center;
-  padding-top: 30vh;
-  /* Vertically center content */
+  padding-top: 5rem'
 }
 
 p {
@@ -65,7 +64,7 @@ h3 {
     z-index: 1;
     color: white;
     text-align: center;
-    padding-top: 10vh;
+    padding-top: 5rem;
     /* Vertically center content */
   }
 }

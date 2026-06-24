@@ -8,7 +8,7 @@ class OutcomeCreateForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
 
         self.fields['name'].widget.attrs['class'] = 'desc-input'
-        self.fields['name'].widget.attrs['placeholder'] = 'e.g. Master Thyself, Learn astral travel, survival skills..'
+        self.fields['name'].widget.attrs['placeholder'] = 'e.g. Learn Python, Build a Portfolio, etc.'
 
     class Meta:
         model = Outcome

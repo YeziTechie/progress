@@ -1,8 +1,7 @@
 .navbar {
   position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
+  top: 1rem;
+  left: 1rem;
   width: 0px; /* collapsed width */
   display: flex;
   flex-direction: column;
@@ -97,7 +96,7 @@
   left: 0;
   height: 60px;
   backdrop-filter: blur(100px);
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--theme-color);
 }
 
 .toggle-btn {

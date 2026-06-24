@@ -18,35 +18,13 @@
 </head>
 
 <body>
-
-    <!-- background video (comment out if heavy) -->
-    <!-- <video class="bg-video" autoplay muted loop playsinline style="opacity: 0; transition:all 10s ease;" onloadeddata="this.style.opacity = '1';">
-      <source src="{% static 'media/desert.mp4' %}" type="video/mp4">
-    </video> -->
-
-    <!-- decorative animated visuals -->
-    <!-- <div class="bg-visuals" aria-hidden="true">
-      <span class="orb orb-1"></span>
-      <span class="orb orb-2"></span>
-      <span class="orb orb-3"></span>
-      <span class="orb orb-4"></span>
-      <span class="orb orb-5"></span>
-      <span class="orb orb-6"></span>
-
-      <span class="streak streak-1"></span>
-      <span class="streak streak-2"></span>
-    </div> -->
-
-    <!-- bg-blur was commented out as you requested -->
-    <!-- <div class="bg-blur" aria-hidden="true"></div>  -->
-
     <!-- MAIN CONTENT -->
     <div class="page-content">
 
         <!-- top nav -->
         <div class="top-nav">
             <div class="brand-name">
-                <h1>Progress</h1>
+                <h1>-0:</h1>
             </div>
             <div class="symbol" id="toggle-btn">
                 <div class="first-part">
@@ -76,9 +54,10 @@
             {% if request.user.is_authenticated %}
             <div class="profile">
                 {% if request.user.profile_picture %}
-                <img class="picture" src="{{ request.user.profile_picture.url }}" alt="{{ request.user.username }}"> {% else %}
-                <b>{{ request.user.profile_picture.url }}</b>
-                <img class="picture" src="{% static 'images/1.jpg' %}" alt="Default avatar"> {% endif %}
+                    <img class="picture" src="{{ request.user.profile_picture }}" alt="{{ request.user.username }}"> 
+                {% else %}
+                    <img class="picture" src="{% static 'images/1.jpg' %}" alt="Default avatar"> 
+                {% endif %}
                 <div class="username">
                     <p>{{ request.user.username }}</p>
                 </div>
