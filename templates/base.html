@@ -1,7 +1,7 @@
-<!DOCTYPE html>
-{% load static %}
+<!DOCTYPE html> {% load static %}
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
@@ -11,21 +11,21 @@
     <link rel="stylesheet" href="{% static 'style/bg.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-    {% block styles %} {% endblock %}
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Outfit:wght@100..900&display=swap" rel="stylesheet"> {% block styles %} {% endblock %}
     <link rel="stylesheet" href="{% static 'style/re-theming.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}?v=2">
 
-  </head>
-  <body>
+</head>
+
+<body>
 
     <!-- background video (comment out if heavy) -->
-    <video class="bg-video" autoplay muted loop playsinline style="opacity: 0; transition:all 10s ease;" onloadeddata="this.style.opacity = '1';">
+    <!-- <video class="bg-video" autoplay muted loop playsinline style="opacity: 0; transition:all 10s ease;" onloadeddata="this.style.opacity = '1';">
       <source src="{% static 'media/desert.mp4' %}" type="video/mp4">
-    </video>
+    </video> -->
 
     <!-- decorative animated visuals -->
-    <div class="bg-visuals" aria-hidden="true">
+    <!-- <div class="bg-visuals" aria-hidden="true">
       <span class="orb orb-1"></span>
       <span class="orb orb-2"></span>
       <span class="orb orb-3"></span>
@@ -35,7 +35,7 @@
 
       <span class="streak streak-1"></span>
       <span class="streak streak-2"></span>
-    </div>
+    </div> -->
 
     <!-- bg-blur was commented out as you requested -->
     <!-- <div class="bg-blur" aria-hidden="true"></div>  -->
@@ -43,74 +43,73 @@
     <!-- MAIN CONTENT -->
     <div class="page-content">
 
-      <!-- top nav -->
-      <div class="top-nav">
-        <div class="brand-name"><h1>Progress</h1></div>
-        <div class="symbol" id="toggle-btn">
-          <div class="first-part">
-            <div class="v-l-1"></div>
-            <div class="h-l-1"></div>
-            <div class="h-l-2"></div>
-          </div>
-          <div class="second-part">
-            <div class="c-1"></div>
-            <div class="l-l"></div>
-            <div class="square"></div>
-            <div class="r-l"></div>
-            <div class="c-2"></div>
-          </div>
-          <div class="third-part">
-            <div class="second-v-l-1"></div>
-            <div class="second-v-l-2"></div>
-            <div class="second-v-l-3"></div>
-            <div class="second-h-l-1"></div>
-          </div>
-        </div>
-      </div>
-
-
-      <!-- navbar -->
-      <div class="navbar" id="navbar">
-        {% if request.user.is_authenticated %}
-          <div class="profile">
-            {% if request.user.profile_picture %}
-              <img class="picture" src="{{ request.user.profile_picture.url }}" alt="{{ request.user.username }}">
-            {% else %}
-              <img class="picture" src="{% static 'images/default-avatar.png' %}" alt="Default avatar">
-            {% endif %}
-            <div class="username">
-              <p>{{ request.user.username }}</p>
+        <!-- top nav -->
+        <div class="top-nav">
+            <div class="brand-name">
+                <h1>Progress</h1>
             </div>
-          </div>
+            <div class="symbol" id="toggle-btn">
+                <div class="first-part">
+                    <div class="v-l-1"></div>
+                    <div class="h-l-1"></div>
+                    <div class="h-l-2"></div>
+                </div>
+                <div class="second-part">
+                    <div class="c-1"></div>
+                    <div class="l-l"></div>
+                    <div class="square"></div>
+                    <div class="r-l"></div>
+                    <div class="c-2"></div>
+                </div>
+                <div class="third-part">
+                    <div class="second-v-l-1"></div>
+                    <div class="second-v-l-2"></div>
+                    <div class="second-v-l-3"></div>
+                    <div class="second-h-l-1"></div>
+                </div>
+            </div>
+        </div>
 
-          <div class="links">
-            <div class="link" onclick="window.location.href = '{% url 'profile' %}'">Profile</div>
-            <div class="link" onclick="window.location.href = '{% url 'outcome_create' %}'">Create Outcome</div>
-          </div>
 
-          <div class="logout">
-            <div class="logout-btn" onclick="window.location.href = '{% url 'logout' %}'">Log out</div>
-          </div>
-        {% else %}
-          <h3 class="navbar-text">Endure the storm, ride it.</h3>
-          <h3 class="navbar-text">Discipline is the highest form of freedom.</h3>
-          <h3 class="navbar-text">Rise with purpose, rest with honor.</h3>
-          <h3 class="navbar-text">Forge your peace in the fire of struggle.</h3>
-          <h3 class="navbar-text">The path is pain, the end is power.</h3>
-          <h3 class="navbar-text">Faith sharpens the blade of will.</h3>
-          <h3 class="navbar-text">Fall seven times, rise burning the eighth.</h3>
-        {% endif %}
-      </div>
+        <!-- navbar -->
+        <div class="navbar" id="navbar">
+            {% if request.user.is_authenticated %}
+            <div class="profile">
+                {% if request.user.profile_picture %}
+                <img class="picture" src="{{ request.user.profile_picture.url }}" alt="{{ request.user.username }}"> {% else %}
+                <b>{{ request.user.profile_picture.url }}</b>
+                <img class="picture" src="{% static 'images/1.jpg' %}" alt="Default avatar"> {% endif %}
+                <div class="username">
+                    <p>{{ request.user.username }}</p>
+                </div>
+            </div>
 
-      <!-- message -->
-      {% if messages %}
-        {% for message in messages %}
-          <div class="pop-up-1 pop-up-1-hidden js-django-message msg-{{ message.tags }} "  data-message="{{ message }}">{{ message }}</div>
-        {% endfor %}
-      {% endif %}
+            <div class="links">
+                <div class="link" onclick="window.location.href = '{% url 'profile' %}'">Profile</div>
+                <div class="link" onclick="window.location.href = '{% url 'outcome_create' %}'">Create Outcome</div>
+            </div>
 
-      <!-- body content -->
-      {% block body %} {% endblock %}
+            <div class="logout">
+                <div class="logout-btn" onclick="window.location.href = '{% url 'logout' %}'">Log out</div>
+            </div>
+            {% else %}
+            <h3 class="navbar-text">Endure the storm, ride it.</h3>
+            <h3 class="navbar-text">Discipline is the highest form of freedom.</h3>
+            <h3 class="navbar-text">Rise with purpose, rest with honor.</h3>
+            <h3 class="navbar-text">Forge your peace in the fire of struggle.</h3>
+            <h3 class="navbar-text">The path is pain, the end is power.</h3>
+            <h3 class="navbar-text">Faith sharpens the blade of will.</h3>
+            <h3 class="navbar-text">Fall seven times, rise burning the eighth.</h3>
+            {% endif %}
+        </div>
+
+        <!-- message -->
+        {% if messages %} {% for message in messages %}
+        <div class="pop-up-1 pop-up-1-hidden js-django-message msg-{{ message.tags }} " data-message="{{ message }}">{{ message }}</div>
+        {% endfor %} {% endif %}
+
+        <!-- body content -->
+        {% block body %} {% endblock %}
     </div>
 
     <script src="{% static 'script/navbar.js' %}"></script>
@@ -118,5 +117,6 @@
     <script src="{% static 'script/pop-up.js' %}"></script>
     <script src="{% static 'js/app.js' %}?v=2"></script>
     {% block scripts %} {% endblock %}
-  </body>
+</body>
+
 </html>

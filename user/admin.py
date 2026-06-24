@@ -6,5 +6,5 @@ from .models import User
 @admin.register(User)
 class CustomUserAdmin(UserAdmin):
     fieldsets = UserAdmin.fieldsets + (
-        ('Extra', {'fields': ('profile_picture', 'element', 'animal_guide')}),
+        ('Extra', {'fields': ('profile_picture', 'element', 'animal')}),
     )

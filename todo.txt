@@ -13,13 +13,32 @@
 
 
 Ideas:
-  tags for outcomes
-  perks at level up, combination of elements creating more
-  using elements for design stuff, backgrounds, etc
-  using elements for level up machanics, xp gaining, etc
-  filter of tasks and outcomes in profile page
-  using animals as pet, with animation, and design stuff
-  Toturial wizard
-  easy click to score
-  addding friends, seeing each others levels and status, wiht settings for privacy and stuff
-  edit profile
+  V.3
+    tags for outcomes / level for tags and showing them on profile
+    filter of tasks and outcomes in profile page, shownig them more organized, hiding and unhiding. 
+    symbol or an icon for the website
+    easy click to score, SPA for scoring and doing little stuff
+    optino to edit tasks and outcomes
+    option to hide and unhide done tasks at outcome retreive
+    
+  V.4  
+    ai for defining xp for tasks
+    using elements and animals for effects and design, elements for xp and level up mechanics
+    cool leveling up effects
+    achievements
+
+  V.5
+    premade outcomes and outcome templates, with tasks, 
+    Toturial wizard
+    edit profile, more information saving and stuff
+    article page based on self improvement and for seo
+    motivational sentences showing randomly and depending on element or level and stuff
+
+  V.6
+    addding friends, seeing each others levels and status, wiht settings for privacy and stuff, communication
+    differnet aspects of human, body, intellect, spirit, etc, and a 3d model and level for each, level up and changing the form of that
+    question and ansering, wiht comment and liking, all about self development stuff and stuff like that. 
+
+  V.?
+    marketing and getting it proffesionally online and stuff
+    using better software and tech, like react

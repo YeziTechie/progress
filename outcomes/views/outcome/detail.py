@@ -58,6 +58,10 @@ class OutcomeDetailView(LoginRequiredMixin, DetailView):
         per1 = round((xp / next_level_xp) * 100) if next_level_xp != 0 else 0
         per2 = 100 - per1
 
+        a = 2
+        b = 5
+        c = b + a
+
         context.update({
             'current_xp': xp,
             'required_xp': next_level_xp,
@@ -76,3 +80,4 @@ class OutcomeDetailView(LoginRequiredMixin, DetailView):
         messages.info(self.request, 'Everything is possible. Act..!')
 
         return context
+
