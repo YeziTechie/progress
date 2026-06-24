@@ -1,0 +1,376 @@
+:root {
+  --theme-color: #750000;
+  --bg-color: rgb(29, 29, 29);
+  --body-bg-color: #0a0a0a;
+  --text-color: #e6e6e6;
+  --light-text-color: #999999;
+  --green: #39ac73;
+  --red: #d35050;
+  --help: #4f0074;
+  
+  /* Luxury Obsidian Additions */
+  --border-color: #161616;
+  --slow-trans: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  --font-main: "Outfit", Helvetica, Arial, sans-serif;
+  --font-mono: "Outfit", Courier, monospace;
+}
+
+/* =========================================
+   GLOBAL RESET & LUXURY BLACK ARCHITECTURE
+   ========================================= */
+* {
+  box-sizing: border-box;
+  border-radius: 0 !important; /* Total enforcement of hard, sharp geometric cuts */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--body-bg-color);
+  color: var(--text-color);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  padding: 40px 20px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =========================================
+   LAYOUT & SYSTEMATIZED HEADINGS
+   ========================================= */
+section {
+  max-width: 1100px;
+  margin: 0 auto 60px auto;
+}
+
+.section-title {
+  color: var(--light-text-color);
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  font-size: 0.95rem;
+  border-bottom: 1px solid var(--theme-color);
+  padding-bottom: 12px;
+  margin-bottom: 30px;
+}
+
+/* =========================================
+   STATUS DASHBOARD (CENTERED & RE-ORDERED)
+   ========================================= */
+.status-card {
+  display: flex;
+  flex-direction: column; /* Forces vertical monolithic alignment */
+  align-items: center;    /* Absolute horizontal centering */
+  justify-content: center;
+  text-align: center;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  padding: 50px 30px;
+  gap: 25px;
+  transition: var(--slow-trans);
+}
+
+.status-card:hover {
+  border-color: var(--theme-color);
+  background-color: #0d0d0d;
+}
+
+.level-indicator {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--theme-color);
+  background-color: var(--body-bg-color);
+  overflow: hidden;
+}
+
+.level-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.25;
+  z-index: 0;
+  filter: grayscale(30%);
+}
+
+.level-value {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-mono);
+  font-size: 2.8rem;
+  color: var(--text-color);
+}
+
+/* Centers inner metrics & elements under the level block */
+.identity-metrics {
+  width: 100%;
+  max-width: 320px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.identity-tags {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  font-family: var(--font-main);
+}
+
+.element-tag {
+  color: var(--theme-color);
+}
+
+.separator {
+  margin: 0 8px;
+  color: var(--light-text-color);
+  opacity: 0.5;
+}
+
+.animal-tag {
+}
+
+/* ULTRA MINIMALIST XP BAR */
+.xp-module {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.xp-bar-track {
+  width: 100%;
+  height: 2px; /* Elite ultra-thin premium line */
+  background-color: var(--body-bg-color);
+  position: relative;
+}
+
+.xp-bar-fill {
+  height: 100%;
+  background-color: var(--theme-color);
+  transition: width 2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.xp-values {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--light-text-color);
+  letter-spacing: 1px;
+}
+
+/* =========================================
+   OUTCOMES MODULE (GRID MATRIX)
+   ========================================= */
+.outcomes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 15px; /* Discrete tactical gaps */
+}
+
+.outcome-card {
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  padding: 24px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 160px;
+  transition: var(--slow-trans);
+}
+
+.outcome-card:hover {
+  background-color: var(--body-bg-color);
+  border-color: var(--theme-color);
+}
+
+.outcome-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.outcome-title {
+  color: var(--text-color);
+  text-transform: capitalize;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  line-height: 1.4;
+}
+
+.outcome-level {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--green);
+  border: 1px solid rgba(57, 172, 115, 0.3);
+  padding: 1px 6px;
+}
+
+.outcome-task-counts {
+  display: flex;
+  gap: 6px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.count-item {
+  background-color: var(--body-bg-color);
+  color: var(--light-text-color);
+  padding: 3px 8px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  border: 1px solid var(--border-color);
+}
+
+.action-btn {
+  background-color: transparent;
+  color: var(--light-text-color);
+  border: 1px solid var(--border-color);
+  padding: 10px;
+  cursor: pointer;
+  text-transform: capitalize;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  width: 100%;
+  transition: var(--slow-trans);
+}
+
+.outcome-card:hover .action-btn {
+  border-color: var(--theme-color);
+  color: var(--text-color);
+}
+
+.action-btn:hover {
+  background-color: var(--theme-color);
+  border-color: var(--theme-color);
+}
+
+/* Modifiers */
+.filter-all {
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid var(--theme-color);
+}
+
+.is-hidden {
+  opacity: 0.15;
+}
+
+.is-hidden:hover {
+  opacity: 1;
+}
+
+.is-achieved {
+  border-top: 2px solid var(--green);
+}
+
+/* =========================================
+   TASKS MODULE (AGGRESSIVE CHRONOLOGY)
+   ========================================= */
+.tasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.task-card {
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-left: 3px solid var(--border-color);
+  padding: 24px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  cursor: pointer;
+  transition: var(--slow-trans);
+}
+
+.task-card:hover {
+  background-color: #0d0d0d;
+  border-color: var(--border-color);
+  border-left-color: var(--theme-color);
+}
+
+/* Task Type States */
+.deadline-type {
+  border-left-color: var(--red);
+}
+.deadline-type:hover {
+  border-left-color: var(--theme-color);
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 12px;
+}
+
+.task-parent {
+  color: var(--light-text-color);
+  font-size: 0.8rem;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
+
+.task-metrics {
+  display: flex;
+  gap: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.task-xp {
+  color: var(--help);
+}
+
+.task-date {
+  color: var(--light-text-color);
+}
+
+.critical-date {
+  color: var(--red);
+}
+
+.task-body p {
+  color: var(--text-color);
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
+}
+
+/* =========================================
+   TACTICAL RESPONSIVENESS
+   ========================================= */
+@media (max-width: 768px) {
+  body {
+    padding: 20px 15px;
+  }
+  
+  .status-card {
+    padding: 35px 20px;
+  }
+
+  .task-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .task-metrics {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
